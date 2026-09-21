@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#EEF3F9">
+<title>英檢初級口說練習：複誦</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EEF3F9; --card:#FFFFFF; --ink:#14213D; --mute:#5B6785;
+  --cobalt:#2F5BEA; --marigold:#FFB627; --ok:#1E9E6A; --bad:#D6455D;
+  --okbg:#DDF3EA; --badbg:#FBE1E6; --line:#D5DDEA;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink)}
+body{font-family:"Noto Sans TC",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:16px;line-height:1.55;min-height:100dvh}
+#app{max-width:560px;margin:0 auto;min-height:100dvh;display:flex;flex-direction:column;padding:max(16px,env(safe-area-inset-top)) 20px max(20px,env(safe-area-inset-bottom))}
+h1{font-size:30px;line-height:1.25;margin:0 0 12px;font-weight:700}
+h2{font-size:24px;margin:0;font-weight:700}
+p{margin:0 0 12px}
+.en{font-family:Lexend,"Noto Sans TC",sans-serif}
+.muted{color:var(--mute)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
+.btn{border:0;border-radius:999px;padding:14px 26px;min-height:48px;font-weight:700;background:var(--ink);color:#fff}
+.btn.primary{background:var(--cobalt)}
+.btn.line{background:transparent;border:2px solid var(--line);color:var(--ink)}
+.btn:active{transform:translateY(1px)}
+.ghost{background:none;border:0;color:var(--mute);padding:10px 4px;min-height:44px}
+
+/* start */
+.start{flex:1;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:24px 0}
+.start .btn{align-self:flex-start;margin-top:12px}
+.opt{display:flex;gap:10px;align-items:center;margin-top:8px;min-height:44px}
+.opt input{width:22px;height:22px;accent-color:var(--cobalt)}
+.note{font-size:14px;color:var(--mute);margin-top:16px}
+
+/* top bar */
+.top{display:flex;align-items:center;gap:14px;padding:4px 0 8px}
+.segs{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.segs i{height:8px;border-radius:4px;background:var(--line)}
+.segs i.done{background:var(--cobalt)}
+.segs i.now{background:var(--marigold)}
+.pts{font-size:14px;color:var(--mute);text-align:right;min-width:74px}
+.pts b{color:var(--ink);font-size:18px}
+
+/* stage */
+.stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:10px 0}
+.ring{width:172px;height:172px;border-radius:50%;border:0;background:var(--ink);color:#fff;display:grid;place-items:center;position:relative;transition:background .2s}
+.ring svg{width:64px;height:64px}
+.ring .bars{display:none;gap:6px;align-items:center;height:64px}
+.ring .bars span{width:8px;height:100%;border-radius:4px;background:var(--ink);transform:scaleY(.25);animation:bar 0.9s ease-in-out infinite}
+.ring .bars span:nth-child(2){animation-delay:.12s}.ring .bars span:nth-child(3){animation-delay:.24s}
+.ring .bars span:nth-child(4){animation-delay:.36s}.ring .bars span:nth-child(5){animation-delay:.48s}
+.ring[data-state="hear"]{background:var(--cobalt);animation:ripple 1.6s ease-out infinite}
+.ring[data-state="say"]{background:var(--marigold);color:var(--ink);animation:ripple2 1.6s ease-out infinite}
+.ring[data-state="say"] svg{display:none}
+.ring[data-state="say"] .bars{display:flex}
+.ring[data-state="busy"]{opacity:.55}
+.ring[data-state="idle"]{cursor:default}
+@keyframes ripple{0%{box-shadow:0 0 0 0 rgba(47,91,234,.45)}100%{box-shadow:0 0 0 34px rgba(47,91,234,0)}}
+@keyframes ripple2{0%{box-shadow:0 0 0 0 rgba(255,182,39,.6)}100%{box-shadow:0 0 0 34px rgba(255,182,39,0)}}
+@keyframes bar{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
+@media (prefers-reduced-motion:reduce){.ring,.ring .bars span{animation:none!important}}
+#hint{min-height:1.5em;font-size:14px}
+#live{min-height:1.6em;font-size:17px}
+#peek{font-size:22px;min-height:1.4em}
+
+/* result */
+.result{background:var(--card);border-radius:20px;padding:20px;margin-top:6px;text-align:left;box-shadow:0 1px 0 var(--line)}
+.score{display:flex;align-items:baseline;gap:10px;margin-bottom:8px}
+.score b{font-size:44px;line-height:1;font-family:Lexend,sans-serif}
+.tag{font-weight:700;padding:2px 10px;border-radius:8px;font-size:14px}
+.tag.pass{background:var(--okbg);color:#0F6B49}
+.tag.try{background:var(--badbg);color:#A02843}
+.w{display:inline-block;padding:4px 10px;margin:4px 4px 0 0;border-radius:8px;font-size:19px}
+.w.ok{background:var(--okbg);color:#0F6B49}
+.w.bad{background:var(--badbg);color:#A02843;border-bottom:3px solid var(--bad)}
+.heard{font-size:15px;color:var(--mute);margin:12px 0 0}
+.msg{color:#A02843;font-weight:500;margin:0 0 8px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.actions .primary{margin-left:auto}
+
+/* summary */
+.sum{flex:1;padding:16px 0}
+.big{font-family:Lexend,sans-serif;font-size:64px;font-weight:600;line-height:1}
+.list{list-style:none;padding:0;margin:16px 0}
+.list li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.list li span:first-child{font-family:Lexend,sans-serif;font-size:15px}
+.chips span{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:3px 10px;margin:4px 6px 0 0;font-family:Lexend,sans-serif;font-size:15px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+"use strict";
+/* ===== 題庫：原創的初級程度句子 ===== */
+const BANK = [
+  "I get up at seven every morning.",
+  "Where is the nearest bus stop?",
+  "My mother is cooking dinner now.",
+  "Can you help me with my homework?",
+  "We are going to the park on Sunday.",
+  "What time does the movie start?",
+  "He doesn't like cold drinks.",
+  "Please turn off your phone.",
+  "There are three books on the table.",
+  "How much is this red shirt?",
+  "I usually walk to school with my friend.",
+  "It's very hot today, so I want some ice cream.",
+  "Please be careful. The floor is wet.",
+  "Would you like some tea?",
+  "Our teacher is from Canada.",
+  "She bought a new bag yesterday.",
+  "Is there a bank near here?",
+  "My birthday is on March tenth.",
+  "I have a headache, so I will stay home.",
+  "The library opens at nine o'clock."
+];
+const ROUND_SIZE = 5;   // 正式考試複誦為 5 題
+const PASS_LINE = 80;   // 初級口說通過分數
+
+/* ===== 小工具 ===== */
+const $ = s => document.querySelector(s);
+const app = $("#app");
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+const S = { round: [], i: 0, score: 0, combo: 0, results: [], easy: false, token: 0 };
+let voice = null, activeRec = null, wakeLock = null;
+
+/* ===== 文字正規化（把辨識結果與標準答案放在同一基準上比對） ===== */
+const ONES = ["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"];
+const TENS = ["","","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"];
+const ORD_IRR = { one:"first", two:"second", three:"third", five:"fifth", eight:"eighth", nine:"ninth", twelve:"twelfth" };
+const n2w = n => n < 20 ? ONES[n] : TENS[Math.floor(n/10)] + (n%10 ? " " + ONES[n%10] : "");
+function ord(n){
+  const w = n2w(n).split(" "), last = w.pop();
+  const o = ORD_IRR[last] || (last.endsWith("y") ? last.slice(0,-1) + "ieth" : last + "th");
+  return [...w, o].join(" ");
+}
+const CONTR = {"i'm":"i am","it's":"it is","he's":"he is","she's":"she is","that's":"that is","what's":"what is","there's":"there is","here's":"here is","we're":"we are","you're":"you are","they're":"they are","don't":"do not","doesn't":"does not","didn't":"did not","can't":"can not","cannot":"can not","isn't":"is not","aren't":"are not","wasn't":"was not","weren't":"were not","won't":"will not","i'll":"i will","i've":"i have","let's":"let us"};
+function tokenize(s){
+  s = s.toLowerCase().replace(/[’‘]/g, "'");
+  s = s.replace(/(\d{1,2}):(\d{2})/g, (m,h,mi) => n2w(+h) + " " + (+mi === 0 ? "" : (+mi < 10 ? "oh " : "") + n2w(+mi)));
+  s = s.replace(/(\d{1,2})(st|nd|rd|th)\b/g, (m,n) => ord(+n));
+  s = s.replace(/\d{1,2}/g, m => n2w(+m));
+  s = s.replace(/[^a-z'\s]/g, " ");
+  const out = [];
+  s.split(/\s+/).filter(Boolean).forEach(w => {
+    w = w.replace(/^'+|'+$/g, "");
+    if (!w) return;
+    (CONTR[w] ? CONTR[w].split(" ") : [w]).forEach(x => out.push(x));
+  });
+  return out;
+}
+
+/* ===== 逐字對齊（編輯距離） ===== */
+function align(t, h){
+  const n = t.length, m = h.length;
+  const d = Array.from({length:n+1}, () => new Array(m+1).fill(0));
+  for (let i=0;i<=n;i++) d[i][0] = i;
+  for (let j=0;j<=m;j++) d[0][j] = j;
+  for (let i=1;i<=n;i++) for (let j=1;j<=m;j++){
+    const c = t[i-1] === h[j-1] ? 0 : 1;
+    d[i][j] = Math.min(d[i-1][j-1] + c, d[i-1][j] + 1, d[i][j-1] + 1);
+  }
+  const ops = new Array(n).fill("del"), extra = [];
+  let i = n, j = m;
+  while (i > 0 || j > 0){
+    const same = i>0 && j>0 && t[i-1] === h[j-1];
+    if (i>0 && j>0 && d[i][j] === d[i-1][j-1] + (same ? 0 : 1)){ ops[i-1] = same ? "ok" : "sub"; i--; j--; }
+    else if (i>0 && d[i][j] === d[i-1][j] + 1){ ops[i-1] = "del"; i--; }
+    else { extra.unshift(h[j-1]); j--; }
+  }
+  return { ops, extra, dist: d[n][m] };
+}
+
+/* ===== 語音：播放題目 ===== */
+function loadVoices(){
+  return new Promise(res => {
+    const v = speechSynthesis.getVoices();
+    if (v.length) return res(v);
+    speechSynthesis.addEventListener("voiceschanged", () => res(speechSynthesis.getVoices()), { once:true });
+    setTimeout(() => res(speechSynthesis.getVoices()), 1500);
+  });
+}
+function speak(text){
+  return new Promise(resolve => {
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US"; u.rate = 0.9;
+    if (voice) u.voice = voice;
+    let done = false;
+    const fin = () => { if (!done){ done = true; clearTimeout(t); resolve(); } };
+    const t = setTimeout(fin, 3000 + text.length * 130);   // Android 有時不會觸發 onend，用計時器保底
+    u.onend = fin; u.onerror = fin;
+    speechSynthesis.speak(u);
+  });
+}
+
+/* ===== 語音：辨識玩家的回答 ===== */
+function listen(maxMs = 10000){
+  return new Promise(resolve => {
+    const rec = new SR();
+    rec.lang = "en-US"; rec.interimResults = true; rec.maxAlternatives = 1; rec.continuous = false;
+    let finalText = "", interim = "", error = null, finished = false;
+    const finish = () => {
+      if (finished) return;
+      finished = true; clearTimeout(timer); activeRec = null;
+      resolve({ text: (finalText || interim).trim(), error });
+    };
+    rec.onaudiostart = () => setState("say", "換你說", "說完停一下會自動送出，也可以點圓圈提早結束");
+    rec.onresult = e => {
+      interim = "";
+      for (let k = e.resultIndex; k < e.results.length; k++){
+        const r = e.results[k];
+        if (r.isFinal) finalText += " " + r[0].transcript; else interim += r[0].transcript;
+      }
+      const live = $("#live"); if (live) live.textContent = (finalText || interim).trim();
+    };
+    rec.onerror = e => { error = e.error; };
+    rec.onend = finish;
+    const timer = setTimeout(() => { try { rec.stop(); } catch(_){} }, maxMs);
+    activeRec = rec;
+    try { rec.start(); } catch(_) { error = "start-failed"; finish(); }
+  });
+}
+
+/* ===== 介面 ===== */
+const ICON_SPEAKER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+const ICON_WAIT = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>';
+
+function setState(state, headline, hint){
+  const ring = $("#ring"); if (!ring) return;
+  ring.dataset.state = state;
+  ring.innerHTML = (state === "hear" ? ICON_SPEAKER : ICON_WAIT) + '<div class="bars"><span></span><span></span><span></span><span></span><span></span></div>';
+  $("#status").textContent = headline;
+  $("#hint").textContent = hint || "";
+  if (state !== "say") { const l = $("#live"); if (l) l.textContent = ""; }
+}
+
+function renderStart(){
+  const unsupported = !SR || !("speechSynthesis" in window);
+  app.innerHTML = `
+    <section class="start">
+      <h1>英檢初級口說：複誦</h1>
+      <p>先聽句子，播放兩次，然後跟著說一遍。共 ${ROUND_SIZE} 題，${PASS_LINE} 分算過關。</p>
+      <label class="opt"><input type="checkbox" id="easy"> 簡單模式：作答前先顯示句子</label>
+      ${unsupported
+        ? '<p class="msg" style="margin-top:16px">這個瀏覽器不支援語音辨識。請改用 Android 版 Chrome 開啟。</p>'
+        : '<button class="btn primary" id="startBtn">開始練習</button>'}
+      <p class="note">需要網路連線與麥克風權限。第一次開始時，瀏覽器會詢問是否允許使用麥克風。</p>
+    </section>`;
+  const b = $("#startBtn");
+  if (b) b.onclick = onStart;
+}
+
+async function onStart(){
+  const btn = $("#startBtn");
+  btn.disabled = true; btn.textContent = "準備中…";
+  S.easy = $("#easy").checked;
+  if (!navigator.onLine){ alert("目前沒有網路。語音辨識需要連線後才能使用。"); btn.disabled = false; btn.textContent = "開始練習"; return; }
+  try {   // 在按鈕點擊當下先要麥克風權限，之後辨識就不會再跳詢問
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    stream.getTracks().forEach(t => t.stop());
+  } catch(_) {
+    alert("無法使用麥克風。請點網址列左側的圖示，允許麥克風後重新整理頁面。");
+    btn.disabled = false; btn.textContent = "開始練習"; return;
+  }
+  const voices = await loadVoices();
+  voice = voices.find(v => /^en[-_]US/i.test(v.lang)) || voices.find(v => /^en/i.test(v.lang)) || null;
+  try { wakeLock = await navigator.wakeLock?.request("screen"); } catch(_) {}
+  startRound();
+}
+
+function pickRound(){
+  const a = BANK.slice();
+  for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a.slice(0, ROUND_SIZE);
+}
+function startRound(){
+  Object.assign(S, { round: pickRound(), i: 0, score: 0, combo: 0, results: [] });
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const segs = S.round.map((_, k) => `<i class="${k < S.i ? "done" : k === S.i ? "now" : ""}"></i>`).join("");
+  app.innerHTML = `
+    <header class="top">
+      <button class="ghost" id="quit">結束</button>
+      <div class="segs" aria-label="第 ${S.i + 1} 題，共 ${ROUND_SIZE} 題">${segs}</div>
+      <div class="pts">積分 <b>${S.score}</b>${S.combo > 1 ? `<br>連擊 ×${S.combo}` : ""}</div>
+    </header>
+    <section class="stage">
+      <h2 id="status" aria-live="polite"></h2>
+      <p id="hint" class="muted"></p>
+      <div id="peek" class="en"></div>
+      <button class="ring" id="ring" aria-label="錄音狀態"></button>
+      <div id="live" class="en muted"></div>
+      <div id="resultBox" style="width:100%"></div>
+    </section>`;
+  $("#quit").onclick = () => { stopAll(); renderStart(); };
+  $("#ring").onclick = () => { if ($("#ring").dataset.state === "say" && activeRec) { try { activeRec.stop(); } catch(_){} } };
+  runQuestion();
+}
+
+function stopAll(){
+  S.token++;
+  try { speechSynthesis.cancel(); } catch(_){}
+  try { activeRec && activeRec.abort(); } catch(_){}
+  activeRec = null;
+}
+
+async function runQuestion(){
+  const tk = ++S.token, q = S.round[S.i];
+  $("#resultBox").innerHTML = "";
+  if (S.easy) $("#peek").textContent = q;
+  setState("hear", "請仔細聽", "題目會播放兩次");
+  await speak(q);           if (tk !== S.token) return;
+  await sleep(1400);        if (tk !== S.token) return;
+  await speak(q);           if (tk !== S.token) return;
+  await sleep(700);         if (tk !== S.token) return;
+  setState("busy", "準備錄音…", "");
+  const r = await listen(); if (tk !== S.token) return;
+  evaluate(q, r);
+}
+
+const ERR = {
+  "not-allowed": "麥克風被封鎖了。請點網址列左側的圖示，允許麥克風後再試一次。",
+  "service-not-allowed": "麥克風被封鎖了。請點網址列左側的圖示，允許麥克風後再試一次。",
+  "audio-capture": "找不到麥克風，請確認裝置的麥克風可以使用。",
+  "network": "語音辨識需要網路，請確認連線後再試一次。",
+  "no-speech": "沒有聽到聲音。請靠近麥克風，看到「換你說」之後再開口。"
+};
+const HARD_ERR = ["not-allowed", "service-not-allowed", "audio-capture", "network"];
+
+function evaluate(q, r){
+  const tw = q.split(/\s+/);
+  const tokens = [];
+  tw.forEach((w, wi) => tokenize(w).forEach(t => tokens.push({ t, wi })));
+  const h = tokenize(r.text || "");
+  const { ops, extra, dist } = align(tokens.map(x => x.t), h);
+  const pct = r.text ? Math.round(Math.max(0, 1 - dist / tokens.length) * 100) : 0;
+  const wordOk = tw.map(() => true);
+  tokens.forEach((x, k) => { if (ops[k] !== "ok") wordOk[x.wi] = false; });
+
+  const hardFail = r.error && HARD_ERR.includes(r.error);
+  const first = !S.results[S.i] && !hardFail;
+  if (first){
+    const pass = pct >= PASS_LINE;
+    S.combo = pass ? S.combo + 1 : 0;
+    S.score += pct + (pass ? S.combo * 10 : 0);
+    S.results[S.i] = { q, pct, wordOk, tw };
+    bumpMissed(tw.filter((_, k) => !wordOk[k]).map(w => tokenize(w).join(" ")).filter(Boolean));
+  }
+
+  setState("idle", pct >= PASS_LINE ? "說得很好" : (hardFail ? "無法錄音" : "再接再厲"), "");
+  const msg = r.error && ERR[r.error] ? `<p class="msg">${ERR[r.error]}</p>` : "";
+  const chips = hardFail ? "" : tw.map((w, k) => `<span class="w en ${wordOk[k] ? "ok" : "bad"}">${esc(w)}</span>`).join("");
+  const last = S.i === ROUND_SIZE - 1;
+  $("#resultBox").innerHTML = `
+    <div class="result">
+      ${hardFail ? "" : `<div class="score"><b>${pct}</b><span class="tag ${pct >= PASS_LINE ? "pass" : "try"}">${pct >= PASS_LINE ? "過關" : "再練一次"}</span></div>`}
+      ${msg}${chips}
+      ${!hardFail && r.text ? `<p class="heard en">辨識到：${esc(r.text)}</p>` : ""}
+      ${!hardFail && extra.length ? `<p class="heard">多說的字：<span class="en">${esc(extra.join(" "))}</span></p>` : ""}
+      <div class="actions">
+        <button class="btn line" id="replay">聽標準發音</button>
+        <button class="btn line" id="retry">再試一次</button>
+        ${hardFail ? "" : `<button class="btn primary" id="next">${last ? "看結果" : "下一題"}</button>`}
+      </div>
+      ${!first && !hardFail ? '<p class="heard">重試不會改變這題的積分。</p>' : ""}
+    </div>`;
+  $("#replay").onclick = async () => { $("#replay").disabled = true; await speak(q); const b = $("#replay"); if (b) b.disabled = false; };
+  $("#retry").onclick = () => runQuestion();
+  const nx = $("#next");
+  if (nx) nx.onclick = () => { if (last) renderSummary(); else { S.i++; renderQuestion(); } };
+}
+
+/* ===== 常錯的字（存在這支手機的瀏覽器裡） ===== */
+function bumpMissed(words){
+  try {
+    const m = JSON.parse(localStorage.getItem("gept_missed") || "{}");
+    words.forEach(w => { m[w] = (m[w] || 0) + 1; });
+    localStorage.setItem("gept_missed", JSON.stringify(m));
+  } catch(_) {}
+}
+function topMissed(k = 8){
+  try {
+    const m = JSON.parse(localStorage.getItem("gept_missed") || "{}");
+    return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, k);
+  } catch(_) { return []; }
+}
+
+function renderSummary(){
+  stopAll();
+  const done = S.results.filter(Boolean);
+  const avg = done.length ? Math.round(done.reduce((a, r) => a + r.pct, 0) / done.length) : 0;
+  const passed = done.filter(r => r.pct >= PASS_LINE).length;
+  const missed = topMissed();
+  app.innerHTML = `
+    <section class="sum">
+      <p class="muted">本輪平均</p>
+      <div class="big">${avg}</div>
+      <p style="margin-top:8px">${passed} / ${ROUND_SIZE} 題達到 ${PASS_LINE} 分，總積分 ${S.score}。</p>
+      <ul class="list">
+        ${done.map(r => `<li><span>${esc(r.q)}</span><b>${r.pct}</b></li>`).join("")}
+      </ul>
+      ${missed.length ? `<p class="muted">你最常說錯的字</p><div class="chips">${missed.map(([w, c]) => `<span>${esc(w)} ×${c}</span>`).join("")}</div>` : ""}
+      <div class="actions" style="margin-top:24px">
+        <button class="btn primary" id="again" style="margin-left:0">再練一輪</button>
+        <button class="btn line" id="home">回首頁</button>
+      </div>
+    </section>`;
+  $("#again").onclick = startRound;
+  $("#home").onclick = renderStart;
+}
+
+renderStart();
+</script>
+</body>
+</html>
