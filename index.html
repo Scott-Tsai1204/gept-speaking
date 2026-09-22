@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#EEF3F9">
-<title>英檢初級口說練習：複誦</title>
+<title>英檢初級口說練習：複誦關卡地圖</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -29,6 +29,7 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--cobalt);outline
 .btn.primary{background:var(--cobalt)}
 .btn.line{background:transparent;border:2px solid var(--line);color:var(--ink)}
 .btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.5;cursor:default}
 .ghost{background:none;border:0;color:var(--mute);padding:10px 4px;min-height:44px}
 
 /* start */
@@ -39,13 +40,31 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--cobalt);outline
 .note{font-size:14px;color:var(--mute);margin-top:16px}
 
 /* top bar */
-.top{display:flex;align-items:center;gap:14px;padding:4px 0 8px}
-.segs{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.top{display:flex;align-items:center;gap:14px;padding:4px 0 8px;flex-wrap:wrap}
+.segs{flex:1;display:grid;gap:6px}
 .segs i{height:8px;border-radius:4px;background:var(--line)}
 .segs i.done{background:var(--cobalt)}
 .segs i.now{background:var(--marigold)}
 .pts{font-size:14px;color:var(--mute);text-align:right;min-width:74px}
 .pts b{color:var(--ink);font-size:18px}
+.stagehead{width:100%;font-size:13px;color:var(--mute);margin-top:4px}
+.badge.boss-badge{background:var(--marigold);color:var(--ink);border-radius:8px;padding:2px 8px;font-size:11px;font-weight:700;margin-left:4px}
+
+/* map */
+.map{padding:4px 0 24px}
+.zone-card{background:var(--card);border-radius:20px;padding:16px;margin-bottom:14px;box-shadow:0 1px 0 var(--line)}
+.zone-card.review-card{border:2px dashed var(--line);box-shadow:none}
+.zone-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.zone-emoji{font-size:30px;line-height:1}
+.zone-title{font-weight:700;font-size:17px}
+.zone-sub{font-size:13px;color:var(--mute)}
+.nodes{display:flex;gap:10px}
+.node{flex:1;aspect-ratio:1;border-radius:16px;border:2px solid var(--line);background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:4px}
+.node .node-ic{font-size:22px;line-height:1}
+.node .lbl{font-size:11px;color:var(--mute);font-weight:600}
+.node.boss{border-color:var(--marigold);background:#FFF7E6}
+.node.locked{opacity:.5}
+.stars-big{font-size:26px;color:var(--marigold);letter-spacing:2px}
 
 /* stage */
 .stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:10px 0}
@@ -98,30 +117,101 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--cobalt);outline
 
 <script>
 "use strict";
-/* ===== 題庫：原創的初級程度句子 ===== */
-const BANK = [
-  "I get up at seven every morning.",
-  "Where is the nearest bus stop?",
-  "My mother is cooking dinner now.",
-  "Can you help me with my homework?",
-  "We are going to the park on Sunday.",
-  "What time does the movie start?",
-  "He doesn't like cold drinks.",
-  "Please turn off your phone.",
-  "There are three books on the table.",
-  "How much is this red shirt?",
-  "I usually walk to school with my friend.",
-  "It's very hot today, so I want some ice cream.",
-  "Please be careful. The floor is wet.",
-  "Would you like some tea?",
-  "Our teacher is from Canada.",
-  "She bought a new bag yesterday.",
-  "Is there a bank near here?",
-  "My birthday is on March tenth.",
-  "I have a headache, so I will stay home.",
-  "The library opens at nine o'clock."
+/* ===== 題庫：原創的初級程度句子，依主題分區 ===== */
+const ZONES = [
+  { id:"school", name:"校園", emoji:"🏫", desc:"教室、上課、作業情境",
+    normal:[
+      "I have math class at nine.",
+      "My backpack is very heavy today.",
+      "The teacher is writing on the board.",
+      "I forgot my pencil case at home.",
+      "We have a test this Friday.",
+      "Can I borrow your eraser?",
+      "The library closes at five o'clock.",
+      "My classroom is on the second floor.",
+      "I need to finish my homework tonight.",
+      "The school bus comes at seven thirty.",
+      "Our art teacher is very kind.",
+      "I sit next to the window."
+    ],
+    boss:[
+      "I usually study in the library after school because it is quiet there.",
+      "My favorite subject is science, but math is more difficult for me.",
+      "We have to hand in our history report before next Monday.",
+      "The new gym is bigger than the old one, so more students can use it.",
+      "I forgot my umbrella, so I got wet walking home from school."
+    ]
+  },
+  { id:"restaurant", name:"餐廳", emoji:"🍜", desc:"點餐、用餐情境",
+    normal:[
+      "Can I see the menu, please?",
+      "I would like a cup of coffee.",
+      "This soup is too hot for me.",
+      "We need two more chairs, please.",
+      "Is this seat taken?",
+      "The chicken here is very popular.",
+      "Could I have some water, please?",
+      "My father always orders the same dish.",
+      "This restaurant is famous for noodles.",
+      "Please bring us the bill.",
+      "I don't eat spicy food.",
+      "The waiter is very friendly."
+    ],
+    boss:[
+      "I want to order a beef burger with french fries and a small salad.",
+      "Could you tell me if this restaurant has any vegetarian dishes on the menu?",
+      "We waited for almost thirty minutes before our food finally arrived.",
+      "My sister doesn't like seafood, so she always orders chicken or beef.",
+      "The restaurant was so crowded that we had to wait outside for a table."
+    ]
+  },
+  { id:"shopping", name:"購物", emoji:"🛍️", desc:"買東西、試穿情境",
+    normal:[
+      "How much is this jacket?",
+      "Do you have this in a smaller size?",
+      "I'm just looking, thank you.",
+      "This store is having a big sale.",
+      "Can I try on these shoes?",
+      "Where is the fitting room?",
+      "I like the blue one better.",
+      "Do you take credit cards?",
+      "This bag is too expensive for me.",
+      "Can you gift wrap this, please?",
+      "I bought a new watch yesterday.",
+      "This shirt doesn't fit me well."
+    ],
+    boss:[
+      "I'm looking for a birthday present for my mother, but I don't know what to buy.",
+      "This store offers a twenty percent discount if you buy two or more items.",
+      "Could you tell me where I can find the shoes for children?",
+      "I want to return this sweater because the color is different from the picture online.",
+      "The shopping mall was so big that we got lost on the second floor."
+    ]
+  },
+  { id:"transport", name:"交通", emoji:"🚌", desc:"搭車、交通情境",
+    normal:[
+      "Where is the nearest MRT station?",
+      "What time does the next bus leave?",
+      "How long does it take to get there?",
+      "I missed my train this morning.",
+      "Please take me to the airport.",
+      "The traffic is really bad today.",
+      "I usually ride my bike to work.",
+      "Is there a taxi stand near here?",
+      "The train was ten minutes late.",
+      "You can transfer to the blue line here.",
+      "My car broke down on the highway.",
+      "Remember to buckle your seat belt."
+    ],
+    boss:[
+      "Excuse me, could you tell me which bus goes to the train station from here?",
+      "I usually leave home early because the traffic gets very heavy after eight o'clock.",
+      "We need to change trains at the next stop to reach the airport.",
+      "The flight was delayed for two hours because of the bad weather.",
+      "It normally takes about forty minutes to drive from my house to downtown."
+    ]
+  }
 ];
-const ROUND_SIZE = 5;   // 正式考試複誦為 5 題
 const PASS_LINE = 80;   // 初級口說通過分數
 
 /* ===== 小工具 ===== */
@@ -130,9 +220,40 @@ const app = $("#app");
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+function shuffle(arr){
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
+  return a;
+}
 
-const S = { round: [], i: 0, score: 0, combo: 0, results: [], easy: false, token: 0 };
+const S = { round: [], i: 0, score: 0, combo: 0, results: [], easy: false, token: 0, mode: null, zoneIndex: null, nodeIndex: null, zoneName: "" };
 let voice = null, activeRec = null, wakeLock = null;
+
+/* ===== 關卡進度（存在這支手機的瀏覽器裡） ===== */
+function loadProgress(){
+  try {
+    const p = JSON.parse(localStorage.getItem("gept_progress") || "null");
+    if (Array.isArray(p) && p.length === ZONES.length) return p;
+  } catch(_) {}
+  return ZONES.map(() => [0, 0, 0, 0]);
+}
+function saveProgress(p){ try { localStorage.setItem("gept_progress", JSON.stringify(p)); } catch(_) {} }
+function isNodeUnlocked(zi, ni, progress){
+  if (ni === 0) return zi === 0 || progress[zi - 1][3] > 0;
+  return progress[zi][ni - 1] > 0;
+}
+function starsFromPassed(passed){ return passed >= 5 ? 3 : passed >= 3 ? 2 : passed >= 1 ? 1 : 0; }
+function starsStr(n){ return "★".repeat(n) + "☆".repeat(3 - n); }
+function totalStars(progress){ return progress.reduce((a, z) => a + z.reduce((b, s) => b + s, 0), 0); }
+
+/* ===== 複習池：答錯的整句，之後在複習站再次出現 ===== */
+function loadMissedSentences(){
+  try { return JSON.parse(localStorage.getItem("gept_missed_sentences") || "{}"); } catch(_) { return {}; }
+}
+function saveMissedSentences(m){ try { localStorage.setItem("gept_missed_sentences", JSON.stringify(m)); } catch(_) {} }
+function bumpMissedSentence(q){ const m = loadMissedSentences(); m[q] = (m[q] || 0) + 1; saveMissedSentences(m); }
+function clearMissedSentence(q){ const m = loadMissedSentences(); if (q in m){ delete m[q]; saveMissedSentences(m); } }
+function reviewPoolList(){ return Object.entries(loadMissedSentences()).sort((a, b) => b[1] - a[1]); }
 
 /* ===== 文字正規化（把辨識結果與標準答案放在同一基準上比對） ===== */
 const ONES = ["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"];
@@ -248,12 +369,12 @@ function renderStart(){
   const unsupported = !SR || !("speechSynthesis" in window);
   app.innerHTML = `
     <section class="start">
-      <h1>英檢初級口說：複誦</h1>
-      <p>先聽句子，播放兩次，然後跟著說一遍。共 ${ROUND_SIZE} 題，${PASS_LINE} 分算過關。</p>
-      <label class="opt"><input type="checkbox" id="easy"> 簡單模式：作答前先顯示句子</label>
+      <h1>英檢初級口說：複誦關</h1>
+      <p>先聽句子（播放兩次），然後跟著說一遍。每小關 5 題，${PASS_LINE} 分算過關；5 題全過可拿 3 星解鎖下一關。</p>
+      <label class="opt"><input type="checkbox" id="easy" ${S.easy ? "checked" : ""}> 簡單模式：作答前先顯示句子</label>
       ${unsupported
         ? '<p class="msg" style="margin-top:16px">這個瀏覽器不支援語音辨識。請改用 Android 版 Chrome 開啟。</p>'
-        : '<button class="btn primary" id="startBtn">開始練習</button>'}
+        : '<button class="btn primary" id="startBtn">進入地圖</button>'}
       <p class="note">需要網路連線與麥克風權限。第一次開始時，瀏覽器會詢問是否允許使用麥克風。</p>
     </section>`;
   const b = $("#startBtn");
@@ -264,37 +385,96 @@ async function onStart(){
   const btn = $("#startBtn");
   btn.disabled = true; btn.textContent = "準備中…";
   S.easy = $("#easy").checked;
-  if (!navigator.onLine){ alert("目前沒有網路。語音辨識需要連線後才能使用。"); btn.disabled = false; btn.textContent = "開始練習"; return; }
+  if (!navigator.onLine){ alert("目前沒有網路。語音辨識需要連線後才能使用。"); btn.disabled = false; btn.textContent = "進入地圖"; return; }
   try {   // 在按鈕點擊當下先要麥克風權限，之後辨識就不會再跳詢問
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     stream.getTracks().forEach(t => t.stop());
   } catch(_) {
     alert("無法使用麥克風。請點網址列左側的圖示，允許麥克風後重新整理頁面。");
-    btn.disabled = false; btn.textContent = "開始練習"; return;
+    btn.disabled = false; btn.textContent = "進入地圖"; return;
   }
   const voices = await loadVoices();
   voice = voices.find(v => /^en[-_]US/i.test(v.lang)) || voices.find(v => /^en/i.test(v.lang)) || null;
   try { wakeLock = await navigator.wakeLock?.request("screen"); } catch(_) {}
-  startRound();
+  renderMap();
 }
 
-function pickRound(){
-  const a = BANK.slice();
-  for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
-  return a.slice(0, ROUND_SIZE);
+/* ===== 關卡地圖 ===== */
+function nodeHtml(zi, ni, progress){
+  const unlocked = isNodeUnlocked(zi, ni, progress);
+  const stars = progress[zi][ni];
+  const isBoss = ni === 3;
+  const cls = ["node", isBoss ? "boss" : "", unlocked ? "" : "locked"].filter(Boolean).join(" ");
+  const icon = !unlocked ? "🔒" : (isBoss ? "👑" : String(ni + 1));
+  const sub = !unlocked ? "" : (stars > 0 ? starsStr(stars) : (isBoss ? "首領關" : `第${ni+1}關`));
+  return `<button class="${cls}" data-zi="${zi}" data-ni="${ni}" ${unlocked ? "" : "disabled"}>
+    <span class="node-ic">${icon}</span><span class="lbl">${sub}</span>
+  </button>`;
 }
-function startRound(){
-  Object.assign(S, { round: pickRound(), i: 0, score: 0, combo: 0, results: [] });
+function zoneCardHtml(z, zi, progress){
+  const nodes = [0,1,2,3].map(ni => nodeHtml(zi, ni, progress)).join("");
+  return `<div class="zone-card">
+    <div class="zone-head"><span class="zone-emoji">${z.emoji}</span><div><div class="zone-title">${esc(z.name)}</div><div class="zone-sub">${esc(z.desc)}</div></div></div>
+    <div class="nodes">${nodes}</div>
+  </div>`;
+}
+function reviewCardHtml(count){
+  const enabled = count > 0;
+  return `<div class="zone-card review-card">
+    <div class="zone-head"><span class="zone-emoji">🔁</span><div><div class="zone-title">複習站</div><div class="zone-sub">${enabled ? `有 ${count} 句待複習` : "答錯的句子會出現在這裡"}</div></div></div>
+    <button class="btn ${enabled ? "primary" : "line"}" id="reviewNode" style="width:100%" ${enabled ? "" : "disabled"}>${enabled ? "開始複習" : "尚無複習內容"}</button>
+  </div>`;
+}
+function renderMap(){
+  stopAll();
+  const progress = loadProgress();
+  const missedCount = reviewPoolList().length;
+  app.innerHTML = `
+    <header class="top">
+      <button class="ghost" id="toStart">設定</button>
+      <h1 style="flex:1;font-size:20px;margin:0;text-align:center">複誦關卡地圖</h1>
+      <div class="pts">⭐ <b>${totalStars(progress)}</b></div>
+    </header>
+    <section class="map">
+      ${ZONES.map((z, zi) => zoneCardHtml(z, zi, progress)).join("")}
+      ${reviewCardHtml(missedCount)}
+    </section>`;
+  $("#toStart").onclick = renderStart;
+  app.querySelectorAll(".node").forEach(btn => {
+    if (btn.disabled) return;
+    btn.onclick = () => startNode(+btn.dataset.zi, +btn.dataset.ni);
+  });
+  const rv = $("#reviewNode");
+  if (rv && !rv.disabled) rv.onclick = startReview;
+}
+
+function startNode(zi, ni){
+  const zone = ZONES[zi];
+  const isBoss = ni === 3;
+  const picked = shuffle(isBoss ? zone.boss : zone.normal).slice(0, 5);
+  S.mode = isBoss ? "boss" : "normal";
+  S.zoneIndex = zi; S.nodeIndex = ni; S.zoneName = zone.name;
+  Object.assign(S, { round: picked, i: 0, score: 0, combo: 0, results: [] });
+  renderQuestion();
+}
+function startReview(){
+  const pool = reviewPoolList();
+  if (!pool.length) return;
+  const picked = pool.slice(0, Math.min(5, pool.length)).map(x => x[0]);
+  S.mode = "review"; S.zoneIndex = null; S.nodeIndex = null; S.zoneName = "複習站";
+  Object.assign(S, { round: picked, i: 0, score: 0, combo: 0, results: [] });
   renderQuestion();
 }
 
 function renderQuestion(){
   const segs = S.round.map((_, k) => `<i class="${k < S.i ? "done" : k === S.i ? "now" : ""}"></i>`).join("");
+  const label = S.mode === "boss" ? "首領關" : S.mode === "review" ? "複習" : `第${S.nodeIndex + 1}關`;
   app.innerHTML = `
     <header class="top">
       <button class="ghost" id="quit">結束</button>
-      <div class="segs" aria-label="第 ${S.i + 1} 題，共 ${ROUND_SIZE} 題">${segs}</div>
+      <div class="segs" style="grid-template-columns:repeat(${S.round.length},1fr)" aria-label="第 ${S.i + 1} 題，共 ${S.round.length} 題">${segs}</div>
       <div class="pts">積分 <b>${S.score}</b>${S.combo > 1 ? `<br>連擊 ×${S.combo}` : ""}</div>
+      <div class="stagehead">${esc(S.zoneName)} · ${label}${S.mode === "boss" ? ' <span class="badge boss-badge">BOSS</span>' : ""}</div>
     </header>
     <section class="stage">
       <h2 id="status" aria-live="polite"></h2>
@@ -304,7 +484,7 @@ function renderQuestion(){
       <div id="live" class="en muted"></div>
       <div id="resultBox" style="width:100%"></div>
     </section>`;
-  $("#quit").onclick = () => { stopAll(); renderStart(); };
+  $("#quit").onclick = () => { stopAll(); renderMap(); };
   $("#ring").onclick = () => { if ($("#ring").dataset.state === "say" && activeRec) { try { activeRec.stop(); } catch(_){} } };
   runQuestion();
 }
@@ -357,12 +537,13 @@ function evaluate(q, r){
     S.score += pct + (pass ? S.combo * 10 : 0);
     S.results[S.i] = { q, pct, wordOk, tw };
     bumpMissed(tw.filter((_, k) => !wordOk[k]).map(w => tokenize(w).join(" ")).filter(Boolean));
+    if (pass) clearMissedSentence(q); else bumpMissedSentence(q);
   }
 
   setState("idle", pct >= PASS_LINE ? "說得很好" : (hardFail ? "無法錄音" : "再接再厲"), "");
   const msg = r.error && ERR[r.error] ? `<p class="msg">${ERR[r.error]}</p>` : "";
   const chips = hardFail ? "" : tw.map((w, k) => `<span class="w en ${wordOk[k] ? "ok" : "bad"}">${esc(w)}</span>`).join("");
-  const last = S.i === ROUND_SIZE - 1;
+  const last = S.i === S.round.length - 1;
   $("#resultBox").innerHTML = `
     <div class="result">
       ${hardFail ? "" : `<div class="score"><b>${pct}</b><span class="tag ${pct >= PASS_LINE ? "pass" : "try"}">${pct >= PASS_LINE ? "過關" : "再練一次"}</span></div>`}
@@ -403,22 +584,45 @@ function renderSummary(){
   const avg = done.length ? Math.round(done.reduce((a, r) => a + r.pct, 0) / done.length) : 0;
   const passed = done.filter(r => r.pct >= PASS_LINE).length;
   const missed = topMissed();
+
+  let extraMsg = "";
+  if (S.mode === "normal" || S.mode === "boss"){
+    const progress = loadProgress();
+    const zi = S.zoneIndex, ni = S.nodeIndex;
+    const stars = starsFromPassed(passed);
+    const wasZoneCleared = progress[zi][3] > 0;
+    if (stars > progress[zi][ni]) progress[zi][ni] = stars;
+    saveProgress(progress);
+    if (S.mode === "boss" && stars > 0 && !wasZoneCleared){
+      const nextZone = ZONES[zi + 1];
+      extraMsg = nextZone
+        ? `<p class="msg" style="color:var(--ok)">🎉 解鎖新地區：${esc(nextZone.name)}！</p>`
+        : `<p class="msg" style="color:var(--ok)">🎉 恭喜完成所有地區！</p>`;
+    } else if (stars === 0){
+      extraMsg = `<p class="msg">至少過 1 題才能解鎖下一關，再試一次！</p>`;
+    }
+  } else if (S.mode === "review"){
+    extraMsg = `<p class="muted">複習池剩餘 ${reviewPoolList().length} 句</p>`;
+  }
+
   app.innerHTML = `
     <section class="sum">
-      <p class="muted">本輪平均</p>
+      <p class="muted">${esc(S.zoneName)} 結果</p>
+      ${S.mode !== "review" ? `<div class="stars-big">${starsStr(starsFromPassed(passed))}</div>` : ""}
       <div class="big">${avg}</div>
-      <p style="margin-top:8px">${passed} / ${ROUND_SIZE} 題達到 ${PASS_LINE} 分，總積分 ${S.score}。</p>
+      <p style="margin-top:8px">${passed} / ${S.round.length} 題達到 ${PASS_LINE} 分，總積分 ${S.score}。</p>
+      ${extraMsg}
       <ul class="list">
         ${done.map(r => `<li><span>${esc(r.q)}</span><b>${r.pct}</b></li>`).join("")}
       </ul>
       ${missed.length ? `<p class="muted">你最常說錯的字</p><div class="chips">${missed.map(([w, c]) => `<span>${esc(w)} ×${c}</span>`).join("")}</div>` : ""}
       <div class="actions" style="margin-top:24px">
-        <button class="btn primary" id="again" style="margin-left:0">再練一輪</button>
-        <button class="btn line" id="home">回首頁</button>
+        <button class="btn primary" id="retryNode" style="margin-left:0">再玩一次</button>
+        <button class="btn line" id="toMap">回地圖</button>
       </div>
     </section>`;
-  $("#again").onclick = startRound;
-  $("#home").onclick = renderStart;
+  $("#toMap").onclick = renderMap;
+  $("#retryNode").onclick = () => { S.mode === "review" ? startReview() : startNode(S.zoneIndex, S.nodeIndex); };
 }
 
 renderStart();
