@@ -267,7 +267,7 @@ const $ = s => document.querySelector(s);
 const app = $("#app");
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+const RECORDING_SUPPORTED = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.MediaRecorder);
 function shuffle(arr){
   const a = arr.slice();
   for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
@@ -375,32 +375,100 @@ function speak(text){
   });
 }
 
-/* ===== 語音：辨識玩家的回答 ===== */
-function listen(maxMs = 10000){
-  return new Promise(resolve => {
-    const rec = new SR();
-    rec.lang = "en-US"; rec.interimResults = true; rec.maxAlternatives = 1; rec.continuous = false;
-    let finalText = "", interim = "", error = null, finished = false;
-    const finish = () => {
-      if (finished) return;
-      finished = true; clearTimeout(timer); activeRec = null;
-      resolve({ text: (finalText || interim).trim(), error });
+/* ===== 語音：錄下玩家的回答（有靜音自動偵測），交給後端 Whisper 辨識 ===== */
+function recordAudio({ maxMs = 12000, silenceMs = 1200, minMs = 600 } = {}){
+  return new Promise(async resolve => {
+    let stream;
+    try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
+    catch(_) { resolve({ blob: null, error: "not-allowed" }); return; }
+
+    let mime = "audio/webm;codecs=opus";
+    if (!(window.MediaRecorder && MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(mime))) mime = "";
+    let rec;
+    try { rec = mime ? new MediaRecorder(stream, { mimeType: mime }) : new MediaRecorder(stream); }
+    catch(_) { stream.getTracks().forEach(t => t.stop()); resolve({ blob: null, error: "audio-capture" }); return; }
+
+    const chunks = [];
+    const startedAt = Date.now();
+    let audioCtx, analyser, source, raf, lastLoud = Date.now(), settled = false;
+
+    const cleanup = () => {
+      if (raf) cancelAnimationFrame(raf);
+      try { source && source.disconnect(); } catch(_){}
+      try { audioCtx && audioCtx.close(); } catch(_){}
+      stream.getTracks().forEach(t => t.stop());
+      activeRec = null;
     };
-    rec.onaudiostart = () => setState("say", "換你說", "說完停一下會自動送出，也可以點圓圈提早結束");
-    rec.onresult = e => {
-      interim = "";
-      for (let k = e.resultIndex; k < e.results.length; k++){
-        const r = e.results[k];
-        if (r.isFinal) finalText += " " + r[0].transcript; else interim += r[0].transcript;
-      }
-      const live = $("#live"); if (live) live.textContent = (finalText || interim).trim();
+
+    rec.ondataavailable = e => { if (e.data && e.data.size > 0) chunks.push(e.data); };
+    rec.onerror = () => {
+      if (settled) return;
+      settled = true; cleanup();
+      resolve({ blob: null, error: "audio-capture" });
     };
-    rec.onerror = e => { error = e.error; };
-    rec.onend = finish;
-    const timer = setTimeout(() => { try { rec.stop(); } catch(_){} }, maxMs);
+    rec.onstop = () => {
+      if (settled) return;
+      settled = true; cleanup();
+      const blob = new Blob(chunks, { type: mime || "audio/webm" });
+      resolve(blob.size > 800 ? { blob, error: null } : { blob: null, error: "no-speech" });
+    };
+
+    try {
+      const AC = window.AudioContext || window.webkitAudioContext;
+      audioCtx = new AC();
+      source = audioCtx.createMediaStreamSource(stream);
+      analyser = audioCtx.createAnalyser();
+      analyser.fftSize = 512;
+      source.connect(analyser);
+    } catch(_) { analyser = null; }
+
     activeRec = rec;
-    try { rec.start(); } catch(_) { error = "start-failed"; finish(); }
+    rec.start();
+    setState("say", "換你說", "說完停一下會自動送出，也可以點圓圈提早結束");
+
+    const maxTimer = setTimeout(() => { if (rec.state !== "inactive") rec.stop(); }, maxMs);
+
+    if (analyser){
+      const data = new Uint8Array(analyser.frequencyBinCount);
+      const tick = () => {
+        analyser.getByteTimeDomainData(data);
+        let sum = 0;
+        for (let k = 0; k < data.length; k++){ const v = (data[k] - 128) / 128; sum += v * v; }
+        const rms = Math.sqrt(sum / data.length);
+        if (rms > 0.02) lastLoud = Date.now();
+        const elapsed = Date.now() - startedAt;
+        if (elapsed > minMs && Date.now() - lastLoud > silenceMs){
+          clearTimeout(maxTimer);
+          if (rec.state !== "inactive") rec.stop();
+          return;
+        }
+        raf = requestAnimationFrame(tick);
+      };
+      raf = requestAnimationFrame(tick);
+    }
   });
+}
+async function transcribeAudio(blob){
+  try {
+    const form = new FormData();
+    form.append("audio", blob, "answer.webm");
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 20000);
+    const res = await fetch(WORKER_URL + "/transcribe", { method: "POST", body: form, signal: controller.signal });
+    clearTimeout(timer);
+    if (!res.ok) return { text: "", error: "network" };
+    const data = await res.json();
+    return { text: String(data.text || "").trim(), error: null };
+  } catch(_) { return { text: "", error: "network" }; }
+}
+async function listen(maxMs = 12000){
+  const { blob, error } = await recordAudio({ maxMs });
+  if (error) return { text: "", error };
+  setState("busy", "辨識中…", "AI 正在聽你說的話");
+  const { text, error: terr } = await transcribeAudio(blob);
+  if (terr) return { text: "", error: terr };
+  if (!text) return { text: "", error: "no-speech" };
+  return { text, error: null };
 }
 
 /* ===== 介面 ===== */
@@ -417,7 +485,7 @@ function setState(state, headline, hint){
 }
 
 function renderStart(){
-  const unsupported = !SR || !("speechSynthesis" in window);
+  const unsupported = !RECORDING_SUPPORTED || !("speechSynthesis" in window);
   app.innerHTML = `
     <section class="start">
       <h1>英檢初級口說：怪獸挑戰</h1>
@@ -689,7 +757,7 @@ function renderQuestion(){
 function stopAll(){
   S.token++;
   try { speechSynthesis.cancel(); } catch(_){}
-  try { activeRec && activeRec.abort(); } catch(_){}
+  try { activeRec && activeRec.state !== "inactive" && activeRec.stop(); } catch(_){}
   activeRec = null;
 }
 
