@@ -628,25 +628,58 @@ function startReview(){
 }
 
 /* ===== 問答挑戰 ===== */
-function pickAnswerRound(){
+async function generateQuestion(type, avoid){
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 8000);
+    const res = await fetch(WORKER_URL + "/generate-question", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type, avoid }),
+      signal: controller.signal
+    });
+    clearTimeout(timer);
+    if (!res.ok) return null;
+    const data = await res.json();
+    const q = String(data.q || "").trim();
+    return q ? { type, q, ai: true } : null;
+  } catch(_) { return null; }
+}
+function pickFromPool(byType, t){
+  const avoid = S.lastAnswerQ && S.lastAnswerQ[t];
+  const pool = byType[t];
+  const candidates = avoid && pool.length > 1 ? pool.filter(item => item.q !== avoid) : pool;
+  return { ...shuffle(candidates)[0], ai: false };
+}
+async function pickAnswerRound(){
   const byType = { warmup: [], opinion: [], situational: [] };
   QUESTIONS.forEach(item => byType[item.type].push(item));
-  const picked = ["warmup", "opinion", "situational"].map(t => {
-    const avoid = S.lastAnswerQ && S.lastAnswerQ[t];
-    const pool = byType[t];
-    const candidates = avoid && pool.length > 1 ? pool.filter(item => item.q !== avoid) : pool;
-    return shuffle(candidates)[0];
+  const types = ["warmup", "opinion", "situational"];
+  S.answerHistory = S.answerHistory || { warmup: [], opinion: [], situational: [] };
+  const picked = await Promise.all(types.map(async t => {
+    if (Math.random() < 0.5){
+      const gen = await generateQuestion(t, S.answerHistory[t].slice(-5));
+      if (gen) return gen;
+    }
+    return pickFromPool(byType, t);
+  }));
+  S.lastAnswerQ = {};
+  types.forEach((t, k) => {
+    S.lastAnswerQ[t] = picked[k].q;
+    S.answerHistory[t] = S.answerHistory[t].concat(picked[k].q).slice(-5);
   });
-  S.lastAnswerQ = { warmup: picked[0].q, opinion: picked[1].q, situational: picked[2].q };
   return picked;
 }
 function avgScoreSoFar(){
   const done = S.results.filter(Boolean);
   return done.length ? Math.round(done.reduce((a, r) => a + r.score, 0) / done.length) : "-";
 }
-function startAnswerChallenge(){
+async function startAnswerChallenge(){
   S.mode = "answer";
-  Object.assign(S, { round: pickAnswerRound(), i: 0, results: [], score: 0, combo: 0 });
+  const btn = document.activeElement && document.activeElement.tagName === "BUTTON" ? document.activeElement : null;
+  if (btn) { btn.disabled = true; btn.dataset.origText = btn.textContent; btn.textContent = "出題中…"; }
+  const round = await pickAnswerRound();
+  Object.assign(S, { round, i: 0, results: [], score: 0, combo: 0 });
   renderAnswerQuestion();
 }
 function renderAnswerQuestion(){
@@ -661,7 +694,7 @@ function renderAnswerQuestion(){
     <section class="stage">
       <div class="arena">
         <div class="mon-ring" id="monRing"><span>🧑‍🏫</span></div>
-        <div class="mon-name">${esc(TYPE_LABEL[item.type])}</div>
+        <div class="mon-name">${esc(TYPE_LABEL[item.type])}${item.ai ? ' <span class="badge boss-badge" style="background:var(--cobalt);color:#fff">AI 出題</span>' : ""}</div>
       </div>
       <h2 id="status" aria-live="polite"></h2>
       <p id="hint" class="muted"></p>
