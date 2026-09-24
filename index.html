@@ -489,27 +489,28 @@ function recordAudio({ maxMs = 12000, silenceMs = 1500, minMs = 600 } = {}){
     }
   });
 }
-async function transcribeAudio(blob){
+async function transcribeAudio(blob, withTimings){
   try {
     const form = new FormData();
     form.append("audio", blob, "answer.webm");
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 20000);
-    const res = await fetch(WORKER_URL + "/transcribe", { method: "POST", body: form, signal: controller.signal });
+    const url = WORKER_URL + "/transcribe" + (withTimings ? "?timing=1" : "");
+    const res = await fetch(url, { method: "POST", body: form, signal: controller.signal });
     clearTimeout(timer);
     if (!res.ok) return { text: "", error: "network" };
     const data = await res.json();
-    return { text: String(data.text || "").trim(), error: null };
+    return { text: String(data.text || "").trim(), fluency: data.fluency || null, error: null };
   } catch(_) { return { text: "", error: "network" }; }
 }
-async function listen(maxMs = 12000){
+async function listen(maxMs = 12000, withTimings = false){
   const { blob, error } = await recordAudio({ maxMs });
   if (error) return { text: "", error };
   setState("busy", "辨識中…", "AI 正在聽你說的話");
-  const { text, error: terr } = await transcribeAudio(blob);
+  const { text, fluency, error: terr } = await transcribeAudio(blob, withTimings);
   if (terr) return { text: "", error: terr };
   if (!text) return { text: "", error: "no-speech" };
-  return { text, error: null };
+  return { text, fluency, error: null };
 }
 
 /* ===== 介面 ===== */
@@ -716,7 +717,7 @@ async function runAnswerQuestion(){
   await sleep(700);         if (tk !== S.token) return;
   setState("busy", "準備回答…", "");
   await sleep(300);         if (tk !== S.token) return;
-  const r = await listen(20000); if (tk !== S.token) return;
+  const r = await listen(20000, true); if (tk !== S.token) return;
   evaluateAnswer(item, r);
 }
 async function evaluateAnswer(item, r){
@@ -744,7 +745,7 @@ async function evaluateAnswer(item, r){
     const res = await fetch(WORKER_URL + "/evaluate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: item.q, answer: r.text }),
+      body: JSON.stringify({ question: item.q, answer: r.text, fluency: r.fluency }),
       signal: controller.signal
     });
     clearTimeout(timer);
