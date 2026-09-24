@@ -268,12 +268,39 @@ const QUESTIONS = [
   { type: "warmup", q: "What's your name?" },
   { type: "warmup", q: "How are you today?" },
   { type: "warmup", q: "What day is it today?" },
+  { type: "warmup", q: "What's the weather like today?" },
+  { type: "warmup", q: "What time is it now?" },
+  { type: "warmup", q: "Where do you live?" },
+  { type: "warmup", q: "How old are you?" },
+  { type: "warmup", q: "What's your favorite color?" },
+  { type: "warmup", q: "Do you have any brothers or sisters?" },
+  { type: "warmup", q: "What did you have for breakfast today?" },
+  { type: "warmup", q: "How do you usually get to school?" },
+  { type: "warmup", q: "What's the date today?" },
   { type: "opinion", q: "What do you usually do on weekends?" },
   { type: "opinion", q: "What's your favorite food? Why do you like it?" },
   { type: "opinion", q: "Do you like your school or your job? Why?" },
+  { type: "opinion", q: "What kind of music do you like?" },
+  { type: "opinion", q: "Do you prefer reading books or watching movies? Why?" },
+  { type: "opinion", q: "What's your favorite season? Why?" },
+  { type: "opinion", q: "Do you like to travel? Why or why not?" },
+  { type: "opinion", q: "What's your favorite sport? Why?" },
+  { type: "opinion", q: "Do you prefer coffee or tea? Why?" },
+  { type: "opinion", q: "Do you like animals? Why or why not?" },
+  { type: "opinion", q: "What's your favorite subject? Why?" },
+  { type: "opinion", q: "What's your favorite holiday? Why?" },
   { type: "situational", q: "Imagine you are at a restaurant. What would you say to order food?" },
   { type: "situational", q: "Imagine your friend is sick. What would you say to him or her?" },
-  { type: "situational", q: "Imagine you are lost in a city. What would you ask someone?" }
+  { type: "situational", q: "Imagine you are lost in a city. What would you ask someone?" },
+  { type: "situational", q: "Imagine you want to buy a ticket for a movie. What would you say?" },
+  { type: "situational", q: "Imagine you are checking into a hotel. What would you say?" },
+  { type: "situational", q: "Imagine your friend invites you to a party, but you are busy. What would you say?" },
+  { type: "situational", q: "Imagine you want to return a shirt to a store. What would you say?" },
+  { type: "situational", q: "Imagine it's your friend's birthday. What would you say to him or her?" },
+  { type: "situational", q: "Imagine you want to make a doctor's appointment. What would you say?" },
+  { type: "situational", q: "Imagine you are late for a meeting. What would you say to your boss?" },
+  { type: "situational", q: "Imagine you want to ask someone for directions to the MRT station. What would you say?" },
+  { type: "situational", q: "Imagine your food order at a restaurant is wrong. What would you say to the waiter?" }
 ];
 
 /* ===== 小工具 ===== */
@@ -604,7 +631,14 @@ function startReview(){
 function pickAnswerRound(){
   const byType = { warmup: [], opinion: [], situational: [] };
   QUESTIONS.forEach(item => byType[item.type].push(item));
-  return ["warmup", "opinion", "situational"].map(t => shuffle(byType[t])[0]);
+  const picked = ["warmup", "opinion", "situational"].map(t => {
+    const avoid = S.lastAnswerQ && S.lastAnswerQ[t];
+    const pool = byType[t];
+    const candidates = avoid && pool.length > 1 ? pool.filter(item => item.q !== avoid) : pool;
+    return shuffle(candidates)[0];
+  });
+  S.lastAnswerQ = { warmup: picked[0].q, opinion: picked[1].q, situational: picked[2].q };
+  return picked;
 }
 function avgScoreSoFar(){
   const done = S.results.filter(Boolean);
