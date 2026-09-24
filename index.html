@@ -247,6 +247,21 @@ const MONSTERS = [
 ];
 const PASS_LINE = 80;   // 初級口說通過分數
 
+/* ===== 問答挑戰：暖身題／看法題／情境題，交給後端 LLM 評分 ===== */
+const WORKER_URL = "https://gept-speaking-proxy.gept-speaking.workers.dev";
+const TYPE_LABEL = { warmup: "暖身題", opinion: "看法題", situational: "情境題" };
+const QUESTIONS = [
+  { type: "warmup", q: "What's your name?" },
+  { type: "warmup", q: "How are you today?" },
+  { type: "warmup", q: "What day is it today?" },
+  { type: "opinion", q: "What do you usually do on weekends?" },
+  { type: "opinion", q: "What's your favorite food? Why do you like it?" },
+  { type: "opinion", q: "Do you like your school or your job? Why?" },
+  { type: "situational", q: "Imagine you are at a restaurant. What would you say to order food?" },
+  { type: "situational", q: "Imagine your friend is sick. What would you say to him or her?" },
+  { type: "situational", q: "Imagine you are lost in a city. What would you ask someone?" }
+];
+
 /* ===== 小工具 ===== */
 const $ = s => document.querySelector(s);
 const app = $("#app");
@@ -455,6 +470,12 @@ function reviewCardHtml(count){
     <button class="btn ${enabled ? "primary" : "line"}" id="reviewNode" ${enabled ? "" : "disabled"}>${enabled ? "喚醒複習" : "尚無複習內容"}</button>
   </div>`;
 }
+function answerCardHtml(){
+  return `<div class="review-card">
+    <div class="review-head"><span class="review-emoji">🧑‍🏫</span><div><div class="review-title">問答挑戰</div><div class="review-sub">暖身題・看法題・情境題，AI 老師幫你評分</div></div></div>
+    <button class="btn primary" id="answerNode">開始問答</button>
+  </div>`;
+}
 function renderMap(){
   stopAll();
   const progress = loadProgress();
@@ -466,6 +487,7 @@ function renderMap(){
       <div class="pts">⭐ <b>${totalStars(progress)}</b></div>
     </header>
     <section class="map">
+      ${answerCardHtml()}
       ${MONSTERS.map((m, mi) => monsterCardHtml(mi, m, progress)).join("")}
       ${reviewCardHtml(missedCount)}
     </section>`;
@@ -476,6 +498,7 @@ function renderMap(){
   });
   const rv = $("#reviewNode");
   if (rv && !rv.disabled) rv.onclick = startReview;
+  $("#answerNode").onclick = startAnswerChallenge;
 }
 
 function startMonster(mi){
@@ -492,6 +515,145 @@ function startReview(){
   S.mode = "review"; S.monsterIndex = null; S.monster = { name: "記憶水晶", emoji: "🔮" }; S.hp = picked.length;
   Object.assign(S, { round: picked, i: 0, score: 0, combo: 0, results: [] });
   renderQuestion();
+}
+
+/* ===== 問答挑戰 ===== */
+function pickAnswerRound(){
+  const byType = { warmup: [], opinion: [], situational: [] };
+  QUESTIONS.forEach(item => byType[item.type].push(item));
+  return ["warmup", "opinion", "situational"].map(t => shuffle(byType[t])[0]);
+}
+function avgScoreSoFar(){
+  const done = S.results.filter(Boolean);
+  return done.length ? Math.round(done.reduce((a, r) => a + r.score, 0) / done.length) : "-";
+}
+function startAnswerChallenge(){
+  S.mode = "answer";
+  Object.assign(S, { round: pickAnswerRound(), i: 0, results: [], score: 0, combo: 0 });
+  renderAnswerQuestion();
+}
+function renderAnswerQuestion(){
+  const item = S.round[S.i];
+  const segs = S.round.map((_, k) => `<i class="${k < S.i ? "done" : k === S.i ? "now" : ""}"></i>`).join("");
+  app.innerHTML = `
+    <header class="top">
+      <button class="ghost" id="quit">結束</button>
+      <div class="segs" style="grid-template-columns:repeat(${S.round.length},1fr)" aria-label="第 ${S.i + 1} 題，共 ${S.round.length} 題">${segs}</div>
+      <div class="pts">平均 <b>${avgScoreSoFar()}</b></div>
+    </header>
+    <section class="stage">
+      <div class="arena">
+        <div class="mon-ring" id="monRing"><span>🧑‍🏫</span></div>
+        <div class="mon-name">${esc(TYPE_LABEL[item.type])}</div>
+      </div>
+      <h2 id="status" aria-live="polite"></h2>
+      <p id="hint" class="muted"></p>
+      <button class="ring" id="ring" aria-label="錄音狀態"></button>
+      <div id="live" class="en muted"></div>
+      <div id="resultBox" style="width:100%"></div>
+    </section>`;
+  $("#quit").onclick = () => { stopAll(); renderMap(); };
+  $("#ring").onclick = () => { if ($("#ring").dataset.state === "say" && activeRec) { try { activeRec.stop(); } catch(_){} } };
+  runAnswerQuestion();
+}
+async function runAnswerQuestion(){
+  const tk = ++S.token, item = S.round[S.i];
+  $("#resultBox").innerHTML = "";
+  setState("hear", "請仔細聽題目", "題目只會播放一次");
+  await speak(item.q);      if (tk !== S.token) return;
+  await sleep(500);         if (tk !== S.token) return;
+  setState("busy", "準備回答…", "");
+  await sleep(300);         if (tk !== S.token) return;
+  const r = await listen(15000); if (tk !== S.token) return;
+  evaluateAnswer(item, r);
+}
+async function evaluateAnswer(item, r){
+  const hardFail = r.error && HARD_ERR.includes(r.error);
+  if (hardFail){
+    setState("idle", "無法錄音", "");
+    $("#resultBox").innerHTML = `<div class="result">${ERR[r.error] ? `<p class="msg">${ERR[r.error]}</p>` : ""}
+      <div class="actions"><button class="btn primary" id="retry">再試一次</button></div></div>`;
+    $("#retry").onclick = () => runAnswerQuestion();
+    return;
+  }
+  if (!r.text){
+    setState("idle", "沒聽到回答", "");
+    $("#resultBox").innerHTML = `<div class="result"><p class="msg">沒有辨識到內容，請靠近麥克風再試一次。</p>
+      <div class="actions"><button class="btn primary" id="retry">再試一次</button></div></div>`;
+    $("#retry").onclick = () => runAnswerQuestion();
+    return;
+  }
+  setState("busy", "評分中…", "老師正在看你的回答");
+  $("#resultBox").innerHTML = "";
+  let data;
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 20000);
+    const res = await fetch(WORKER_URL + "/evaluate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question: item.q, answer: r.text }),
+      signal: controller.signal
+    });
+    clearTimeout(timer);
+    if (!res.ok) throw new Error("bad status");
+    data = await res.json();
+    if (typeof data.score !== "number") throw new Error("bad body");
+  } catch(_){
+    setState("idle", "評分失敗", "");
+    $("#resultBox").innerHTML = `<div class="result">
+      <p class="msg">連不上評分伺服器，請確認網路連線後再試一次。</p>
+      <p class="heard en">你說的：${esc(r.text)}</p>
+      <div class="actions"><button class="btn primary" id="retry">再試一次</button></div></div>`;
+    $("#retry").onclick = () => runAnswerQuestion();
+    return;
+  }
+
+  const first = !S.results[S.i];
+  if (first){
+    const pass = data.score >= PASS_LINE;
+    S.combo = pass ? S.combo + 1 : 0;
+    S.results[S.i] = { q: item.q, type: item.type, answer: r.text, score: data.score, feedback: data.feedback || "" };
+  }
+  setState("idle", data.score >= PASS_LINE ? "回答得很好" : "可以再更完整一點", "");
+  const last = S.i === S.round.length - 1;
+  const rec = S.results[S.i];
+  $("#resultBox").innerHTML = `
+    <div class="result">
+      <div class="score"><b>${rec.score}</b><span class="tag ${rec.score >= PASS_LINE ? "pass" : "try"}">${rec.score >= PASS_LINE ? "過關" : "再加油"}</span></div>
+      <p class="heard en">你說的：${esc(rec.answer)}</p>
+      ${rec.feedback ? `<p class="heard">${esc(rec.feedback)}</p>` : ""}
+      <div class="actions">
+        <button class="btn line" id="replay">再聽一次題目</button>
+        <button class="btn line" id="retry">再試一次</button>
+        <button class="btn primary" id="next">${last ? "看結果" : "下一題"}</button>
+      </div>
+    </div>`;
+  $("#replay").onclick = async () => { $("#replay").disabled = true; await speak(item.q); const b = $("#replay"); if (b) b.disabled = false; };
+  $("#retry").onclick = () => runAnswerQuestion();
+  $("#next").onclick = () => { if (last) renderAnswerSummary(); else { S.i++; renderAnswerQuestion(); } };
+}
+function renderAnswerSummary(){
+  stopAll();
+  const done = S.results.filter(Boolean);
+  const avg = done.length ? Math.round(done.reduce((a, r) => a + r.score, 0) / done.length) : 0;
+  const passed = done.filter(r => r.score >= PASS_LINE).length;
+  app.innerHTML = `
+    <section class="sum">
+      <p class="muted">問答挑戰結果</p>
+      <div class="big">${avg}</div>
+      <p style="margin-top:8px">${passed} / ${S.round.length} 題達到 ${PASS_LINE} 分。</p>
+      <ul class="list">
+        ${done.map(r => `<li><span>${esc(TYPE_LABEL[r.type])}</span><b>${r.score}</b></li>`).join("")}
+      </ul>
+      ${done.map(r => `<p class="heard"><b class="en">${esc(r.q)}</b><br>你：${esc(r.answer)}${r.feedback ? `<br>💬 ${esc(r.feedback)}` : ""}</p>`).join("")}
+      <div class="actions" style="margin-top:24px">
+        <button class="btn primary" id="retryNode" style="margin-left:0">再玩一次</button>
+        <button class="btn line" id="toMap">回長廊</button>
+      </div>
+    </section>`;
+  $("#toMap").onclick = renderMap;
+  $("#retryNode").onclick = startAnswerChallenge;
 }
 
 function renderQuestion(){
