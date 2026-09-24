@@ -376,7 +376,7 @@ function speak(text){
 }
 
 /* ===== 語音：錄下玩家的回答（有靜音自動偵測），交給後端 Whisper 辨識 ===== */
-function recordAudio({ maxMs = 12000, silenceMs = 1200, minMs = 600 } = {}){
+function recordAudio({ maxMs = 12000, silenceMs = 2500, minMs = 600 } = {}){
   return new Promise(async resolve => {
     let stream;
     try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
@@ -632,7 +632,7 @@ async function runAnswerQuestion(){
   await sleep(500);         if (tk !== S.token) return;
   setState("busy", "準備回答…", "");
   await sleep(300);         if (tk !== S.token) return;
-  const r = await listen(15000); if (tk !== S.token) return;
+  const r = await listen(20000); if (tk !== S.token) return;
   evaluateAnswer(item, r);
 }
 async function evaluateAnswer(item, r){
