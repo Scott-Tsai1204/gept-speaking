@@ -258,6 +258,7 @@ function shuffle(arr){
   for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
   return a;
 }
+function vibrate(pattern){ try { navigator.vibrate && navigator.vibrate(pattern); } catch(_) {} }
 
 const S = { round: [], i: 0, score: 0, combo: 0, results: [], easy: false, token: 0, mode: null, monsterIndex: null, monster: null, hp: 0 };
 let voice = null, activeRec = null, wakeLock = null;
@@ -581,8 +582,14 @@ function evaluate(q, r){
     if (ring){
       ring.classList.remove("hit", "counter", "down");
       void ring.offsetWidth;
-      if (pass) ring.classList.add(remaining <= 0 ? "down" : "hit");
-      else ring.classList.add("counter");
+      if (pass){
+        const defeated = remaining <= 0;
+        ring.classList.add(defeated ? "down" : "hit");
+        vibrate(defeated ? [40, 60, 40, 60, 120] : 45);
+      } else {
+        ring.classList.add("counter");
+        vibrate([30, 40, 30]);
+      }
     }
   }
 
