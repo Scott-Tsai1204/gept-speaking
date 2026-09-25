@@ -260,6 +260,7 @@ const MONSTERS = [
   { name:"終極魔王",   emoji:"🐲", hp:9, boss:true, final:true, pool:() => HARD }
 ];
 const PASS_LINE = 80;   // 初級口說通過分數
+const TEACHER_RATE = 0.78;   // 問答挑戰「老師」唸題目的語速，比複誦戰稍慢
 
 /* ===== 問答挑戰：暖身題／看法題／情境題，交給後端 LLM 評分 ===== */
 const WORKER_URL = "https://gept-speaking-proxy.gept-speaking.workers.dev";
@@ -403,10 +404,10 @@ function loadVoices(){
     setTimeout(() => res(speechSynthesis.getVoices()), 1500);
   });
 }
-function speak(text){
+function speak(text, rate = 0.9){
   return new Promise(resolve => {
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = "en-US"; u.rate = 0.9;
+    u.lang = "en-US"; u.rate = rate;
     if (voice) u.voice = voice;
     let done = false;
     const fin = () => { if (!done){ done = true; clearTimeout(t); resolve(); } };
@@ -711,9 +712,9 @@ async function runAnswerQuestion(){
   const tk = ++S.token, item = S.round[S.i];
   $("#resultBox").innerHTML = "";
   setState("hear", "請仔細聽題目", "題目會播放兩次");
-  await speak(item.q);      if (tk !== S.token) return;
+  await speak(item.q, TEACHER_RATE); if (tk !== S.token) return;
   await sleep(1400);        if (tk !== S.token) return;
-  await speak(item.q);      if (tk !== S.token) return;
+  await speak(item.q, TEACHER_RATE); if (tk !== S.token) return;
   await sleep(700);         if (tk !== S.token) return;
   setState("busy", "準備回答…", "");
   await sleep(300);         if (tk !== S.token) return;
@@ -783,7 +784,7 @@ async function evaluateAnswer(item, r){
         <button class="btn primary" id="next">${last ? "看結果" : "下一題"}</button>
       </div>
     </div>`;
-  $("#replay").onclick = async () => { $("#replay").disabled = true; await speak(item.q); const b = $("#replay"); if (b) b.disabled = false; };
+  $("#replay").onclick = async () => { $("#replay").disabled = true; await speak(item.q, TEACHER_RATE); const b = $("#replay"); if (b) b.disabled = false; };
   $("#retry").onclick = () => runAnswerQuestion();
   $("#next").onclick = () => { if (last) renderAnswerSummary(); else { S.i++; renderAnswerQuestion(); } };
 }
