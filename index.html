@@ -80,6 +80,25 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--cobalt);outline
 @keyframes currentPulse{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:.9;transform:scale(1.015)}}
 @media (prefers-reduced-motion:reduce){.mon-card,.review-card,.mon-card:not(.locked) .mon-ic,.mon-card.boss:not(.locked),.mon-card.final:not(.locked),.mon-card.current::after{animation:none!important}}
 
+/* path map (闖關地圖) */
+.path-wrap{position:relative;width:100%;aspect-ratio:1/2.2;margin:8px 0 40px}
+.path-svg{position:absolute;inset:0;width:100%;height:100%}
+.path-line-bg{fill:none;stroke:var(--line);stroke-width:3;stroke-linecap:round;stroke-dasharray:0 7;vector-effect:non-scaling-stroke}
+.path-line-done{fill:none;stroke:var(--cobalt);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.path-node{position:absolute;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:var(--card);border:3px solid var(--line);display:grid;place-items:center;font-size:26px;padding:0;animation:cardIn .45s cubic-bezier(.16,1,.3,1) both}
+.path-node.locked{opacity:.5}
+.path-node.boss{border-color:var(--marigold)}
+.path-node.final{border-color:var(--bad);width:74px;height:74px;font-size:32px}
+.path-node:not(.locked){animation:cardIn .45s cubic-bezier(.16,1,.3,1) both,monBob 2.4s ease-in-out infinite}
+.path-node.boss:not(.locked){animation:cardIn .45s cubic-bezier(.16,1,.3,1) both,bossGlow 1.8s ease-in-out infinite}
+.path-node.final:not(.locked){animation:cardIn .45s cubic-bezier(.16,1,.3,1) both,finalGlow 1.6s ease-in-out infinite}
+.path-node.current::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--cobalt);animation:currentPulse 1.6s ease-in-out infinite;pointer-events:none}
+.path-node-label{position:absolute;transform:translate(-50%,30px);font-size:11px;color:var(--mute);white-space:nowrap;text-align:center;pointer-events:none}
+.path-avatar{position:absolute;transform:translate(-50%,-135%);font-size:28px;animation:avatarBob 1.6s ease-in-out infinite;pointer-events:none}
+@keyframes avatarBob{0%,100%{transform:translate(-50%,-135%)}50%{transform:translate(-50%,-150%)}}
+@media (prefers-reduced-motion:reduce){.path-node,.path-node:not(.locked),.path-node.boss:not(.locked),.path-node.final:not(.locked),.path-node.current::after,.path-avatar{animation:none!important}}
+.passage-box{font-size:17px;line-height:1.6;text-align:left;background:var(--card);border-radius:16px;padding:16px;width:100%;box-shadow:0 1px 0 var(--line)}
+
 /* battle arena */
 .arena{display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:2px}
 .mon-ring{width:136px;height:136px;border-radius:50%;background:var(--card);border:3px solid var(--line);display:grid;place-items:center;font-size:58px;transition:filter .3s,opacity .3s}
@@ -244,6 +263,18 @@ const HARD = [
   "It normally takes about forty minutes to drive from my house to downtown."
 ];
 
+/* ===== 朗讀關：初級程度短文，1 分鐘準備後朗讀，逐字比對（跟複誦關同一套比對邏輯） ===== */
+const READ_PASSAGES = [
+  "My name is Anna. I am a student. I live near the school with my family.",
+  "Today is Monday. The weather is sunny and warm. I will walk to school with my brother.",
+  "I have a small dog. Its name is Lucky. Every morning, I take Lucky for a walk in the park.",
+  "My favorite food is noodles. I like to eat noodles with my friends after school. They are cheap and delicious.",
+  "Last weekend, I went to the museum with my family. We saw many old paintings. It was a fun day.",
+  "I usually get up at seven o'clock. I eat breakfast, brush my teeth, and then go to school by bus.",
+  "My sister likes to read books. She reads every night before she goes to bed. She wants to be a writer.",
+  "This weekend, I want to visit my grandmother. She lives in the countryside. I will bring her some fruit."
+];
+
 /* ===== 怪獸長廊：不分主題，隨機從難度池抽題 ===== */
 const MONSTERS = [
   { name:"哈欠史萊姆", emoji:"🟢", hp:5, pool:() => EASY },
@@ -261,6 +292,18 @@ const MONSTERS = [
 ];
 const PASS_LINE = 80;   // 初級口說通過分數
 const TEACHER_RATE = 0.78;   // 問答挑戰「老師」唸題目的語速，比複誦戰稍慢
+
+/* ===== 闖關地圖：直式小徑，混合複誦／朗讀／問答三種節點，最後是 Boss ===== */
+const PATH_NODES = [
+  { type:"repeat", name:"哈欠史萊姆", emoji:"🟢", hp:3, pool:() => EASY },
+  { type:"read",   name:"呆呆貓頭鷹", emoji:"🦉", hp:1 },
+  { type:"answer", name:"小老師",     emoji:"🧑‍🏫" },
+  { type:"repeat", name:"迷路小兔",   emoji:"🐰", hp:3, pool:() => MEDIUM },
+  { type:"read",   name:"智慧貓頭鷹", emoji:"📖", hp:1 },
+  { type:"answer", name:"大考老師",   emoji:"👩‍🏫" },
+  { type:"repeat", name:"迷霧幽靈",   emoji:"👻", hp:3, pool:() => MEDIUM.concat(HARD) },
+  { type:"repeat", name:"終極魔王",   emoji:"🐲", hp:9, boss:true, final:true, pool:() => HARD }
+];
 
 /* ===== 問答挑戰：暖身題／看法題／情境題，交給後端 LLM 評分 ===== */
 const WORKER_URL = "https://gept-speaking-proxy.gept-speaking.workers.dev";
@@ -317,7 +360,7 @@ function shuffle(arr){
 }
 function vibrate(pattern){ try { navigator.vibrate && navigator.vibrate(pattern); } catch(_) {} }
 
-const S = { round: [], i: 0, score: 0, combo: 0, results: [], easy: false, token: 0, mode: null, monsterIndex: null, monster: null, hp: 0 };
+const S = { round: [], i: 0, score: 0, combo: 0, results: [], easy: false, token: 0, mode: null, monsterIndex: null, monster: null, hp: 0, viaPath: null };
 let voice = null, activeRec = null, wakeLock = null;
 
 /* ===== 關卡進度（存在這支手機的瀏覽器裡） ===== */
@@ -329,6 +372,17 @@ function loadProgress(){
   return MONSTERS.map(() => 0);
 }
 function saveProgress(p){ try { localStorage.setItem("gept_progress_v2", JSON.stringify(p)); } catch(_) {} }
+
+/* ===== 闖關地圖進度（跟怪獸長廊分開存） ===== */
+function loadPathProgress(){
+  try {
+    const p = JSON.parse(localStorage.getItem("gept_progress_path_v1") || "null");
+    if (Array.isArray(p) && p.length === PATH_NODES.length) return p;
+  } catch(_) {}
+  return PATH_NODES.map(() => 0);
+}
+function savePathProgress(p){ try { localStorage.setItem("gept_progress_path_v1", JSON.stringify(p)); } catch(_) {} }
+function isPathNodeUnlocked(ni, progress){ return ni === 0 || progress[ni - 1] > 0; }
 function isMonsterUnlocked(mi, progress){ return mi === 0 || progress[mi - 1] > 0; }
 function starsFromPassed(passed, hp){
   if (passed >= hp) return 3;
@@ -536,7 +590,7 @@ function renderStart(){
       <label class="opt"><input type="checkbox" id="easy" ${S.easy ? "checked" : ""}> 簡單模式：作答前先顯示句子</label>
       ${unsupported
         ? '<p class="msg" style="margin-top:16px">這個瀏覽器不支援語音辨識。請改用 Android 版 Chrome 開啟。</p>'
-        : '<button class="btn primary" id="startBtn">進入怪獸長廊</button>'}
+        : '<button class="btn primary" id="startBtn">開始</button>'}
       <p class="note">需要網路連線與麥克風權限。第一次開始時，瀏覽器會詢問是否允許使用麥克風。</p>
     </section>`;
   const b = $("#startBtn");
@@ -547,18 +601,41 @@ async function onStart(){
   const btn = $("#startBtn");
   btn.disabled = true; btn.textContent = "準備中…";
   S.easy = $("#easy").checked;
-  if (!navigator.onLine){ alert("目前沒有網路。語音辨識需要連線後才能使用。"); btn.disabled = false; btn.textContent = "進入怪獸長廊"; return; }
+  if (!navigator.onLine){ alert("目前沒有網路。語音辨識需要連線後才能使用。"); btn.disabled = false; btn.textContent = "開始"; return; }
   try {   // 在按鈕點擊當下先要麥克風權限，之後辨識就不會再跳詢問
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     stream.getTracks().forEach(t => t.stop());
   } catch(_) {
     alert("無法使用麥克風。請點網址列左側的圖示，允許麥克風後重新整理頁面。");
-    btn.disabled = false; btn.textContent = "進入怪獸長廊"; return;
+    btn.disabled = false; btn.textContent = "開始"; return;
   }
   const voices = await loadVoices();
   voice = voices.find(v => /^en[-_]US/i.test(v.lang)) || voices.find(v => /^en/i.test(v.lang)) || null;
   try { wakeLock = await navigator.wakeLock?.request("screen"); } catch(_) {}
-  renderMap();
+  renderModeSelect();
+}
+
+/* ===== 選玩法 ===== */
+function renderModeSelect(){
+  app.innerHTML = `
+    <header class="top">
+      <button class="ghost" id="toStart">設定</button>
+      <h1 style="flex:1;font-size:20px;margin:0;text-align:center">選擇玩法</h1>
+      <div class="pts"></div>
+    </header>
+    <section class="map">
+      <div class="review-card" style="animation-delay:0s">
+        <div class="review-head"><span class="review-emoji">🏯</span><div><div class="review-title">怪獸長廊</div><div class="review-sub">清單式選關，複誦戰＋問答挑戰＋複習站</div></div></div>
+        <button class="btn primary" id="goCorridor">進入長廊</button>
+      </div>
+      <div class="review-card" style="animation-delay:.05s">
+        <div class="review-head"><span class="review-emoji">🗺️</span><div><div class="review-title">闖關地圖</div><div class="review-sub">沿路小徑往上闖，複誦／朗讀／問答混合，最後挑戰大魔王</div></div></div>
+        <button class="btn primary" id="goPath">進入地圖</button>
+      </div>
+    </section>`;
+  $("#toStart").onclick = renderStart;
+  $("#goCorridor").onclick = renderMap;
+  $("#goPath").onclick = renderPathMap;
 }
 
 /* ===== 怪獸長廊（地圖） ===== */
@@ -589,6 +666,7 @@ function answerCardHtml(delay){
 }
 function renderMap(){
   stopAll();
+  S.viaPath = null;
   const progress = loadProgress();
   const missedCount = reviewPoolList().length;
   const currentIndex = MONSTERS.findIndex((_, mi) => isMonsterUnlocked(mi, progress) && progress[mi] < 3);
@@ -627,6 +705,157 @@ function startReview(){
   S.mode = "review"; S.monsterIndex = null; S.monster = { name: "記憶水晶", emoji: "🔮" }; S.hp = picked.length;
   Object.assign(S, { round: picked, i: 0, score: 0, combo: 0, results: [] });
   renderQuestion();
+}
+
+/* ===== 闖關地圖：直式小徑，混合複誦／朗讀／問答節點 ===== */
+const PATH_TYPE_SUB = { repeat: hp => `複誦 · HP ${hp}`, read: hp => `朗讀 · ${hp} 篇短文`, answer: () => "問答 · 3 題" };
+function buildPathPoints(n){
+  // 由下（起點）到上（Boss）依序排列，左右交錯做出 S 型小徑
+  const pts = [];
+  for (let i = 0; i < n; i++){
+    const t = i / (n - 1);
+    const x = 50 + Math.sin(i * 1.8) * 32;
+    const y = 92 - t * 84;
+    pts.push({ x, y });
+  }
+  return pts;
+}
+function pathCurveD(pts){
+  if (pts.length < 2) return "";
+  let d = `M ${pts[0].x} ${pts[0].y}`;
+  for (let i = 1; i < pts.length; i++){
+    const p0 = pts[i - 1], p1 = pts[i];
+    const midY = (p0.y + p1.y) / 2;
+    d += ` C ${p0.x} ${midY}, ${p1.x} ${midY}, ${p1.x} ${p1.y}`;
+  }
+  return d;
+}
+function renderPathMap(){
+  stopAll();
+  const progress = loadPathProgress();
+  const pts = buildPathPoints(PATH_NODES.length);
+  const currentIndex = PATH_NODES.findIndex((_, ni) => isPathNodeUnlocked(ni, progress) && progress[ni] < 3);
+  const doneUpTo = PATH_NODES.reduce((acc, _, ni) => progress[ni] > 0 ? ni : acc, -1);
+  const nodesHtml = PATH_NODES.map((node, ni) => {
+    const unlocked = isPathNodeUnlocked(ni, progress);
+    const stars = progress[ni];
+    const cls = ["path-node", node.boss ? "boss" : "", node.final ? "final" : "", unlocked ? "" : "locked", ni === currentIndex ? "current" : ""].filter(Boolean).join(" ");
+    const icon = unlocked ? node.emoji : "🔒";
+    const sub = !unlocked ? "尚未解鎖" : (stars > 0 ? starsStr(stars) : PATH_TYPE_SUB[node.type](node.hp));
+    return `<button class="${cls}" style="left:${pts[ni].x}%;top:${pts[ni].y}%" data-ni="${ni}" ${unlocked ? "" : "disabled"} aria-label="${esc(node.name)}：${esc(sub)}">
+      <span class="path-node-ic">${icon}</span>
+      ${node.boss && unlocked ? '<span class="badge boss-badge" style="position:absolute;top:-10px;left:50%;transform:translateX(-50%)">BOSS</span>' : ""}
+    </button>
+    <div class="path-node-label" style="left:${pts[ni].x}%;top:${pts[ni].y}%">${esc(node.name)}</div>`;
+  }).join("");
+  const avatarIndex = currentIndex === -1 ? PATH_NODES.length - 1 : currentIndex;
+  app.innerHTML = `
+    <header class="top">
+      <button class="ghost" id="toStart">設定</button>
+      <h1 style="flex:1;font-size:20px;margin:0;text-align:center">闖關地圖</h1>
+      <div class="pts">⭐ <b>${totalStars(progress)}</b></div>
+    </header>
+    <section class="map">
+      <div class="path-wrap">
+        <svg class="path-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="${pathCurveD(pts)}" class="path-line-bg" />
+          ${doneUpTo >= 0 ? `<path d="${pathCurveD(pts.slice(0, doneUpTo + 2))}" class="path-line-done" />` : ""}
+        </svg>
+        ${nodesHtml}
+        <div class="path-avatar" id="pathAvatar" style="left:${pts[avatarIndex].x}%;top:${pts[avatarIndex].y}%">😊</div>
+      </div>
+    </section>`;
+  $("#toStart").onclick = renderStart;
+  app.querySelectorAll(".path-node").forEach(btn => {
+    if (btn.disabled) return;
+    btn.onclick = () => startPathNode(+btn.dataset.ni);
+  });
+  const avatar = $("#pathAvatar");
+  if (avatar) avatar.scrollIntoView({ block: "center" });
+}
+
+function startPathNode(ni){
+  const node = PATH_NODES[ni];
+  if (node.type === "repeat") return startPathBattle(ni);
+  if (node.type === "read") return startReadNode(ni);
+  if (node.type === "answer"){ S.viaPath = ni; return startAnswerChallenge(); }
+}
+function startPathBattle(ni){
+  const node = PATH_NODES[ni];
+  const picked = shuffle(node.pool()).slice(0, node.hp);
+  S.viaPath = ni; S.mode = "battle"; S.monsterIndex = null; S.monster = node; S.hp = node.hp;
+  Object.assign(S, { round: picked, i: 0, score: 0, combo: 0, results: [] });
+  renderQuestion();
+}
+function startReadNode(ni){
+  const node = PATH_NODES[ni];
+  const picked = shuffle(READ_PASSAGES).slice(0, node.hp);
+  S.viaPath = ni; S.mode = "read"; S.monsterIndex = null; S.monster = node; S.hp = node.hp;
+  Object.assign(S, { round: picked, i: 0, score: 0, combo: 0, results: [] });
+  renderReadQuestion();
+}
+function renderReadQuestion(){
+  const segs = S.round.map((_, k) => `<i class="${k < S.i ? "done" : k === S.i ? "now" : ""}"></i>`).join("");
+  const passedCount = S.results.filter(r => r && r.pct >= PASS_LINE).length;
+  const remaining = Math.max(0, S.hp - passedCount);
+  const hpPct = Math.round(remaining / S.hp * 100);
+  const mon = S.monster;
+  app.innerHTML = `
+    <header class="top">
+      <button class="ghost" id="quit">結束</button>
+      <div class="segs" style="grid-template-columns:repeat(${S.round.length},1fr)" aria-label="第 ${S.i + 1} 篇，共 ${S.round.length} 篇">${segs}</div>
+      <div class="pts">積分 <b>${S.score}</b></div>
+    </header>
+    <section class="stage">
+      <div class="arena">
+        <div class="mon-ring" id="monRing"><span id="monEmoji">${mon.emoji}</span></div>
+        <div class="mon-name">${esc(mon.name)}</div>
+        <div class="hp-wrap"><div class="hp-bar-bg"><div class="hp-bar-fill ${hpPct <= 30 ? "low" : ""}" id="hpFill" style="width:${hpPct}%"></div></div></div>
+      </div>
+      <h2 id="status" aria-live="polite"></h2>
+      <p id="hint" class="muted"></p>
+      <div id="passageBox" class="en passage-box"></div>
+      <button class="ring" id="ring" aria-label="錄音狀態"></button>
+      <div id="live" class="en muted"></div>
+      <div id="resultBox" style="width:100%"></div>
+    </section>`;
+  $("#quit").onclick = () => { stopAll(); renderPathMap(); };
+  $("#ring").onclick = () => { if ($("#ring").dataset.state === "say" && activeRec) { try { activeRec.stop(); } catch(_){} } };
+  runReadQuestion();
+}
+async function runReadQuestion(){
+  const tk = ++S.token, q = S.round[S.i];
+  $("#resultBox").innerHTML = "";
+  $("#passageBox").textContent = q;
+  let remain = 45;
+  setState("idle", "先默讀短文，準備好再開始朗讀", `倒數 ${remain} 秒，或直接點下面按鈕開始`);
+  const startBtn = document.createElement("button");
+  startBtn.className = "btn primary";
+  startBtn.style.marginTop = "8px";
+  startBtn.textContent = "開始朗讀";
+  $("#resultBox").innerHTML = "";
+  $("#resultBox").appendChild(startBtn);
+
+  await new Promise(resolve => {
+    let done = false;
+    const finish = () => {
+      if (done) return; done = true;
+      clearInterval(timer); startBtn.remove(); resolve();
+    };
+    startBtn.onclick = finish;
+    const timer = setInterval(() => {
+      if (tk !== S.token){ clearInterval(timer); return; }
+      remain--;
+      const hintEl = $("#hint");
+      if (hintEl) hintEl.textContent = remain > 0 ? `倒數 ${remain} 秒，或直接點下面按鈕開始` : "";
+      if (remain <= 0) finish();
+    }, 1000);
+  });
+  if (tk !== S.token) return;
+
+  setState("busy", "準備錄音…", "");
+  const r = await listen(25000); if (tk !== S.token) return;
+  evaluate(q, r);
 }
 
 /* ===== 問答挑戰 ===== */
@@ -704,7 +933,7 @@ function renderAnswerQuestion(){
       <div id="live" class="en muted"></div>
       <div id="resultBox" style="width:100%"></div>
     </section>`;
-  $("#quit").onclick = () => { stopAll(); renderMap(); };
+  $("#quit").onclick = () => { stopAll(); S.viaPath != null ? renderPathMap() : renderMap(); };
   $("#ring").onclick = () => { if ($("#ring").dataset.state === "say" && activeRec) { try { activeRec.stop(); } catch(_){} } };
   runAnswerQuestion();
 }
@@ -793,9 +1022,20 @@ function renderAnswerSummary(){
   const done = S.results.filter(Boolean);
   const avg = done.length ? Math.round(done.reduce((a, r) => a + r.score, 0) / done.length) : 0;
   const passed = done.filter(r => r.score >= PASS_LINE).length;
+  const pathMode = S.viaPath != null;
+  let starsLine = "";
+  if (pathMode){
+    const progress = loadPathProgress();
+    const ni = S.viaPath;
+    const stars = starsFromPassed(passed, S.round.length);
+    if (stars > progress[ni]) progress[ni] = stars;
+    savePathProgress(progress);
+    starsLine = `<div class="stars-big">${starsStr(stars)}</div>`;
+  }
   app.innerHTML = `
     <section class="sum">
       <p class="muted">問答挑戰結果</p>
+      ${starsLine}
       <div class="big">${avg}</div>
       <p style="margin-top:8px">${passed} / ${S.round.length} 題達到 ${PASS_LINE} 分。</p>
       <ul class="list">
@@ -804,11 +1044,11 @@ function renderAnswerSummary(){
       ${done.map(r => `<p class="heard"><b class="en">${esc(r.q)}</b><br>你：${esc(r.answer)}${r.feedback ? `<br>💬 ${esc(r.feedback)}` : ""}</p>`).join("")}
       <div class="actions" style="margin-top:24px">
         <button class="btn primary" id="retryNode" style="margin-left:0">再玩一次</button>
-        <button class="btn line" id="toMap">回長廊</button>
+        <button class="btn line" id="toMap">${pathMode ? "回地圖" : "回長廊"}</button>
       </div>
     </section>`;
-  $("#toMap").onclick = renderMap;
-  $("#retryNode").onclick = startAnswerChallenge;
+  $("#toMap").onclick = pathMode ? renderPathMap : renderMap;
+  $("#retryNode").onclick = () => pathMode ? startPathNode(S.viaPath) : startAnswerChallenge();
 }
 
 function renderQuestion(){
@@ -836,7 +1076,7 @@ function renderQuestion(){
       <div id="live" class="en muted"></div>
       <div id="resultBox" style="width:100%"></div>
     </section>`;
-  $("#quit").onclick = () => { stopAll(); renderMap(); };
+  $("#quit").onclick = () => { stopAll(); S.viaPath != null ? renderPathMap() : renderMap(); };
   $("#ring").onclick = () => { if ($("#ring").dataset.state === "say" && activeRec) { try { activeRec.stop(); } catch(_){} } };
   runQuestion();
 }
@@ -956,8 +1196,21 @@ function renderSummary(){
   const missed = topMissed();
   const mon = S.monster;
 
+  const pathMode = S.viaPath != null;
   let extraMsg = "", starsLine = "";
-  if (S.mode === "battle"){
+  if (pathMode){
+    const progress = loadPathProgress();
+    const ni = S.viaPath;
+    const stars = starsFromPassed(passed, S.hp);
+    if (stars > progress[ni]) progress[ni] = stars;
+    savePathProgress(progress);
+    starsLine = `<div class="stars-big">${starsStr(stars)}</div>`;
+    const isBoss = ni === PATH_NODES.length - 1;
+    if (isBoss && stars > 0) extraMsg = `<p class="msg" style="color:var(--ok)">🏆 恭喜！你擊敗了 ${esc(mon.name)}，成功闖關！</p>`;
+    else if (stars === 3) extraMsg = `<p class="msg" style="color:var(--ok)">🎉 擊敗了 ${esc(mon.name)}！</p>`;
+    else if (stars > 0) extraMsg = `<p class="msg" style="color:var(--ok)">${esc(mon.name)} 受傷逃跑了，再挑戰一次可以徹底擊敗！</p>`;
+    else extraMsg = `<p class="msg">${esc(mon.name)} 完全沒有受傷，再試一次！</p>`;
+  } else if (S.mode === "battle"){
     const progress = loadProgress();
     const mi = S.monsterIndex;
     const stars = starsFromPassed(passed, S.hp);
@@ -984,11 +1237,14 @@ function renderSummary(){
       ${missed.length ? `<p class="muted">你最常說錯的字</p><div class="chips">${missed.map(([w, c]) => `<span>${esc(w)} ×${c}</span>`).join("")}</div>` : ""}
       <div class="actions" style="margin-top:24px">
         <button class="btn primary" id="retryNode" style="margin-left:0">再玩一次</button>
-        <button class="btn line" id="toMap">回長廊</button>
+        <button class="btn line" id="toMap">${pathMode ? "回地圖" : "回長廊"}</button>
       </div>
     </section>`;
-  $("#toMap").onclick = renderMap;
-  $("#retryNode").onclick = () => { S.mode === "review" ? startReview() : startMonster(S.monsterIndex); };
+  $("#toMap").onclick = pathMode ? renderPathMap : renderMap;
+  $("#retryNode").onclick = () => {
+    if (pathMode) return startPathNode(S.viaPath);
+    S.mode === "review" ? startReview() : startMonster(S.monsterIndex);
+  };
 }
 
 renderStart();
