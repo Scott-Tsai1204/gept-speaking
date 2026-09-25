@@ -92,25 +92,36 @@ function pathCurveD(pts){
   }
   return d;
 }
+// 手動校正的節點座標：對應真的美術圖裡實際畫出來的小徑位置（不是公式生成）。
+// 目前只有 Zone 1（青青草原）有正式美術，所以只有 index 0 這個節點有座標；
+// 之後每加一張分區美術，就在這裡多補一組 { ni, x, y }（x/y 是該張圖裡的百分比位置）。
+const ZONE_ART = [
+  { img: "assets/maps/zone1-meadow.png", nodes: [{ ni: 0, x: 53, y: 91 }] }
+];
+
 function renderPathMap(){
   stopAll();
   const progress = loadPathProgress();
-  const pts = buildPathPoints(PATH_NODES.length);
   const currentIndex = PATH_NODES.findIndex((_, ni) => isPathNodeUnlocked(ni, progress) && progress[ni] < 3);
-  const doneUpTo = PATH_NODES.reduce((acc, _, ni) => progress[ni] > 0 ? ni : acc, -1);
-  const nodesHtml = PATH_NODES.map((node, ni) => {
-    const unlocked = isPathNodeUnlocked(ni, progress);
-    const stars = progress[ni];
-    const cls = ["path-node", node.boss ? "boss" : "", node.final ? "final" : "", unlocked ? "" : "locked", ni === currentIndex ? "current" : ""].filter(Boolean).join(" ");
-    const icon = unlocked ? node.emoji : "🔒";
-    const sub = !unlocked ? "尚未解鎖" : (stars > 0 ? starsStr(stars) : PATH_TYPE_SUB[node.type](node.hp));
-    return `<button class="${cls}" style="left:${pts[ni].x}%;top:${pts[ni].y}%" data-ni="${ni}" ${unlocked ? "" : "disabled"} aria-label="${esc(node.name)}：${esc(sub)}">
-      <span class="path-node-ic">${icon}</span>
-      ${node.boss && unlocked ? '<span class="badge boss-badge" style="position:absolute;top:-10px;left:50%;transform:translateX(-50%)">BOSS</span>' : ""}
-    </button>
-    <div class="path-node-label" style="left:${pts[ni].x}%;top:${pts[ni].y}%">${esc(node.name)}</div>`;
+
+  const zonesHtml = ZONE_ART.map(zone => {
+    const nodesHtml = zone.nodes.map(({ ni, x, y }) => {
+      const node = PATH_NODES[ni];
+      const unlocked = isPathNodeUnlocked(ni, progress);
+      const stars = progress[ni];
+      const cls = ["path-node", node.boss ? "boss" : "", node.final ? "final" : "", unlocked ? "" : "locked", ni === currentIndex ? "current" : ""].filter(Boolean).join(" ");
+      const icon = unlocked ? node.emoji : "🔒";
+      const sub = !unlocked ? "尚未解鎖" : (stars > 0 ? starsStr(stars) : PATH_TYPE_SUB[node.type](node.hp));
+      return `<button class="${cls}" style="left:${x}%;top:${y}%" data-ni="${ni}" ${unlocked ? "" : "disabled"} aria-label="${esc(node.name)}：${esc(sub)}">
+        <span class="path-node-ic">${icon}</span>
+        ${node.boss && unlocked ? '<span class="badge boss-badge" style="position:absolute;top:-10px;left:50%;transform:translateX(-50%)">BOSS</span>' : ""}
+      </button>
+      <div class="path-node-label" style="left:${x}%;top:${y}%">${esc(node.name)}</div>
+      ${ni === currentIndex ? `<div class="path-avatar" id="pathAvatar" style="left:${x}%;top:${y}%">😊</div>` : ""}`;
+    }).join("");
+    return `<div class="zone-wrap"><img src="${zone.img}" class="zone-bg" alt=""> ${nodesHtml}</div>`;
   }).join("");
-  const avatarIndex = currentIndex === -1 ? PATH_NODES.length - 1 : currentIndex;
+
   app.innerHTML = `
     <header class="top">
       <button class="ghost" id="toStart">設定</button>
@@ -118,14 +129,8 @@ function renderPathMap(){
       <div class="pts">⭐ <b>${totalStars(progress)}</b></div>
     </header>
     <section class="map">
-      <div class="path-wrap">
-        <svg class="path-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <path d="${pathCurveD(pts)}" class="path-line-bg" />
-          ${doneUpTo >= 0 ? `<path d="${pathCurveD(pts.slice(0, doneUpTo + 2))}" class="path-line-done" />` : ""}
-        </svg>
-        ${nodesHtml}
-        <div class="path-avatar" id="pathAvatar" style="left:${pts[avatarIndex].x}%;top:${pts[avatarIndex].y}%">😊</div>
-      </div>
+      ${zonesHtml}
+      <p class="muted" style="text-align:center;padding:16px 0">後續區域製作中，敬請期待…</p>
     </section>`;
   $("#toStart").onclick = renderStart;
   app.querySelectorAll(".path-node").forEach(btn => {
