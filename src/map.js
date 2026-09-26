@@ -101,14 +101,14 @@ const HERO_WALK_SRC = "assets/characters/hero/hero_walk.png";
 const HERO_WALK_MS = 900; // 進地圖時先播一小段行走動畫，抵達後定格待機
 
 const ZONE_ART = [
-  { img: "assets/maps/zone1-meadow.png", nodes: [{ ni: 0, x: 53, y: 91 }] },
-  { img: "assets/maps/zone2-village.png", nodes: [{ ni: 1, x: 50, y: 45 }] },
-  { img: "assets/maps/zone3-forest.png", nodes: [{ ni: 2, x: 50, y: 55 }] },
-  { img: "assets/maps/zone4-river-valley.png", nodes: [{ ni: 3, x: 58, y: 46 }] },
-  { img: "assets/maps/zone5-mountain-valley.png", nodes: [{ ni: 4, x: 60, y: 50 }] },
-  { img: "assets/maps/zone6-volcano.png", nodes: [{ ni: 5, x: 48, y: 68 }] },
-  { img: "assets/maps/zone7-snow-mountain.png", nodes: [{ ni: 6, x: 58, y: 50 }] },
-  { img: "assets/maps/zone8-boss-castle.png", nodes: [{ ni: 7, x: 50, y: 27 }] }
+  { img: "assets/maps/zone1-meadow.webp", nodes: [{ ni: 0, x: 53, y: 91 }] },
+  { img: "assets/maps/zone2-village.webp", nodes: [{ ni: 1, x: 50, y: 45 }] },
+  { img: "assets/maps/zone3-forest.webp", nodes: [{ ni: 2, x: 50, y: 55 }] },
+  { img: "assets/maps/zone4-river-valley.webp", nodes: [{ ni: 3, x: 58, y: 46 }] },
+  { img: "assets/maps/zone5-mountain-valley.webp", nodes: [{ ni: 4, x: 60, y: 50 }] },
+  { img: "assets/maps/zone6-volcano.webp", nodes: [{ ni: 5, x: 48, y: 68 }] },
+  { img: "assets/maps/zone7-snow-mountain.webp", nodes: [{ ni: 6, x: 58, y: 50 }] },
+  { img: "assets/maps/zone8-boss-castle.webp", nodes: [{ ni: 7, x: 50, y: 27 }] }
 ];
 
 function renderPathMap(){
