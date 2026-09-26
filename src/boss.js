@@ -6,12 +6,26 @@
      - 複誦／朗讀的逐字比對：tokenize()／align()／PASS_LINE（跟 evaluate() 同一套公式）
      - 問答的 AI 評分：呼叫同一個 Cloudflare Worker /evaluate 端點
      - 語音：speak()／listen()（跟三套引擎共用同一份 voice.js）
-     - 攻擊／受擊／消失特效：playHeroAttack()／playMonsterHit()／playMonsterVanish()
+     - 主角攻擊特效：playHeroAttack()；Boss 自己的受擊／死亡動畫在這支檔案的 playBossHurt()／playBossDefeat()
    每回合隨機挑一種題型，答對一次 Boss HP -1，五格 HP 歸零即擊敗。
    ===================================================================== */
 const BOSS_HP_MAX = 5;
 const BOSS_ROUND_TYPES = ["repeat", "read", "answer"];
 const BOSS_IDLE_SRC = "assets/characters/boss/boss_idle.png";
+const BOSS_HURT_SRC = "assets/characters/boss/boss_hurt.png";
+const BOSS_DEFEAT_SRC = "assets/characters/boss/boss_defeat.png";
+const EFFECT_BOSS_DEFEAT_SRC = "assets/effects/effect_boss_defeat.png";
+/* 素材條規格（單位是原圖像素）。這幾條素材的幀距不是嚴格等寬，所以每一幀用 frames＝[左界, 右界] 各自取景：
+   height＝畫面上的顯示高度（px），讓角色看起來跟 208px 框裡的 idle 立繪一樣大；dy＝垂直位移（%）對齊 idle 的位置；
+   startMs＝相對於動畫開始的延遲 */
+const bossFramesAround = (centers, win) => centers.map(c => [c - win / 2, c + win / 2]);
+const BOSS_HURT_SHEET = { src: BOSS_HURT_SRC, w: 1728, h: 350, frames: bossFramesAround([160, 415, 665, 935, 1195, 1440, 1665], 300), height: 150, dy: -58, frameMs: 110, startMs: 0 };
+const BOSS_DEFEAT_SHEET = { src: BOSS_DEFEAT_SRC, w: 1728, h: 245, frames: [[-5, 255], [266, 492], [450, 710], [665, 925], [845, 1105], [1055, 1315], [1270, 1530], [1490, 1750]], height: 128, dy: -56, frameMs: 170, startMs: 0 };
+// 消散特效是 12 塊獨立的煙霧→水晶碎片→閃光→光點，每塊精準裁切，接在 Boss 開始崩解（死亡第 4 幀）時播放；
+// top＝裁掉素材條最上緣的殘留碎片
+const BOSS_SMOKE_SHEET = { src: EFFECT_BOSS_DEFEAT_SRC, w: 1728, h: 109, top: 12,
+  frames: [[14, 197], [210, 297], [308, 480], [493, 618], [628, 733], [743, 829], [835, 983], [989, 1088], [1115, 1293], [1307, 1382], [1398, 1543], [1566, 1727]],
+  height: 118, dy: -46, frameMs: 90, startMs: 510 };
 
 function bossHeartsStr(hp){
   return "❤️".repeat(Math.max(0, hp)) + "🤍".repeat(Math.max(0, BOSS_HP_MAX - hp));
@@ -25,7 +39,65 @@ function startBossBattle(ni){
   S.monster = node;
   S.bossHp = BOSS_HP_MAX;
   S.bossRoundResults = [];
+  // 先預載受擊／死亡素材條，第一次答對時才不會閃一下空白
+  [BOSS_HURT_SRC, BOSS_DEFEAT_SRC, EFFECT_BOSS_DEFEAT_SRC].forEach(src => { new Image().src = src; });
   runBossRound();
+}
+
+/* ===== Boss 受擊／死亡動畫：暫時把 idle 立繪藏起來，在 #monRing 上疊一層逐幀播放的素材條 ===== */
+function bossSpriteFrame(el, sheet, i){
+  const k = sheet.height / sheet.h;
+  const [x0, x1] = sheet.frames[i];
+  el.style.width = `${(x1 - x0) * k}px`;
+  el.style.backgroundPosition = `${-x0 * k}px ${-(sheet.top || 0) * k}px`;
+}
+function playBossSprite(fxList, restoreIdle){
+  return new Promise(resolve => {
+    const ring = $("#monRing");
+    const art = ring && ring.querySelector("img.boss-art");
+    if (!ring || !art){ resolve(); return; }
+    const reduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const layers = fxList.map(([cls, sheet]) => {
+      const k = sheet.height / sheet.h;
+      const el = document.createElement("div");
+      el.className = "boss-sprite " + cls;
+      el.style.cssText = `height:${(sheet.h - (sheet.top || 0)) * k}px;transform:translate(-50%,${sheet.dy}%);` +
+        `background-image:url('${sheet.src}');background-size:${sheet.w * k}px ${sheet.height}px`;
+      if (sheet.startMs) el.style.visibility = "hidden";
+      bossSpriteFrame(el, sheet, 0);
+      ring.appendChild(el);
+      return { el, sheet };
+    });
+    art.classList.add("anim-hidden");
+    const total = Math.max(...layers.map(l => l.sheet.startMs + l.sheet.frames.length * l.sheet.frameMs));
+    const start = performance.now();
+    const tick = () => {
+      const t = performance.now() - start;
+      if (t >= total){
+        layers.forEach(l => l.el.remove());
+        if (restoreIdle) art.classList.remove("anim-hidden");
+        resolve();
+        return;
+      }
+      layers.forEach(l => {
+        const lt = t - l.sheet.startMs;
+        const n = l.sheet.frames.length;
+        // 每一層播完最後一幀就收掉；還沒輪到的層先藏著
+        l.el.style.visibility = (lt < 0 || lt >= n * l.sheet.frameMs) ? "hidden" : "visible";
+        if (lt >= 0 && !reduced) bossSpriteFrame(l.el, l.sheet, Math.min(n - 1, Math.floor(lt / l.sheet.frameMs)));
+      });
+      // 用 setTimeout 而不是 requestAnimationFrame：分頁被切到背景時 rAF 會暫停，動畫的 Promise 就會卡住
+      setTimeout(tick, 30);
+    };
+    tick();
+  });
+}
+function playBossHurt(){
+  return playBossSprite([["boss-hurt-fx", BOSS_HURT_SHEET]], true);
+}
+function playBossDefeat(){
+  // 死亡動畫與紫色煙霧消散特效同步播放，播完 Boss 保持隱藏
+  return playBossSprite([["boss-defeat-fx", BOSS_DEFEAT_SHEET], ["boss-defeat-smoke", BOSS_SMOKE_SHEET]], false);
 }
 
 function renderBossStage(promptHtml){
@@ -35,7 +107,7 @@ function renderBossStage(promptHtml){
       <button class="ghost" id="quit">結束</button>
       <div style="flex:1;text-align:center">
         <span class="badge boss-badge" style="background:var(--bad);color:#fff">BOSS</span>
-        <div style="font-size:20px;letter-spacing:2px;margin-top:2px">${bossHeartsStr(S.bossHp)}</div>
+        <div id="bossHearts" style="font-size:20px;letter-spacing:2px;margin-top:2px">${bossHeartsStr(S.bossHp)}</div>
       </div>
       <div class="pts">回合 <b>${S.bossRoundResults.length + 1}</b></div>
     </header>
@@ -79,17 +151,20 @@ async function applyBossRoundOutcome(pass, roundRecord){
   if (pass){
     S.bossHp = Math.max(0, S.bossHp - 1);
     const defeated = S.bossHp <= 0;
+    // 主角攻擊＋攻擊特效 → Boss 受擊動畫 → 愛心 -1 → 還有血就回 idle，沒血就播死亡＋消散
     await playHeroAttack(roundRecord.kind === "answer" ? "magic" : "normal");
     if (tk !== S.token) return null;
-    await playMonsterHit();
-    if (tk !== S.token) return null;
     vibrate(defeated ? [40, 60, 40, 60, 120] : 45);
+    await playBossHurt();
+    if (tk !== S.token) return null;
+    const hearts = $("#bossHearts");
+    if (hearts) hearts.textContent = bossHeartsStr(S.bossHp);
     if (defeated){
-      await playMonsterVanish();
+      await playBossDefeat();
       if (tk !== S.token) return null;
+      const ring = $("#monRing");
+      if (ring){ ring.classList.remove("hit", "counter"); ring.classList.add("down"); }
     }
-    const ring = $("#monRing");
-    if (ring){ ring.classList.remove("hit", "counter", "down"); void ring.offsetWidth; ring.classList.add(defeated ? "down" : "hit"); }
     return { defeated };
   }
   const ring = $("#monRing");
