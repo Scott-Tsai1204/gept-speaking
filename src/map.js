@@ -167,6 +167,7 @@ function renderPathMap(){
 
 function startPathNode(ni){
   const node = PATH_NODES[ni];
+  if (node.final) return startBossBattle(ni); // FINAL BOSS：多回合英語戰（見 src/boss.js），不是一般的複誦戰
   if (node.type === "repeat") return startPathBattle(ni);
   if (node.type === "read") return startReadNode(ni);
   if (node.type === "answer"){ S.viaPath = ni; return startAnswerChallenge(); }
