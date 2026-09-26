@@ -11,6 +11,7 @@
    ===================================================================== */
 const BOSS_HP_MAX = 5;
 const BOSS_ROUND_TYPES = ["repeat", "read", "answer"];
+const BOSS_IDLE_SRC = "assets/characters/boss/boss_idle.png";
 
 function bossHeartsStr(hp){
   return "❤️".repeat(Math.max(0, hp)) + "🤍".repeat(Math.max(0, BOSS_HP_MAX - hp));
@@ -40,7 +41,7 @@ function renderBossStage(promptHtml){
     </header>
     <section class="stage">
       <div class="arena">
-        <div class="mon-ring boss final" id="monRing"><span id="monEmoji">${node.emoji}</span></div>
+        <div class="mon-ring boss final boss-portrait" id="monRing"><img class="boss-art" src="${BOSS_IDLE_SRC}" alt="${esc(node.name)}"></div>
         <div class="mon-name">${esc(node.name)} <span class="badge boss-badge">BOSS</span></div>
       </div>
       <h2 id="status" aria-live="polite"></h2>
