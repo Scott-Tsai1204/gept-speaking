@@ -102,7 +102,8 @@ const ZONE_ART = [
   { img: "assets/maps/zone3-forest.png", nodes: [{ ni: 2, x: 50, y: 55 }] },
   { img: "assets/maps/zone4-river-valley.png", nodes: [{ ni: 3, x: 58, y: 46 }] },
   { img: "assets/maps/zone5-mountain-valley.png", nodes: [{ ni: 4, x: 60, y: 50 }] },
-  { img: "assets/maps/zone6-volcano.png", nodes: [{ ni: 5, x: 48, y: 68 }] }
+  { img: "assets/maps/zone6-volcano.png", nodes: [{ ni: 5, x: 48, y: 68 }] },
+  { img: "assets/maps/zone7-snow-mountain.png", nodes: [{ ni: 6, x: 58, y: 50 }] }
 ];
 
 function renderPathMap(){
