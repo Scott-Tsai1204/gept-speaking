@@ -94,8 +94,11 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--cobalt);outline
 .path-node-label{position:absolute;transform:translate(-50%,30px);font-size:11px;color:var(--mute);white-space:nowrap;text-align:center;pointer-events:none}
 .path-avatar{position:absolute;transform:translate(-65%,-135%);width:52px;animation:avatarBob 1.6s ease-in-out infinite;pointer-events:none;filter:drop-shadow(0 3px 4px rgba(20,33,61,.45))}
 .path-avatar img{display:block;width:100%;height:auto}
+.path-avatar .hero-walk{width:52px;height:75px;overflow:hidden;position:relative}
+.path-avatar .hero-walk img{position:absolute;top:0;left:0;width:260px;height:75px;max-width:none;animation:heroWalkCycle .8s steps(5) infinite}
 @keyframes avatarBob{0%,100%{transform:translate(-65%,-135%)}50%{transform:translate(-65%,-147%)}}
-@media (prefers-reduced-motion:reduce){.path-node,.path-node:not(.locked),.path-node.boss:not(.locked),.path-node.final:not(.locked),.path-node.current::after,.path-avatar{animation:none!important}}
+@keyframes heroWalkCycle{from{transform:translateX(0)}to{transform:translateX(-260px)}}
+@media (prefers-reduced-motion:reduce){.path-node,.path-node:not(.locked),.path-node.boss:not(.locked),.path-node.final:not(.locked),.path-node.current::after,.path-avatar,.path-avatar .hero-walk img{animation:none!important}}
 .passage-box{font-size:17px;line-height:1.6;text-align:left;background:var(--card);border-radius:16px;padding:16px;width:100%;box-shadow:0 1px 0 var(--line)}
 
 /* battle arena */

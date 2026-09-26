@@ -96,6 +96,10 @@ function pathCurveD(pts){
 // 陣列順序＝旅程順序（Zone 1 最先出發），但畫面上「下面＝起點、上面＝終點」，
 // 所以渲染時會整個反過來疊（見 renderPathMap 裡的 [...ZONE_ART].reverse()）。
 // 之後每加一張分區美術，就在這裡多補一個 { img, nodes:[{ ni, x, y }] }（x/y 是該張圖裡的百分比位置）。
+const HERO_IDLE_SRC = "assets/characters/hero/hero_idle.png";
+const HERO_WALK_SRC = "assets/characters/hero/hero_walk.png";
+const HERO_WALK_MS = 900; // 進地圖時先播一小段行走動畫，抵達後定格待機
+
 const ZONE_ART = [
   { img: "assets/maps/zone1-meadow.png", nodes: [{ ni: 0, x: 53, y: 91 }] },
   { img: "assets/maps/zone2-village.png", nodes: [{ ni: 1, x: 50, y: 45 }] },
@@ -125,7 +129,7 @@ function renderPathMap(){
         ${node.boss && unlocked ? '<span class="badge boss-badge" style="position:absolute;top:-10px;left:50%;transform:translateX(-50%)">BOSS</span>' : ""}
       </button>
       <div class="path-node-label" style="left:${x}%;top:${y}%">${esc(node.name)}</div>
-      ${ni === currentIndex ? `<div class="path-avatar" id="pathAvatar" style="left:${x}%;top:${y}%"><img src="assets/characters/hero/hero_idle.png" alt="主角"></div>` : ""}`;
+      ${ni === currentIndex ? `<div class="path-avatar walking" id="pathAvatar" style="left:${x}%;top:${y}%"><div class="hero-walk"><img src="${HERO_WALK_SRC}" alt="主角"></div></div>` : ""}`;
     }).join("");
     return `<div class="zone-wrap"><img src="${zone.img}" class="zone-bg" alt=""> ${nodesHtml}</div>`;
   }).join("");
@@ -145,7 +149,20 @@ function renderPathMap(){
     btn.onclick = () => startPathNode(+btn.dataset.ni);
   });
   const avatar = $("#pathAvatar");
-  if (avatar) avatar.scrollIntoView({ block: "center" });
+  if (avatar){
+    avatar.scrollIntoView({ block: "center" });
+    const reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion){
+      avatar.classList.remove("walking");
+      avatar.innerHTML = `<img src="${HERO_IDLE_SRC}" alt="主角">`;
+    } else {
+      setTimeout(() => {
+        if (!avatar.isConnected) return;
+        avatar.classList.remove("walking");
+        avatar.innerHTML = `<img src="${HERO_IDLE_SRC}" alt="主角">`;
+      }, HERO_WALK_MS);
+    }
+  }
 }
 
 function startPathNode(ni){
