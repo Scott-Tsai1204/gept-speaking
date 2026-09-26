@@ -1,20 +1,31 @@
 "use strict";
 /* ===== 怪獸長廊（怪獸圖鑑） ===== */
-// 長廊 12 隻的立繪，依 MONSTERS 的順序對應（只換顯示用的圖，不動 MONSTERS 資料）
+// 長廊 12 隻的立繪，依 MONSTERS 的順序對應（只換顯示用的圖，不動 MONSTERS 資料）。
+// 名稱以程式裡的正式名稱為準；還沒有符合名稱的素材就留 null，先顯示原本 emoji，等新素材到齊再補。
 const CORRIDOR_ART = [
-  "monster_01_green_slime", "monster_02_meadow_rabbit", "monster_03_bandit_cat", "monster_04_mushroom",
-  "monster_05_forest_fox", "monster_06_tree_spirit", "monster_07_water_slime", "monster_08_river_frog",
-  "monster_09_mountain_goat", "monster_10_rock_guardian", "monster_11_fire_slime", "monster_12_lava_golem"
-].map(f => `assets/monsters/common/${f}.png`);
+  "monster_01_green_slime",   // 01 哈欠史萊姆
+  "monster_02_meadow_rabbit", // 02 迷路小兔
+  "monster_03_bandit_cat",    // 03 貪睡貓怪（暫用）
+  null,                       // 04 風暴衛兵
+  null,                       // 05 時鐘怪
+  "monster_06_mist_ghost",    // 06 迷霧幽靈（跟闖關地圖同一張）
+  null,                       // 07 急驚風
+  null,                       // 08 石巨人
+  null,                       // 09 深海海龍
+  null,                       // 10 影子刺客
+  null,                       // 11 雷霆鷹
+  null                        // 12 終極魔王
+].map(f => f && `assets/monsters/common/${f}.png`);
 // 「已發現」沿用既有的長廊解鎖規則（isMonsterUnlocked + gept_progress_v2），不另外存一份
 function monsterCardHtml(mi, mon, progress, isCurrent, delay){
   const unlocked = isMonsterUnlocked(mi, progress);
   const stars = progress[mi];
   const cls = ["mon-card", mon.boss ? "boss" : "", mon.final ? "final" : "", unlocked ? "" : "locked", isCurrent ? "current" : ""].filter(Boolean).join(" ");
-  // 未發現：只給深色剪影＋鎖頭，不顯示完整圖片與名字
+  // 未發現：只給深色剪影（沒有立繪的只給鎖頭），不顯示完整圖片與名字
+  const src = CORRIDOR_ART[mi];
   const art = unlocked
-    ? `<img class="mon-card-art" src="${CORRIDOR_ART[mi]}" alt="">`
-    : `<img class="mon-card-art silhouette" src="${CORRIDOR_ART[mi]}" alt=""><span class="mon-lock">🔒</span>`;
+    ? (src ? `<img class="mon-card-art" src="${src}" alt="">` : `<span class="mon-card-emoji">${mon.emoji}</span>`)
+    : `${src ? `<img class="mon-card-art silhouette" src="${src}" alt="">` : ""}<span class="mon-lock">🔒</span>`;
   const sub = !unlocked ? "尚未發現" : (stars > 0 ? starsStr(stars) : (mon.final ? "終極魔王 · HP " + mon.hp : mon.boss ? "首領戰 · HP " + mon.hp : "HP " + mon.hp));
   const no = String(mi + 1).padStart(2, "0");
   return `<button class="${cls}" data-mi="${mi}" style="animation-delay:${delay}s" ${unlocked ? "" : "disabled"} aria-label="No.${no} ${unlocked ? esc(mon.name) : "尚未發現"}">
