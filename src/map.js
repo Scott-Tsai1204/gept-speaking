@@ -93,10 +93,12 @@ function pathCurveD(pts){
   return d;
 }
 // 手動校正的節點座標：對應真的美術圖裡實際畫出來的小徑位置（不是公式生成）。
-// 目前只有 Zone 1（青青草原）有正式美術，所以只有 index 0 這個節點有座標；
-// 之後每加一張分區美術，就在這裡多補一組 { ni, x, y }（x/y 是該張圖裡的百分比位置）。
+// 陣列順序＝旅程順序（Zone 1 最先出發），但畫面上「下面＝起點、上面＝終點」，
+// 所以渲染時會整個反過來疊（見 renderPathMap 裡的 [...ZONE_ART].reverse()）。
+// 之後每加一張分區美術，就在這裡多補一個 { img, nodes:[{ ni, x, y }] }（x/y 是該張圖裡的百分比位置）。
 const ZONE_ART = [
-  { img: "assets/maps/zone1-meadow.png", nodes: [{ ni: 0, x: 53, y: 91 }] }
+  { img: "assets/maps/zone1-meadow.png", nodes: [{ ni: 0, x: 53, y: 91 }] },
+  { img: "assets/maps/zone2-village.png", nodes: [{ ni: 1, x: 50, y: 45 }] }
 ];
 
 function renderPathMap(){
@@ -104,7 +106,7 @@ function renderPathMap(){
   const progress = loadPathProgress();
   const currentIndex = PATH_NODES.findIndex((_, ni) => isPathNodeUnlocked(ni, progress) && progress[ni] < 3);
 
-  const zonesHtml = ZONE_ART.map(zone => {
+  const zonesHtml = [...ZONE_ART].reverse().map(zone => {
     const nodesHtml = zone.nodes.map(({ ni, x, y }) => {
       const node = PATH_NODES[ni];
       const unlocked = isPathNodeUnlocked(ni, progress);
@@ -129,8 +131,8 @@ function renderPathMap(){
       <div class="pts">⭐ <b>${totalStars(progress)}</b></div>
     </header>
     <section class="map">
+      <p class="muted" style="text-align:center;padding:0 0 16px">再往上還有更多區域製作中…</p>
       ${zonesHtml}
-      <p class="muted" style="text-align:center;padding:16px 0">後續區域製作中，敬請期待…</p>
     </section>`;
   $("#toStart").onclick = renderStart;
   app.querySelectorAll(".path-node").forEach(btn => {
