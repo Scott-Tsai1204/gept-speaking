@@ -86,6 +86,22 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--cobalt);outline
 .map-world{position:relative;display:flex;flex-direction:column;line-height:0}
 .zone-wrap{position:relative;width:100%;margin:0;line-height:0}
 .zone-bg{display:block;width:100%;height:auto}
+/* 相鄰分區重疊漸變：下方分區往上疊 --zone-overlap，頂部用波浪狀的柔邊遮罩淡入，上方分區維持不透明墊底，
+   所以不會透出頁面底色；zone-wrap 的高度仍等於圖片高度，只是用負 margin 往上疊 */
+.map-world{--zone-overlap:clamp(120px,36vw,180px);
+  --zone-seam:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='100'%3E%3Cstop offset='0' stop-opacity='0'/%3E%3Cstop offset='.5' stop-opacity='.55'/%3E%3Cstop offset='1' stop-opacity='1'/%3E%3C/linearGradient%3E%3Cfilter id='b' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='5'/%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M-20,32 C0,12 18,48 38,30 S68,6 86,28 S112,34 120,24 L120,140 L-20,140 Z' fill='url(%23g)' filter='url(%23b)'/%3E%3C/svg%3E")}
+.zone-wrap[data-zone="5"],.zone-wrap[data-zone="6"]{--zone-overlap:clamp(150px,42vw,180px)}
+.zone-wrap+.zone-wrap{margin-top:calc(-1 * var(--zone-overlap))}
+.zone-wrap+.zone-wrap>.zone-bg{
+  -webkit-mask-image:var(--zone-seam),linear-gradient(#000,#000);mask-image:var(--zone-seam),linear-gradient(#000,#000);
+  -webkit-mask-size:100% calc(var(--zone-overlap) + 2px),100% calc(100% - var(--zone-overlap));mask-size:100% calc(var(--zone-overlap) + 2px),100% calc(100% - var(--zone-overlap));
+  -webkit-mask-position:0 0,0 100%;mask-position:0 0,0 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+/* 高山→火山（Zone 5 頂端）先暖化、火山→雪山（Zone 6 頂端）先降溫，讓色調逐漸過渡而不是瞬間換色 */
+.zone-wrap[data-zone="5"]::after,.zone-wrap[data-zone="6"]::after{content:"";position:absolute;left:0;right:0;top:0;height:calc(var(--zone-overlap) * 1.9);pointer-events:none;z-index:1;mix-blend-mode:soft-light}
+.zone-wrap[data-zone="5"]::after{background:linear-gradient(to bottom,rgba(255,96,32,.75),rgba(255,130,60,.45) 40%,rgba(255,160,90,0))}
+.zone-wrap[data-zone="6"]::after{background:linear-gradient(to bottom,rgba(90,140,255,.8),rgba(140,180,255,.45) 40%,rgba(160,200,255,0))}
+/* 節點／名稱／主角永遠在分區圖與漸變層之上 */
+.path-node,.path-node-label,.path-avatar{z-index:3}
 .path-node{position:absolute;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:var(--card);border:3px solid var(--line);display:grid;place-items:center;font-size:26px;padding:0;animation:cardIn .45s cubic-bezier(.16,1,.3,1) both;box-shadow:0 2px 8px rgba(20,33,61,.35)}
 .path-node.locked{opacity:.5}
 .path-node.boss{border-color:var(--marigold)}

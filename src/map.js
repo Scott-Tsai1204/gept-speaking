@@ -131,7 +131,8 @@ function renderPathMap(){
       <div class="path-node-label" style="left:${x}%;top:${y}%">${esc(node.name)}</div>
       ${ni === currentIndex ? `<div class="path-avatar walking" id="pathAvatar" style="left:${x}%;top:${y}%"><div class="hero-walk"><img src="${HERO_WALK_SRC}" alt="主角"></div></div>` : ""}`;
     }).join("");
-    return `<div class="zone-wrap"><img src="${zone.img}" class="zone-bg" alt=""> ${nodesHtml}</div>`;
+    // data-zone 給 CSS 做相鄰分區的重疊漸變用（見 index.html 的 .zone-wrap 規則）
+    return `<div class="zone-wrap" data-zone="${ZONE_ART.indexOf(zone) + 1}"><img src="${zone.img}" class="zone-bg" alt=""> ${nodesHtml}</div>`;
   }).join("");
 
   app.innerHTML = `
