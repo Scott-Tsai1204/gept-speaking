@@ -100,6 +100,18 @@ const HERO_IDLE_SRC = "assets/characters/hero/hero_idle.png";
 const HERO_WALK_SRC = "assets/characters/hero/hero_walk.png";
 const HERO_WALK_MS = 900; // 進地圖時先播一小段行走動畫，抵達後定格待機
 
+// 闖關地圖上怪物的正式立繪：用 PATH_NODES 的索引對應，只換顯示用的圖，不動節點資料。
+// 沒列在這裡的節點（迷霧幽靈、貓頭鷹、老師…）維持原本 emoji；怪獸長廊不套用。
+const PATH_MONSTER_ART = {
+  0: "assets/monsters/common/monster_01_green_slime.png",  // 哈欠史萊姆
+  3: "assets/monsters/common/monster_02_meadow_rabbit.png" // 迷路小兔
+};
+// 戰鬥畫面用：只有「從闖關地圖進來、而且正在打那個節點」時才回傳立繪
+function currentPathMonsterArt(){
+  if (S.viaPath == null || S.monster !== PATH_NODES[S.viaPath]) return null;
+  return PATH_MONSTER_ART[S.viaPath] || null;
+}
+
 const ZONE_ART = [
   { img: "assets/maps/zone1-meadow.webp", nodes: [{ ni: 0, x: 53, y: 91 }] },
   { img: "assets/maps/zone2-village.webp", nodes: [{ ni: 1, x: 50, y: 45 }] },
@@ -122,7 +134,8 @@ function renderPathMap(){
       const unlocked = isPathNodeUnlocked(ni, progress);
       const stars = progress[ni];
       const cls = ["path-node", node.boss ? "boss" : "", node.final ? "final" : "", unlocked ? "" : "locked", ni === currentIndex ? "current" : ""].filter(Boolean).join(" ");
-      const icon = unlocked ? node.emoji : "🔒";
+      const art = PATH_MONSTER_ART[ni];
+      const icon = !unlocked ? "🔒" : art ? `<img class="path-node-art" src="${art}" alt="">` : node.emoji;
       const sub = !unlocked ? "尚未解鎖" : (stars > 0 ? starsStr(stars) : PATH_TYPE_SUB[node.type](node.hp));
       return `<button class="${cls}" style="left:${x}%;top:${y}%" data-ni="${ni}" ${unlocked ? "" : "disabled"} aria-label="${esc(node.name)}：${esc(sub)}">
         <span class="path-node-ic">${icon}</span>

@@ -6,6 +6,7 @@ function renderQuestion(){
   const remaining = Math.max(0, S.hp - passedCount);
   const hpPct = Math.round(remaining / S.hp * 100);
   const mon = S.monster;
+  const monArt = currentPathMonsterArt(); // 闖關地圖怪物有正式立繪就用圖，否則維持 emoji（見 map.js）
   app.innerHTML = `
     <header class="top">
       <button class="ghost" id="quit">結束</button>
@@ -14,7 +15,7 @@ function renderQuestion(){
     </header>
     <section class="stage">
       <div class="arena">
-        <div class="mon-ring ${mon.boss ? "boss" : ""} ${mon.final ? "final" : ""}" id="monRing"><span id="monEmoji">${mon.emoji}</span></div>
+        <div class="mon-ring ${mon.boss ? "boss" : ""} ${mon.final ? "final" : ""}" id="monRing"><span id="monEmoji">${monArt ? `<img class="mon-art" src="${monArt}" alt="${esc(mon.name)}">` : mon.emoji}</span></div>
         <div class="mon-name">${esc(mon.name)}${mon.boss ? ' <span class="badge boss-badge">BOSS</span>' : ""}</div>
         <div class="hp-wrap"><div class="hp-bar-bg"><div class="hp-bar-fill ${hpPct <= 30 ? "low" : ""}" id="hpFill" style="width:${hpPct}%"></div></div></div>
       </div>
