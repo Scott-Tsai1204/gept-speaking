@@ -308,8 +308,8 @@ function loadPathProgress(){
   return PATH_NODES.map(() => 0);
 }
 function savePathProgress(p){ try { localStorage.setItem("gept_progress_path_v1", JSON.stringify(p)); } catch(_) {} }
-// 測試用：網址帶 ?unlockAll 時，闖關地圖與怪獸長廊全部開放（不改存檔、不影響一般網址）
-const TEST_UNLOCK_ALL = /[?&]unlockAll(=|&|$)/.test(location.search);
+// 測試用：網址帶 ?unlockAll（不分大小寫）時，闖關地圖與怪獸長廊全部開放（不改存檔、不影響一般網址）
+const TEST_UNLOCK_ALL = /[?&]unlockall(=|&|$)/i.test(location.search);
 function isPathNodeUnlocked(ni, progress){ return TEST_UNLOCK_ALL || ni === 0 || progress[ni - 1] > 0; }
 function isMonsterUnlocked(mi, progress){ return TEST_UNLOCK_ALL || mi === 0 || progress[mi - 1] > 0; }
 function starsFromPassed(passed, hp){
