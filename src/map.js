@@ -99,7 +99,8 @@ function pathCurveD(pts){
 const ZONE_ART = [
   { img: "assets/maps/zone1-meadow.png", nodes: [{ ni: 0, x: 53, y: 91 }] },
   { img: "assets/maps/zone2-village.png", nodes: [{ ni: 1, x: 50, y: 45 }] },
-  { img: "assets/maps/zone3-forest.png", nodes: [{ ni: 2, x: 50, y: 55 }] }
+  { img: "assets/maps/zone3-forest.png", nodes: [{ ni: 2, x: 50, y: 55 }] },
+  { img: "assets/maps/zone4-river-valley.png", nodes: [{ ni: 3, x: 58, y: 46 }] }
 ];
 
 function renderPathMap(){
