@@ -101,10 +101,11 @@ const HERO_WALK_SRC = "assets/characters/hero/hero_walk.png";
 const HERO_WALK_MS = 900; // 進地圖時先播一小段行走動畫，抵達後定格待機
 
 // 闖關地圖上怪物的正式立繪：用 PATH_NODES 的索引對應，只換顯示用的圖，不動節點資料。
-// 沒列在這裡的節點（迷霧幽靈、貓頭鷹、老師…）維持原本 emoji；怪獸長廊不套用。
+// 沒列在這裡的節點（貓頭鷹、老師…）維持原本 emoji；怪獸長廊不套用。
 const PATH_MONSTER_ART = {
-  0: "assets/monsters/common/monster_01_green_slime.png",  // 哈欠史萊姆
-  3: "assets/monsters/common/monster_02_meadow_rabbit.png" // 迷路小兔
+  0: "assets/monsters/common/monster_01_green_slime.png",   // 哈欠史萊姆
+  3: "assets/monsters/common/monster_02_meadow_rabbit.png", // 迷路小兔
+  6: "assets/monsters/common/monster_06_mist_ghost.png"     // 迷霧幽靈（512 畫布留白較多，CSS 另外放大，見 index.html）
 };
 // 戰鬥畫面用：只有「從闖關地圖進來、而且正在打那個節點」時才回傳立繪
 function currentPathMonsterArt(){
