@@ -1,14 +1,28 @@
 "use strict";
-/* ===== 怪獸長廊（地圖） ===== */
+/* ===== 怪獸長廊（怪獸圖鑑） ===== */
+// 長廊 12 隻的立繪，依 MONSTERS 的順序對應（只換顯示用的圖，不動 MONSTERS 資料）
+const CORRIDOR_ART = [
+  "monster_01_green_slime", "monster_02_meadow_rabbit", "monster_03_bandit_cat", "monster_04_mushroom",
+  "monster_05_forest_fox", "monster_06_tree_spirit", "monster_07_water_slime", "monster_08_river_frog",
+  "monster_09_mountain_goat", "monster_10_rock_guardian", "monster_11_fire_slime", "monster_12_lava_golem"
+].map(f => `assets/monsters/common/${f}.png`);
+// 「已發現」沿用既有的長廊解鎖規則（isMonsterUnlocked + gept_progress_v2），不另外存一份
 function monsterCardHtml(mi, mon, progress, isCurrent, delay){
   const unlocked = isMonsterUnlocked(mi, progress);
   const stars = progress[mi];
   const cls = ["mon-card", mon.boss ? "boss" : "", mon.final ? "final" : "", unlocked ? "" : "locked", isCurrent ? "current" : ""].filter(Boolean).join(" ");
-  const icon = unlocked ? mon.emoji : "🔒";
-  const sub = !unlocked ? "尚未解鎖" : (stars > 0 ? starsStr(stars) : (mon.final ? "終極魔王 · HP " + mon.hp : mon.boss ? "首領戰 · HP " + mon.hp : "HP " + mon.hp));
-  return `<button class="${cls}" data-mi="${mi}" style="animation-delay:${delay}s" ${unlocked ? "" : "disabled"}>
-    <span class="mon-ic">${icon}</span>
-    <span class="mon-info"><span class="mon-name">${esc(mon.name)}</span><span class="mon-sub">${sub}</span></span>
+  // 未發現：只給深色剪影＋鎖頭，不顯示完整圖片與名字
+  const art = unlocked
+    ? `<img class="mon-card-art" src="${CORRIDOR_ART[mi]}" alt="">`
+    : `<img class="mon-card-art silhouette" src="${CORRIDOR_ART[mi]}" alt=""><span class="mon-lock">🔒</span>`;
+  const sub = !unlocked ? "尚未發現" : (stars > 0 ? starsStr(stars) : (mon.final ? "終極魔王 · HP " + mon.hp : mon.boss ? "首領戰 · HP " + mon.hp : "HP " + mon.hp));
+  const no = String(mi + 1).padStart(2, "0");
+  return `<button class="${cls}" data-mi="${mi}" style="animation-delay:${delay}s" ${unlocked ? "" : "disabled"} aria-label="No.${no} ${unlocked ? esc(mon.name) : "尚未發現"}">
+    <span class="mon-no">No.${no}</span>
+    ${unlocked && stars > 0 ? '<span class="mon-check" aria-hidden="true">✓</span>' : ""}
+    <span class="mon-ic">${art}</span>
+    <span class="mon-name">${unlocked ? esc(mon.name) : "？？？？"}</span>
+    <span class="mon-sub">${sub}</span>
     ${mon.boss && unlocked ? '<span class="badge boss-badge">BOSS</span>' : ""}
   </button>`;
 }
@@ -31,15 +45,19 @@ function renderMap(){
   const progress = loadProgress();
   const missedCount = reviewPoolList().length;
   const currentIndex = MONSTERS.findIndex((_, mi) => isMonsterUnlocked(mi, progress) && progress[mi] < 3);
+  const found = MONSTERS.filter((_, mi) => isMonsterUnlocked(mi, progress)).length;
   app.innerHTML = `
     <header class="top">
       <button class="ghost" id="toStart">設定</button>
-      <h1 style="flex:1;font-size:20px;margin:0;text-align:center">怪獸長廊</h1>
+      <h1 style="flex:1;font-size:20px;margin:0;text-align:center">🏰 怪獸長廊</h1>
       <div class="pts">⭐ <b>${totalStars(progress)}</b></div>
     </header>
     <section class="map">
       ${answerCardHtml(0)}
-      ${MONSTERS.map((m, mi) => monsterCardHtml(mi, m, progress, mi === currentIndex, (mi + 1) * 0.045)).join("")}
+      <p class="corridor-count">已發現 <b>${found}</b> / ${MONSTERS.length} 隻怪獸</p>
+      <div class="corridor-grid">
+        ${MONSTERS.map((m, mi) => monsterCardHtml(mi, m, progress, mi === currentIndex, (mi + 1) * 0.045)).join("")}
+      </div>
       ${reviewCardHtml(missedCount, (MONSTERS.length + 1) * 0.045)}
     </section>`;
   $("#toStart").onclick = renderStart;
