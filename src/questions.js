@@ -92,6 +92,7 @@ async function runAnswerQuestion(){
   evaluateAnswer(item, r);
 }
 async function evaluateAnswer(item, r){
+  const tk = S.token;
   const hardFail = r.error && HARD_ERR.includes(r.error);
   if (hardFail){
     setState("idle", "無法錄音", "");
@@ -134,10 +135,14 @@ async function evaluateAnswer(item, r){
   }
 
   const first = !S.results[S.i];
+  const pass = data.score >= PASS_LINE;
   if (first){
-    const pass = data.score >= PASS_LINE;
     S.combo = pass ? S.combo + 1 : 0;
     S.results[S.i] = { q: item.q, type: item.type, answer: r.text, score: data.score, feedback: data.feedback || "" };
+  }
+  if (first && pass){
+    await playHeroAttack("magic");
+    if (tk !== S.token) return;
   }
   setState("idle", data.score >= PASS_LINE ? "回答得很好" : "可以再更完整一點", "");
   const last = S.i === S.round.length - 1;

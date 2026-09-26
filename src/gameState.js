@@ -192,6 +192,24 @@ function shuffle(arr){
 }
 function vibrate(pattern){ try { navigator.vibrate && navigator.vibrate(pattern); } catch(_) {} }
 
+/* ===== 答對時的主角攻擊動畫＋特效（複誦戰／朗讀關／問答挑戰共用，疊在 #monRing 上） ===== */
+const HERO_ATTACK_SRC = "assets/characters/hero/hero_attack.png";
+const HERO_ATTACK2_SRC = "assets/characters/hero/hero_attack2.png";
+const EFFECT_ATTACK_SRC = "assets/effects/effect_attack.png";
+const ATTACK_ANIM_MS = 700;
+function playHeroAttack(kind){
+  return new Promise(resolve => {
+    const ring = $("#monRing");
+    if (!ring){ resolve(); return; }
+    const heroSrc = kind === "magic" ? HERO_ATTACK2_SRC : HERO_ATTACK_SRC;
+    const wrap = document.createElement("div");
+    wrap.className = "battle-attack-fx";
+    wrap.innerHTML = `<div class="battle-hero" style="background-image:url('${heroSrc}')"></div><div class="battle-effect" style="background-image:url('${EFFECT_ATTACK_SRC}')"></div>`;
+    ring.appendChild(wrap);
+    setTimeout(() => { wrap.remove(); resolve(); }, ATTACK_ANIM_MS);
+  });
+}
+
 const S = { round: [], i: 0, score: 0, combo: 0, results: [], easy: false, token: 0, mode: null, monsterIndex: null, monster: null, hp: 0, viaPath: null };
 let voice = null, activeRec = null, wakeLock = null;
 

@@ -51,7 +51,8 @@ async function runQuestion(){
   evaluate(q, r);
 }
 
-function evaluate(q, r){
+async function evaluate(q, r){
+  const tk = S.token;
   const tw = q.split(/\s+/);
   const tokens = [];
   tw.forEach((w, wi) => tokenize(w).forEach(t => tokens.push({ t, wi })));
@@ -70,7 +71,14 @@ function evaluate(q, r){
     S.results[S.i] = { q, pct, wordOk, tw };
     bumpMissed(tw.filter((_, k) => !wordOk[k]).map(w => tokenize(w).join(" ")).filter(Boolean));
     if (pass) clearMissedSentence(q); else bumpMissedSentence(q);
+  }
 
+  if (first && pass){
+    await playHeroAttack("normal");
+    if (tk !== S.token) return;
+  }
+
+  if (first){
     const passedCount = S.results.filter(x => x && x.pct >= PASS_LINE).length;
     const remaining = Math.max(0, S.hp - passedCount);
     const hpFill = $("#hpFill");
