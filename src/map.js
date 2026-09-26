@@ -125,7 +125,7 @@ function renderPathMap(){
         ${node.boss && unlocked ? '<span class="badge boss-badge" style="position:absolute;top:-10px;left:50%;transform:translateX(-50%)">BOSS</span>' : ""}
       </button>
       <div class="path-node-label" style="left:${x}%;top:${y}%">${esc(node.name)}</div>
-      ${ni === currentIndex ? `<div class="path-avatar" id="pathAvatar" style="left:${x}%;top:${y}%">😊</div>` : ""}`;
+      ${ni === currentIndex ? `<div class="path-avatar" id="pathAvatar" style="left:${x}%;top:${y}%"><img src="assets/characters/hero/hero_idle.png" alt="主角"></div>` : ""}`;
     }).join("");
     return `<div class="zone-wrap"><img src="${zone.img}" class="zone-bg" alt=""> ${nodesHtml}</div>`;
   }).join("");
