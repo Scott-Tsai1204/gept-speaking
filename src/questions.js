@@ -143,6 +143,11 @@ async function evaluateAnswer(item, r){
   if (first && pass){
     await playHeroAttack("magic");
     if (tk !== S.token) return;
+    await playMonsterHit();
+    if (tk !== S.token) return;
+    vibrate([40, 60, 40, 60, 120]);
+    await playMonsterVanish();
+    if (tk !== S.token) return;
   }
   setState("idle", data.score >= PASS_LINE ? "回答得很好" : "可以再更完整一點", "");
   const last = S.i === S.round.length - 1;

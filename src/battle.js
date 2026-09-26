@@ -73,14 +73,23 @@ async function evaluate(q, r){
     if (pass) clearMissedSentence(q); else bumpMissedSentence(q);
   }
 
+  const passedCount = S.results.filter(x => x && x.pct >= PASS_LINE).length;
+  const remaining = Math.max(0, S.hp - passedCount);
+  const defeated = remaining <= 0;
+
   if (first && pass){
     await playHeroAttack("normal");
     if (tk !== S.token) return;
+    await playMonsterHit();
+    if (tk !== S.token) return;
+    vibrate(defeated ? [40, 60, 40, 60, 120] : 45);
+    if (defeated){
+      await playMonsterVanish();
+      if (tk !== S.token) return;
+    }
   }
 
   if (first){
-    const passedCount = S.results.filter(x => x && x.pct >= PASS_LINE).length;
-    const remaining = Math.max(0, S.hp - passedCount);
     const hpFill = $("#hpFill");
     if (hpFill){ hpFill.style.width = (remaining / S.hp * 100) + "%"; hpFill.classList.toggle("low", remaining / S.hp <= .3); }
     const ring = $("#monRing");
@@ -88,9 +97,7 @@ async function evaluate(q, r){
       ring.classList.remove("hit", "counter", "down");
       void ring.offsetWidth;
       if (pass){
-        const defeated = remaining <= 0;
         ring.classList.add(defeated ? "down" : "hit");
-        vibrate(defeated ? [40, 60, 40, 60, 120] : 45);
       } else {
         ring.classList.add("counter");
         vibrate([30, 40, 30]);

@@ -210,6 +210,37 @@ function playHeroAttack(kind){
   });
 }
 
+/* ===== 怪物受擊／消失特效（同樣疊在 #monRing 上，只有真的擊敗時才播消失） ===== */
+const EFFECT_MONSTER_HIT_SRC = "assets/effects/effect_monster_hit.png";
+const EFFECT_MONSTER_VANISH_SRC = "assets/effects/effect_monster_vanish.png";
+const MONSTER_HIT_MS = 550;
+const MONSTER_VANISH_MS = 650;
+function playMonsterHit(){
+  return new Promise(resolve => {
+    const ring = $("#monRing");
+    if (!ring){ resolve(); return; }
+    const fx = document.createElement("div");
+    fx.className = "monster-hit-fx";
+    fx.style.backgroundImage = `url('${EFFECT_MONSTER_HIT_SRC}')`;
+    ring.appendChild(fx);
+    setTimeout(() => { fx.remove(); resolve(); }, MONSTER_HIT_MS);
+  });
+}
+function playMonsterVanish(){
+  return new Promise(resolve => {
+    const ring = $("#monRing");
+    if (!ring){ resolve(); return; }
+    const icon = ring.children[0];
+    if (icon) icon.style.transition = "opacity .5s ease, transform .5s ease";
+    const fx = document.createElement("div");
+    fx.className = "monster-vanish-fx";
+    fx.style.backgroundImage = `url('${EFFECT_MONSTER_VANISH_SRC}')`;
+    ring.appendChild(fx);
+    setTimeout(() => { if (icon){ icon.style.opacity = "0"; icon.style.transform = "scale(.6)"; } }, 0);
+    setTimeout(() => { fx.remove(); resolve(); }, MONSTER_VANISH_MS);
+  });
+}
+
 const S = { round: [], i: 0, score: 0, combo: 0, results: [], easy: false, token: 0, mode: null, monsterIndex: null, monster: null, hp: 0, viaPath: null };
 let voice = null, activeRec = null, wakeLock = null;
 
