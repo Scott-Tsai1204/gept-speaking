@@ -140,8 +140,8 @@ function renderPathMap(){
       <h1 style="flex:1;font-size:20px;margin:0;text-align:center">闖關地圖</h1>
       <div class="pts">⭐ <b>${totalStars(progress)}</b></div>
     </header>
-    <section class="map">
-      ${zonesHtml}
+    <section class="map map-container">
+      <div class="map-world">${zonesHtml}</div>
     </section>`;
   $("#toStart").onclick = renderStart;
   app.querySelectorAll(".path-node").forEach(btn => {
