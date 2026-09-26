@@ -1,21 +1,22 @@
 "use strict";
 /* ===== 怪獸長廊（怪獸圖鑑） ===== */
 // 長廊 12 隻的立繪，依 MONSTERS 的順序對應（只換顯示用的圖，不動 MONSTERS 資料）。
-// 名稱以程式裡的正式名稱為準；還沒有符合名稱的素材就留 null，先顯示原本 emoji，等新素材到齊再補。
+// 名稱以程式裡的正式名稱為準；沒有符合名稱的素材就留 null，會顯示原本 emoji。
+// 超過約 200 KB 的素材轉成 WebP（保留透明、尺寸不變），小圖維持 PNG，所以這裡寫完整副檔名。
 const CORRIDOR_ART = [
-  "monster_01_green_slime",   // 01 哈欠史萊姆
-  "monster_02_meadow_rabbit", // 02 迷路小兔
-  "monster_03_bandit_cat",    // 03 貪睡貓怪（暫用）
-  null,                       // 04 風暴衛兵
-  null,                       // 05 時鐘怪
-  "monster_06_mist_ghost",    // 06 迷霧幽靈（跟闖關地圖同一張）
-  null,                       // 07 急驚風
-  null,                       // 08 石巨人
-  null,                       // 09 深海海龍
-  null,                       // 10 影子刺客
-  null,                       // 11 雷霆鷹
-  null                        // 12 終極魔王
-].map(f => f && `assets/monsters/common/${f}.png`);
+  "monster_01_green_slime.png",           // 01 哈欠史萊姆
+  "monster_02_meadow_rabbit.png",         // 02 迷路小兔
+  "monster_03_bandit_cat.png",            // 03 貪睡貓怪
+  "monster_04_storm_guardian.webp",       // 04 風暴衛兵
+  "monster_05_clock_monster.webp",        // 05 時鐘怪
+  "monster_06_mist_ghost.png",            // 06 迷霧幽靈（跟闖關地圖同一張）
+  "monster_07_wind_sprite.webp",          // 07 急驚風
+  "monster_08_stone_giant.webp",          // 08 石巨人
+  "monster_09_deep_sea_dragon.webp",      // 09 深海海龍
+  "monster_10_shadow_assassin.webp",      // 10 影子刺客
+  "monster_11_thunder_eagle.webp",        // 11 雷霆鷹
+  "monster_12_ultimate_demon_king.webp"   // 12 終極魔王（長廊的怪獸項目，跟 Zone 8 Boss 戰無關）
+].map(f => f && `assets/monsters/common/${f}`);
 // 「已發現」沿用既有的長廊解鎖規則（isMonsterUnlocked + gept_progress_v2），不另外存一份
 function monsterCardHtml(mi, mon, progress, isCurrent, delay){
   const unlocked = isMonsterUnlocked(mi, progress);
