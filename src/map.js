@@ -98,7 +98,8 @@ function pathCurveD(pts){
 // 之後每加一張分區美術，就在這裡多補一個 { img, nodes:[{ ni, x, y }] }（x/y 是該張圖裡的百分比位置）。
 const ZONE_ART = [
   { img: "assets/maps/zone1-meadow.png", nodes: [{ ni: 0, x: 53, y: 91 }] },
-  { img: "assets/maps/zone2-village.png", nodes: [{ ni: 1, x: 50, y: 45 }] }
+  { img: "assets/maps/zone2-village.png", nodes: [{ ni: 1, x: 50, y: 45 }] },
+  { img: "assets/maps/zone3-forest.png", nodes: [{ ni: 2, x: 50, y: 55 }] }
 ];
 
 function renderPathMap(){
