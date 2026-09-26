@@ -103,7 +103,8 @@ const ZONE_ART = [
   { img: "assets/maps/zone4-river-valley.png", nodes: [{ ni: 3, x: 58, y: 46 }] },
   { img: "assets/maps/zone5-mountain-valley.png", nodes: [{ ni: 4, x: 60, y: 50 }] },
   { img: "assets/maps/zone6-volcano.png", nodes: [{ ni: 5, x: 48, y: 68 }] },
-  { img: "assets/maps/zone7-snow-mountain.png", nodes: [{ ni: 6, x: 58, y: 50 }] }
+  { img: "assets/maps/zone7-snow-mountain.png", nodes: [{ ni: 6, x: 58, y: 50 }] },
+  { img: "assets/maps/zone8-boss-castle.png", nodes: [{ ni: 7, x: 50, y: 27 }] }
 ];
 
 function renderPathMap(){
@@ -136,7 +137,6 @@ function renderPathMap(){
       <div class="pts">⭐ <b>${totalStars(progress)}</b></div>
     </header>
     <section class="map">
-      <p class="muted" style="text-align:center;padding:0 0 16px">再往上還有更多區域製作中…</p>
       ${zonesHtml}
     </section>`;
   $("#toStart").onclick = renderStart;
