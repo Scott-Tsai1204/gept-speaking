@@ -241,6 +241,41 @@ function playMonsterVanish(){
   });
 }
 
+/* ===== V3 戰鬥回饋：傷害數字／COMBO／MISS（純視覺，不影響 HP 或任何判定） =====
+   都疊在 .arena 上、以 #monRing 為定位基準：-1 與 MISS 在怪物左上方往上飄（主角攻擊圖在左下，不會重疊），
+   COMBO 在右上方；放上去後如果超出螢幕就往內推，避免手機產生水平捲軸 */
+const DAMAGE_FX_MS = 900, MISS_FX_MS = 1000, COMBO_FX_MS = 1700;
+const FX_MAX_SCALE = 1.3; // 動畫過程中最大的放大倍率（見 index.html 的 fxDamage/fxMiss/fxCombo）
+function spawnBattleFx(cls, text, fx, fy, ms, centered){
+  const ring = $("#monRing");
+  const arena = ring && ring.closest(".arena");
+  if (!arena) return null;
+  const ar = arena.getBoundingClientRect(), rr = ring.getBoundingClientRect();
+  const el = document.createElement("div");
+  el.className = "battle-float " + cls;
+  el.setAttribute("aria-hidden", "true");
+  el.textContent = text;
+  const ax = rr.left - ar.left + rr.width * fx;
+  el.style.left = ax + "px";
+  el.style.top = (rr.top - ar.top + rr.height * fy) + "px";
+  arena.appendChild(el);
+  // 用不受動畫縮放影響的 offsetWidth 算「放到最大時」的左右邊界，超出畫面就往內推
+  const w = el.offsetWidth, vw = document.documentElement.clientWidth;
+  const left = ar.left + ax - (centered ? w / 2 : 0) - w * (FX_MAX_SCALE - 1) / 2;
+  const right = left + w * FX_MAX_SCALE;
+  if (right > vw - 6) el.style.marginLeft = (vw - 6 - right) + "px";
+  else if (left < 6) el.style.marginLeft = (6 - left) + "px";
+  setTimeout(() => el.remove(), ms);
+  return el;
+}
+function showDamageNumber(){ spawnBattleFx("fx-damage", "-1", -0.02, 0.22, DAMAGE_FX_MS, true); }
+function showMiss(){ spawnBattleFx("fx-miss", "MISS!", -0.14, 0.22, MISS_FX_MS, true); }
+function showCombo(n){
+  if (!(n > 0)) return;
+  document.querySelectorAll(".battle-float.fx-combo").forEach(e => e.remove());
+  spawnBattleFx("fx-combo", `COMBO ×${n}`, 0.96, 0.04, COMBO_FX_MS, false);
+}
+
 const S = { round: [], i: 0, score: 0, combo: 0, results: [], easy: false, token: 0, mode: null, monsterIndex: null, monster: null, hp: 0, viaPath: null };
 let voice = null, activeRec = null, wakeLock = null;
 

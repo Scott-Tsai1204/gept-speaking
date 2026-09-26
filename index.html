@@ -143,7 +143,17 @@ img.path-node-art[src$="monster_06_mist_ghost.png"],img.mon-art[src$="monster_06
 .passage-box{font-size:17px;line-height:1.6;text-align:left;background:var(--card);border-radius:16px;padding:16px;width:100%;box-shadow:0 1px 0 var(--line)}
 
 /* battle arena */
-.arena{display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:2px}
+.arena{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:2px}
+/* V3 戰鬥回饋（gameState.js 的 showDamageNumber/showCombo/showMiss）：純視覺、不擋點擊 */
+.battle-float{position:absolute;z-index:12;pointer-events:none;white-space:nowrap;font-family:"Lexend","Noto Sans TC",system-ui,sans-serif;font-weight:800;line-height:1}
+.fx-damage{font-size:28px;color:#FF4D5E;-webkit-text-stroke:1.5px #fff;paint-order:stroke fill;text-shadow:0 2px 6px rgba(20,33,61,.35);animation:fxDamage .9s cubic-bezier(.2,.8,.3,1) forwards}
+.fx-miss{font-size:20px;letter-spacing:1px;color:#6B7A99;-webkit-text-stroke:1px #fff;paint-order:stroke fill;text-shadow:0 2px 5px rgba(20,33,61,.25);animation:fxMiss 1s ease-out forwards}
+.fx-combo{font-size:13px;letter-spacing:.5px;color:#fff;padding:5px 10px;border-radius:999px;background:linear-gradient(180deg,#FFC94A,#F29A12);box-shadow:0 0 0 2px #fff,0 0 12px 3px rgba(255,182,39,.55),0 3px 8px rgba(20,33,61,.25);text-shadow:0 1px 1px rgba(120,60,0,.45);animation:fxCombo 1.7s ease-out forwards}
+@keyframes fxDamage{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}18%{opacity:1;transform:translate(-50%,-60%) scale(1.3)}32%{transform:translate(-50%,-70%) scale(1)}100%{opacity:0;transform:translate(-50%,-150%) scale(.95)}}
+@keyframes fxMiss{0%{opacity:0;transform:translate(-50%,-50%) scale(.7)}15%{opacity:1;transform:translate(-50%,-55%) scale(1.1) rotate(-6deg)}30%{transform:translate(-50%,-60%) scale(1) rotate(4deg)}45%{transform:translate(-50%,-65%) rotate(0)}100%{opacity:0;transform:translate(-50%,-110%)}}
+@keyframes fxCombo{0%{opacity:0;transform:scale(.6)}12%{opacity:1;transform:scale(1.18)}22%{transform:scale(1)}78%{opacity:1;transform:scale(1)}100%{opacity:0;transform:translateY(-8px) scale(.96)}}
+.fx-damage,.fx-miss{transform:translate(-50%,-50%)}
+@media (prefers-reduced-motion:reduce){.fx-damage,.fx-miss,.fx-combo{animation:none}}
 .mon-ring{position:relative;width:136px;height:136px;border-radius:50%;background:var(--card);border:3px solid var(--line);display:grid;place-items:center;font-size:58px;transition:filter .3s,opacity .3s}
 .battle-attack-fx{position:absolute;inset:0;pointer-events:none}
 .battle-hero{position:absolute;left:-4px;bottom:-4px;width:52px;height:52px;background-repeat:no-repeat;background-size:500% 100%;animation:spriteStep5 .7s steps(5) 1;filter:drop-shadow(0 2px 4px rgba(20,33,61,.4))}

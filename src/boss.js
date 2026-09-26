@@ -39,6 +39,7 @@ function startBossBattle(ni){
   S.monster = node;
   S.bossHp = BOSS_HP_MAX;
   S.bossRoundResults = [];
+  S.combo = 0; // V3 COMBO：只做視覺顯示，不影響 Boss 扣血
   // 先預載受擊／死亡素材條，第一次答對時才不會閃一下空白
   [BOSS_HURT_SRC, BOSS_DEFEAT_SRC, EFFECT_BOSS_DEFEAT_SRC].forEach(src => { new Image().src = src; });
   runBossRound();
@@ -148,14 +149,18 @@ function runBossRound(){
 async function applyBossRoundOutcome(pass, roundRecord){
   const tk = S.token;
   S.bossRoundResults.push(roundRecord);
+  S.combo = pass ? S.combo + 1 : 0;
   if (pass){
     S.bossHp = Math.max(0, S.bossHp - 1);
     const defeated = S.bossHp <= 0;
-    // 主角攻擊＋攻擊特效 → Boss 受擊動畫 → 愛心 -1 → 還有血就回 idle，沒血就播死亡＋消散
+    // 主角攻擊＋攻擊特效 → Boss 受擊動畫（同時跳 -1 與 COMBO）→ 愛心 -1 → 還有血就回 idle，沒血就播死亡＋消散
     await playHeroAttack(roundRecord.kind === "answer" ? "magic" : "normal");
     if (tk !== S.token) return null;
     vibrate(defeated ? [40, 60, 40, 60, 120] : 45);
-    await playBossHurt();
+    const hurt = playBossHurt();
+    showDamageNumber();
+    showCombo(S.combo);
+    await hurt;
     if (tk !== S.token) return null;
     const hearts = $("#bossHearts");
     if (hearts) hearts.textContent = bossHeartsStr(S.bossHp);
@@ -169,6 +174,7 @@ async function applyBossRoundOutcome(pass, roundRecord){
   }
   const ring = $("#monRing");
   if (ring){ ring.classList.remove("hit", "counter", "down"); void ring.offsetWidth; ring.classList.add("counter"); }
+  showMiss();
   vibrate([30, 40, 30]);
   return { defeated: false };
 }

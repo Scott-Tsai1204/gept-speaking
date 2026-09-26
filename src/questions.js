@@ -143,11 +143,16 @@ async function evaluateAnswer(item, r){
   if (first && pass){
     await playHeroAttack("magic");
     if (tk !== S.token) return;
-    await playMonsterHit();
+    const hit = playMonsterHit();
+    showDamageNumber(); // V3：純視覺的 -1 與 COMBO
+    showCombo(S.combo);
+    await hit;
     if (tk !== S.token) return;
     vibrate([40, 60, 40, 60, 120]);
     await playMonsterVanish();
     if (tk !== S.token) return;
+  } else if (first){
+    showMiss(); // V3：答錯只給 MISS，COMBO 已在上面歸零
   }
   setState("idle", data.score >= PASS_LINE ? "回答得很好" : "可以再更完整一點", "");
   const last = S.i === S.round.length - 1;

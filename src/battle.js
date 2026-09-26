@@ -77,12 +77,21 @@ async function evaluate(q, r){
   const passedCount = S.results.filter(x => x && x.pct >= PASS_LINE).length;
   const remaining = Math.max(0, S.hp - passedCount);
   const defeated = remaining <= 0;
+  const syncHpBar = () => {
+    const hpFill = $("#hpFill");
+    if (hpFill){ hpFill.style.width = (remaining / S.hp * 100) + "%"; hpFill.classList.toggle("low", remaining / S.hp <= .3); }
+  };
 
+  // V3 節奏：攻擊 → 受擊（同時跳 -1 與 COMBO，純視覺）→ 血條更新 → 擊敗才消失
   if (first && pass){
     await playHeroAttack("normal");
     if (tk !== S.token) return;
-    await playMonsterHit();
+    const hit = playMonsterHit();
+    showDamageNumber();
+    showCombo(S.combo);
+    await hit;
     if (tk !== S.token) return;
+    syncHpBar();
     vibrate(defeated ? [40, 60, 40, 60, 120] : 45);
     if (defeated){
       await playMonsterVanish();
@@ -91,8 +100,7 @@ async function evaluate(q, r){
   }
 
   if (first){
-    const hpFill = $("#hpFill");
-    if (hpFill){ hpFill.style.width = (remaining / S.hp * 100) + "%"; hpFill.classList.toggle("low", remaining / S.hp <= .3); }
+    syncHpBar();
     const ring = $("#monRing");
     if (ring){
       ring.classList.remove("hit", "counter", "down");
@@ -101,6 +109,7 @@ async function evaluate(q, r){
         ring.classList.add(defeated ? "down" : "hit");
       } else {
         ring.classList.add("counter");
+        showMiss(); // 答錯：不扣血、COMBO 已在上面歸零，只給 MISS 視覺回饋
         vibrate([30, 40, 30]);
       }
     }
