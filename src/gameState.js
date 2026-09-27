@@ -278,7 +278,8 @@ function showCombo(n){
 
 /* ===== 擊敗演出：被打倒的閃爍 → 原本的消散特效＋淡出 → 在怪物位置跳出 VICTORY!（留在畫面上直到離開戰鬥） ===== */
 const DEFEAT_BLINK_MS = 450;
-const VICTORY_HOLD_MS = 1100; // VICTORY! 出現後先停一下，才跳出原本的結果面板
+const STAGE_CLEAR_DELAY_MS = 450; // VICTORY! 跳出後，STAGE CLEAR! 接著出現
+const VICTORY_HOLD_MS = 1500;     // VICTORY!＋STAGE CLEAR! 一起停留，之後才跳出原本的結果面板
 async function playMonsterDefeat(){
   const ring = $("#monRing");
   const icon = ring && ring.children[0];
@@ -293,7 +294,7 @@ function showVictory(){
   const ring = $("#monRing");
   const arena = ring && ring.closest(".arena");
   if (!arena) return;
-  arena.querySelectorAll(".battle-victory").forEach(e => e.remove());
+  arena.querySelectorAll(".battle-victory, .battle-stage-clear").forEach(e => e.remove());
   const ar = arena.getBoundingClientRect(), rr = ring.getBoundingClientRect();
   const el = document.createElement("div");
   el.className = "battle-victory";
@@ -302,6 +303,16 @@ function showVictory(){
   el.style.left = (rr.left - ar.left + rr.width / 2) + "px";
   el.style.top = (rr.top - ar.top + rr.height / 2) + "px";
   arena.appendChild(el);
+  // V5：STAGE CLEAR! 小徽章接在 VICTORY! 下方（普通怪與 Boss 共用，不改呼叫端流程）
+  setTimeout(() => {
+    if (!el.isConnected) return;
+    const sc = document.createElement("div");
+    sc.className = "battle-stage-clear";
+    sc.textContent = "STAGE CLEAR!";
+    sc.style.left = el.style.left;
+    sc.style.top = (parseFloat(el.style.top) + 36) + "px";
+    arena.appendChild(sc);
+  }, STAGE_CLEAR_DELAY_MS);
 }
 
 const S = { round: [], i: 0, score: 0, combo: 0, results: [], easy: false, token: 0, mode: null, monsterIndex: null, monster: null, hp: 0, viaPath: null };

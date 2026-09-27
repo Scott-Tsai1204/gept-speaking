@@ -154,6 +154,19 @@ const ZONE_ART = [
   { img: "assets/maps/zone8-boss-castle.webp", nodes: [{ ni: 7, x: 50, y: 27 }] }
 ];
 
+// 8 個 Zone 的正式名稱（出自 art-prompts.md 各分區的標題），跨 Zone 時的區域提示用
+const ZONE_NAMES = ["青青草原", "小村莊", "神秘森林", "河谷", "山谷", "火山區", "冰雪山", "Boss 城堡"];
+const ZONE_BANNER_MS = 1600;
+function showZoneBanner(zoneNo){
+  app.querySelectorAll(".zone-banner").forEach(e => e.remove());
+  const el = document.createElement("div");
+  el.className = "zone-banner";
+  el.setAttribute("role", "status");
+  el.innerHTML = `<div class="zb-no">ZONE ${zoneNo}</div><div class="zb-name">${esc(ZONE_NAMES[zoneNo - 1] || "")}</div>`;
+  app.appendChild(el); // 放在 app 裡：離開地圖畫面時會跟著被清掉
+  setTimeout(() => el.remove(), ZONE_BANNER_MS);
+}
+
 // 主角站的節點＝依實際進度已解鎖的最前面一關（打贏第 k 關就站到第 k+1 關）。
 // 位置完全由 gept_progress_path_v1 推算，不另外存檔；刻意不看 ?unlockAll，測試模式下主角仍反映真實進度
 function pathHeroIndex(progress){
@@ -185,6 +198,7 @@ function renderPathMap(){
       return `<button class="${cls}" style="left:${x}%;top:${y}%" data-ni="${ni}" ${unlocked ? "" : "disabled"} aria-label="${esc(node.name)}：${esc(sub)}">
         <span class="path-node-ic">${icon}</span>
         ${node.boss && unlocked ? '<span class="badge boss-badge" style="position:absolute;top:-10px;left:50%;transform:translateX(-50%)">BOSS</span>' : ""}
+        ${unlocked && stars >= 3 ? '<span class="path-node-clear" aria-hidden="true">✓</span>' : ""}
       </button>
       <div class="path-node-label" style="left:${x}%;top:${y}%">${esc(node.name)}</div>
       ${ni === avatarAt ? `<div class="path-avatar walking" id="pathAvatar" style="left:${x}%;top:${y}%"><div class="hero-walk"><img src="${HERO_WALK_SRC}" alt="主角"></div></div>` : ""}`;
@@ -242,6 +256,9 @@ function walkPathHero(avatar, fromNi, toNi){
   // 先捲到起點與終點中間，整段路都看得到
   window.scrollTo(0, window.scrollY + world.getBoundingClientRect().top + (a.y + b.y) / 2 - innerHeight / 2);
   const ms = Math.round(Math.min(HERO_STEP_MAX_MS, Math.max(HERO_STEP_MIN_MS, Math.hypot(b.x - a.x, b.y - a.y) * 3)));
+  // V5：真的跨到另一個 Zone 才顯示區域提示（約在走到一半、越過交界時出現，不會停下主角）
+  const fromZone = nodeBtn(fromNi).parentElement.dataset.zone, toZone = nodeBtn(toNi).parentElement.dataset.zone;
+  if (fromZone !== toZone) setTimeout(() => { if (avatar.isConnected) showZoneBanner(+toZone); }, Math.round(ms * 0.35));
   void avatar.offsetWidth;
   avatar.style.transition = `left ${ms}ms ease-in-out, top ${ms}ms ease-in-out`;
   avatar.style.left = b.x + "px";

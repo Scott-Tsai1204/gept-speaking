@@ -139,6 +139,13 @@ img.path-node-art[src$="monster_06_mist_ghost.png"],img.mon-art[src$="monster_06
 .path-avatar .hero-walk img{position:absolute;top:0;left:0;width:260px;height:75px;max-width:none;animation:heroWalkCycle .8s steps(5) infinite}
 @keyframes avatarBob{0%,100%{transform:translate(-65%,-135%)}50%{transform:translate(-65%,-147%)}}
 @keyframes heroWalkCycle{from{transform:translateX(0)}to{transform:translateX(-260px)}}
+/* V5：3 星完成的節點右上角 ✓（仍可點擊重玩）；跨 Zone 時畫面上方的區域提示 */
+.path-node-clear{position:absolute;top:-5px;right:-5px;width:20px;height:20px;border-radius:50%;background:var(--ok);color:#fff;font-size:12px;font-weight:800;line-height:1;display:grid;place-items:center;box-shadow:0 0 0 2px #fff,0 1px 3px rgba(20,33,61,.35);pointer-events:none}
+.zone-banner{position:fixed;left:50%;top:76px;z-index:50;pointer-events:none;text-align:center;white-space:nowrap;max-width:calc(100vw - 32px);padding:8px 20px 9px;border-radius:14px;background:rgba(20,33,61,.74);color:#fff;box-shadow:0 6px 18px rgba(20,33,61,.3);transform:translateX(-50%);animation:zoneBanner 1.6s ease both}
+.zone-banner .zb-no{font-family:"Lexend",system-ui,sans-serif;font-weight:800;font-size:12px;letter-spacing:3px;color:#FFD36B}
+.zone-banner .zb-name{font-size:18px;font-weight:700;margin-top:2px}
+@keyframes zoneBanner{0%{opacity:0;transform:translate(-50%,-8px)}18%{opacity:1;transform:translate(-50%,0)}78%{opacity:1;transform:translate(-50%,0)}100%{opacity:0;transform:translate(-50%,0)}}
+@media (prefers-reduced-motion:reduce){.zone-banner{animation:none}}
 /* V4：主角沿路走到下一個節點（map.js 的 walkPathHero）——往左走時把走路圖翻面；新節點抵達時輕微發光 */
 .path-avatar.facing-left .hero-walk{transform:scaleX(-1)}
 .path-node.just-unlocked{animation:nodeUnlockGlow 1.2s ease-out 2!important}
@@ -161,9 +168,12 @@ img.path-node-art[src$="monster_06_mist_ghost.png"],img.mon-art[src$="monster_06
 .defeat-blink{animation:defeatBlink .45s steps(2,jump-none) 1}
 @keyframes defeatBlink{0%,50%{filter:brightness(2.2) saturate(.3);transform:translateX(-4px)}25%,75%,100%{filter:none;transform:translateX(4px)}}
 .battle-victory{position:absolute;z-index:13;pointer-events:none;white-space:nowrap;transform:translate(-50%,-50%);font-family:"Lexend","Noto Sans TC",system-ui,sans-serif;font-weight:800;font-size:32px;letter-spacing:1px;line-height:1;color:#FFB627;-webkit-text-stroke:2px #fff;paint-order:stroke fill;text-shadow:0 0 14px rgba(255,182,39,.65),0 3px 8px rgba(20,33,61,.3);animation:victoryPop .6s cubic-bezier(.2,1.4,.4,1) both,victoryGlow 1.8s ease-in-out .6s infinite}
+/* V5：STAGE CLEAR! 小徽章（接在 VICTORY! 下方） */
+.battle-stage-clear{position:absolute;z-index:13;pointer-events:none;white-space:nowrap;transform:translate(-50%,-50%);font-family:"Lexend","Noto Sans TC",system-ui,sans-serif;font-weight:800;font-size:14px;letter-spacing:1.5px;line-height:1;color:#fff;padding:6px 14px;border-radius:999px;background:linear-gradient(180deg,#5A86FF,#2F5BEA);box-shadow:0 0 0 2px #fff,0 4px 12px rgba(47,91,234,.4);animation:stageClearIn .45s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes stageClearIn{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
 @keyframes victoryPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
 @keyframes victoryGlow{0%,100%{text-shadow:0 0 10px rgba(255,182,39,.5),0 3px 8px rgba(20,33,61,.3)}50%{text-shadow:0 0 20px rgba(255,182,39,.9),0 3px 8px rgba(20,33,61,.3)}}
-@media (prefers-reduced-motion:reduce){.fx-damage,.fx-miss,.fx-combo,.defeat-blink,.battle-victory{animation:none}}
+@media (prefers-reduced-motion:reduce){.fx-damage,.fx-miss,.fx-combo,.defeat-blink,.battle-victory,.battle-stage-clear{animation:none}}
 .mon-ring{position:relative;width:136px;height:136px;border-radius:50%;background:var(--card);border:3px solid var(--line);display:grid;place-items:center;font-size:58px;transition:filter .3s,opacity .3s}
 .battle-attack-fx{position:absolute;inset:0;pointer-events:none}
 .battle-hero{position:absolute;left:-4px;bottom:-4px;width:52px;height:52px;background-repeat:no-repeat;background-size:500% 100%;animation:spriteStep5 .7s steps(5) 1;filter:drop-shadow(0 2px 4px rgba(20,33,61,.4))}
