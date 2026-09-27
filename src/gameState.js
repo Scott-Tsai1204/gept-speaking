@@ -46,7 +46,7 @@ const QUESTIONS = [];
 
 /* ===== 題庫載入與驗證（question_bank.json → 上面 5 個陣列） ===== */
 const QUESTION_BANK_URL = "assets/data/question_bank.json";
-const QUESTION_BANK_EXPECT = { repeat: 88, read: 8, questions: 36 }; // 本版題數，驗證用
+const QUESTION_BANK_EXPECT = { repeat: 88, read: 8, questions: 108 }; // 本版題數，驗證用（V6.0-C：問答 36 → 108）
 let questionBank = null; // 驗證通過後的原始 JSON（repeat／read／questions）
 function validateQuestionBank(bank){
   const errs = [];
