@@ -169,6 +169,10 @@ async function applyBossRoundOutcome(pass, roundRecord){
       if (tk !== S.token) return null;
       const ring = $("#monRing");
       if (ring){ ring.classList.remove("hit", "counter"); ring.classList.add("down"); }
+      // 死亡＋消散播完 → 在 Boss 位置跳出 VICTORY! 停一下，才出現原本的結果面板（之後照舊進 VICTORY 頁）
+      showVictory();
+      await sleep(VICTORY_HOLD_MS);
+      if (tk !== S.token) return null;
     }
     return { defeated };
   }

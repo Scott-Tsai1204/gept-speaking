@@ -153,7 +153,13 @@ img.path-node-art[src$="monster_06_mist_ghost.png"],img.mon-art[src$="monster_06
 @keyframes fxMiss{0%{opacity:0;transform:translate(-50%,-50%) scale(.7)}15%{opacity:1;transform:translate(-50%,-55%) scale(1.1) rotate(-6deg)}30%{transform:translate(-50%,-60%) scale(1) rotate(4deg)}45%{transform:translate(-50%,-65%) rotate(0)}100%{opacity:0;transform:translate(-50%,-110%)}}
 @keyframes fxCombo{0%{opacity:0;transform:scale(.6)}12%{opacity:1;transform:scale(1.18)}22%{transform:scale(1)}78%{opacity:1;transform:scale(1)}100%{opacity:0;transform:translateY(-8px) scale(.96)}}
 .fx-damage,.fx-miss{transform:translate(-50%,-50%)}
-@media (prefers-reduced-motion:reduce){.fx-damage,.fx-miss,.fx-combo{animation:none}}
+/* 擊敗演出（gameState.js 的 playMonsterDefeat/showVictory） */
+.defeat-blink{animation:defeatBlink .45s steps(2,jump-none) 1}
+@keyframes defeatBlink{0%,50%{filter:brightness(2.2) saturate(.3);transform:translateX(-4px)}25%,75%,100%{filter:none;transform:translateX(4px)}}
+.battle-victory{position:absolute;z-index:13;pointer-events:none;white-space:nowrap;transform:translate(-50%,-50%);font-family:"Lexend","Noto Sans TC",system-ui,sans-serif;font-weight:800;font-size:32px;letter-spacing:1px;line-height:1;color:#FFB627;-webkit-text-stroke:2px #fff;paint-order:stroke fill;text-shadow:0 0 14px rgba(255,182,39,.65),0 3px 8px rgba(20,33,61,.3);animation:victoryPop .6s cubic-bezier(.2,1.4,.4,1) both,victoryGlow 1.8s ease-in-out .6s infinite}
+@keyframes victoryPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes victoryGlow{0%,100%{text-shadow:0 0 10px rgba(255,182,39,.5),0 3px 8px rgba(20,33,61,.3)}50%{text-shadow:0 0 20px rgba(255,182,39,.9),0 3px 8px rgba(20,33,61,.3)}}
+@media (prefers-reduced-motion:reduce){.fx-damage,.fx-miss,.fx-combo,.defeat-blink,.battle-victory{animation:none}}
 .mon-ring{position:relative;width:136px;height:136px;border-radius:50%;background:var(--card);border:3px solid var(--line);display:grid;place-items:center;font-size:58px;transition:filter .3s,opacity .3s}
 .battle-attack-fx{position:absolute;inset:0;pointer-events:none}
 .battle-hero{position:absolute;left:-4px;bottom:-4px;width:52px;height:52px;background-repeat:no-repeat;background-size:500% 100%;animation:spriteStep5 .7s steps(5) 1;filter:drop-shadow(0 2px 4px rgba(20,33,61,.4))}

@@ -276,6 +276,34 @@ function showCombo(n){
   spawnBattleFx("fx-combo", `COMBO ×${n}`, 0.96, 0.04, COMBO_FX_MS, false);
 }
 
+/* ===== 擊敗演出：被打倒的閃爍 → 原本的消散特效＋淡出 → 在怪物位置跳出 VICTORY!（留在畫面上直到離開戰鬥） ===== */
+const DEFEAT_BLINK_MS = 450;
+const VICTORY_HOLD_MS = 1100; // VICTORY! 出現後先停一下，才跳出原本的結果面板
+async function playMonsterDefeat(){
+  const ring = $("#monRing");
+  const icon = ring && ring.children[0];
+  if (icon){
+    icon.classList.add("defeat-blink");
+    await sleep(DEFEAT_BLINK_MS);
+    icon.classList.remove("defeat-blink");
+  }
+  await playMonsterVanish();
+}
+function showVictory(){
+  const ring = $("#monRing");
+  const arena = ring && ring.closest(".arena");
+  if (!arena) return;
+  arena.querySelectorAll(".battle-victory").forEach(e => e.remove());
+  const ar = arena.getBoundingClientRect(), rr = ring.getBoundingClientRect();
+  const el = document.createElement("div");
+  el.className = "battle-victory";
+  el.setAttribute("role", "status");
+  el.textContent = "VICTORY!";
+  el.style.left = (rr.left - ar.left + rr.width / 2) + "px";
+  el.style.top = (rr.top - ar.top + rr.height / 2) + "px";
+  arena.appendChild(el);
+}
+
 const S = { round: [], i: 0, score: 0, combo: 0, results: [], easy: false, token: 0, mode: null, monsterIndex: null, monster: null, hp: 0, viaPath: null };
 let voice = null, activeRec = null, wakeLock = null;
 

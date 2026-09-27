@@ -94,7 +94,11 @@ async function evaluate(q, r){
     syncHpBar();
     vibrate(defeated ? [40, 60, 40, 60, 120] : 45);
     if (defeated){
-      await playMonsterVanish();
+      // 擊敗：被打倒的閃爍 → 消散＋淡出 → VICTORY! 停一下，才出現原本的結果面板
+      await playMonsterDefeat();
+      if (tk !== S.token) return;
+      showVictory();
+      await sleep(VICTORY_HOLD_MS);
       if (tk !== S.token) return;
     }
   }
