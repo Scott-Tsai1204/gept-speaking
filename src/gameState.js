@@ -1,111 +1,13 @@
 "use strict";
-/* ===== 題庫：原創的初級程度句子，不分主題，依難度分三池 ===== */
-const EASY = [
-  "I have math class at nine.",
-  "My backpack is very heavy today.",
-  "The teacher is writing on the board.",
-  "I forgot my pencil case at home.",
-  "We have a test this Friday.",
-  "Can I borrow your eraser?",
-  "The library closes at five o'clock.",
-  "My classroom is on the second floor.",
-  "I need to finish my homework tonight.",
-  "The school bus comes at seven thirty.",
-  "Our art teacher is very kind.",
-  "I sit next to the window.",
-  "Can I see the menu, please?",
-  "I would like a cup of coffee.",
-  "This soup is too hot for me.",
-  "We need two more chairs, please.",
-  "Is this seat taken?",
-  "The chicken here is very popular.",
-  "Could I have some water, please?",
-  "My father always orders the same dish.",
-  "This restaurant is famous for noodles.",
-  "Please bring us the bill.",
-  "I don't eat spicy food.",
-  "The waiter is very friendly.",
-  "How much is this jacket?",
-  "Do you have this in a smaller size?",
-  "I'm just looking, thank you.",
-  "This store is having a big sale.",
-  "Can I try on these shoes?",
-  "Where is the fitting room?",
-  "I like the blue one better.",
-  "Do you take credit cards?",
-  "This bag is too expensive for me.",
-  "Can you gift wrap this, please?",
-  "I bought a new watch yesterday.",
-  "This shirt doesn't fit me well.",
-  "Where is the nearest MRT station?",
-  "What time does the next bus leave?",
-  "How long does it take to get there?",
-  "I missed my train this morning.",
-  "Please take me to the airport.",
-  "The traffic is really bad today.",
-  "I usually ride my bike to work.",
-  "Is there a taxi stand near here?",
-  "The train was ten minutes late.",
-  "You can transfer to the blue line here.",
-  "My car broke down on the highway.",
-  "Remember to buckle your seat belt."
-];
-const MEDIUM = [
-  "I usually watch a movie with my family on weekends.",
-  "She practices the piano for thirty minutes every evening.",
-  "We are planning a short trip to the mountains next month.",
-  "My brother works at a hospital near our house.",
-  "It might rain later, so bring an umbrella with you.",
-  "I have been learning English for almost two years.",
-  "Our neighbor's dog barks loudly every morning.",
-  "He always checks his email before breakfast.",
-  "The weather has been really cold this week.",
-  "I need to charge my phone before we leave.",
-  "My grandmother tells interesting stories about her childhood.",
-  "We should leave early to avoid the traffic jam.",
-  "I'm trying to drink more water every day.",
-  "The movie starts at eight, so let's meet at seven thirty.",
-  "She is saving money to buy a new laptop.",
-  "My favorite season is autumn because the weather is mild.",
-  "I usually go jogging in the park before work.",
-  "Could you turn down the volume a little, please?",
-  "We finished the project two days before the deadline.",
-  "I forgot to bring my umbrella again this morning."
-];
-const HARD = [
-  "I usually study in the library after school because it is quiet there.",
-  "My favorite subject is science, but math is more difficult for me.",
-  "We have to hand in our history report before next Monday.",
-  "The new gym is bigger than the old one, so more students can use it.",
-  "I forgot my umbrella, so I got wet walking home from school.",
-  "I want to order a beef burger with french fries and a small salad.",
-  "Could you tell me if this restaurant has any vegetarian dishes on the menu?",
-  "We waited for almost thirty minutes before our food finally arrived.",
-  "My sister doesn't like seafood, so she always orders chicken or beef.",
-  "The restaurant was so crowded that we had to wait outside for a table.",
-  "I'm looking for a birthday present for my mother, but I don't know what to buy.",
-  "This store offers a twenty percent discount if you buy two or more items.",
-  "Could you tell me where I can find the shoes for children?",
-  "I want to return this sweater because the color is different from the picture online.",
-  "The shopping mall was so big that we got lost on the second floor.",
-  "Excuse me, could you tell me which bus goes to the train station from here?",
-  "I usually leave home early because the traffic gets very heavy after eight o'clock.",
-  "We need to change trains at the next stop to reach the airport.",
-  "The flight was delayed for two hours because of the bad weather.",
-  "It normally takes about forty minutes to drive from my house to downtown."
-];
+/* ===== 題庫：原創的初級程度句子，不分主題，依難度分三池 =====
+   V6.0-A：題目內容都放在 assets/data/question_bank.json，這裡的陣列由 loadQuestionBank() 載入後填入
+   （保留原本的變數名稱，所以 MONSTERS／PATH_NODES／boss.js／map.js／questions.js 的取題方式都不變） */
+const EASY = [];
+const MEDIUM = [];
+const HARD = [];
 
 /* ===== 朗讀關：初級程度短文，1 分鐘準備後朗讀，逐字比對（跟複誦關同一套比對邏輯） ===== */
-const READ_PASSAGES = [
-  "My name is Anna. I am a student. I live near the school with my family.",
-  "Today is Monday. The weather is sunny and warm. I will walk to school with my brother.",
-  "I have a small dog. Its name is Lucky. Every morning, I take Lucky for a walk in the park.",
-  "My favorite food is noodles. I like to eat noodles with my friends after school. They are cheap and delicious.",
-  "Last weekend, I went to the museum with my family. We saw many old paintings. It was a fun day.",
-  "I usually get up at seven o'clock. I eat breakfast, brush my teeth, and then go to school by bus.",
-  "My sister likes to read books. She reads every night before she goes to bed. She wants to be a writer.",
-  "This weekend, I want to visit my grandmother. She lives in the countryside. I will bring her some fruit."
-];
+const READ_PASSAGES = [];
 
 /* ===== 怪獸長廊：不分主題，隨機從難度池抽題 ===== */
 const MONSTERS = [
@@ -140,44 +42,53 @@ const PATH_NODES = [
 /* ===== 問答挑戰：暖身題／看法題／情境題，交給後端 LLM 評分 ===== */
 const WORKER_URL = "https://gept-speaking-proxy.gept-speaking.workers.dev";
 const TYPE_LABEL = { warmup: "暖身題", opinion: "看法題", situational: "情境題" };
-const QUESTIONS = [
-  { type: "warmup", q: "What's your name?" },
-  { type: "warmup", q: "How are you today?" },
-  { type: "warmup", q: "What day is it today?" },
-  { type: "warmup", q: "What's the weather like today?" },
-  { type: "warmup", q: "What time is it now?" },
-  { type: "warmup", q: "Where do you live?" },
-  { type: "warmup", q: "How old are you?" },
-  { type: "warmup", q: "What's your favorite color?" },
-  { type: "warmup", q: "Do you have any brothers or sisters?" },
-  { type: "warmup", q: "What did you have for breakfast today?" },
-  { type: "warmup", q: "How do you usually get to school?" },
-  { type: "warmup", q: "What's the date today?" },
-  { type: "opinion", q: "What do you usually do on weekends?" },
-  { type: "opinion", q: "What's your favorite food? Why do you like it?" },
-  { type: "opinion", q: "Do you like your school or your job? Why?" },
-  { type: "opinion", q: "What kind of music do you like?" },
-  { type: "opinion", q: "Do you prefer reading books or watching movies? Why?" },
-  { type: "opinion", q: "What's your favorite season? Why?" },
-  { type: "opinion", q: "Do you like to travel? Why or why not?" },
-  { type: "opinion", q: "What's your favorite sport? Why?" },
-  { type: "opinion", q: "Do you prefer coffee or tea? Why?" },
-  { type: "opinion", q: "Do you like animals? Why or why not?" },
-  { type: "opinion", q: "What's your favorite subject? Why?" },
-  { type: "opinion", q: "What's your favorite holiday? Why?" },
-  { type: "situational", q: "Imagine you are at a restaurant. What would you say to order food?" },
-  { type: "situational", q: "Imagine your friend is sick. What would you say to him or her?" },
-  { type: "situational", q: "Imagine you are lost in a city. What would you ask someone?" },
-  { type: "situational", q: "Imagine you want to buy a ticket for a movie. What would you say?" },
-  { type: "situational", q: "Imagine you are checking into a hotel. What would you say?" },
-  { type: "situational", q: "Imagine your friend invites you to a party, but you are busy. What would you say?" },
-  { type: "situational", q: "Imagine you want to return a shirt to a store. What would you say?" },
-  { type: "situational", q: "Imagine it's your friend's birthday. What would you say to him or her?" },
-  { type: "situational", q: "Imagine you want to make a doctor's appointment. What would you say?" },
-  { type: "situational", q: "Imagine you are late for a meeting. What would you say to your boss?" },
-  { type: "situational", q: "Imagine you want to ask someone for directions to the MRT station. What would you say?" },
-  { type: "situational", q: "Imagine your food order at a restaurant is wrong. What would you say to the waiter?" }
-];
+const QUESTIONS = [];
+
+/* ===== 題庫載入與驗證（question_bank.json → 上面 5 個陣列） ===== */
+const QUESTION_BANK_URL = "assets/data/question_bank.json";
+const QUESTION_BANK_EXPECT = { repeat: 88, read: 8, questions: 36 }; // 本版題數，驗證用
+let questionBank = null; // 驗證通過後的原始 JSON（repeat／read／questions）
+function validateQuestionBank(bank){
+  const errs = [];
+  if (!bank || typeof bank !== "object") return ["題庫不是 JSON 物件"];
+  const nonEmpty = v => typeof v === "string" && v.trim() !== "";
+  const ids = new Set();
+  const checkList = (key, fields, check) => {
+    const list = bank[key];
+    if (!Array.isArray(list)){ errs.push(`缺少 ${key} 陣列`); return; }
+    if (list.length !== QUESTION_BANK_EXPECT[key]) errs.push(`${key} 應該有 ${QUESTION_BANK_EXPECT[key]} 題，實際 ${list.length} 題`);
+    list.forEach((item, k) => {
+      const where = `${key}[${k}]${item && item.id ? `（${item.id}）` : ""}`;
+      if (!item || typeof item !== "object"){ errs.push(`${where} 不是物件`); return; }
+      fields.forEach(f => { if (!nonEmpty(item[f])) errs.push(`${where} 缺少欄位或內容為空：${f}`); });
+      if (nonEmpty(item.id)){ if (ids.has(item.id)) errs.push(`${where} id 重複`); ids.add(item.id); }
+      if (check) check(item, where);
+    });
+  };
+  checkList("repeat", ["id", "text", "difficulty", "topic"], (it, w) => { if (!["easy", "medium", "hard"].includes(it.difficulty)) errs.push(`${w} difficulty 不合法：${it.difficulty}`); });
+  checkList("read", ["id", "text", "topic"]);
+  checkList("questions", ["id", "question", "category", "topic"], (it, w) => { if (!TYPE_LABEL[it.category]) errs.push(`${w} category 不合法：${it.category}`); });
+  return errs;
+}
+async function loadQuestionBank(){
+  const res = await fetch(QUESTION_BANK_URL, { cache: "no-cache" });
+  if (!res.ok) throw new Error(`題庫載入失敗：HTTP ${res.status}`);
+  const bank = await res.json();
+  const errs = validateQuestionBank(bank);
+  if (errs.length){
+    console.error("[question_bank] 驗證失敗，不使用這份題庫：\n- " + errs.join("\n- "));
+    throw new Error("題庫格式驗證失敗（詳見 console）");
+  }
+  // 依 JSON 裡的順序填入，維持原本題目順序；問答題轉回程式原本使用的 { type, q } 格式
+  bank.repeat.forEach(it => ({ easy: EASY, medium: MEDIUM, hard: HARD })[it.difficulty].push(it.text));
+  bank.read.forEach(it => READ_PASSAGES.push(it.text));
+  bank.questions.forEach(it => QUESTIONS.push({ type: it.category, q: it.question }));
+  questionBank = bank;
+  return bank;
+}
+// 頁面一載入就開始抓題庫；main.js 按「開始」時會等它完成才進入遊戲
+const questionBankReady = loadQuestionBank().catch(err => { console.error("[question_bank]", err); throw err; });
+questionBankReady.catch(() => {}); // 避免尚未有人 await 時出現 unhandled rejection
 
 /* ===== 小工具 ===== */
 const $ = s => document.querySelector(s);

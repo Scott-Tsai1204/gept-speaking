@@ -33,6 +33,11 @@ async function onStart(){
   btn.disabled = true; btn.textContent = "準備中…";
   S.easy = $("#easy").checked;
   if (!navigator.onLine){ alert("目前沒有網路。語音辨識需要連線後才能使用。"); btn.disabled = false; btn.textContent = "開始"; return; }
+  try { await questionBankReady; }   // 題庫（question_bank.json）載入並驗證完成，才能進入遊戲
+  catch(_) {
+    alert("題庫載入失敗，請確認網路連線後重新整理頁面。");
+    btn.disabled = false; btn.textContent = "開始"; return;
+  }
   try {   // 在按鈕點擊當下先要麥克風權限，之後辨識就不會再跳詢問
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     stream.getTracks().forEach(t => t.stop());

@@ -1,0 +1,793 @@
+{
+  "version": 1,
+  "repeat": [
+    {
+      "id": "repeat_easy_001",
+      "text": "I have math class at nine.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_002",
+      "text": "My backpack is very heavy today.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_003",
+      "text": "The teacher is writing on the board.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_004",
+      "text": "I forgot my pencil case at home.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_005",
+      "text": "We have a test this Friday.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_006",
+      "text": "Can I borrow your eraser?",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_007",
+      "text": "The library closes at five o'clock.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_008",
+      "text": "My classroom is on the second floor.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_009",
+      "text": "I need to finish my homework tonight.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_010",
+      "text": "The school bus comes at seven thirty.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_011",
+      "text": "Our art teacher is very kind.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_012",
+      "text": "I sit next to the window.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_013",
+      "text": "Can I see the menu, please?",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_014",
+      "text": "I would like a cup of coffee.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_015",
+      "text": "This soup is too hot for me.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_016",
+      "text": "We need two more chairs, please.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_017",
+      "text": "Is this seat taken?",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_018",
+      "text": "The chicken here is very popular.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_019",
+      "text": "Could I have some water, please?",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_020",
+      "text": "My father always orders the same dish.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_021",
+      "text": "This restaurant is famous for noodles.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_022",
+      "text": "Please bring us the bill.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_023",
+      "text": "I don't eat spicy food.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_024",
+      "text": "The waiter is very friendly.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_025",
+      "text": "How much is this jacket?",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_026",
+      "text": "Do you have this in a smaller size?",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_027",
+      "text": "I'm just looking, thank you.",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_028",
+      "text": "This store is having a big sale.",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_029",
+      "text": "Can I try on these shoes?",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_030",
+      "text": "Where is the fitting room?",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_031",
+      "text": "I like the blue one better.",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_032",
+      "text": "Do you take credit cards?",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_033",
+      "text": "This bag is too expensive for me.",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_034",
+      "text": "Can you gift wrap this, please?",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_035",
+      "text": "I bought a new watch yesterday.",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_036",
+      "text": "This shirt doesn't fit me well.",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_037",
+      "text": "Where is the nearest MRT station?",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_038",
+      "text": "What time does the next bus leave?",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_039",
+      "text": "How long does it take to get there?",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_040",
+      "text": "I missed my train this morning.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_041",
+      "text": "Please take me to the airport.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_042",
+      "text": "The traffic is really bad today.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_043",
+      "text": "I usually ride my bike to work.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_044",
+      "text": "Is there a taxi stand near here?",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_045",
+      "text": "The train was ten minutes late.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_046",
+      "text": "You can transfer to the blue line here.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_047",
+      "text": "My car broke down on the highway.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_048",
+      "text": "Remember to buckle your seat belt.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_medium_001",
+      "text": "I usually watch a movie with my family on weekends.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_002",
+      "text": "She practices the piano for thirty minutes every evening.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_003",
+      "text": "We are planning a short trip to the mountains next month.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_004",
+      "text": "My brother works at a hospital near our house.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_005",
+      "text": "It might rain later, so bring an umbrella with you.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_006",
+      "text": "I have been learning English for almost two years.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_007",
+      "text": "Our neighbor's dog barks loudly every morning.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_008",
+      "text": "He always checks his email before breakfast.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_009",
+      "text": "The weather has been really cold this week.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_010",
+      "text": "I need to charge my phone before we leave.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_011",
+      "text": "My grandmother tells interesting stories about her childhood.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_012",
+      "text": "We should leave early to avoid the traffic jam.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_013",
+      "text": "I'm trying to drink more water every day.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_014",
+      "text": "The movie starts at eight, so let's meet at seven thirty.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_015",
+      "text": "She is saving money to buy a new laptop.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_016",
+      "text": "My favorite season is autumn because the weather is mild.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_017",
+      "text": "I usually go jogging in the park before work.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_018",
+      "text": "Could you turn down the volume a little, please?",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_019",
+      "text": "We finished the project two days before the deadline.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_020",
+      "text": "I forgot to bring my umbrella again this morning.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_hard_001",
+      "text": "I usually study in the library after school because it is quiet there.",
+      "difficulty": "hard",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_hard_002",
+      "text": "My favorite subject is science, but math is more difficult for me.",
+      "difficulty": "hard",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_hard_003",
+      "text": "We have to hand in our history report before next Monday.",
+      "difficulty": "hard",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_hard_004",
+      "text": "The new gym is bigger than the old one, so more students can use it.",
+      "difficulty": "hard",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_hard_005",
+      "text": "I forgot my umbrella, so I got wet walking home from school.",
+      "difficulty": "hard",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_hard_006",
+      "text": "I want to order a beef burger with french fries and a small salad.",
+      "difficulty": "hard",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_hard_007",
+      "text": "Could you tell me if this restaurant has any vegetarian dishes on the menu?",
+      "difficulty": "hard",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_hard_008",
+      "text": "We waited for almost thirty minutes before our food finally arrived.",
+      "difficulty": "hard",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_hard_009",
+      "text": "My sister doesn't like seafood, so she always orders chicken or beef.",
+      "difficulty": "hard",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_hard_010",
+      "text": "The restaurant was so crowded that we had to wait outside for a table.",
+      "difficulty": "hard",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_hard_011",
+      "text": "I'm looking for a birthday present for my mother, but I don't know what to buy.",
+      "difficulty": "hard",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_hard_012",
+      "text": "This store offers a twenty percent discount if you buy two or more items.",
+      "difficulty": "hard",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_hard_013",
+      "text": "Could you tell me where I can find the shoes for children?",
+      "difficulty": "hard",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_hard_014",
+      "text": "I want to return this sweater because the color is different from the picture online.",
+      "difficulty": "hard",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_hard_015",
+      "text": "The shopping mall was so big that we got lost on the second floor.",
+      "difficulty": "hard",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_hard_016",
+      "text": "Excuse me, could you tell me which bus goes to the train station from here?",
+      "difficulty": "hard",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_hard_017",
+      "text": "I usually leave home early because the traffic gets very heavy after eight o'clock.",
+      "difficulty": "hard",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_hard_018",
+      "text": "We need to change trains at the next stop to reach the airport.",
+      "difficulty": "hard",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_hard_019",
+      "text": "The flight was delayed for two hours because of the bad weather.",
+      "difficulty": "hard",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_hard_020",
+      "text": "It normally takes about forty minutes to drive from my house to downtown.",
+      "difficulty": "hard",
+      "topic": "transportation"
+    }
+  ],
+  "read": [
+    {
+      "id": "read_001",
+      "text": "My name is Anna. I am a student. I live near the school with my family.",
+      "topic": "self_introduction"
+    },
+    {
+      "id": "read_002",
+      "text": "Today is Monday. The weather is sunny and warm. I will walk to school with my brother.",
+      "topic": "weather"
+    },
+    {
+      "id": "read_003",
+      "text": "I have a small dog. Its name is Lucky. Every morning, I take Lucky for a walk in the park.",
+      "topic": "pets"
+    },
+    {
+      "id": "read_004",
+      "text": "My favorite food is noodles. I like to eat noodles with my friends after school. They are cheap and delicious.",
+      "topic": "food"
+    },
+    {
+      "id": "read_005",
+      "text": "Last weekend, I went to the museum with my family. We saw many old paintings. It was a fun day.",
+      "topic": "weekend"
+    },
+    {
+      "id": "read_006",
+      "text": "I usually get up at seven o'clock. I eat breakfast, brush my teeth, and then go to school by bus.",
+      "topic": "daily_routine"
+    },
+    {
+      "id": "read_007",
+      "text": "My sister likes to read books. She reads every night before she goes to bed. She wants to be a writer.",
+      "topic": "hobbies"
+    },
+    {
+      "id": "read_008",
+      "text": "This weekend, I want to visit my grandmother. She lives in the countryside. I will bring her some fruit.",
+      "topic": "family"
+    }
+  ],
+  "questions": [
+    {
+      "id": "question_001",
+      "question": "What's your name?",
+      "category": "warmup",
+      "topic": "personal_information"
+    },
+    {
+      "id": "question_002",
+      "question": "How are you today?",
+      "category": "warmup",
+      "topic": "greeting"
+    },
+    {
+      "id": "question_003",
+      "question": "What day is it today?",
+      "category": "warmup",
+      "topic": "date_time"
+    },
+    {
+      "id": "question_004",
+      "question": "What's the weather like today?",
+      "category": "warmup",
+      "topic": "weather"
+    },
+    {
+      "id": "question_005",
+      "question": "What time is it now?",
+      "category": "warmup",
+      "topic": "date_time"
+    },
+    {
+      "id": "question_006",
+      "question": "Where do you live?",
+      "category": "warmup",
+      "topic": "personal_information"
+    },
+    {
+      "id": "question_007",
+      "question": "How old are you?",
+      "category": "warmup",
+      "topic": "personal_information"
+    },
+    {
+      "id": "question_008",
+      "question": "What's your favorite color?",
+      "category": "warmup",
+      "topic": "personal_information"
+    },
+    {
+      "id": "question_009",
+      "question": "Do you have any brothers or sisters?",
+      "category": "warmup",
+      "topic": "family"
+    },
+    {
+      "id": "question_010",
+      "question": "What did you have for breakfast today?",
+      "category": "warmup",
+      "topic": "food"
+    },
+    {
+      "id": "question_011",
+      "question": "How do you usually get to school?",
+      "category": "warmup",
+      "topic": "transportation"
+    },
+    {
+      "id": "question_012",
+      "question": "What's the date today?",
+      "category": "warmup",
+      "topic": "date_time"
+    },
+    {
+      "id": "question_013",
+      "question": "What do you usually do on weekends?",
+      "category": "opinion",
+      "topic": "hobbies"
+    },
+    {
+      "id": "question_014",
+      "question": "What's your favorite food? Why do you like it?",
+      "category": "opinion",
+      "topic": "food"
+    },
+    {
+      "id": "question_015",
+      "question": "Do you like your school or your job? Why?",
+      "category": "opinion",
+      "topic": "school_work"
+    },
+    {
+      "id": "question_016",
+      "question": "What kind of music do you like?",
+      "category": "opinion",
+      "topic": "music"
+    },
+    {
+      "id": "question_017",
+      "question": "Do you prefer reading books or watching movies? Why?",
+      "category": "opinion",
+      "topic": "hobbies"
+    },
+    {
+      "id": "question_018",
+      "question": "What's your favorite season? Why?",
+      "category": "opinion",
+      "topic": "weather"
+    },
+    {
+      "id": "question_019",
+      "question": "Do you like to travel? Why or why not?",
+      "category": "opinion",
+      "topic": "travel"
+    },
+    {
+      "id": "question_020",
+      "question": "What's your favorite sport? Why?",
+      "category": "opinion",
+      "topic": "sports"
+    },
+    {
+      "id": "question_021",
+      "question": "Do you prefer coffee or tea? Why?",
+      "category": "opinion",
+      "topic": "food"
+    },
+    {
+      "id": "question_022",
+      "question": "Do you like animals? Why or why not?",
+      "category": "opinion",
+      "topic": "animals"
+    },
+    {
+      "id": "question_023",
+      "question": "What's your favorite subject? Why?",
+      "category": "opinion",
+      "topic": "school_work"
+    },
+    {
+      "id": "question_024",
+      "question": "What's your favorite holiday? Why?",
+      "category": "opinion",
+      "topic": "holidays"
+    },
+    {
+      "id": "question_025",
+      "question": "Imagine you are at a restaurant. What would you say to order food?",
+      "category": "situational",
+      "topic": "restaurant"
+    },
+    {
+      "id": "question_026",
+      "question": "Imagine your friend is sick. What would you say to him or her?",
+      "category": "situational",
+      "topic": "health"
+    },
+    {
+      "id": "question_027",
+      "question": "Imagine you are lost in a city. What would you ask someone?",
+      "category": "situational",
+      "topic": "directions"
+    },
+    {
+      "id": "question_028",
+      "question": "Imagine you want to buy a ticket for a movie. What would you say?",
+      "category": "situational",
+      "topic": "entertainment"
+    },
+    {
+      "id": "question_029",
+      "question": "Imagine you are checking into a hotel. What would you say?",
+      "category": "situational",
+      "topic": "hotel"
+    },
+    {
+      "id": "question_030",
+      "question": "Imagine your friend invites you to a party, but you are busy. What would you say?",
+      "category": "situational",
+      "topic": "social"
+    },
+    {
+      "id": "question_031",
+      "question": "Imagine you want to return a shirt to a store. What would you say?",
+      "category": "situational",
+      "topic": "shopping"
+    },
+    {
+      "id": "question_032",
+      "question": "Imagine it's your friend's birthday. What would you say to him or her?",
+      "category": "situational",
+      "topic": "social"
+    },
+    {
+      "id": "question_033",
+      "question": "Imagine you want to make a doctor's appointment. What would you say?",
+      "category": "situational",
+      "topic": "health"
+    },
+    {
+      "id": "question_034",
+      "question": "Imagine you are late for a meeting. What would you say to your boss?",
+      "category": "situational",
+      "topic": "school_work"
+    },
+    {
+      "id": "question_035",
+      "question": "Imagine you want to ask someone for directions to the MRT station. What would you say?",
+      "category": "situational",
+      "topic": "directions"
+    },
+    {
+      "id": "question_036",
+      "question": "Imagine your food order at a restaurant is wrong. What would you say to the waiter?",
+      "category": "situational",
+      "topic": "restaurant"
+    }
+  ]
+}
