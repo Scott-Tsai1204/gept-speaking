@@ -9,7 +9,7 @@ function renderQuestion(){
   const monArt = currentPathMonsterArt(); // 闖關地圖怪物有正式立繪就用圖，否則維持 emoji（見 map.js）
   app.innerHTML = `
     <header class="top">
-      <button class="ghost" id="quit">結束</button>
+      <button class="back-btn" id="quit">${S.viaPath != null ? "← 地圖" : "← 長廊"}</button>
       <div class="segs" style="grid-template-columns:repeat(${S.round.length},1fr)" aria-label="第 ${S.i + 1} 題，共 ${S.round.length} 題">${segs}</div>
       <div class="pts">積分 <b>${S.score}</b>${S.combo > 1 ? `<br>連擊 ×${S.combo}` : ""}</div>
     </header>

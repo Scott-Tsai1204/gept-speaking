@@ -106,7 +106,7 @@ function renderBossStage(promptHtml){
   const node = S.monster;
   app.innerHTML = `
     <header class="top">
-      <button class="ghost" id="quit">結束</button>
+      <button class="back-btn" id="quit">← 地圖</button>
       <div style="flex:1;text-align:center">
         <span class="badge boss-badge" style="background:var(--bad);color:#fff">BOSS</span>
         <div id="bossHearts" style="font-size:20px;letter-spacing:2px;margin-top:2px">${bossHeartsStr(S.bossHp)}</div>

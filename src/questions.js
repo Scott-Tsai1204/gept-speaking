@@ -54,7 +54,7 @@ function renderAnswerQuestion(){
   const segs = S.round.map((_, k) => `<i class="${k < S.i ? "done" : k === S.i ? "now" : ""}"></i>`).join("");
   app.innerHTML = `
     <header class="top">
-      <button class="ghost" id="quit">結束</button>
+      <button class="back-btn" id="quit">${S.viaPath != null ? "← 地圖" : "← 長廊"}</button>
       <div class="segs" style="grid-template-columns:repeat(${S.round.length},1fr)" aria-label="第 ${S.i + 1} 題，共 ${S.round.length} 題">${segs}</div>
       <div class="pts">平均 <b>${avgScoreSoFar()}</b></div>
     </header>

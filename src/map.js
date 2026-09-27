@@ -322,7 +322,7 @@ function renderReadQuestion(){
   const mon = S.monster;
   app.innerHTML = `
     <header class="top">
-      <button class="ghost" id="quit">結束</button>
+      <button class="back-btn" id="quit">← 地圖</button>
       <div class="segs" style="grid-template-columns:repeat(${S.round.length},1fr)" aria-label="第 ${S.i + 1} 篇，共 ${S.round.length} 篇">${segs}</div>
       <div class="pts">積分 <b>${S.score}</b></div>
     </header>
