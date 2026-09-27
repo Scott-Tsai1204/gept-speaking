@@ -132,15 +132,15 @@ function renderBossStage(promptHtml){
 function runBossRound(){
   const type = BOSS_ROUND_TYPES[Math.floor(Math.random() * BOSS_ROUND_TYPES.length)];
   if (type === "repeat"){
-    S.bossSentence = shuffle(HARD)[0];
+    S.bossSentence = pickRepeatRound(HARD, 1)[0]; // V6.0-B：HARD 的 Shuffle Bag
     renderBossStage(`<div id="peek" class="en"></div>`);
     runBossRepeatRound();
   } else if (type === "read"){
-    S.bossPassage = shuffle(READ_PASSAGES)[0];
+    S.bossPassage = pickReadRound(1)[0];
     renderBossStage(`<div id="passageBox" class="en passage-box"></div>`);
     runBossReadRound();
   } else {
-    S.bossQuestion = shuffle(QUESTIONS)[0];
+    S.bossQuestion = pickBossAnswerQuestion();
     renderBossStage(`<div class="mon-sub" style="text-align:center;margin-top:4px">${esc(TYPE_LABEL[S.bossQuestion.type])}</div>`);
     runBossAnswerRound();
   }

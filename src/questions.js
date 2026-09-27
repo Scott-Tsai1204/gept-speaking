@@ -17,24 +17,19 @@ async function generateQuestion(type, avoid){
     return q ? { type, q, ai: true } : null;
   } catch(_) { return null; }
 }
-function pickFromPool(byType, t){
-  const avoid = S.lastAnswerQ && S.lastAnswerQ[t];
-  const pool = byType[t];
-  const candidates = avoid && pool.length > 1 ? pool.filter(item => item.q !== avoid) : pool;
-  return { ...shuffle(candidates)[0], ai: false };
-}
 async function pickAnswerRound(){
-  const byType = { warmup: [], opinion: [], situational: [] };
-  QUESTIONS.forEach(item => byType[item.type].push(item));
   const types = ["warmup", "opinion", "situational"];
   S.answerHistory = S.answerHistory || { warmup: [], opinion: [], situational: [] };
-  const picked = await Promise.all(types.map(async t => {
-    if (Math.random() < 0.5){
-      const gen = await generateQuestion(t, S.answerHistory[t].slice(-5));
-      if (gen) return gen;
-    }
-    return pickFromPool(byType, t);
-  }));
+  // AI 出題比例與做法不變：每個 category 各有一半機率先請 AI 出題（三題同時請求）
+  const ai = await Promise.all(types.map(async t => (Math.random() < 0.5 ? await generateQuestion(t, S.answerHistory[t].slice(-5)) : null)));
+  // 沒有用 AI（或 AI 失敗）的 category 依序從固定題庫的 Shuffle Bag 取題，並盡量避開同一輪已選的 topic（V6.0-B，見 questionPicker.js）
+  const roundTopics = [];
+  const picked = types.map((t, k) => {
+    if (ai[k]) return ai[k];
+    const item = pickAnswerQuestion(t, roundTopics);
+    if (item.topic) roundTopics.push(item.topic);
+    return { type: item.type, q: item.q, ai: false };
+  });
   S.lastAnswerQ = {};
   types.forEach((t, k) => {
     S.lastAnswerQ[t] = picked[k].q;

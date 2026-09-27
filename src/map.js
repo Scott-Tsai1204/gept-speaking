@@ -84,7 +84,7 @@ function renderMap(){
 
 function startMonster(mi){
   const mon = MONSTERS[mi];
-  const picked = shuffle(mon.pool()).slice(0, mon.hp);
+  const picked = pickRepeatRound(mon.pool(), mon.hp); // V6.0-B：Shuffle Bag 抽題（見 questionPicker.js）
   S.mode = "battle"; S.monsterIndex = mi; S.monster = mon; S.hp = mon.hp;
   Object.assign(S, { round: picked, i: 0, score: 0, combo: 0, results: [] });
   renderQuestion();
@@ -288,14 +288,14 @@ function startPathNode(ni){
 }
 function startPathBattle(ni){
   const node = PATH_NODES[ni];
-  const picked = shuffle(node.pool()).slice(0, node.hp);
+  const picked = pickRepeatRound(node.pool(), node.hp); // V6.0-B：Shuffle Bag 抽題（見 questionPicker.js）
   S.viaPath = ni; S.mode = "battle"; S.monsterIndex = null; S.monster = node; S.hp = node.hp;
   Object.assign(S, { round: picked, i: 0, score: 0, combo: 0, results: [] });
   renderQuestion();
 }
 function startReadNode(ni){
   const node = PATH_NODES[ni];
-  const picked = shuffle(READ_PASSAGES).slice(0, node.hp);
+  const picked = pickReadRound(node.hp); // V6.0-B：Shuffle Bag 抽題（見 questionPicker.js）
   S.viaPath = ni; S.mode = "read"; S.monsterIndex = null; S.monster = node; S.hp = node.hp;
   Object.assign(S, { round: picked, i: 0, score: 0, combo: 0, results: [] });
   renderReadQuestion();
