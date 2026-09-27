@@ -224,9 +224,11 @@ function renderPathMap(){
   });
   const avatar = $("#pathAvatar");
   if (avatar && walkFrom != null){
-    walkPathHero(avatar, walkFrom, currentIndex);
+    // 分區圖載入前 zone-wrap 高度是 0，座標與捲動都會算錯（會捲到最上面的 Boss 區），所以等圖都有尺寸再走；
+    // 等待期間主角先站在起點節點
+    whenZoneArtReady().then(() => { if (avatar.isConnected) walkPathHero(avatar, walkFrom, currentIndex); });
   } else if (avatar){
-    avatar.scrollIntoView({ block: "center" });
+    whenZoneArtReady().then(() => { if (avatar.isConnected) avatar.scrollIntoView({ block: "center" }); });
     if (reduceMotion){
       avatar.classList.remove("walking");
       avatar.innerHTML = `<img src="${HERO_IDLE_SRC}" alt="主角">`;
@@ -238,6 +240,17 @@ function renderPathMap(){
       }, HERO_WALK_MS);
     }
   }
+}
+
+// 等目前地圖上的 8 張 .zone-bg 都載入（或失敗）才 resolve；網路太慢時最多等 ZONE_ART_WAIT_MS 就照目前版面繼續
+const ZONE_ART_WAIT_MS = 5000;
+function whenZoneArtReady(){
+  const imgs = [...app.querySelectorAll(".zone-bg")];
+  const loaded = Promise.all(imgs.map(img => img.complete ? null : new Promise(res => {
+    img.addEventListener("load", res, { once: true });
+    img.addEventListener("error", res, { once: true });
+  })));
+  return Promise.race([loaded, new Promise(res => setTimeout(res, ZONE_ART_WAIT_MS))]);
 }
 
 /* ===== V4：打贏一關回到地圖時，主角從上一個節點沿直線走到新解鎖的節點，停下後由玩家自己點（不會自動開戰） ===== */
