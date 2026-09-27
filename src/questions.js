@@ -134,8 +134,11 @@ async function evaluateAnswer(item, r){
     return;
   }
 
-  const first = !S.results[S.i];
+  const prev = S.results[S.i];
+  const first = !prev;
   const pass = data.score >= PASS_LINE;
+  // 之前答錯的題目按「再試一次」只是練習：答對只播攻擊動畫、答錯給 MISS，不動 COMBO、不改這題的紀錄
+  const practiceRetry = !first && prev.score < PASS_LINE;
   if (first){
     S.combo = pass ? S.combo + 1 : 0;
     S.results[S.i] = { q: item.q, type: item.type, answer: r.text, score: data.score, feedback: data.feedback || "" };
@@ -153,6 +156,14 @@ async function evaluateAnswer(item, r){
     if (tk !== S.token) return;
   } else if (first){
     showMiss(); // V3：答錯只給 MISS，COMBO 已在上面歸零
+  } else if (practiceRetry && pass){
+    // 重試答對（練習）：只播攻擊與受擊動畫，不跳 -1／COMBO
+    await playHeroAttack("magic");
+    if (tk !== S.token) return;
+    await playMonsterHit();
+    if (tk !== S.token) return;
+  } else if (practiceRetry){
+    showMiss(); // 重試又錯：MISS，不攻擊
   }
   setState("idle", data.score >= PASS_LINE ? "回答得很好" : "可以再更完整一點", "");
   const last = S.i === S.round.length - 1;

@@ -64,8 +64,12 @@ async function evaluate(q, r){
   tokens.forEach((x, k) => { if (ops[k] !== "ok") wordOk[x.wi] = false; });
 
   const hardFail = r.error && HARD_ERR.includes(r.error);
-  const first = !S.results[S.i] && !hardFail;
+  const prev = S.results[S.i];
+  const first = !prev && !hardFail;
   const pass = pct >= PASS_LINE;
+  // 之前答錯的題目按「再試一次」只是練習：答對只播攻擊動畫、答錯給 MISS，
+  // 不扣血、不動 COMBO、不計分（這題仍算第一次的結果）
+  const practiceRetry = !!prev && !hardFail && prev.pct < PASS_LINE;
   if (first){
     S.combo = pass ? S.combo + 1 : 0;
     S.score += pct + (pass ? S.combo * 10 : 0);
@@ -100,6 +104,22 @@ async function evaluate(q, r){
       showVictory();
       await sleep(VICTORY_HOLD_MS);
       if (tk !== S.token) return;
+    }
+  } else if (practiceRetry && pass){
+    // 重試答對（練習）：只播攻擊與受擊動畫，不跳 -1／COMBO、不扣血
+    await playHeroAttack("normal");
+    if (tk !== S.token) return;
+    await playMonsterHit();
+    if (tk !== S.token) return;
+  }
+
+  if (practiceRetry){
+    const ring = $("#monRing");
+    if (ring){
+      ring.classList.remove("hit", "counter", "down");
+      void ring.offsetWidth;
+      if (pass) ring.classList.add("hit");
+      else { ring.classList.add("counter"); showMiss(); vibrate([30, 40, 30]); } // 重試又錯：MISS，不攻擊
     }
   }
 
