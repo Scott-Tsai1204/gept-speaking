@@ -131,7 +131,7 @@ const PATH_NODES = [
   { type:"read",   name:"呆呆貓頭鷹", emoji:"🦉", hp:1 },
   { type:"answer", name:"小老師",     emoji:"🧑‍🏫" },
   { type:"repeat", name:"迷路小兔",   emoji:"🐰", hp:3, pool:() => MEDIUM },
-  { type:"read",   name:"智慧貓頭鷹", emoji:"📖", hp:1 },
+  { type:"read",   name:"山羊學者",   emoji:"📖", hp:1 },
   { type:"answer", name:"大考老師",   emoji:"👩‍🏫" },
   { type:"repeat", name:"迷霧幽靈",   emoji:"👻", hp:3, pool:() => MEDIUM.concat(HARD) },
   { type:"repeat", name:"終極魔王",   emoji:"🐲", hp:9, boss:true, final:true, pool:() => HARD }

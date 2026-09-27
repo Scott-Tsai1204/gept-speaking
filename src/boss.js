@@ -11,10 +11,11 @@
    ===================================================================== */
 const BOSS_HP_MAX = 5;
 const BOSS_ROUND_TYPES = ["repeat", "read", "answer"];
-const BOSS_IDLE_SRC = "assets/characters/boss/boss_idle.png";
-const BOSS_HURT_SRC = "assets/characters/boss/boss_hurt.png";
-const BOSS_DEFEAT_SRC = "assets/characters/boss/boss_defeat.png";
-const EFFECT_BOSS_DEFEAT_SRC = "assets/effects/effect_boss_defeat.png";
+// 原檔 0.3～2.8 MB，改用 WebP（像素尺寸與透明度不變，下面素材條的逐幀座標照舊）
+const BOSS_IDLE_SRC = "assets/characters/boss/boss_idle.webp";
+const BOSS_HURT_SRC = "assets/characters/boss/boss_hurt.webp";
+const BOSS_DEFEAT_SRC = "assets/characters/boss/boss_defeat.webp";
+const EFFECT_BOSS_DEFEAT_SRC = "assets/effects/effect_boss_defeat.webp";
 /* 素材條規格（單位是原圖像素）。這幾條素材的幀距不是嚴格等寬，所以每一幀用 frames＝[左界, 右界] 各自取景：
    height＝畫面上的顯示高度（px），讓角色看起來跟 208px 框裡的 idle 立繪一樣大；dy＝垂直位移（%）對齊 idle 的位置；
    startMs＝相對於動畫開始的延遲 */

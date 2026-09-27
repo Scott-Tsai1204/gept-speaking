@@ -135,6 +135,7 @@ const HERO_WALK_MS = 900; // 進地圖時先播一小段行走動畫，抵達後
 const PATH_MONSTER_ART = {
   0: "assets/monsters/common/monster_01_green_slime.png",   // 哈欠史萊姆
   3: "assets/monsters/common/monster_02_meadow_rabbit.png", // 迷路小兔
+  4: "assets/characters/npc/goat_scholar.webp",             // 山羊學者（Zone 5 朗讀關）
   6: "assets/monsters/common/monster_06_mist_ghost.png"     // 迷霧幽靈（512 畫布留白較多，CSS 另外放大，見 index.html）
 };
 // 戰鬥畫面用：只有「從闖關地圖進來、而且正在打那個節點」時才回傳立繪
@@ -313,7 +314,7 @@ function renderReadQuestion(){
     </header>
     <section class="stage">
       <div class="arena">
-        <div class="mon-ring" id="monRing"><span id="monEmoji">${mon.emoji}</span></div>
+        <div class="mon-ring" id="monRing"><span id="monEmoji">${(art => art ? `<img class="mon-art" src="${art}" alt="${esc(mon.name)}">` : mon.emoji)(currentPathMonsterArt())}</span></div>
         <div class="mon-name">${esc(mon.name)}</div>
         <div class="hp-wrap"><div class="hp-bar-bg"><div class="hp-bar-fill ${hpPct <= 30 ? "low" : ""}" id="hpFill" style="width:${hpPct}%"></div></div></div>
       </div>
