@@ -23,9 +23,18 @@ function renderStart(){
         ? '<p class="msg" style="margin-top:16px">這個瀏覽器不支援語音辨識。請改用 Android 版 Chrome 開啟。</p>'
         : '<button class="btn primary" id="startBtn">開始</button>'}
       <p class="note">需要網路連線與麥克風權限。第一次開始時，瀏覽器會詢問是否允許使用麥克風。</p>
+      <button class="ghost reset-progress" id="resetBtn">清除遊戲進度</button>
     </section>`;
   const b = $("#startBtn");
   if (b) b.onclick = onStart;
+  $("#resetBtn").onclick = onResetProgress;
+}
+
+function onResetProgress(){
+  if (!confirm("確定要清除所有遊戲進度嗎？\n\n闖關地圖、怪獸長廊的星星、複習池與出題紀錄都會刪除，無法復原。")) return;
+  clearGameProgress();
+  alert("已清除進度，將從頭開始。");
+  location.reload(); // 抽題器、主角位置等記在記憶體裡的狀態也一起重來
 }
 
 async function onStart(){

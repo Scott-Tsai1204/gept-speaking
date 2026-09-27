@@ -294,3 +294,9 @@ function topMissed(k = 8){
     return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, k);
   } catch(_) { return []; }
 }
+
+/* ===== 清除遊戲進度（開始頁的按鈕）：只刪這個遊戲自己的 key，不影響同網域的其他網站 ===== */
+const GAME_STORAGE_KEYS = ["gept_progress_path_v1", "gept_progress_v2", "gept_question_history_v1", "gept_missed_sentences", "gept_missed"];
+function clearGameProgress(){
+  GAME_STORAGE_KEYS.forEach(k => { try { localStorage.removeItem(k); } catch(_) {} });
+}
