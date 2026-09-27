@@ -254,6 +254,22 @@ function whenZoneArtReady(){
   return Promise.race([loaded, new Promise(res => setTimeout(res, ZONE_ART_WAIT_MS))]);
 }
 
+// 主角走路時的鏡頭跟隨：主角在視窗 30%～70% 之間鏡頭不動；超出才每幀捲一部分（平滑追上、不會每幀硬鎖造成晃動），
+// 而且絕不讓主角超出上下 12% 的邊界。玩家中途自己滑動也沒關係，下一幀會再慢慢拉回安全區
+const CAM_SAFE_TOP = 0.3, CAM_SAFE_BOTTOM = 0.7, CAM_EDGE = 0.12, CAM_FOLLOW = 0.18;
+function followHeroCamera(avatar){
+  const r = avatar.getBoundingClientRect(), cy = (r.top + r.bottom) / 2, vh = innerHeight;
+  let over = 0;
+  if (cy < vh * CAM_SAFE_TOP) over = cy - vh * CAM_SAFE_TOP;
+  else if (cy > vh * CAM_SAFE_BOTTOM) over = cy - vh * CAM_SAFE_BOTTOM;
+  if (!over) return;
+  let step = over * CAM_FOLLOW;
+  const minY = vh * CAM_EDGE, maxY = vh * (1 - CAM_EDGE);
+  if (cy - step < minY) step = cy - minY;
+  else if (cy - step > maxY) step = cy - maxY;
+  window.scrollBy(0, step);
+}
+
 /* ===== V4：打贏一關回到地圖時，主角從上一個節點沿直線走到新解鎖的節點，停下後由玩家自己點（不會自動開戰） ===== */
 function walkPathHero(avatar, fromNi, toNi){
   const world = $(".map-world");
@@ -264,25 +280,36 @@ function walkPathHero(avatar, fromNi, toNi){
     return { x: zr.left - wr.left + zr.width * parseFloat(b.style.left) / 100, y: zr.top - wr.top + zr.height * parseFloat(b.style.top) / 100 };
   };
   const a = at(fromNi), b = at(toNi);
+  const place = (x, y) => { avatar.style.left = x + "px"; avatar.style.top = y + "px"; };
   world.appendChild(avatar); // 走路途中放在整張地圖上，才能跨越 zone 邊界
-  avatar.style.left = a.x + "px";
-  avatar.style.top = a.y + "px";
+  place(a.x, a.y);
   avatar.classList.toggle("facing-left", b.x < a.x - 2);
-  // 先捲到起點與終點中間，整段路都看得到
-  window.scrollTo(0, window.scrollY + world.getBoundingClientRect().top + (a.y + b.y) / 2 - innerHeight / 2);
+  // 起始鏡頭：距離夠短就讓起點與終點都在畫面內；太長就把起點放在安全區邊緣（往上走放 70%、往下走放 30%），之後交給鏡頭跟隨
+  const startView = Math.min(CAM_SAFE_BOTTOM * innerHeight, Math.max(CAM_SAFE_TOP * innerHeight, innerHeight / 2 - (b.y - a.y) / 2));
+  window.scrollTo(0, window.scrollY + world.getBoundingClientRect().top + a.y - startView);
   const ms = Math.round(Math.min(HERO_STEP_MAX_MS, Math.max(HERO_STEP_MIN_MS, Math.hypot(b.x - a.x, b.y - a.y) * 3)));
   // V5：真的跨到另一個 Zone 才顯示區域提示（約在走到一半、越過交界時出現，不會停下主角）
   const fromZone = nodeBtn(fromNi).parentElement.dataset.zone, toZone = nodeBtn(toNi).parentElement.dataset.zone;
   if (fromZone !== toZone) setTimeout(() => { if (avatar.isConnected) showZoneBanner(+toZone); }, Math.round(ms * 0.35));
-  void avatar.offsetWidth;
-  avatar.style.transition = `left ${ms}ms ease-in-out, top ${ms}ms ease-in-out`;
-  avatar.style.left = b.x + "px";
-  avatar.style.top = b.y + "px";
+
+  // 每一幀：先依時間算出主角位置（ease-in-out），再檢查鏡頭要不要跟 —— 鏡頭永遠用主角「這一幀」的實際位置
+  const ease = t => t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+  const t0 = performance.now();
+  let arrived = false;
+  const frame = now => {
+    if (arrived || !avatar.isConnected) return;
+    const t = Math.min(1, (now - t0) / ms), e = ease(t);
+    place(a.x + (b.x - a.x) * e, a.y + (b.y - a.y) * e);
+    followHeroCamera(avatar);
+    if (t < 1) requestAnimationFrame(frame);
+  };
+  requestAnimationFrame(frame);
+  // 抵達用 setTimeout 收尾：分頁在背景時 rAF 會暫停，主角仍會準時落在終點
   setTimeout(() => {
     if (!avatar.isConnected) return;
+    arrived = true; // 鏡頭停止追蹤
     // 抵達：放回目的地所在的 zone、改回百分比座標（之後視窗縮放也會跟著節點），換成待機圖
     const btn = nodeBtn(toNi);
-    avatar.style.transition = "";
     avatar.style.left = btn.style.left;
     avatar.style.top = btn.style.top;
     btn.parentElement.appendChild(avatar);
