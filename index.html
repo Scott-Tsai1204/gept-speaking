@@ -139,7 +139,11 @@ img.path-node-art[src$="monster_06_mist_ghost.png"],img.mon-art[src$="monster_06
 .path-avatar .hero-walk img{position:absolute;top:0;left:0;width:260px;height:75px;max-width:none;animation:heroWalkCycle .8s steps(5) infinite}
 @keyframes avatarBob{0%,100%{transform:translate(-65%,-135%)}50%{transform:translate(-65%,-147%)}}
 @keyframes heroWalkCycle{from{transform:translateX(0)}to{transform:translateX(-260px)}}
-@media (prefers-reduced-motion:reduce){.path-node,.path-node:not(.locked),.path-node.boss:not(.locked),.path-node.final:not(.locked),.path-node.current::after,.path-avatar,.path-avatar .hero-walk img{animation:none!important}}
+/* V4：主角沿路走到下一個節點（map.js 的 walkPathHero）——往左走時把走路圖翻面；新節點抵達時輕微發光 */
+.path-avatar.facing-left .hero-walk{transform:scaleX(-1)}
+.path-node.just-unlocked{animation:nodeUnlockGlow 1.2s ease-out 2!important}
+@keyframes nodeUnlockGlow{0%{box-shadow:0 2px 8px rgba(20,33,61,.35),0 0 0 0 rgba(255,182,39,.75);filter:brightness(1.12)}100%{box-shadow:0 2px 8px rgba(20,33,61,.35),0 0 0 14px rgba(255,182,39,0);filter:none}}
+@media (prefers-reduced-motion:reduce){.path-node,.path-node:not(.locked),.path-node.boss:not(.locked),.path-node.final:not(.locked),.path-node.current::after,.path-avatar,.path-avatar .hero-walk img,.path-node.just-unlocked{animation:none!important}}
 .passage-box{font-size:17px;line-height:1.6;text-align:left;background:var(--card);border-radius:16px;padding:16px;width:100%;box-shadow:0 1px 0 var(--line)}
 
 /* battle arena */

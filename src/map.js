@@ -154,10 +154,24 @@ const ZONE_ART = [
   { img: "assets/maps/zone8-boss-castle.webp", nodes: [{ ni: 7, x: 50, y: 27 }] }
 ];
 
+// 主角站的節點＝依實際進度已解鎖的最前面一關（打贏第 k 關就站到第 k+1 關）。
+// 位置完全由 gept_progress_path_v1 推算，不另外存檔；刻意不看 ?unlockAll，測試模式下主角仍反映真實進度
+function pathHeroIndex(progress){
+  let h = 0;
+  while (h + 1 < PATH_NODES.length && progress[h] > 0) h++;
+  return h;
+}
+const HERO_STEP_MIN_MS = 500, HERO_STEP_MAX_MS = 1200;
+
 function renderPathMap(){
   stopAll();
   const progress = loadPathProgress();
-  const currentIndex = PATH_NODES.findIndex((_, ni) => isPathNodeUnlocked(ni, progress) && progress[ni] < 3);
+  const reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const currentIndex = pathHeroIndex(progress);
+  // 上次在地圖上畫主角的位置（只記在記憶體）：這次往前推進了就從那裡走過來；重新整理後沒有記錄就直接站好
+  const walkFrom = S.pathHeroShown != null && S.pathHeroShown < currentIndex && !reduceMotion ? S.pathHeroShown : null;
+  S.pathHeroShown = currentIndex;
+  const avatarAt = walkFrom != null ? walkFrom : currentIndex;
 
   const zonesHtml = [...ZONE_ART].reverse().map(zone => {
     const nodesHtml = zone.nodes.map(({ ni, x, y }) => {
@@ -173,7 +187,7 @@ function renderPathMap(){
         ${node.boss && unlocked ? '<span class="badge boss-badge" style="position:absolute;top:-10px;left:50%;transform:translateX(-50%)">BOSS</span>' : ""}
       </button>
       <div class="path-node-label" style="left:${x}%;top:${y}%">${esc(node.name)}</div>
-      ${ni === currentIndex ? `<div class="path-avatar walking" id="pathAvatar" style="left:${x}%;top:${y}%"><div class="hero-walk"><img src="${HERO_WALK_SRC}" alt="主角"></div></div>` : ""}`;
+      ${ni === avatarAt ? `<div class="path-avatar walking" id="pathAvatar" style="left:${x}%;top:${y}%"><div class="hero-walk"><img src="${HERO_WALK_SRC}" alt="主角"></div></div>` : ""}`;
     }).join("");
     // data-zone 給 CSS 做相鄰分區的重疊漸變用（見 index.html 的 .zone-wrap 規則）
     return `<div class="zone-wrap" data-zone="${ZONE_ART.indexOf(zone) + 1}"><img src="${zone.img}" class="zone-bg" alt=""> ${nodesHtml}</div>`;
@@ -194,9 +208,10 @@ function renderPathMap(){
     btn.onclick = () => startPathNode(+btn.dataset.ni);
   });
   const avatar = $("#pathAvatar");
-  if (avatar){
+  if (avatar && walkFrom != null){
+    walkPathHero(avatar, walkFrom, currentIndex);
+  } else if (avatar){
     avatar.scrollIntoView({ block: "center" });
-    const reduceMotion = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion){
       avatar.classList.remove("walking");
       avatar.innerHTML = `<img src="${HERO_IDLE_SRC}" alt="主角">`;
@@ -208,6 +223,42 @@ function renderPathMap(){
       }, HERO_WALK_MS);
     }
   }
+}
+
+/* ===== V4：打贏一關回到地圖時，主角從上一個節點沿直線走到新解鎖的節點，停下後由玩家自己點（不會自動開戰） ===== */
+function walkPathHero(avatar, fromNi, toNi){
+  const world = $(".map-world");
+  const nodeBtn = ni => app.querySelector(`.path-node[data-ni="${ni}"]`);
+  // 節點中心在 .map-world 裡的座標（節點用 zone-wrap 的百分比定位，跨 zone 也能算）
+  const at = ni => {
+    const b = nodeBtn(ni), wr = world.getBoundingClientRect(), zr = b.parentElement.getBoundingClientRect();
+    return { x: zr.left - wr.left + zr.width * parseFloat(b.style.left) / 100, y: zr.top - wr.top + zr.height * parseFloat(b.style.top) / 100 };
+  };
+  const a = at(fromNi), b = at(toNi);
+  world.appendChild(avatar); // 走路途中放在整張地圖上，才能跨越 zone 邊界
+  avatar.style.left = a.x + "px";
+  avatar.style.top = a.y + "px";
+  avatar.classList.toggle("facing-left", b.x < a.x - 2);
+  // 先捲到起點與終點中間，整段路都看得到
+  window.scrollTo(0, window.scrollY + world.getBoundingClientRect().top + (a.y + b.y) / 2 - innerHeight / 2);
+  const ms = Math.round(Math.min(HERO_STEP_MAX_MS, Math.max(HERO_STEP_MIN_MS, Math.hypot(b.x - a.x, b.y - a.y) * 3)));
+  void avatar.offsetWidth;
+  avatar.style.transition = `left ${ms}ms ease-in-out, top ${ms}ms ease-in-out`;
+  avatar.style.left = b.x + "px";
+  avatar.style.top = b.y + "px";
+  setTimeout(() => {
+    if (!avatar.isConnected) return;
+    // 抵達：放回目的地所在的 zone、改回百分比座標（之後視窗縮放也會跟著節點），換成待機圖
+    const btn = nodeBtn(toNi);
+    avatar.style.transition = "";
+    avatar.style.left = btn.style.left;
+    avatar.style.top = btn.style.top;
+    btn.parentElement.appendChild(avatar);
+    avatar.classList.remove("walking", "facing-left");
+    avatar.innerHTML = `<img src="${HERO_IDLE_SRC}" alt="主角">`;
+    btn.classList.add("just-unlocked"); // 新節點輕微發光，提示「新的道路開了」
+    setTimeout(() => btn.classList.remove("just-unlocked"), 2400);
+  }, ms);
 }
 
 function startPathNode(ni){
