@@ -144,15 +144,16 @@ function currentPathMonsterArt(){
   return PATH_MONSTER_ART[S.viaPath] || null;
 }
 
+// w/h＝圖檔原始尺寸，寫進 <img width height> 讓瀏覽器在圖片載入前就預留正確高度（換圖時要一起更新）
 const ZONE_ART = [
-  { img: "assets/maps/zone1-meadow.webp", nodes: [{ ni: 0, x: 53, y: 91 }] },
-  { img: "assets/maps/zone2-village.webp", nodes: [{ ni: 1, x: 50, y: 45 }] },
-  { img: "assets/maps/zone3-forest.webp", nodes: [{ ni: 2, x: 50, y: 55 }] },
-  { img: "assets/maps/zone4-river-valley.webp", nodes: [{ ni: 3, x: 58, y: 46 }] },
-  { img: "assets/maps/zone5-mountain-valley.webp", nodes: [{ ni: 4, x: 60, y: 50 }] },
-  { img: "assets/maps/zone6-volcano.webp", nodes: [{ ni: 5, x: 48, y: 68 }] },
-  { img: "assets/maps/zone7-snow-mountain.webp", nodes: [{ ni: 6, x: 58, y: 50 }] },
-  { img: "assets/maps/zone8-boss-castle.webp", nodes: [{ ni: 7, x: 50, y: 27 }] }
+  { img: "assets/maps/zone1-meadow.webp", w: 1024, h: 1536, nodes: [{ ni: 0, x: 53, y: 91 }] },
+  { img: "assets/maps/zone2-village.webp", w: 1086, h: 1448, nodes: [{ ni: 1, x: 50, y: 45 }] },
+  { img: "assets/maps/zone3-forest.webp", w: 1024, h: 1536, nodes: [{ ni: 2, x: 50, y: 55 }] },
+  { img: "assets/maps/zone4-river-valley.webp", w: 1086, h: 1448, nodes: [{ ni: 3, x: 58, y: 46 }] },
+  { img: "assets/maps/zone5-mountain-valley.webp", w: 1024, h: 1536, nodes: [{ ni: 4, x: 60, y: 50 }] },
+  { img: "assets/maps/zone6-volcano.webp", w: 1024, h: 1536, nodes: [{ ni: 5, x: 48, y: 68 }] },
+  { img: "assets/maps/zone7-snow-mountain.webp", w: 1024, h: 1536, nodes: [{ ni: 6, x: 58, y: 50 }] },
+  { img: "assets/maps/zone8-boss-castle.webp", w: 1024, h: 1536, nodes: [{ ni: 7, x: 50, y: 27 }] }
 ];
 
 // 8 個 Zone 的正式名稱（出自 art-prompts.md 各分區的標題），跨 Zone 時的區域提示用
@@ -205,7 +206,7 @@ function renderPathMap(){
       ${ni === avatarAt ? `<div class="path-avatar walking" id="pathAvatar" style="left:${x}%;top:${y}%"><div class="hero-walk"><img src="${HERO_WALK_SRC}" alt="主角"></div></div>` : ""}`;
     }).join("");
     // data-zone 給 CSS 做相鄰分區的重疊漸變用（見 index.html 的 .zone-wrap 規則）
-    return `<div class="zone-wrap" data-zone="${ZONE_ART.indexOf(zone) + 1}"><img src="${zone.img}" class="zone-bg" alt=""> ${nodesHtml}</div>`;
+    return `<div class="zone-wrap" data-zone="${ZONE_ART.indexOf(zone) + 1}"><img src="${zone.img}" width="${zone.w}" height="${zone.h}" class="zone-bg" alt=""> ${nodesHtml}</div>`;
   }).join("");
 
   app.innerHTML = `
