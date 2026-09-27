@@ -28,6 +28,7 @@ function renderQuestion(){
     </section>`;
   $("#quit").onclick = () => { stopAll(); S.viaPath != null ? renderPathMap() : renderMap(); };
   $("#ring").onclick = () => { if ($("#ring").dataset.state === "say" && activeRec) { try { activeRec.stop(); } catch(_){} } };
+  mountTestWinButton();
   runQuestion();
 }
 

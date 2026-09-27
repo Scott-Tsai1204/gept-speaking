@@ -127,6 +127,7 @@ function renderBossStage(promptHtml){
     </section>`;
   $("#quit").onclick = () => { stopAll(); renderPathMap(); };
   $("#ring").onclick = () => { if ($("#ring").dataset.state === "say" && activeRec) { try { activeRec.stop(); } catch(_){} } };
+  mountTestWinButton();
 }
 
 function runBossRound(){

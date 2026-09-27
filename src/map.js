@@ -293,6 +293,23 @@ function walkPathHero(avatar, fromNi, toNi){
   }, ms);
 }
 
+/* ===== 暫時的測試用：?test 時在闖關地圖的戰鬥畫面放一顆「直接過關」，存 3 星後直接回地圖（看主角走到下一關） ===== */
+function mountTestWinButton(){
+  if (!TEST_QUICK_WIN || S.viaPath == null) return;
+  const btn = document.createElement("button");
+  btn.className = "test-win-btn";
+  btn.textContent = "⚡ 直接過關（測試）";
+  btn.onclick = () => {
+    const ni = S.viaPath;
+    stopAll();
+    const progress = loadPathProgress();
+    progress[ni] = 3;
+    savePathProgress(progress);
+    renderPathMap();
+  };
+  app.appendChild(btn); // 放在 app 裡：換畫面時會跟著被清掉
+}
+
 function startPathNode(ni){
   const node = PATH_NODES[ni];
   if (node.final) return startBossBattle(ni); // FINAL BOSS：多回合英語戰（見 src/boss.js），不是一般的複誦戰
@@ -341,6 +358,7 @@ function renderReadQuestion(){
     </section>`;
   $("#quit").onclick = () => { stopAll(); renderPathMap(); };
   $("#ring").onclick = () => { if ($("#ring").dataset.state === "say" && activeRec) { try { activeRec.stop(); } catch(_){} } };
+  mountTestWinButton();
   runReadQuestion();
 }
 async function runReadQuestion(){
