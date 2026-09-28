@@ -952,12 +952,6 @@
       "topic": "weather"
     },
     {
-      "id": "question_064",
-      "question": "Would you rather live in the city or in the countryside?",
-      "category": "preference",
-      "topic": "daily_life"
-    },
-    {
       "id": "question_065",
       "question": "What do you like to do after school?",
       "category": "preference",
@@ -1300,6 +1294,160 @@
       "sourcePage": "P1C3U1-1",
       "suggestedCategory": "preference",
       "suggestedTopic": "personality",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_115",
+      "question": "If you have a choice, where would you like to live: the city or the countryside? Why?",
+      "category": "preference",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourcePage": "P1C3U2-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_116",
+      "question": "Do you do any housework at home?",
+      "category": "warmup",
+      "topic": "home",
+      "origin": "external",
+      "sourcePage": "P1C3U2-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_117",
+      "question": "What do you usually do in your living room?",
+      "category": "warmup",
+      "topic": "home",
+      "origin": "external",
+      "sourcePage": "P1C3U2-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_118",
+      "question": "What is your favorite place in or around your house?",
+      "category": "preference",
+      "topic": "home",
+      "origin": "external",
+      "sourcePage": "P1C3U2-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_119",
+      "question": "Do you recycle?",
+      "category": "warmup",
+      "topic": "environment",
+      "origin": "external",
+      "sourcePage": "P1C3U2-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "environment",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_120",
+      "question": "Do you keep a diary?",
+      "category": "warmup",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourcePage": "P1C3U2-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_121",
+      "question": "Talk about one of your birthday wishes.",
+      "category": "preference",
+      "topic": "social",
+      "origin": "external",
+      "sourcePage": "P1C3U4-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_122",
+      "question": "If you're having a party, how will you decorate it and who will you invite?",
+      "category": "situational",
+      "topic": "social",
+      "origin": "external",
+      "sourcePage": "P1C3U4-1",
+      "suggestedCategory": "situational",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_123",
+      "question": "If you see a stranger waving at you, what will you do?",
+      "category": "situational",
+      "topic": "social",
+      "origin": "external",
+      "sourcePage": "P1C3U4-1",
+      "suggestedCategory": "situational",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_124",
+      "question": "How do you express your anger?",
+      "category": "preference",
+      "topic": "feelings",
+      "origin": "external",
+      "sourcePage": "P1C3U4-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "feelings",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_125",
+      "question": "Who is your favorite family member and why?",
+      "category": "preference",
+      "topic": "family",
+      "origin": "external",
+      "sourcePage": "P1C3U4-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "family",
       "acceptedSuggestions": [
         "category",
         "topic"
