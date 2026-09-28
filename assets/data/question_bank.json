@@ -1760,6 +1760,244 @@
         "category",
         "topic"
       ]
+    },
+    {
+      "id": "question_148",
+      "question": "Have you ever taken a boat ride?",
+      "category": "warmup",
+      "topic": "travel",
+      "origin": "external",
+      "sourcePage": "P1C3U8-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_149",
+      "question": "Have you ever traveled by airplane?",
+      "category": "warmup",
+      "topic": "travel",
+      "origin": "external",
+      "sourcePage": "P1C3U8-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_150",
+      "question": "Have you ever seen a traffic accident?",
+      "category": "warmup",
+      "topic": "transportation",
+      "origin": "external",
+      "sourcePage": "P1C3U8-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_151",
+      "question": "Have you ever given directions to someone?",
+      "category": "warmup",
+      "topic": "directions",
+      "origin": "external",
+      "sourcePage": "P1C3U8-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_152",
+      "question": "What do you usually do before a trip?",
+      "category": "warmup",
+      "topic": "travel",
+      "origin": "external",
+      "sourcePage": "P1C3U8-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_153",
+      "question": "Talk about your last trip.",
+      "category": "warmup",
+      "topic": "travel",
+      "origin": "external",
+      "sourcePage": "P1C3U8-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_154",
+      "question": "Why do people like shopping during a sale?",
+      "category": "preference",
+      "topic": "shopping",
+      "origin": "external",
+      "sourcePage": "P1C3U8-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_155",
+      "question": "What job would you like to have in the future?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_156",
+      "question": "Tell me about a time you watched someone doing their job.",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_157",
+      "question": "Can you tell me about someone you know and their job?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_158",
+      "question": "Have you ever had a job interview?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_159",
+      "question": "If you had to make a big career choice, what would you consider?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_160",
+      "question": "What do office workers usually do at work?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_161",
+      "question": "Do you think office work is stressful?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_162",
+      "question": "What do you think people usually do in a business meeting?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_163",
+      "question": "What is the purpose of a business meeting? Give some examples.",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_164",
+      "question": "What do you think is the most interesting job and why?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
