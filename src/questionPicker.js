@@ -1,7 +1,7 @@
 "use strict";
 /* ===== V6.0-B 抽題器：Shuffle Bag ＋ 最近題目記憶 ＋ topic cooldown =====
    只決定「從現有題庫選哪一題」，不改題目內容、題型或各模式的出題結構。
-   - 每個題池一個 Shuffle Bag（repeat_easy／repeat_medium／repeat_hard／read／answer_warmup／answer_opinion／answer_situational）：
+   - 每個題池一個 Shuffle Bag（repeat_easy／repeat_medium／repeat_hard／read／answer_warmup／answer_preference／answer_situational）：
      洗牌後依序取用，用完才重新洗牌；重新洗牌時第一題不會是上一輪最後一題。
    - 最近題目記憶（REPEAT 10／READ 3／ANSWER 8 個 id）：重新洗牌後不會馬上又抽到剛用過的題目。
    - topic cooldown：有其他候選時，不選跟上一題（或同一輪已選題目）同 topic 的題目。
@@ -15,7 +15,7 @@ let pickerIndex = null;   // 由 questionBank 建立：{ pools: { key: [item] },
 
 function pickerBuildIndex(){
   if (pickerIndex || !questionBank) return pickerIndex;
-  const pools = { repeat_easy: [], repeat_medium: [], repeat_hard: [], read: [], answer_warmup: [], answer_opinion: [], answer_situational: [] };
+  const pools = { repeat_easy: [], repeat_medium: [], repeat_hard: [], read: [], answer_warmup: [], answer_preference: [], answer_situational: [] };
   const byId = {}, byText = new Map();
   questionBank.repeat.forEach(it => { const x = { id: it.id, topic: it.topic, text: it.text, difficulty: it.difficulty }; pools["repeat_" + it.difficulty].push(x); byId[x.id] = x; byText.set(x.text, x); });
   questionBank.read.forEach(it => { const x = { id: it.id, topic: it.topic, text: it.text }; pools.read.push(x); byId[x.id] = x; });
@@ -32,6 +32,8 @@ function pickerLoadState(){
   if (!st || typeof st !== "object" || st.v !== 1) st = {};
   const clean = { v: 1, bags: {}, recent: {}, lastTopic: {}, last: {} };
   const known = id => typeof id === "string" && idx.byId[id];
+  // V6-D0.1：opinion 改名為 preference（題目 id 不變），舊存檔的這一輪 bag 接著用，不重新洗牌
+  [st.bags, st.last].forEach(m => { if (m && m.answer_opinion && !m.answer_preference){ m.answer_preference = m.answer_opinion; delete m.answer_opinion; } });
   // 舊資料裡已經不存在的 id 丟掉；題庫新增的題目插進目前這一輪的 Shuffle Bag
   Object.keys(idx.pools).forEach(key => {
     const b = st.bags && st.bags[key];

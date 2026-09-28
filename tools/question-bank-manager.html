@@ -83,7 +83,16 @@ code{background:var(--bg);border-radius:6px;padding:0 5px;overflow-wrap:anywhere
 
   <section class="card">
     <h2><span class="step">2</span>上傳 Excel</h2>
-    <p class="small muted">工作表：<b>ANSWER</b>（Question）、<b>REPEAT</b>（Text）、<b>READ</b>（Text）。只想匯入其中一種也可以：其他工作表刪掉或留空就好。所有欄位都可以空白（沒有題目文字的列會略過），README 工作表不會匯入，也不用填題目 ID。</p>
+    <p class="small muted">工作表：<b>ANSWER</b>（Question）、<b>REPEAT</b>（Text）、<b>READ</b>（Text）。只想匯入其中一種也可以：沒有資料的工作表會 SKIP，既有題庫的那一類完全不變。所有欄位都可以空白（沒有題目文字的列會略過），範本裡「[Example]」開頭的示範列、README 工作表都不會匯入，也不用填題目 ID。</p>
+    <details class="small" style="margin-top:8px">
+      <summary><b>ANSWER 的三個 Category</b></summary>
+      <ul style="margin:6px 0 0;padding-left:20px">
+        <li><b>warmup　基礎題</b>：簡單的個人資料、日常生活或事實問題</li>
+        <li><b>preference　喜好題</b>：個人喜好、選擇、意願，通常可用簡單理由回答</li>
+        <li><b>situational　情境題</b>：假設情境、詢問、請求或需要回應的問題</li>
+      </ul>
+      <p class="muted">以上為本遊戲依 GEPT 初級口說「回答問題」的能力與題目特徵所做的題庫分類，方便練習與管理，並非 GEPT 官方公布的正式分類。（舊名稱 opinion 會自動視為 preference。）</p>
+    </details>
     <div class="row-actions">
       <label class="btn primary">選擇 Excel 檔<input type="file" id="xlsxFile" accept=".xlsx,.xls" class="hidden"></label>
       <button id="templateBtn">下載空白範本</button>
@@ -181,18 +190,44 @@ $("#templateBtn").onclick = () => {
   const readme = [
     ["GEPT Adventure 外部題庫範本（課外書來源，不是官方 GEPT 題目）"], [],
     ["工作表", "題目欄", "其他欄位（都可以空白）", "說明"],
-    ["ANSWER", "Question", "Source Book, Source Page, Category, Topic, Notes", "Category 只能是 warmup / opinion / situational，不知道就空白"],
-    ["REPEAT", "Text", "Source Book, Source Page, Difficulty, Topic, Notes", "Difficulty 只能是 easy / medium / hard，不知道就空白"],
+    ["ANSWER", "Question", "Source Book, Source Page, Category, Topic, Notes", "Category 可用下拉選單選 warmup / preference / situational，不知道就空白"],
+    ["REPEAT", "Text", "Source Book, Source Page, Difficulty, Topic, Notes", "Difficulty 可用下拉選單選 easy / medium / hard，不知道就空白"],
     ["READ", "Text", "Source Book, Source Page, Topic, Notes", "Topic 可以自由填寫，例如 school、food、shopping"],
-    [], ["不用填題目 ID，匯入工具會自動編號。只想匯入某一種題目時，其他工作表留空或刪掉都可以。這個 README 工作表不會被匯入。"]
+    [], ["ANSWER 的 Category"],
+    ["warmup", "基礎題", "", "簡單的個人資料、日常生活或事實問題"],
+    ["preference", "喜好題", "", "個人喜好、選擇、意願，通常可用簡單理由回答"],
+    ["situational", "情境題", "", "假設情境、詢問、請求或需要回應的問題"],
+    ["以上為本遊戲的題庫分類，方便練習與管理，並非 GEPT 官方公布的正式分類。"],
+    [], ["不用填題目 ID，匯入工具會自動編號。只想匯入某一種題目時，其他工作表留空就好（會 SKIP，既有題庫不受影響）。這個 README 工作表不會被匯入。"]
   ];
   const add = (name, aoa, widths) => { const ws = XLSX.utils.aoa_to_sheet(aoa); ws["!cols"] = widths.map(w => ({ wch: w })); XLSX.utils.book_append_sheet(wb, ws, name); };
   add("README", readme, [14, 34, 26, 60]);
   add("ANSWER", [["Question", "Source Book", "Source Page", "Category (optional)", "Topic (optional)", "Notes (optional)"]], [60, 30, 12, 20, 18, 30]);
   add("REPEAT", [["Text", "Source Book", "Source Page", "Difficulty (optional)", "Topic (optional)", "Notes (optional)"]], [60, 30, 12, 20, 18, 30]);
   add("READ", [["Text", "Source Book", "Source Page", "Topic (optional)", "Notes (optional)"]], [80, 30, 12, 18, 30]);
-  XLSX.writeFile(wb, "GEPT_Question_Bank_Template.xlsx");
+  // SheetJS 社群版不能直接寫下拉選單：產生 xlsx 後，在工作表 XML 的 </sheetData> 後面補上 dataValidations
+  const buf = addListValidations(XLSX.write(wb, { type: "array", bookType: "xlsx" }), {
+    2: ["D2:D2001", QBCore.CATEGORIES],   // ANSWER 的 Category
+    3: ["D2:D2001", QBCore.DIFFICULTIES]  // REPEAT 的 Difficulty
+  });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }));
+  a.download = "GEPT_Question_Bank_Template.xlsx";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
 };
+// { 工作表序號: [範圍, 選項] } → 回傳加好下拉選單的 xlsx（ArrayBuffer／Uint8Array）
+function addListValidations(buf, specs){
+  const cfb = XLSX.CFB.read(new Uint8Array(buf), { type: "buffer" });
+  Object.entries(specs).forEach(([n, [sqref, options]]) => {
+    const i = cfb.FullPaths.findIndex(p => p.endsWith(`xl/worksheets/sheet${n}.xml`));
+    if (i < 0) return;
+    const xml = new TextDecoder().decode(cfb.FileIndex[i].content);
+    const dv = `<dataValidations count="1"><dataValidation type="list" allowBlank="1" showErrorMessage="0" sqref="${sqref}"><formula1>"${options.join(",")}"</formula1></dataValidation></dataValidations>`;
+    cfb.FileIndex[i].content = new TextEncoder().encode(xml.replace("</sheetData>", "</sheetData>" + dv));
+  });
+  return XLSX.CFB.write(cfb, { fileType: "zip", type: "array" });
+}
 
 /* ---------- 分析＋畫面 ---------- */
 function refresh(){
@@ -200,6 +235,8 @@ function refresh(){
   QBCore.analyzeRows(allRows(), st.bank, st.cal);
   renderReadSummary();
   const any = allRows().length > 0;
+  // 目前分頁沒有題目時，切到第一個有題目的分頁（例如只匯入 REPEAT）
+  if (any && !allRows().some(r => r.type === st.tab)) st.tab = QBCore.TYPES.find(t => allRows().some(r => r.type === t));
   $("#reviewCard").classList.toggle("hidden", !any);
   $("#previewCard").classList.toggle("hidden", !any);
   if (!any) return;
@@ -211,9 +248,15 @@ function renderReadSummary(){
   const p = st.parsed, ul = $("#readSummary");
   if (!p){ ul.innerHTML = ""; return; }
   const rows = st.excelRows, items = [];
-  items.push(`<li class="ok">讀到 <b>${rows.length}</b> 題：ANSWER ${p.counts.answer} 題、REPEAT ${p.counts.repeat} 題、READ ${p.counts.read} 題</li>`);
-  p.missingSheets.forEach(s => items.push(`<li class="tip">沒有 ${esc(s)} 工作表（略過，這是正常的）</li>`));
-  p.problems.forEach(s => items.push(`<li class="err">✖ ${esc(s)}</li>`));
+  // 每張工作表的狀態：有資料就列題數，沒有資料就是 SKIP（不是錯誤，既有題庫的這一類不變）
+  QBCore.TYPES.forEach(t => {
+    const n = p.counts[t], name = TYPE_NAME[t];
+    items.push(n ? `<li class="ok">${name}：讀到 <b>${n}</b> 題</li>`
+      : `<li class="tip">${name}：${p.missingSheets.includes(name) ? "沒有這張工作表" : "無資料"} → SKIP（既有 ${name} 題庫不變）</li>`);
+  });
+  if (!rows.length) items.push(`<li class="warn">⚠ 沒有可匯入的題目。現有題庫不會有任何改變。</li>`);
+  if (p.examples) items.push(`<li class="tip">略過 ${p.examples} 列範本示範資料（[Example] 開頭）</li>`);
+  p.problems.forEach(s => items.push(`<li class="warn">⚠ ${esc(s)}</li>`));
   const noText = rows.filter(r => r.errors.length).length;
   if (noText) items.push(`<li class="warn">⚠ ${noText} 列沒有題目文字，會略過</li>`);
   const noSrc = rows.filter(r => !r.errors.length && !r.sourceBook && !r.sourcePage).length;
@@ -224,7 +267,7 @@ function renderReadSummary(){
   const noCat = rows.filter(r => r.type === "answer" && !r.valid.category).length;
   const noDiff = rows.filter(r => r.type === "repeat" && !r.valid.difficulty).length;
   const noTopic = rows.filter(r => !r.valid.topic).length;
-  items.push(`<li class="tip">Excel 沒填分類：Category ${noCat} 題、Difficulty ${noDiff} 題、Topic ${noTopic} 題（空白是正常的，可以參考建議）</li>`);
+  if (rows.length) items.push(`<li class="tip">Excel 沒填分類：Category ${noCat} 題、Difficulty ${noDiff} 題、Topic ${noTopic} 題（空白是正常的，可以參考建議）</li>`);
   ul.innerHTML = items.join("");
 }
 function renderTabs(){
@@ -292,11 +335,12 @@ function renderRows(){
 }
 function computePreview(){
   const rows = allRows(), excel = st.excelRows;
-  const s = { total: rows.length, excel: excel.length, pendingOld: st.pending.length, game: { answer: 0, repeat: 0, read: 0 }, pending: 0, skip: 0, errors: 0, dup: 0, similar: 0, sugAvail: 0, sugAccepted: 0, blankCat: 0, blankDiff: 0, blankTopic: 0, unchecked: 0, pendingToGame: 0 };
+  const s = { total: rows.length, excel: excel.length, pendingOld: st.pending.length, game: { answer: 0, repeat: 0, read: 0 }, pending: 0, skip: 0, errors: 0, dup: 0, similar: 0, sugAvail: 0, sugAccepted: 0, blankCat: 0, blankDiff: 0, blankTopic: 0, unchecked: 0, pendingToGame: 0,
+    newByType: { answer: 0, repeat: 0, read: 0 }, pendNewByType: { answer: 0, repeat: 0, read: 0 } };
   rows.forEach(r => {
     const d = QBCore.rowDestination(r), f = QBCore.finalFields(r);
-    if (d === "game"){ s.game[r.type]++; if (r.origin === "pending") s.pendingToGame++; }
-    else if (d === "pending") s.pending++;
+    if (d === "game"){ s.game[r.type]++; if (r.origin === "pending") s.pendingToGame++; else s.newByType[r.type]++; }
+    else if (d === "pending"){ s.pending++; if (r.origin === "excel") s.pendNewByType[r.type]++; }
     else s.skip++;
     if (r.errors.length) s.errors++;
     if (r.origin === "excel" && !r.errors.length && !r.include) s.unchecked++;
@@ -325,6 +369,14 @@ function renderPreview(){
     stat(s.blankCat + s.blankDiff + s.blankTopic, "匯出後仍空白的分類")
   ].join("");
   const it = [];
+  // 逐張工作表：有新增就列數量，沒有資料就是 SKIP（既有題庫的這一類不動）
+  QBCore.TYPES.forEach(t => {
+    const add = s.newByType[t], pend = s.pendNewByType[t], hasRows = st.excelRows.some(r => r.type === t);
+    it.push(!hasRows ? `<li class="tip">${TYPE_NAME[t]}：無資料 → SKIP</li>`
+      : `<li class="ok">${TYPE_NAME[t]}：新增 ${add} 題${pend ? `，放進待分類區 ${pend} 題` : ""}</li>`);
+  });
+  st.canExport = newToGame + Object.values(s.pendNewByType).reduce((a, b) => a + b, 0) + s.pendingToGame > 0;
+  if (!st.canExport) it.push(`<li class="warn">⚠ 沒有可匯入的題目，現有題庫不會有任何改變（不需要匯出）</li>`);
   if (s.errors) it.push(`<li class="warn">⚠ ${s.errors} 列沒有題目文字，不會匯出</li>`);
   if (s.unchecked) it.push(`<li class="warn">⚠ ${s.unchecked} 筆你取消勾選「匯入」，不會匯出</li>`);
   if (s.dup) it.push(`<li class="warn">⚠ ${s.dup} 筆可能重複（仍會照你的勾選匯出）</li>`);
@@ -337,7 +389,9 @@ function renderPreview(){
   if (s.pendingToGame) it.push(`<li class="ok">✓ 待分類區有 ${s.pendingToGame} 題這次分類完成，會移進遊戲題庫（ID 不變）</li>`);
   it.push(`<li class="ok">✓ 新增進遊戲：ANSWER ${s.game.answer}、REPEAT ${s.game.repeat}、READ ${s.game.read}（含從待分類區移入的題目）；現有 ${st.bank.questions.length + st.bank.repeat.length + st.bank.read.length} 題不會變動</li>`);
   $("#issues").innerHTML = it.join("");
-  $("#exportBtn").disabled = !$("#confirm").checked;
+  $("#confirm").disabled = !st.canExport;
+  if (!st.canExport) $("#confirm").checked = false;
+  $("#exportBtn").disabled = !st.canExport || !$("#confirm").checked;
 }
 
 /* ---------- 操作 ---------- */
@@ -363,13 +417,14 @@ document.addEventListener("change", e => {
   if (t.dataset.act === "include"){ allRows()[+t.dataset.i].include = t.checked; changed(); }
   if (t.dataset.act === "manual"){ allRows()[+t.dataset.i].manual[t.dataset.field] = t.value; changed(); }
   if (t.id === "filter"){ st.filter = t.value; renderRows(); }
-  if (t.id === "confirm") $("#exportBtn").disabled = !t.checked;
+  if (t.id === "confirm") $("#exportBtn").disabled = !t.checked || !st.canExport;
 });
 function changed(){
   $("#confirm").checked = false; $("#exportResult").innerHTML = "";
   const y = window.scrollY; renderRows(); renderPreview(); window.scrollTo(0, y);
 }
 $("#exportBtn").onclick = () => {
+  if (!st.canExport) return; // 沒有可匯入的題目：不產生新檔
   const before = st.bank;
   const { bank, added, pendingAdded } = QBCore.buildMergedBank(before, allRows());
   const min = { questions: before.questions.length, repeat: before.repeat.length, read: before.read.length };

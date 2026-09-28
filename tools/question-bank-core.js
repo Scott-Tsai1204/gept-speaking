@@ -9,7 +9,9 @@
    這些題目是「外部題庫／課外書來源」，不是官方 GEPT 題目。 */
 (function(global){
 
-const CATEGORIES = ["warmup", "opinion", "situational"];
+// ANSWER 三分類是本遊戲自訂的題庫分類（依 GEPT 初級口說「回答問題」的能力與題目特徵），不是 GEPT 官方分類
+const CATEGORIES = ["warmup", "preference", "situational"];
+const LEGACY_CATEGORY = { opinion: "preference" }; // V6-D0.1 改名前的舊值，Excel 裡填 opinion 仍視為 preference
 const DIFFICULTIES = ["easy", "medium", "hard"];
 const UNSPECIFIED_TOPIC = "unspecified"; // Topic 空白時放進遊戲題庫用的標記（遊戲的 topic cooldown 需要非空字串）
 
@@ -31,18 +33,21 @@ const isBlank = v => cellStr(v).trim() === "";
 // 讀一張工作表的二維陣列（SheetJS sheet_to_json header:1 的結果）→ { rows, problems }
 function parseSheetRows(type, aoa){
   const spec = SHEETS[type], problems = [], rows = [];
+  let examples = 0;
   const headerIdx = aoa.findIndex(r => Array.isArray(r) && r.some(c => !isBlank(c)));
-  if (headerIdx < 0) return { rows, problems, empty: true };
+  if (headerIdx < 0) return { rows, problems, examples, empty: true };
   const colIndex = {};
   aoa[headerIdx].forEach((h, i) => { const k = headerKey(h); if (spec.cols[k] && colIndex[k] == null) colIndex[k] = i; });
   // 所有欄位都不是必填；只有題目文字欄整個不存在時，這張工作表沒東西可匯入
   if (colIndex[spec.textCol] == null){
     problems.push(`${spec.sheet} 工作表沒有 ${spec.cols[spec.textCol]} 欄位，略過這張工作表`);
-    return { rows, problems };
+    return { rows, problems, examples };
   }
   for (let r = headerIdx + 1; r < aoa.length; r++){
     const line = aoa[r] || [];
     if (!line.some(c => !isBlank(c))) continue; // 整列空白：略過
+    // 範本裡的「[Example] …」示範列不是題目：略過（否則沒輸入題目的工作表也會被當成有資料）
+    if (/^\s*\[example\]/i.test(cellStr(line[colIndex[spec.textCol]]))){ examples++; continue; }
     const get = k => colIndex[k] == null ? "" : cellStr(line[colIndex[k]]);
     rows.push({
       type, origin: "excel", sheet: spec.sheet, rowNum: r + 1, // Excel 的列號（1 起算）
@@ -51,12 +56,13 @@ function parseSheetRows(type, aoa){
       given: { category: get("category").trim(), topic: get("topic").trim(), difficulty: get("difficulty").trim() }
     });
   }
-  return { rows, problems };
+  return { rows, problems, examples };
 }
 
-// 整本活頁簿（SheetJS workbook）→ { rows, problems, counts, missingSheets }
+// 整本活頁簿（SheetJS workbook）→ { rows, problems, counts, missingSheets, examples }
+// counts 是每張工作表讀到的列數：0 代表這張工作表沒有資料 → SKIP，既有題庫的這一類完全不動
 function parseWorkbook(XLSX, wb){
-  const out = { rows: [], problems: [], counts: { answer: 0, repeat: 0, read: 0 }, missingSheets: [] };
+  const out = { rows: [], problems: [], counts: { answer: 0, repeat: 0, read: 0 }, missingSheets: [], examples: 0 };
   TYPES.forEach(type => {
     const name = wb.SheetNames.find(n => n.trim().toUpperCase() === SHEETS[type].sheet);
     if (!name){ out.missingSheets.push(SHEETS[type].sheet); return; }
@@ -65,6 +71,7 @@ function parseWorkbook(XLSX, wb){
     out.problems.push(...res.problems);
     out.rows.push(...res.rows);
     out.counts[type] = res.rows.length;
+    out.examples += res.examples || 0;
   });
   return out;
 }
@@ -126,15 +133,17 @@ function suggestCategory(question){
     hit(/\bwhat (would|will|should|could|can) you (say|ask|tell|do)\b/, "問「你會怎麼說／問」") ||
     hit(/\bhow (would|will|could|can|should) you (ask|tell|say|invite|explain|respond|reply|apologi[sz]e|thank)\b/, "問「你會怎麼開口」");
   if (situational) return { value: "situational", reason: situational };
-  const opinion =
-    hit(/\bwhy\b/, "含 why") ||
-    hit(/\b(do|would) you (like|enjoy|love|prefer|think|feel|agree)\b/, "問喜好或看法") ||
-    hit(/\b(would you rather|what do you think|in your opinion|how do you feel)\b/, "問看法") ||
+  // preference（喜好題）：個人喜好、選擇、意願，通常用簡單理由回答即可（不需要真正的議論）
+  const preference =
+    hit(/\bwhy\b/, "含 why（說簡單理由）") ||
     hit(/\bfavou?rite\b/, "含 favorite") ||
-    hit(/\bprefer\b|\bwhich .*\b(better|more|like)\b/, "比較喜好") ||
+    hit(/\bprefer\b|\bwould you rather\b/, "二選一的喜好") ||
+    hit(/\b(do|would|did) you (like|dislike|enjoy|love|hate|prefer|want to|think|feel|agree)\b|\bwould you like to\b/, "問喜不喜歡／想不想") ||
+    hit(/\bdislike\b|\b(choose|choice)\b/, "問選擇或不喜歡的事") ||
+    hit(/\bwhich .*\b(better|more|like|want)\b/, "比較喜好") ||
     hit(/\bwhat kind of .* (do|would) you like\b/, "問喜歡的種類") ||
-    hit(/\b(is it|do you think it is) (important|good|bad|useful|necessary)\b|\bshould\b/, "問看法");
-  if (opinion) return { value: "opinion", reason: opinion };
+    hit(/\b(what do you think|in your opinion|how do you feel)\b|\b(is it|do you think it is) (important|good|bad|useful|necessary|fun)\b|\bshould\b/, "問簡單看法");
+  if (preference) return { value: "preference", reason: preference };
   const warmup = hit(new RegExp("^(what('s| is| are) (your|the)|what time|what day|what did you|what do you usually|what do your|what languages|" +
     "where (do|did|is|are|does)|when (is|do|did|does)|who (is|do|does|did|cooks)|how (old|are you|many|much|long|often|do you usually|do you get|do you go|was|is)|" +
     "do you have|did you|can you|is there|are there|are you|have you|" +
@@ -248,8 +257,11 @@ function analyzeRows(rows, bank, cal){
     // Excel 已填的分類：大小寫不同視為同一個值；不合法的值當作空白並提醒
     row.valid = { category: "", difficulty: "", topic: row.given.topic };
     if (row.type === "answer" && row.given.category){
-      const c = row.given.category.toLowerCase();
-      if (CATEGORIES.includes(c)) row.valid.category = c; else row.warnings.push(`Category「${row.given.category}」不是 warmup／opinion／situational，當作空白`);
+      const c0 = row.given.category.toLowerCase(), c = LEGACY_CATEGORY[c0] || c0;
+      if (CATEGORIES.includes(c)){
+        row.valid.category = c;
+        if (c !== c0) row.warnings.push(`Category「${row.given.category}」是改名前的舊名稱，視為 ${c}`);
+      } else row.warnings.push(`Category「${row.given.category}」不是 warmup／preference／situational，當作空白`);
     }
     if (row.type === "repeat" && row.given.difficulty){
       const d = row.given.difficulty.toLowerCase();
@@ -372,7 +384,7 @@ function existingUnchanged(before, after){
 }
 
 global.QBCore = {
-  CATEGORIES, DIFFICULTIES, SHEETS, TYPES, BANK_KEY, TEXT_FIELD, UNSPECIFIED_TOPIC, DUP_LABEL, UNSURE,
+  CATEGORIES, LEGACY_CATEGORY, DIFFICULTIES, SHEETS, TYPES, BANK_KEY, TEXT_FIELD, UNSPECIFIED_TOPIC, DUP_LABEL, UNSURE,
   parseWorkbook, parseSheetRows, normalizeText, compareTexts, diceSimilarity,
   suggestCategory, suggestTopic, suggestDifficulty, calibrateDifficulty, difficultyScore,
   pendingRows, analyzeRows, finalFields, rowDestination, rowLabel, buildMergedBank, validateForGame, existingUnchanged

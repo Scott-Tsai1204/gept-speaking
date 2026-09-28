@@ -648,73 +648,73 @@
     {
       "id": "question_013",
       "question": "What do you usually do on weekends?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "hobbies"
     },
     {
       "id": "question_014",
       "question": "What's your favorite food? Why do you like it?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "food"
     },
     {
       "id": "question_015",
       "question": "Do you like your school or your job? Why?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "school_work"
     },
     {
       "id": "question_016",
       "question": "What kind of music do you like?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "music"
     },
     {
       "id": "question_017",
       "question": "Do you prefer reading books or watching movies? Why?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "hobbies"
     },
     {
       "id": "question_018",
       "question": "What's your favorite season? Why?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "weather"
     },
     {
       "id": "question_019",
       "question": "Do you like to travel? Why or why not?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "travel"
     },
     {
       "id": "question_020",
       "question": "What's your favorite sport? Why?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "sports"
     },
     {
       "id": "question_021",
       "question": "Do you prefer coffee or tea? Why?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "food"
     },
     {
       "id": "question_022",
       "question": "Do you like animals? Why or why not?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "animals"
     },
     {
       "id": "question_023",
       "question": "What's your favorite subject? Why?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "school_work"
     },
     {
       "id": "question_024",
       "question": "What's your favorite holiday? Why?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "holidays"
     },
     {
@@ -936,145 +936,145 @@
     {
       "id": "question_061",
       "question": "Do you like cooking?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "hobbies"
     },
     {
       "id": "question_062",
       "question": "What kind of movies do you like?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "entertainment"
     },
     {
       "id": "question_063",
       "question": "Do you like rainy days?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "weather"
     },
     {
       "id": "question_064",
       "question": "Would you rather live in the city or in the countryside?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "daily_life"
     },
     {
       "id": "question_065",
       "question": "What do you like to do after school?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "hobbies"
     },
     {
       "id": "question_066",
       "question": "Do you like shopping with your friends?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "shopping"
     },
     {
       "id": "question_067",
       "question": "Would you like to live in a big house or a small apartment?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "home"
     },
     {
       "id": "question_068",
       "question": "Do you like taking the bus? Why or why not?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "transportation"
     },
     {
       "id": "question_069",
       "question": "Do you like getting up early?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "daily_routine"
     },
     {
       "id": "question_070",
       "question": "Do you think it is important to exercise?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "health"
     },
     {
       "id": "question_071",
       "question": "Would you like to learn to play a musical instrument?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "music"
     },
     {
       "id": "question_072",
       "question": "What kind of books do you like to read?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "hobbies"
     },
     {
       "id": "question_073",
       "question": "Do you like playing video games?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "entertainment"
     },
     {
       "id": "question_074",
       "question": "Which do you like more, eating at home or eating at a restaurant?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "restaurant"
     },
     {
       "id": "question_075",
       "question": "Do you like going to the beach?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "travel"
     },
     {
       "id": "question_076",
       "question": "Do you enjoy going to parties?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "social"
     },
     {
       "id": "question_077",
       "question": "What do you like to do with your family?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "family"
     },
     {
       "id": "question_078",
       "question": "Do you like to study alone or with friends?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "school_work"
     },
     {
       "id": "question_079",
       "question": "Which animal would you like to see at the zoo?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "animals"
     },
     {
       "id": "question_080",
       "question": "Which country would you like to visit?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "travel"
     },
     {
       "id": "question_081",
       "question": "Which do you like better, sweet food or salty food?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "food"
     },
     {
       "id": "question_082",
       "question": "Do you think homework is useful?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "school_work"
     },
     {
       "id": "question_083",
       "question": "Do you like watching sports on TV?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "sports"
     },
     {
       "id": "question_084",
       "question": "How do you like to spend your birthday?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "social"
     },
     {
@@ -1238,11 +1238,11 @@
     {
       "id": "question_110",
       "question": "Who is your favorite idol and why?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "entertainment",
       "origin": "external",
       "sourcePage": "P1C3U1-1",
-      "suggestedCategory": "opinion",
+      "suggestedCategory": "preference",
       "suggestedTopic": "entertainment",
       "acceptedSuggestions": [
         "category",
@@ -1252,11 +1252,11 @@
     {
       "id": "question_111",
       "question": "What do you do when you are very excited?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "feelings",
       "origin": "external",
       "sourcePage": "P1C3U1-1",
-      "suggestedCategory": "opinion",
+      "suggestedCategory": "preference",
       "suggestedTopic": "feelings",
       "acceptedSuggestions": [
         "category",
@@ -1280,11 +1280,11 @@
     {
       "id": "question_113",
       "question": "What kind of person are you?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "personality",
       "origin": "external",
       "sourcePage": "P1C3U1-1",
-      "suggestedCategory": "opinion",
+      "suggestedCategory": "preference",
       "suggestedTopic": "personality",
       "acceptedSuggestions": [
         "category",
@@ -1294,11 +1294,11 @@
     {
       "id": "question_114",
       "question": "What are some bad things about people that you don't like?",
-      "category": "opinion",
+      "category": "preference",
       "topic": "personality",
       "origin": "external",
       "sourcePage": "P1C3U1-1",
-      "suggestedCategory": "opinion",
+      "suggestedCategory": "preference",
       "suggestedTopic": "personality",
       "acceptedSuggestions": [
         "category",

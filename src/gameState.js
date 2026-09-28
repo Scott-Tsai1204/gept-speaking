@@ -41,7 +41,9 @@ const PATH_NODES = [
 
 /* ===== 問答挑戰：暖身題／看法題／情境題，交給後端 LLM 評分 ===== */
 const WORKER_URL = "https://gept-speaking-proxy.gept-speaking.workers.dev";
-const TYPE_LABEL = { warmup: "暖身題", opinion: "看法題", situational: "情境題" };
+// 問答題的三個分類：本遊戲依 GEPT 初級口說「回答問題」的能力與題目特徵自訂的題庫分類，方便練習與管理，並非 GEPT 官方公布的正式分類。
+// V6-D0.1：opinion 改名為 preference（Worker 出題 API 仍使用舊名 opinion，見 questions.js 的 WORKER_QTYPE）
+const TYPE_LABEL = { warmup: "基礎題", preference: "喜好題", situational: "情境題" };
 const QUESTIONS = [];
 
 /* ===== 題庫載入與驗證（question_bank.json → 上面 5 個陣列） ===== */

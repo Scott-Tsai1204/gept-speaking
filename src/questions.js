@@ -1,5 +1,7 @@
 "use strict";
 /* ===== 問答挑戰 ===== */
+// Worker 的 /generate-question 只認得 warmup／opinion／situational（Worker 不改），所以 preference 送出時換回 opinion
+const WORKER_QTYPE = { preference: "opinion" };
 async function generateQuestion(type, avoid){
   try {
     const controller = new AbortController();
@@ -7,7 +9,7 @@ async function generateQuestion(type, avoid){
     const res = await fetch(WORKER_URL + "/generate-question", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ type, avoid }),
+      body: JSON.stringify({ type: WORKER_QTYPE[type] || type, avoid }),
       signal: controller.signal
     });
     clearTimeout(timer);
@@ -18,8 +20,8 @@ async function generateQuestion(type, avoid){
   } catch(_) { return null; }
 }
 async function pickAnswerRound(){
-  const types = ["warmup", "opinion", "situational"];
-  S.answerHistory = S.answerHistory || { warmup: [], opinion: [], situational: [] };
+  const types = ["warmup", "preference", "situational"];
+  S.answerHistory = S.answerHistory || { warmup: [], preference: [], situational: [] };
   // AI 出題比例與做法不變：每個 category 各有一半機率先請 AI 出題（三題同時請求）
   const ai = await Promise.all(types.map(async t => (Math.random() < 0.5 ? await generateQuestion(t, S.answerHistory[t].slice(-5)) : null)));
   // 沒有用 AI（或 AI 失敗）的 category 依序從固定題庫的 Shuffle Bag 取題，並盡量避開同一輪已選的 topic（V6.0-B，見 questionPicker.js）
