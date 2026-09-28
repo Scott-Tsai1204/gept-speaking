@@ -2549,6 +2549,81 @@
         "category",
         "topic"
       ]
+    },
+    {
+      "id": "question_198",
+      "question": "What are some rules you should follow at school?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 55",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_199",
+      "question": "What kind of job would you like to do? Why?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 55",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_200",
+      "question": "What do you do if you can't get to sleep?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 55",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_201",
+      "question": "What kind of people do you like?",
+      "category": "preference",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 55",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_202",
+      "question": "What pet do you like to keep? Why?",
+      "category": "preference",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 55",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
