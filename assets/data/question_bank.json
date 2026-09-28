@@ -2138,6 +2138,81 @@
         "category",
         "topic"
       ]
+    },
+    {
+      "id": "question_175",
+      "question": "What do you usually do in your free time?",
+      "category": "warmup",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 11",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_176",
+      "question": "What do you look like?",
+      "category": "warmup",
+      "topic": "appearance",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 11",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "appearance",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_177",
+      "question": "What are you like?",
+      "category": "preference",
+      "topic": "personality",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 11",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "personality",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_178",
+      "question": "What are you going to do after taking today's test?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 11",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_179",
+      "question": "Have you ever been late for class? If so, what was the reason?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 11",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
