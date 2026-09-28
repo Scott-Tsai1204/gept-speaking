@@ -249,6 +249,26 @@ img.path-node-art[src$="monster_06_mist_ghost.png"],img.mon-art[src$="monster_06
 .list{list-style:none;padding:0;margin:16px 0}
 .list li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
 .list li span:first-child{font-family:Lexend,sans-serif;font-size:15px}
+/* V6-D2 英檢口說練習（成人模式）：沿用卡片／按鈕樣式，拿掉遊戲元素、錄音圈縮小 */
+.practice-home{display:flex;flex-direction:column;gap:10px}
+.practice-title{flex:1;text-align:center;font-weight:700;font-size:18px}
+.practice-stage{justify-content:flex-start;gap:12px}
+.practice-card{width:100%;background:var(--card);border-radius:16px;padding:14px 16px;text-align:left;box-shadow:0 1px 0 var(--line);overflow-wrap:anywhere}
+.practice-meta{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:13px;color:var(--mute)}
+.practice-meta .ptag{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:1px 8px;font-weight:700;color:var(--ink)}
+.practice-meta .ptag.ai{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.practice-meta .pdesc{flex-basis:100%}
+.practice-toggle{margin-left:auto;background:none;border:0;color:var(--cobalt);font-weight:700;font-size:14px;padding:6px 2px;min-height:36px}
+.practice-text{font-size:20px;line-height:1.45;margin-top:8px}
+.practice-text.hidden{display:none}
+.practice-passage{box-shadow:none;padding:0;background:none}
+.practice-card .practice-passage{margin-top:0}
+.ring.practice-ring{width:120px;height:120px}
+.ring.practice-ring svg{width:46px;height:46px}
+.ring.practice-ring .bars{height:46px}
+.level-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:2px 0 6px}
+.level-chips button{border:2px solid var(--line);background:var(--card);border-radius:999px;padding:4px 14px;min-height:36px;font-weight:700;font-size:14px}
+.level-chips button.on{background:var(--ink);border-color:var(--ink);color:#fff}
 .chips span{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:3px 10px;margin:4px 6px 0 0;font-family:Lexend,sans-serif;font-size:15px}
 </style>
 </head>
@@ -262,6 +282,7 @@ img.path-node-art[src$="monster_06_mist_ghost.png"],img.mon-art[src$="monster_06
 <script src="src/questions.js"></script>
 <script src="src/map.js"></script>
 <script src="src/boss.js"></script>
+<script src="src/practice.js"></script>
 <script src="src/main.js"></script>
 </body>
 </html>

@@ -39,6 +39,22 @@ async function pickAnswerRound(){
   });
   return picked;
 }
+// 問答題的 AI 評分（Worker /evaluate）：回傳 { score, feedback }，失敗就丟出錯誤（遊戲與英檢口說練習 practice.js 共用）
+async function requestAnswerScore(question, answer, fluency){
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 20000);
+  const res = await fetch(WORKER_URL + "/evaluate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ question, answer, fluency }),
+    signal: controller.signal
+  });
+  clearTimeout(timer);
+  if (!res.ok) throw new Error("bad status");
+  const data = await res.json();
+  if (typeof data.score !== "number") throw new Error("bad body");
+  return data;
+}
 function avgScoreSoFar(){
   const done = S.results.filter(Boolean);
   return done.length ? Math.round(done.reduce((a, r) => a + r.score, 0) / done.length) : "-";
@@ -110,18 +126,7 @@ async function evaluateAnswer(item, r){
   $("#resultBox").innerHTML = "";
   let data;
   try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 20000);
-    const res = await fetch(WORKER_URL + "/evaluate", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question: item.q, answer: r.text, fluency: r.fluency }),
-      signal: controller.signal
-    });
-    clearTimeout(timer);
-    if (!res.ok) throw new Error("bad status");
-    data = await res.json();
-    if (typeof data.score !== "number") throw new Error("bad body");
+    data = await requestAnswerScore(item.q, r.text, r.fluency);
   } catch(_){
     setState("idle", "評分失敗", "");
     $("#resultBox").innerHTML = `<div class="result">

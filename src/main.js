@@ -77,10 +77,15 @@ function renderModeSelect(){
         <div class="review-head"><span class="review-emoji">🗺️</span><div><div class="review-title">闖關地圖</div><div class="review-sub">沿路小徑往上闖，複誦／朗讀／問答混合，最後挑戰大魔王</div></div></div>
         <button class="btn primary" id="goPath">進入地圖</button>
       </div>
+      <div class="review-card" style="animation-delay:.1s">
+        <div class="review-head"><span class="review-emoji">🎓</span><div><div class="review-title">英檢口說練習</div><div class="review-sub">直接練習 GEPT 初級口說，不闖關、不打怪，專注三種題型</div></div></div>
+        <button class="btn primary" id="goPractice">開始練習</button>
+      </div>
     </section>`;
   $("#toStart").onclick = renderStart;
   $("#goCorridor").onclick = renderMap;
   $("#goPath").onclick = renderPathMap;
+  $("#goPractice").onclick = renderPracticeHome; // V6-D2：成人直接練習模式（見 src/practice.js）
 }
 
 renderStart();

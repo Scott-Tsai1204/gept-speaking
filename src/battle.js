@@ -53,16 +53,22 @@ async function runQuestion(){
   evaluate(q, r);
 }
 
-async function evaluate(q, r){
-  const tk = S.token;
+// 複誦／朗讀的逐字比對評分：q 是標準句，text 是辨識到的內容（遊戲與英檢口說練習 practice.js 共用）
+function scoreSpoken(q, text){
   const tw = q.split(/\s+/);
   const tokens = [];
   tw.forEach((w, wi) => tokenize(w).forEach(t => tokens.push({ t, wi })));
-  const h = tokenize(r.text || "");
+  const h = tokenize(text || "");
   const { ops, extra, dist } = align(tokens.map(x => x.t), h);
-  const pct = r.text ? Math.round(Math.max(0, 1 - dist / tokens.length) * 100) : 0;
+  const pct = text ? Math.round(Math.max(0, 1 - dist / tokens.length) * 100) : 0;
   const wordOk = tw.map(() => true);
   tokens.forEach((x, k) => { if (ops[k] !== "ok") wordOk[x.wi] = false; });
+  return { tw, pct, wordOk, extra };
+}
+
+async function evaluate(q, r){
+  const tk = S.token;
+  const { tw, pct, wordOk, extra } = scoreSpoken(q, r.text);
 
   const hardFail = r.error && HARD_ERR.includes(r.error);
   const prev = S.results[S.i];
