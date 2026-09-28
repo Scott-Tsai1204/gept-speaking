@@ -1452,6 +1452,76 @@
         "category",
         "topic"
       ]
+    },
+    {
+      "id": "question_126",
+      "question": "What's your favorite meal of the day?",
+      "category": "preference",
+      "topic": "food",
+      "origin": "external",
+      "sourcePage": "P1C3U3-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_127",
+      "question": "Is there any vegetable you hate?",
+      "category": "preference",
+      "topic": "food",
+      "origin": "external",
+      "sourcePage": "P1C3U3-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_128",
+      "question": "What do you like to eat as dessert most?",
+      "category": "preference",
+      "topic": "food",
+      "origin": "external",
+      "sourcePage": "P1C3U3-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_129",
+      "question": "Do you eat fast food?",
+      "category": "warmup",
+      "topic": "food",
+      "origin": "external",
+      "sourcePage": "P1C3U3-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_130",
+      "question": "What fruit do you like to eat best?",
+      "category": "preference",
+      "topic": "food",
+      "origin": "external",
+      "sourcePage": "P1C3U3-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
