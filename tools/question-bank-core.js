@@ -15,9 +15,9 @@ const UNSPECIFIED_TOPIC = "unspecified"; // Topic 空白時放進遊戲題庫用
 
 /* ---------- Excel 工作表格式 ---------- */
 const SHEETS = {
-  answer: { sheet: "ANSWER", textCol: "question", cols: { question: "Question", sourcebook: "Source Book", sourcepage: "Source Page", category: "Category", topic: "Topic", notes: "Notes" }, required: ["question", "sourcebook", "sourcepage"] },
-  repeat: { sheet: "REPEAT", textCol: "text", cols: { text: "Text", sourcebook: "Source Book", sourcepage: "Source Page", difficulty: "Difficulty", topic: "Topic", notes: "Notes" }, required: ["text", "sourcebook", "sourcepage"] },
-  read:   { sheet: "READ",   textCol: "text", cols: { text: "Text", sourcebook: "Source Book", sourcepage: "Source Page", topic: "Topic", notes: "Notes" }, required: ["text", "sourcebook", "sourcepage"] }
+  answer: { sheet: "ANSWER", textCol: "question", cols: { question: "Question", sourcebook: "Source Book", sourcepage: "Source Page", category: "Category", topic: "Topic", notes: "Notes" } },
+  repeat: { sheet: "REPEAT", textCol: "text", cols: { text: "Text", sourcebook: "Source Book", sourcepage: "Source Page", difficulty: "Difficulty", topic: "Topic", notes: "Notes" } },
+  read:   { sheet: "READ",   textCol: "text", cols: { text: "Text", sourcebook: "Source Book", sourcepage: "Source Page", topic: "Topic", notes: "Notes" } }
 };
 const TYPES = ["answer", "repeat", "read"];
 const BANK_KEY = { answer: "questions", repeat: "repeat", read: "read" }; // question_bank.json 裡的陣列名稱
@@ -35,9 +35,9 @@ function parseSheetRows(type, aoa){
   if (headerIdx < 0) return { rows, problems, empty: true };
   const colIndex = {};
   aoa[headerIdx].forEach((h, i) => { const k = headerKey(h); if (spec.cols[k] && colIndex[k] == null) colIndex[k] = i; });
-  const missingCols = spec.required.filter(k => colIndex[k] == null);
-  if (missingCols.length){
-    problems.push(`${spec.sheet} 工作表缺少欄位：${missingCols.map(k => spec.cols[k]).join("、")}`);
+  // 所有欄位都不是必填；只有題目文字欄整個不存在時，這張工作表沒東西可匯入
+  if (colIndex[spec.textCol] == null){
+    problems.push(`${spec.sheet} 工作表沒有 ${spec.cols[spec.textCol]} 欄位，略過這張工作表`);
     return { rows, problems };
   }
   for (let r = headerIdx + 1; r < aoa.length; r++){
@@ -234,7 +234,7 @@ function pendingRows(bank){
   return rows;
 }
 
-/* ---------- 逐列分析：必要欄位、既有值是否合法、重複、建議 ---------- */
+/* ---------- 逐列分析：題目文字、既有值是否合法、重複、建議 ---------- */
 function analyzeRows(rows, bank, cal){
   const existing = { answer: [], repeat: [], read: [] };
   TYPES.forEach(type => ((bank && bank[BANK_KEY[type]]) || []).forEach(it => existing[type].push({ id: it.id, text: it[TEXT_FIELD[type]] })));
@@ -242,9 +242,8 @@ function analyzeRows(rows, bank, cal){
   rows.forEach(row => {
     row.errors = []; row.warnings = []; row.dups = [];
     const spec = SHEETS[row.type];
-    if (isBlank(row.text)) row.errors.push(`必要欄位空白：${spec.cols[spec.textCol]}`);
-    if (isBlank(row.sourceBook)) row.errors.push("必要欄位空白：Source Book");
-    if (isBlank(row.sourcePage)) row.errors.push("必要欄位空白：Source Page");
+    // 沒有必填欄位；只有連題目文字都沒有的列無法變成題目，略過
+    if (isBlank(row.text)) row.errors.push(`沒有題目文字（${spec.cols[spec.textCol]}），略過這一列`);
     if (!isBlank(row.text) && row.text !== row.text.trim()) row.warnings.push("文字前後有空白（會原樣保留）");
     // Excel 已填的分類：大小寫不同視為同一個值；不合法的值當作空白並提醒
     row.valid = { category: "", difficulty: "", topic: row.given.topic };
@@ -327,8 +326,8 @@ function buildMergedBank(bank, rows){
     if (row.type === "answer" && (f.category || dest === "game")) item.category = f.category;
     item.topic = f.topic || (dest === "game" ? UNSPECIFIED_TOPIC : "");
     item.origin = "external"; // 外部題庫（課外書來源），不是官方 GEPT 題目
-    item.sourceBook = row.sourceBook;
-    item.sourcePage = row.sourcePage;
+    if (row.sourceBook) item.sourceBook = row.sourceBook; // 來源是選填，有填才寫
+    if (row.sourcePage) item.sourcePage = row.sourcePage;
     if (row.notes) item.notes = row.notes;
     if (row.suggest.category && row.suggest.category.value) item.suggestedCategory = row.suggest.category.value;
     if (row.suggest.topic && row.suggest.topic.value) item.suggestedTopic = row.suggest.topic.value;

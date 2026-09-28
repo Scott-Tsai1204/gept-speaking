@@ -83,7 +83,7 @@ code{background:var(--bg);border-radius:6px;padding:0 5px;overflow-wrap:anywhere
 
   <section class="card">
     <h2><span class="step">2</span>上傳 Excel</h2>
-    <p class="small muted">需要三個工作表：<b>ANSWER</b>（Question）、<b>REPEAT</b>（Text）、<b>READ</b>（Text），每題都要填 Source Book、Source Page。Category／Topic／Difficulty／Notes 可以空白，README 工作表不會匯入。不用填題目 ID。</p>
+    <p class="small muted">工作表：<b>ANSWER</b>（Question）、<b>REPEAT</b>（Text）、<b>READ</b>（Text）。只想匯入其中一種也可以：其他工作表刪掉或留空就好。所有欄位都可以空白（沒有題目文字的列會略過），README 工作表不會匯入，也不用填題目 ID。</p>
     <div class="row-actions">
       <label class="btn primary">選擇 Excel 檔<input type="file" id="xlsxFile" accept=".xlsx,.xls" class="hidden"></label>
       <button id="templateBtn">下載空白範本</button>
@@ -180,11 +180,11 @@ $("#templateBtn").onclick = () => {
   const wb = XLSX.utils.book_new();
   const readme = [
     ["GEPT Adventure 外部題庫範本（課外書來源，不是官方 GEPT 題目）"], [],
-    ["工作表", "必填欄位", "選填欄位", "說明"],
-    ["ANSWER", "Question, Source Book, Source Page", "Category, Topic, Notes", "Category 只能是 warmup / opinion / situational，不知道就空白"],
-    ["REPEAT", "Text, Source Book, Source Page", "Difficulty, Topic, Notes", "Difficulty 只能是 easy / medium / hard，不知道就空白"],
-    ["READ", "Text, Source Book, Source Page", "Topic, Notes", "Topic 可以自由填寫，例如 school、food、shopping"],
-    [], ["不用填題目 ID，匯入工具會自動編號。這個 README 工作表不會被匯入。"]
+    ["工作表", "題目欄", "其他欄位（都可以空白）", "說明"],
+    ["ANSWER", "Question", "Source Book, Source Page, Category, Topic, Notes", "Category 只能是 warmup / opinion / situational，不知道就空白"],
+    ["REPEAT", "Text", "Source Book, Source Page, Difficulty, Topic, Notes", "Difficulty 只能是 easy / medium / hard，不知道就空白"],
+    ["READ", "Text", "Source Book, Source Page, Topic, Notes", "Topic 可以自由填寫，例如 school、food、shopping"],
+    [], ["不用填題目 ID，匯入工具會自動編號。只想匯入某一種題目時，其他工作表留空或刪掉都可以。這個 README 工作表不會被匯入。"]
   ];
   const add = (name, aoa, widths) => { const ws = XLSX.utils.aoa_to_sheet(aoa); ws["!cols"] = widths.map(w => ({ wch: w })); XLSX.utils.book_append_sheet(wb, ws, name); };
   add("README", readme, [14, 34, 26, 60]);
@@ -212,10 +212,12 @@ function renderReadSummary(){
   if (!p){ ul.innerHTML = ""; return; }
   const rows = st.excelRows, items = [];
   items.push(`<li class="ok">讀到 <b>${rows.length}</b> 題：ANSWER ${p.counts.answer} 題、REPEAT ${p.counts.repeat} 題、READ ${p.counts.read} 題</li>`);
-  p.missingSheets.forEach(s => items.push(`<li class="warn">⚠ 找不到工作表 ${esc(s)}（略過）</li>`));
+  p.missingSheets.forEach(s => items.push(`<li class="tip">沒有 ${esc(s)} 工作表（略過，這是正常的）</li>`));
   p.problems.forEach(s => items.push(`<li class="err">✖ ${esc(s)}</li>`));
-  const blankReq = rows.filter(r => r.errors.length).length;
-  if (blankReq) items.push(`<li class="err">✖ ${blankReq} 題有必要欄位空白，無法匯出（請在 Excel 補上後重新上傳）</li>`);
+  const noText = rows.filter(r => r.errors.length).length;
+  if (noText) items.push(`<li class="warn">⚠ ${noText} 列沒有題目文字，會略過</li>`);
+  const noSrc = rows.filter(r => !r.errors.length && !r.sourceBook && !r.sourcePage).length;
+  if (noSrc) items.push(`<li class="tip">${noSrc} 題沒有填來源（Source Book／Page），仍可匯入</li>`);
   const dupHard = rows.filter(r => r.dups.some(d => d.level !== "similar")).length, dupSim = rows.filter(r => r.dups.length && r.dups.every(d => d.level === "similar")).length;
   if (dupHard) items.push(`<li class="warn">⚠ ${dupHard} 題與現有題庫或同一批題目重複</li>`);
   if (dupSim) items.push(`<li class="warn">⚠ ${dupSim} 題與其他題目高度相似</li>`);
@@ -282,7 +284,7 @@ function renderRows(){
         <span class="dest ${dest}">${DEST_TEXT[dest]}</span>
       </div>
       <p class="orig">${esc(r.text) || '<span class="blank">（空白）</span>'}</p>
-      <p class="src">📚 ${esc(r.sourceBook) || "（沒有書名）"} · p.${esc(r.sourcePage) || "?"}${r.notes ? ` · ${esc(r.notes)}` : ""}</p>
+      <p class="src">📚 ${r.sourceBook || r.sourcePage ? `${esc(r.sourceBook) || "（沒有書名）"}${r.sourcePage ? ` · p.${esc(r.sourcePage)}` : ""}` : "（沒有填來源）"}${r.notes ? ` · ${esc(r.notes)}` : ""}</p>
       ${msgs ? `<ul class="msgs">${msgs}</ul>` : ""}
       <div class="fields">${FIELDS_OF[r.type].map(f => fieldHtml(r, i, f)).join("")}</div>
     </article>`;
@@ -323,7 +325,7 @@ function renderPreview(){
     stat(s.blankCat + s.blankDiff + s.blankTopic, "匯出後仍空白的分類")
   ].join("");
   const it = [];
-  if (s.errors) it.push(`<li class="err">✖ ${s.errors} 筆必要欄位空白，不會匯出</li>`);
+  if (s.errors) it.push(`<li class="warn">⚠ ${s.errors} 列沒有題目文字，不會匯出</li>`);
   if (s.unchecked) it.push(`<li class="warn">⚠ ${s.unchecked} 筆你取消勾選「匯入」，不會匯出</li>`);
   if (s.dup) it.push(`<li class="warn">⚠ ${s.dup} 筆可能重複（仍會照你的勾選匯出）</li>`);
   if (s.similar) it.push(`<li class="warn">⚠ ${s.similar} 筆疑似相似</li>`);
