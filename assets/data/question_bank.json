@@ -2894,6 +2894,96 @@
         "category",
         "topic"
       ]
+    },
+    {
+      "id": "question_221",
+      "question": "What can make you happy when you feel sad?",
+      "category": "preference",
+      "topic": "feelings",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 99",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "feelings",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_222",
+      "question": "Who would you call first if you were sick?",
+      "category": "preference",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 99",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_223",
+      "question": "If you keep a diary, what would you write about?",
+      "category": "preference",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 99",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_224",
+      "question": "What kind of present do you want for your birthday?",
+      "category": "preference",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 99",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_225",
+      "question": "How do you spend your pocket money?",
+      "category": "warmup",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 99",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_226",
+      "question": "Which one do you like better: to stay home and take classes through the internet, or to go to school for class? Why?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 99",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
