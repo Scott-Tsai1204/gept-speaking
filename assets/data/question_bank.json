@@ -1,0 +1,3079 @@
+{
+  "version": 1,
+  "repeat": [
+    {
+      "id": "repeat_easy_001",
+      "text": "I have math class at nine.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_002",
+      "text": "My backpack is very heavy today.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_003",
+      "text": "The teacher is writing on the board.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_004",
+      "text": "I forgot my pencil case at home.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_005",
+      "text": "We have a test this Friday.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_006",
+      "text": "Can I borrow your eraser?",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_007",
+      "text": "The library closes at five o'clock.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_008",
+      "text": "My classroom is on the second floor.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_009",
+      "text": "I need to finish my homework tonight.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_010",
+      "text": "The school bus comes at seven thirty.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_011",
+      "text": "Our art teacher is very kind.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_012",
+      "text": "I sit next to the window.",
+      "difficulty": "easy",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_easy_013",
+      "text": "Can I see the menu, please?",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_014",
+      "text": "I would like a cup of coffee.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_015",
+      "text": "This soup is too hot for me.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_016",
+      "text": "We need two more chairs, please.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_017",
+      "text": "Is this seat taken?",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_018",
+      "text": "The chicken here is very popular.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_019",
+      "text": "Could I have some water, please?",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_020",
+      "text": "My father always orders the same dish.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_021",
+      "text": "This restaurant is famous for noodles.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_022",
+      "text": "Please bring us the bill.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_023",
+      "text": "I don't eat spicy food.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_024",
+      "text": "The waiter is very friendly.",
+      "difficulty": "easy",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_easy_025",
+      "text": "How much is this jacket?",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_026",
+      "text": "Do you have this in a smaller size?",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_027",
+      "text": "I'm just looking, thank you.",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_028",
+      "text": "This store is having a big sale.",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_029",
+      "text": "Can I try on these shoes?",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_030",
+      "text": "Where is the fitting room?",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_031",
+      "text": "I like the blue one better.",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_032",
+      "text": "Do you take credit cards?",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_033",
+      "text": "This bag is too expensive for me.",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_034",
+      "text": "Can you gift wrap this, please?",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_035",
+      "text": "I bought a new watch yesterday.",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_036",
+      "text": "This shirt doesn't fit me well.",
+      "difficulty": "easy",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_easy_037",
+      "text": "Where is the nearest MRT station?",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_038",
+      "text": "What time does the next bus leave?",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_039",
+      "text": "How long does it take to get there?",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_040",
+      "text": "I missed my train this morning.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_041",
+      "text": "Please take me to the airport.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_042",
+      "text": "The traffic is really bad today.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_043",
+      "text": "I usually ride my bike to work.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_044",
+      "text": "Is there a taxi stand near here?",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_045",
+      "text": "The train was ten minutes late.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_046",
+      "text": "You can transfer to the blue line here.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_047",
+      "text": "My car broke down on the highway.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_048",
+      "text": "Remember to buckle your seat belt.",
+      "difficulty": "easy",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_medium_001",
+      "text": "I usually watch a movie with my family on weekends.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_002",
+      "text": "She practices the piano for thirty minutes every evening.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_003",
+      "text": "We are planning a short trip to the mountains next month.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_004",
+      "text": "My brother works at a hospital near our house.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_005",
+      "text": "It might rain later, so bring an umbrella with you.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_006",
+      "text": "I have been learning English for almost two years.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_007",
+      "text": "Our neighbor's dog barks loudly every morning.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_008",
+      "text": "He always checks his email before breakfast.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_009",
+      "text": "The weather has been really cold this week.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_010",
+      "text": "I need to charge my phone before we leave.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_011",
+      "text": "My grandmother tells interesting stories about her childhood.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_012",
+      "text": "We should leave early to avoid the traffic jam.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_013",
+      "text": "I'm trying to drink more water every day.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_014",
+      "text": "The movie starts at eight, so let's meet at seven thirty.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_015",
+      "text": "She is saving money to buy a new laptop.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_016",
+      "text": "My favorite season is autumn because the weather is mild.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_017",
+      "text": "I usually go jogging in the park before work.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_018",
+      "text": "Could you turn down the volume a little, please?",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_019",
+      "text": "We finished the project two days before the deadline.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_medium_020",
+      "text": "I forgot to bring my umbrella again this morning.",
+      "difficulty": "medium",
+      "topic": "daily_life"
+    },
+    {
+      "id": "repeat_hard_001",
+      "text": "I usually study in the library after school because it is quiet there.",
+      "difficulty": "hard",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_hard_002",
+      "text": "My favorite subject is science, but math is more difficult for me.",
+      "difficulty": "hard",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_hard_003",
+      "text": "We have to hand in our history report before next Monday.",
+      "difficulty": "hard",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_hard_004",
+      "text": "The new gym is bigger than the old one, so more students can use it.",
+      "difficulty": "hard",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_hard_005",
+      "text": "I forgot my umbrella, so I got wet walking home from school.",
+      "difficulty": "hard",
+      "topic": "school"
+    },
+    {
+      "id": "repeat_hard_006",
+      "text": "I want to order a beef burger with french fries and a small salad.",
+      "difficulty": "hard",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_hard_007",
+      "text": "Could you tell me if this restaurant has any vegetarian dishes on the menu?",
+      "difficulty": "hard",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_hard_008",
+      "text": "We waited for almost thirty minutes before our food finally arrived.",
+      "difficulty": "hard",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_hard_009",
+      "text": "My sister doesn't like seafood, so she always orders chicken or beef.",
+      "difficulty": "hard",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_hard_010",
+      "text": "The restaurant was so crowded that we had to wait outside for a table.",
+      "difficulty": "hard",
+      "topic": "restaurant"
+    },
+    {
+      "id": "repeat_hard_011",
+      "text": "I'm looking for a birthday present for my mother, but I don't know what to buy.",
+      "difficulty": "hard",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_hard_012",
+      "text": "This store offers a twenty percent discount if you buy two or more items.",
+      "difficulty": "hard",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_hard_013",
+      "text": "Could you tell me where I can find the shoes for children?",
+      "difficulty": "hard",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_hard_014",
+      "text": "I want to return this sweater because the color is different from the picture online.",
+      "difficulty": "hard",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_hard_015",
+      "text": "The shopping mall was so big that we got lost on the second floor.",
+      "difficulty": "hard",
+      "topic": "shopping"
+    },
+    {
+      "id": "repeat_hard_016",
+      "text": "Excuse me, could you tell me which bus goes to the train station from here?",
+      "difficulty": "hard",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_hard_017",
+      "text": "I usually leave home early because the traffic gets very heavy after eight o'clock.",
+      "difficulty": "hard",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_hard_018",
+      "text": "We need to change trains at the next stop to reach the airport.",
+      "difficulty": "hard",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_hard_019",
+      "text": "The flight was delayed for two hours because of the bad weather.",
+      "difficulty": "hard",
+      "topic": "transportation"
+    },
+    {
+      "id": "repeat_hard_020",
+      "text": "It normally takes about forty minutes to drive from my house to downtown.",
+      "difficulty": "hard",
+      "topic": "transportation"
+    }
+  ],
+  "read": [
+    {
+      "id": "read_001",
+      "text": "My name is Anna. I am a student. I live near the school with my family.",
+      "topic": "self_introduction"
+    },
+    {
+      "id": "read_002",
+      "text": "Today is Monday. The weather is sunny and warm. I will walk to school with my brother.",
+      "topic": "weather"
+    },
+    {
+      "id": "read_003",
+      "text": "I have a small dog. Its name is Lucky. Every morning, I take Lucky for a walk in the park.",
+      "topic": "pets"
+    },
+    {
+      "id": "read_004",
+      "text": "My favorite food is noodles. I like to eat noodles with my friends after school. They are cheap and delicious.",
+      "topic": "food"
+    },
+    {
+      "id": "read_005",
+      "text": "Last weekend, I went to the museum with my family. We saw many old paintings. It was a fun day.",
+      "topic": "weekend"
+    },
+    {
+      "id": "read_006",
+      "text": "I usually get up at seven o'clock. I eat breakfast, brush my teeth, and then go to school by bus.",
+      "topic": "daily_routine"
+    },
+    {
+      "id": "read_007",
+      "text": "My sister likes to read books. She reads every night before she goes to bed. She wants to be a writer.",
+      "topic": "hobbies"
+    },
+    {
+      "id": "read_008",
+      "text": "This weekend, I want to visit my grandmother. She lives in the countryside. I will bring her some fruit.",
+      "topic": "family"
+    }
+  ],
+  "questions": [
+    {
+      "id": "question_001",
+      "question": "What's your name?",
+      "category": "warmup",
+      "topic": "personal_information"
+    },
+    {
+      "id": "question_002",
+      "question": "How are you today?",
+      "category": "warmup",
+      "topic": "greeting"
+    },
+    {
+      "id": "question_003",
+      "question": "What day is it today?",
+      "category": "warmup",
+      "topic": "date_time"
+    },
+    {
+      "id": "question_004",
+      "question": "What's the weather like today?",
+      "category": "warmup",
+      "topic": "weather"
+    },
+    {
+      "id": "question_005",
+      "question": "What time is it now?",
+      "category": "warmup",
+      "topic": "date_time"
+    },
+    {
+      "id": "question_006",
+      "question": "Where do you live?",
+      "category": "warmup",
+      "topic": "personal_information"
+    },
+    {
+      "id": "question_007",
+      "question": "How old are you?",
+      "category": "warmup",
+      "topic": "personal_information"
+    },
+    {
+      "id": "question_008",
+      "question": "What's your favorite color?",
+      "category": "warmup",
+      "topic": "personal_information"
+    },
+    {
+      "id": "question_009",
+      "question": "Do you have any brothers or sisters?",
+      "category": "warmup",
+      "topic": "family"
+    },
+    {
+      "id": "question_010",
+      "question": "What did you have for breakfast today?",
+      "category": "warmup",
+      "topic": "food"
+    },
+    {
+      "id": "question_011",
+      "question": "How do you usually get to school?",
+      "category": "warmup",
+      "topic": "transportation"
+    },
+    {
+      "id": "question_012",
+      "question": "What's the date today?",
+      "category": "warmup",
+      "topic": "date_time"
+    },
+    {
+      "id": "question_013",
+      "question": "What do you usually do on weekends?",
+      "category": "preference",
+      "topic": "hobbies"
+    },
+    {
+      "id": "question_014",
+      "question": "What's your favorite food? Why do you like it?",
+      "category": "preference",
+      "topic": "food"
+    },
+    {
+      "id": "question_015",
+      "question": "Do you like your school or your job? Why?",
+      "category": "preference",
+      "topic": "school_work"
+    },
+    {
+      "id": "question_016",
+      "question": "What kind of music do you like?",
+      "category": "preference",
+      "topic": "music"
+    },
+    {
+      "id": "question_017",
+      "question": "Do you prefer reading books or watching movies? Why?",
+      "category": "preference",
+      "topic": "hobbies"
+    },
+    {
+      "id": "question_018",
+      "question": "What's your favorite season? Why?",
+      "category": "preference",
+      "topic": "weather"
+    },
+    {
+      "id": "question_019",
+      "question": "Do you like to travel? Why or why not?",
+      "category": "preference",
+      "topic": "travel"
+    },
+    {
+      "id": "question_020",
+      "question": "What's your favorite sport? Why?",
+      "category": "preference",
+      "topic": "sports"
+    },
+    {
+      "id": "question_021",
+      "question": "Do you prefer coffee or tea? Why?",
+      "category": "preference",
+      "topic": "food"
+    },
+    {
+      "id": "question_022",
+      "question": "Do you like animals? Why or why not?",
+      "category": "preference",
+      "topic": "animals"
+    },
+    {
+      "id": "question_023",
+      "question": "What's your favorite subject? Why?",
+      "category": "preference",
+      "topic": "school_work"
+    },
+    {
+      "id": "question_024",
+      "question": "What's your favorite holiday? Why?",
+      "category": "preference",
+      "topic": "holidays"
+    },
+    {
+      "id": "question_025",
+      "question": "Imagine you are at a restaurant. What would you say to order food?",
+      "category": "situational",
+      "topic": "restaurant"
+    },
+    {
+      "id": "question_026",
+      "question": "Imagine your friend is sick. What would you say to him or her?",
+      "category": "situational",
+      "topic": "health"
+    },
+    {
+      "id": "question_027",
+      "question": "Imagine you are lost in a city. What would you ask someone?",
+      "category": "situational",
+      "topic": "directions"
+    },
+    {
+      "id": "question_028",
+      "question": "Imagine you want to buy a ticket for a movie. What would you say?",
+      "category": "situational",
+      "topic": "entertainment"
+    },
+    {
+      "id": "question_029",
+      "question": "Imagine you are checking into a hotel. What would you say?",
+      "category": "situational",
+      "topic": "hotel"
+    },
+    {
+      "id": "question_030",
+      "question": "Imagine your friend invites you to a party, but you are busy. What would you say?",
+      "category": "situational",
+      "topic": "social"
+    },
+    {
+      "id": "question_031",
+      "question": "Imagine you want to return a shirt to a store. What would you say?",
+      "category": "situational",
+      "topic": "shopping"
+    },
+    {
+      "id": "question_032",
+      "question": "Imagine it's your friend's birthday. What would you say to him or her?",
+      "category": "situational",
+      "topic": "social"
+    },
+    {
+      "id": "question_033",
+      "question": "Imagine you want to make a doctor's appointment. What would you say?",
+      "category": "situational",
+      "topic": "health"
+    },
+    {
+      "id": "question_034",
+      "question": "Imagine you are late for a meeting. What would you say to your boss?",
+      "category": "situational",
+      "topic": "school_work"
+    },
+    {
+      "id": "question_035",
+      "question": "Imagine you want to ask someone for directions to the MRT station. What would you say?",
+      "category": "situational",
+      "topic": "directions"
+    },
+    {
+      "id": "question_036",
+      "question": "Imagine your food order at a restaurant is wrong. What would you say to the waiter?",
+      "category": "situational",
+      "topic": "restaurant"
+    },
+    {
+      "id": "question_037",
+      "question": "Who do you live with?",
+      "category": "warmup",
+      "topic": "family"
+    },
+    {
+      "id": "question_038",
+      "question": "What time do you usually get up in the morning?",
+      "category": "warmup",
+      "topic": "daily_routine"
+    },
+    {
+      "id": "question_039",
+      "question": "What did you do last night?",
+      "category": "warmup",
+      "topic": "daily_routine"
+    },
+    {
+      "id": "question_040",
+      "question": "Where do you usually eat lunch?",
+      "category": "warmup",
+      "topic": "food"
+    },
+    {
+      "id": "question_041",
+      "question": "What do you usually do after dinner?",
+      "category": "warmup",
+      "topic": "daily_routine"
+    },
+    {
+      "id": "question_042",
+      "question": "Is there a park near your home?",
+      "category": "warmup",
+      "topic": "home"
+    },
+    {
+      "id": "question_043",
+      "question": "How many rooms are there in your home?",
+      "category": "warmup",
+      "topic": "home"
+    },
+    {
+      "id": "question_044",
+      "question": "Where do you usually do your homework?",
+      "category": "warmup",
+      "topic": "school_work"
+    },
+    {
+      "id": "question_045",
+      "question": "What is the name of your school?",
+      "category": "warmup",
+      "topic": "school_work"
+    },
+    {
+      "id": "question_046",
+      "question": "How long does it take you to get to school?",
+      "category": "warmup",
+      "topic": "transportation"
+    },
+    {
+      "id": "question_047",
+      "question": "Did you watch TV yesterday?",
+      "category": "warmup",
+      "topic": "entertainment"
+    },
+    {
+      "id": "question_048",
+      "question": "What is the weather usually like in summer where you live?",
+      "category": "warmup",
+      "topic": "weather"
+    },
+    {
+      "id": "question_049",
+      "question": "Who is your best friend?",
+      "category": "warmup",
+      "topic": "social"
+    },
+    {
+      "id": "question_050",
+      "question": "What do your parents do?",
+      "category": "warmup",
+      "topic": "family"
+    },
+    {
+      "id": "question_051",
+      "question": "When is your birthday?",
+      "category": "warmup",
+      "topic": "personal_information"
+    },
+    {
+      "id": "question_052",
+      "question": "What languages can you speak?",
+      "category": "warmup",
+      "topic": "personal_information"
+    },
+    {
+      "id": "question_053",
+      "question": "Do you have a pet?",
+      "category": "warmup",
+      "topic": "animals"
+    },
+    {
+      "id": "question_054",
+      "question": "What sports can you play?",
+      "category": "warmup",
+      "topic": "sports"
+    },
+    {
+      "id": "question_055",
+      "question": "Who cooks dinner in your family?",
+      "category": "warmup",
+      "topic": "food"
+    },
+    {
+      "id": "question_056",
+      "question": "How often do you go shopping?",
+      "category": "warmup",
+      "topic": "shopping"
+    },
+    {
+      "id": "question_057",
+      "question": "Where did you go last weekend?",
+      "category": "warmup",
+      "topic": "weekend"
+    },
+    {
+      "id": "question_058",
+      "question": "Can you ride a bike?",
+      "category": "warmup",
+      "topic": "hobbies"
+    },
+    {
+      "id": "question_059",
+      "question": "How many classes do you have today?",
+      "category": "warmup",
+      "topic": "school_work"
+    },
+    {
+      "id": "question_060",
+      "question": "Did you sleep well last night?",
+      "category": "warmup",
+      "topic": "health"
+    },
+    {
+      "id": "question_061",
+      "question": "Do you like cooking?",
+      "category": "preference",
+      "topic": "hobbies"
+    },
+    {
+      "id": "question_062",
+      "question": "What kind of movies do you like?",
+      "category": "preference",
+      "topic": "entertainment"
+    },
+    {
+      "id": "question_063",
+      "question": "Do you like rainy days?",
+      "category": "preference",
+      "topic": "weather"
+    },
+    {
+      "id": "question_065",
+      "question": "What do you like to do after school?",
+      "category": "preference",
+      "topic": "hobbies"
+    },
+    {
+      "id": "question_066",
+      "question": "Do you like shopping with your friends?",
+      "category": "preference",
+      "topic": "shopping"
+    },
+    {
+      "id": "question_067",
+      "question": "Would you like to live in a big house or a small apartment?",
+      "category": "preference",
+      "topic": "home"
+    },
+    {
+      "id": "question_068",
+      "question": "Do you like taking the bus? Why or why not?",
+      "category": "preference",
+      "topic": "transportation"
+    },
+    {
+      "id": "question_069",
+      "question": "Do you like getting up early?",
+      "category": "preference",
+      "topic": "daily_routine"
+    },
+    {
+      "id": "question_070",
+      "question": "Do you think it is important to exercise?",
+      "category": "preference",
+      "topic": "health"
+    },
+    {
+      "id": "question_071",
+      "question": "Would you like to learn to play a musical instrument?",
+      "category": "preference",
+      "topic": "music"
+    },
+    {
+      "id": "question_072",
+      "question": "What kind of books do you like to read?",
+      "category": "preference",
+      "topic": "hobbies"
+    },
+    {
+      "id": "question_073",
+      "question": "Do you like playing video games?",
+      "category": "preference",
+      "topic": "entertainment"
+    },
+    {
+      "id": "question_074",
+      "question": "Which do you like more, eating at home or eating at a restaurant?",
+      "category": "preference",
+      "topic": "restaurant"
+    },
+    {
+      "id": "question_075",
+      "question": "Do you like going to the beach?",
+      "category": "preference",
+      "topic": "travel"
+    },
+    {
+      "id": "question_076",
+      "question": "Do you enjoy going to parties?",
+      "category": "preference",
+      "topic": "social"
+    },
+    {
+      "id": "question_077",
+      "question": "What do you like to do with your family?",
+      "category": "preference",
+      "topic": "family"
+    },
+    {
+      "id": "question_078",
+      "question": "Do you like to study alone or with friends?",
+      "category": "preference",
+      "topic": "school_work"
+    },
+    {
+      "id": "question_079",
+      "question": "Which animal would you like to see at the zoo?",
+      "category": "preference",
+      "topic": "animals"
+    },
+    {
+      "id": "question_080",
+      "question": "Which country would you like to visit?",
+      "category": "preference",
+      "topic": "travel"
+    },
+    {
+      "id": "question_081",
+      "question": "Which do you like better, sweet food or salty food?",
+      "category": "preference",
+      "topic": "food"
+    },
+    {
+      "id": "question_082",
+      "question": "Do you think homework is useful?",
+      "category": "preference",
+      "topic": "school_work"
+    },
+    {
+      "id": "question_083",
+      "question": "Do you like watching sports on TV?",
+      "category": "preference",
+      "topic": "sports"
+    },
+    {
+      "id": "question_084",
+      "question": "How do you like to spend your birthday?",
+      "category": "preference",
+      "topic": "social"
+    },
+    {
+      "id": "question_085",
+      "question": "You are at a restaurant and want some water. What would you ask the waiter?",
+      "category": "situational",
+      "topic": "restaurant"
+    },
+    {
+      "id": "question_086",
+      "question": "You are at a store and cannot find the milk. What would you ask the clerk?",
+      "category": "situational",
+      "topic": "shopping"
+    },
+    {
+      "id": "question_087",
+      "question": "You are on a bus and do not know where to get off. What would you ask the driver?",
+      "category": "situational",
+      "topic": "transportation"
+    },
+    {
+      "id": "question_088",
+      "question": "You want to borrow a pen from your classmate. What would you say?",
+      "category": "situational",
+      "topic": "school_work"
+    },
+    {
+      "id": "question_089",
+      "question": "Your teacher is talking too fast and you cannot understand. What would you say?",
+      "category": "situational",
+      "topic": "school_work"
+    },
+    {
+      "id": "question_090",
+      "question": "You call a friend, but his mother answers the phone. What would you say?",
+      "category": "situational",
+      "topic": "social"
+    },
+    {
+      "id": "question_091",
+      "question": "You want to take a taxi to the airport. What would you tell the driver?",
+      "category": "situational",
+      "topic": "transportation"
+    },
+    {
+      "id": "question_092",
+      "question": "You have a headache and go to a drugstore. What would you say?",
+      "category": "situational",
+      "topic": "health"
+    },
+    {
+      "id": "question_093",
+      "question": "You want to try on a jacket in a store. What would you say to the clerk?",
+      "category": "situational",
+      "topic": "shopping"
+    },
+    {
+      "id": "question_094",
+      "question": "Your neighbor's music is too loud at night. What would you say?",
+      "category": "situational",
+      "topic": "home"
+    },
+    {
+      "id": "question_095",
+      "question": "You break your friend's cup by accident. What would you say?",
+      "category": "situational",
+      "topic": "social"
+    },
+    {
+      "id": "question_096",
+      "question": "You want someone to take a photo of you at a famous place. What would you say?",
+      "category": "situational",
+      "topic": "travel"
+    },
+    {
+      "id": "question_097",
+      "question": "You are in a hotel and your room is too cold. What would you say to the front desk?",
+      "category": "situational",
+      "topic": "hotel"
+    },
+    {
+      "id": "question_098",
+      "question": "You want to know what time the library closes. What would you ask?",
+      "category": "situational",
+      "topic": "services"
+    },
+    {
+      "id": "question_099",
+      "question": "You want to send a letter at the post office. What would you say?",
+      "category": "situational",
+      "topic": "services"
+    },
+    {
+      "id": "question_100",
+      "question": "You visit your friend's home for dinner. What would you say to his parents?",
+      "category": "situational",
+      "topic": "family"
+    },
+    {
+      "id": "question_101",
+      "question": "It is New Year's Day and you meet your neighbor. What would you say?",
+      "category": "situational",
+      "topic": "holidays"
+    },
+    {
+      "id": "question_102",
+      "question": "You find a lost dog and see its owner looking for it. What would you say?",
+      "category": "situational",
+      "topic": "animals"
+    },
+    {
+      "id": "question_103",
+      "question": "Someone is sitting in your seat at the movie theater. What would you say?",
+      "category": "situational",
+      "topic": "entertainment"
+    },
+    {
+      "id": "question_104",
+      "question": "It starts to rain and your friend does not have an umbrella. What would you say?",
+      "category": "situational",
+      "topic": "weather"
+    },
+    {
+      "id": "question_105",
+      "question": "You want to invite a classmate to play basketball after school. What would you say?",
+      "category": "situational",
+      "topic": "sports"
+    },
+    {
+      "id": "question_106",
+      "question": "It is your mother's birthday and you are at a bakery. What would you say to order a cake?",
+      "category": "situational",
+      "topic": "food"
+    },
+    {
+      "id": "question_107",
+      "question": "A tourist asks you how to get to the night market. What would you say?",
+      "category": "situational",
+      "topic": "directions"
+    },
+    {
+      "id": "question_108",
+      "question": "You call a restaurant to book a table for four people. What would you say?",
+      "category": "situational",
+      "topic": "restaurant"
+    },
+    {
+      "id": "question_109",
+      "question": "What do you usually wear to school or to work?",
+      "category": "warmup",
+      "topic": "clothing",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U1-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "clothing",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_110",
+      "question": "Who is your favorite idol and why?",
+      "category": "preference",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U1-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_111",
+      "question": "What do you do when you are very excited?",
+      "category": "preference",
+      "topic": "feelings",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U1-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "feelings",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_112",
+      "question": "Who is your best friend, and what is he or she like?",
+      "category": "warmup",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U1-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_113",
+      "question": "What kind of person are you?",
+      "category": "preference",
+      "topic": "personality",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U1-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "personality",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_114",
+      "question": "What are some bad things about people that you don't like?",
+      "category": "preference",
+      "topic": "personality",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U1-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "personality",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_115",
+      "question": "If you have a choice, where would you like to live: the city or the countryside? Why?",
+      "category": "preference",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U2-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_116",
+      "question": "Do you do any housework at home?",
+      "category": "warmup",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U2-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_117",
+      "question": "What do you usually do in your living room?",
+      "category": "warmup",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U2-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_118",
+      "question": "What is your favorite place in or around your house?",
+      "category": "preference",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U2-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_119",
+      "question": "Do you recycle?",
+      "category": "warmup",
+      "topic": "environment",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U2-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "environment",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_120",
+      "question": "Do you keep a diary?",
+      "category": "warmup",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U2-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_121",
+      "question": "Talk about one of your birthday wishes.",
+      "category": "preference",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U4-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_122",
+      "question": "If you're having a party, how will you decorate it and who will you invite?",
+      "category": "situational",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U4-1",
+      "suggestedCategory": "situational",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_123",
+      "question": "If you see a stranger waving at you, what will you do?",
+      "category": "situational",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U4-1",
+      "suggestedCategory": "situational",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_124",
+      "question": "How do you express your anger?",
+      "category": "preference",
+      "topic": "feelings",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U4-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "feelings",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_125",
+      "question": "Who is your favorite family member and why?",
+      "category": "preference",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U4-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_126",
+      "question": "What's your favorite meal of the day?",
+      "category": "preference",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U3-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_127",
+      "question": "Is there any vegetable you hate?",
+      "category": "preference",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U3-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_128",
+      "question": "What do you like to eat as dessert most?",
+      "category": "preference",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U3-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_129",
+      "question": "Do you eat fast food?",
+      "category": "warmup",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U3-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_130",
+      "question": "What fruit do you like to eat best?",
+      "category": "preference",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U3-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_131",
+      "question": "What subject are you best at?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U5-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_132",
+      "question": "What is your favorite teacher like?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U5-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_133",
+      "question": "What do you think a good student should do in class?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U5-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_134",
+      "question": "When do you review your lessons?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U5-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_135",
+      "question": "What do you like to buy in bookstores?",
+      "category": "preference",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U5-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_136",
+      "question": "What hobbies do you have?",
+      "category": "warmup",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U6-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_137",
+      "question": "What do you like to do in your free time?",
+      "category": "preference",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U6-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_138",
+      "question": "What do you usually do in the mountains?",
+      "category": "warmup",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U6-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_139",
+      "question": "Have you ever been to a concert?",
+      "category": "warmup",
+      "topic": "music",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U6-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "music",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_140",
+      "question": "What sports do you enjoy playing?",
+      "category": "preference",
+      "topic": "sports",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U6-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "sports",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_141",
+      "question": "What do you do on Christmas?",
+      "category": "warmup",
+      "topic": "holidays",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U6-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_142",
+      "question": "What's your favorite Chinese festival?",
+      "category": "preference",
+      "topic": "holidays",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U6-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_143",
+      "question": "Have you ever had the flu?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U7-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_144",
+      "question": "What will you do if you see someone badly hurt in an accident?",
+      "category": "situational",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U7-1",
+      "suggestedCategory": "situational",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_145",
+      "question": "What does the doctor usually say to you when you are sick?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U7-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_146",
+      "question": "Have you ever taken medicine that caused side effects?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U7-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_147",
+      "question": "Have you ever been to the hospital?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U7-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_148",
+      "question": "Have you ever taken a boat ride?",
+      "category": "warmup",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U8-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_149",
+      "question": "Have you ever traveled by airplane?",
+      "category": "warmup",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U8-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_150",
+      "question": "Have you ever seen a traffic accident?",
+      "category": "warmup",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U8-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_151",
+      "question": "Have you ever given directions to someone?",
+      "category": "warmup",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U8-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_152",
+      "question": "What do you usually do before a trip?",
+      "category": "warmup",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U8-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_153",
+      "question": "Talk about your last trip.",
+      "category": "warmup",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U8-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_154",
+      "question": "Why do people like shopping during a sale?",
+      "category": "preference",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U8-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_155",
+      "question": "What job would you like to have in the future?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_156",
+      "question": "Tell me about a time you watched someone doing their job.",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_157",
+      "question": "Can you tell me about someone you know and their job?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_158",
+      "question": "Have you ever had a job interview?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_159",
+      "question": "If you had to make a big career choice, what would you consider?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_160",
+      "question": "What do office workers usually do at work?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_161",
+      "question": "Do you think office work is stressful?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_162",
+      "question": "What do you think people usually do in a business meeting?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_163",
+      "question": "What is the purpose of a business meeting? Give some examples.",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_164",
+      "question": "What do you think is the most interesting job and why?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U9-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_165",
+      "question": "What comes to your mind when you think of a king or queen?",
+      "category": "preference",
+      "topic": "society",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U11-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_166",
+      "question": "What do you think is a serious problem in some countries?",
+      "category": "preference",
+      "topic": "society",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U11-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_167",
+      "question": "What do the police do when a crime happens?",
+      "category": "warmup",
+      "topic": "society",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U11-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_168",
+      "question": "What usually happens during a war between two countries?",
+      "category": "warmup",
+      "topic": "society",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U11-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_169",
+      "question": "How can countries end a war?",
+      "category": "preference",
+      "topic": "society",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U11-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_170",
+      "question": "Do you use apps every day?",
+      "category": "warmup",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U12-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_171",
+      "question": "What do you think is the difference between electric cars and regular cars?",
+      "category": "preference",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U12-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_172",
+      "question": "What do you think about taking selfies and posting them online?",
+      "category": "preference",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U12-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_173",
+      "question": "If you had a chance to try virtual reality (VR), what would you do?",
+      "category": "situational",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U12-1",
+      "suggestedCategory": "situational",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_174",
+      "question": "Have you ever binge-watched a TV show?",
+      "category": "warmup",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C3U12-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_175",
+      "question": "What do you usually do in your free time?",
+      "category": "warmup",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 11",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_176",
+      "question": "What do you look like?",
+      "category": "warmup",
+      "topic": "appearance",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 11",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "appearance",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_177",
+      "question": "What are you like?",
+      "category": "preference",
+      "topic": "personality",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 11",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "personality",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_178",
+      "question": "What are you going to do after taking today's test?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 11",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_179",
+      "question": "Have you ever been late for class? If so, what was the reason?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 11",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_180",
+      "question": "Have you ever slept in class? If so, why?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 22",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_181",
+      "question": "Where do you usually go when you eat out?",
+      "category": "warmup",
+      "topic": "restaurant",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 22",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "restaurant",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_182",
+      "question": "How long have you lived where you are living now?",
+      "category": "warmup",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 22",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_183",
+      "question": "What do you usually do when you get a cold?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 22",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_184",
+      "question": "What is your favorite time of day? Why?",
+      "category": "preference",
+      "topic": "daily_routine",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 22",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "daily_routine",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_185",
+      "question": "What kinds of things make you nervous?",
+      "category": "preference",
+      "topic": "feelings",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 22",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "feelings",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_186",
+      "question": "What can you do to save our Earth?",
+      "category": "preference",
+      "topic": "environment",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "environment",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_187",
+      "question": "What are some good ways to learn English?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_188",
+      "question": "What do people usually do at Christmas?",
+      "category": "warmup",
+      "topic": "holidays",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_189",
+      "question": "What do you use a computer for?",
+      "category": "warmup",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_190",
+      "question": "What do you do when riding a train or bus?",
+      "category": "warmup",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_191",
+      "question": "If you had only 24 hours to live, what would you do?",
+      "category": "situational",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedCategory": "situational",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_192",
+      "question": "When did you leave home today? How long did it take to get here?",
+      "category": "warmup",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_193",
+      "question": "What is your last name? How do you spell it?",
+      "category": "warmup",
+      "topic": "personal_information",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 44",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "personal_information",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_194",
+      "question": "Do you like fast food? Why or why not?",
+      "category": "preference",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 44",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_195",
+      "question": "What musical instrument can you play?",
+      "category": "warmup",
+      "topic": "music",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 44",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "music",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_196",
+      "question": "What is in your bedroom?",
+      "category": "warmup",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 44",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_197",
+      "question": "What do you do to stay healthy?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 44",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_198",
+      "question": "What are some rules you should follow at school?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 55",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_199",
+      "question": "What kind of job would you like to do? Why?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 55",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_200",
+      "question": "What do you do if you can't get to sleep?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 55",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_201",
+      "question": "What kind of people do you like?",
+      "category": "preference",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 55",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_202",
+      "question": "What pet do you like to keep? Why?",
+      "category": "preference",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 55",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_203",
+      "question": "If you could live anywhere in Taiwan, where would you live?",
+      "category": "preference",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 66",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_204",
+      "question": "Do you like to travel alone or in a group? Why?",
+      "category": "preference",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 66",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_205",
+      "question": "What class do you dislike the most? Why don't you like it?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 66",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_206",
+      "question": "When did you start to learn English?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 66",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_207",
+      "question": "Do you look more like your mother or your father?",
+      "category": "warmup",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 66",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_208",
+      "question": "What did you use to do when you were a child?",
+      "category": "warmup",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 66",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_209",
+      "question": "What do you think about TV?",
+      "category": "preference",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 66",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_210",
+      "question": "How have you been feeling lately?",
+      "category": "warmup",
+      "topic": "greeting",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 77",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "greeting",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_211",
+      "question": "You want to go to the city library, but you are lost. Ask someone for directions.",
+      "category": "situational",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 77",
+      "suggestedCategory": "situational",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_212",
+      "question": "Did you have a good time on your last vacation? What did you do?",
+      "category": "warmup",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 77",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_213",
+      "question": "What is your favorite color? Please explain why you like it.",
+      "category": "preference",
+      "topic": "personal_information",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 77",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "personal_information",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_214",
+      "question": "What are you wearing today?",
+      "category": "warmup",
+      "topic": "clothing",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 77",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "clothing",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_215",
+      "question": "Do you think your friends like you? Why or why not?",
+      "category": "preference",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 88",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_216",
+      "question": "What's your hometown like?",
+      "category": "warmup",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 88",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_217",
+      "question": "Do you ever feel bored?",
+      "category": "warmup",
+      "topic": "feelings",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 88",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "feelings",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_218",
+      "question": "What do you talk about with your friends?",
+      "category": "warmup",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 88",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_219",
+      "question": "If you found a suitcase with $1,000,000 inside, what would you do?",
+      "category": "situational",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 88",
+      "suggestedCategory": "situational",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_220",
+      "question": "If you had one wish, what would it be?",
+      "category": "preference",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 88",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_221",
+      "question": "What can make you happy when you feel sad?",
+      "category": "preference",
+      "topic": "feelings",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 99",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "feelings",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_222",
+      "question": "Who would you call first if you were sick?",
+      "category": "preference",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 99",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_223",
+      "question": "If you keep a diary, what would you write about?",
+      "category": "preference",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 99",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_224",
+      "question": "What kind of present do you want for your birthday?",
+      "category": "preference",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 99",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_225",
+      "question": "How do you spend your pocket money?",
+      "category": "warmup",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 99",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_226",
+      "question": "Which one do you like better: to stay home and take classes through the internet, or to go to school for class? Why?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 99",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_227",
+      "question": "Which sports do you like playing or watching?",
+      "category": "preference",
+      "topic": "sports",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 111",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "sports",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_228",
+      "question": "Do you like learning English?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 111",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_229",
+      "question": "What do you think is the most useful invention?",
+      "category": "preference",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 111",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_230",
+      "question": "Do you feel you get enough sleep every day? Why or why not?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 111",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_231",
+      "question": "Where do you usually meet with your friends?",
+      "category": "warmup",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 111",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_232",
+      "question": "Is there any pollution in the place you live?",
+      "category": "warmup",
+      "topic": "environment",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 111",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "environment",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    }
+  ]
+}

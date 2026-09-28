@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#EEF3F9">
-<title>英檢初級口說練習：複誦</title>
+<title>英檢初級口說練習：怪獸挑戰</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -29,6 +29,7 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--cobalt);outline
 .btn.primary{background:var(--cobalt)}
 .btn.line{background:transparent;border:2px solid var(--line);color:var(--ink)}
 .btn:active{transform:translateY(1px)}
+.btn:disabled{opacity:.5;cursor:default}
 .ghost{background:none;border:0;color:var(--mute);padding:10px 4px;min-height:44px}
 
 /* start */
@@ -37,15 +38,173 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--cobalt);outline
 .opt{display:flex;gap:10px;align-items:center;margin-top:8px;min-height:44px}
 .opt input{width:22px;height:22px;accent-color:var(--cobalt)}
 .note{font-size:14px;color:var(--mute);margin-top:16px}
+.reset-progress{align-self:flex-start;font-size:14px;text-decoration:underline;margin-top:4px}
 
 /* top bar */
-.top{display:flex;align-items:center;gap:14px;padding:4px 0 8px}
-.segs{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.top{display:flex;align-items:center;gap:14px;padding:4px 0 8px;flex-wrap:wrap}
+.segs{flex:1;display:grid;gap:6px}
 .segs i{height:8px;border-radius:4px;background:var(--line)}
 .segs i.done{background:var(--cobalt)}
 .segs i.now{background:var(--marigold)}
+.test-win-btn{position:fixed;right:12px;bottom:16px;z-index:50;border:0;border-radius:999px;padding:10px 16px;min-height:44px;font-weight:700;font-size:14px;background:#f59e0b;color:#fff;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.back-btn{flex:none;white-space:nowrap;background:#fff;border:2px solid var(--line);border-radius:999px;color:var(--ink);font-weight:700;font-size:14px;padding:6px 14px;min-height:40px}
 .pts{font-size:14px;color:var(--mute);text-align:right;min-width:74px}
 .pts b{color:var(--ink);font-size:18px}
+.badge.boss-badge{background:var(--marigold);color:var(--ink);border-radius:8px;padding:2px 8px;font-size:11px;font-weight:700;margin-left:4px}
+
+/* monster corridor (map) */
+.map{padding:4px 0 24px}
+.mon-card{display:flex;align-items:center;gap:14px;width:100%;background:var(--card);border:2px solid var(--line);border-radius:16px;padding:12px 16px;margin-bottom:10px;text-align:left}
+.mon-card.boss{border-color:var(--marigold);background:#FFF7E6}
+.mon-card.final{border-color:var(--bad);background:#FEECEF}
+.mon-card.locked{opacity:.5}
+.mon-ic{font-size:32px;width:44px;text-align:center;flex-shrink:0}
+.mon-info{display:flex;flex-direction:column;gap:2px;flex:1}
+.mon-name{font-weight:700}
+.mon-sub{font-size:13px;color:var(--mute)}
+/* 怪獸長廊圖鑑：一列 2 張卡，圖片統一放在 88px 方框內等比縮放 */
+.corridor-count{font-size:13px;color:var(--mute);text-align:center;margin:10px 0 8px}
+.corridor-count b{color:var(--ink)}
+.corridor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:12px}
+.corridor-grid .mon-card{position:relative;flex-direction:column;justify-content:flex-start;gap:3px;margin:0;padding:26px 8px 12px;text-align:center;min-width:0;box-shadow:0 2px 10px rgba(20,33,61,.08)}
+.corridor-grid .mon-card.locked{opacity:1;background:#F4F6FA}
+.corridor-grid .mon-ic{position:relative;width:96px;height:96px;display:grid;place-items:center;font-size:0}
+.mon-card-art{display:block;width:88px;height:88px;object-fit:contain;pointer-events:none}
+.mon-card-art.silhouette{filter:brightness(0);opacity:.16}
+.mon-card-emoji{font-size:52px;line-height:1}
+.mon-lock{position:absolute;inset:0;display:grid;place-items:center;font-size:30px}
+.corridor-grid .mon-name{font-size:15px;line-height:1.3;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.corridor-grid .mon-card.locked .mon-name{color:var(--mute);letter-spacing:2px}
+.corridor-grid .mon-sub{font-size:12px}
+.corridor-grid .badge{margin-top:2px}
+.mon-no{position:absolute;top:8px;left:10px;font-size:11px;font-weight:700;color:var(--mute);letter-spacing:.5px}
+.mon-check{position:absolute;top:6px;right:8px;width:22px;height:22px;border-radius:50%;background:var(--ok);color:#fff;font-size:13px;font-weight:700;display:grid;place-items:center}
+.stars-big{font-size:26px;color:var(--marigold);letter-spacing:2px}
+.review-card{background:var(--card);border:2px dashed var(--line);border-radius:16px;padding:14px 16px;margin-top:6px;display:flex;flex-direction:column;gap:10px}
+.review-head{display:flex;align-items:center;gap:12px}
+.review-emoji{font-size:30px}
+.review-title{font-weight:700}
+.review-sub{font-size:13px;color:var(--mute)}
+
+/* map entrance + idle animations */
+.mon-card,.review-card{animation:cardIn .45s cubic-bezier(.16,1,.3,1) both}
+@keyframes cardIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.mon-card:not(.locked) .mon-ic{display:inline-block;animation:monBob 2.4s ease-in-out infinite}
+@keyframes monBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.mon-card.boss:not(.locked){animation:cardIn .45s cubic-bezier(.16,1,.3,1) both,bossGlow 1.8s ease-in-out infinite}
+@keyframes bossGlow{0%,100%{box-shadow:0 0 0 0 rgba(255,182,39,0)}50%{box-shadow:0 0 14px 2px rgba(255,182,39,.55)}}
+.mon-card.final:not(.locked){animation:cardIn .45s cubic-bezier(.16,1,.3,1) both,finalGlow 1.6s ease-in-out infinite}
+@keyframes finalGlow{0%,100%{box-shadow:0 0 0 0 rgba(214,69,93,0)}50%{box-shadow:0 0 16px 3px rgba(214,69,93,.55)}}
+.mon-card.current{position:relative}
+.mon-card.current::after{content:"";position:absolute;inset:-3px;border-radius:19px;border:2px solid var(--cobalt);animation:currentPulse 1.6s ease-in-out infinite;pointer-events:none}
+@keyframes currentPulse{0%,100%{opacity:.35;transform:scale(1)}50%{opacity:.9;transform:scale(1.015)}}
+@media (prefers-reduced-motion:reduce){.mon-card,.review-card,.mon-card:not(.locked) .mon-ic,.mon-card.boss:not(.locked),.mon-card.final:not(.locked),.mon-card.current::after{animation:none!important}}
+
+/* path map (闖關地圖)：正式美術背景 + 疊加節點 */
+/* 闖關地圖：8 張分區圖在 .map-world 裡無縫上下相接成一張長地圖，左右抵銷 #app 的 20px padding 做成滿版 */
+.map-container{margin:0 -20px;padding:0 0 4px}
+.map-world{position:relative;display:flex;flex-direction:column;line-height:0}
+.zone-wrap{position:relative;width:100%;margin:0;line-height:0}
+.zone-bg{display:block;width:100%;height:auto}
+/* 相鄰分區重疊漸變：下方分區往上疊 --zone-overlap，頂部用波浪狀的柔邊遮罩淡入，上方分區維持不透明墊底，
+   所以不會透出頁面底色；zone-wrap 的高度仍等於圖片高度，只是用負 margin 往上疊 */
+.map-world{--zone-overlap:clamp(120px,36vw,180px);
+  --zone-seam:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='g' gradientUnits='userSpaceOnUse' x1='0' y1='0' x2='0' y2='100'%3E%3Cstop offset='0' stop-opacity='0'/%3E%3Cstop offset='.5' stop-opacity='.55'/%3E%3Cstop offset='1' stop-opacity='1'/%3E%3C/linearGradient%3E%3Cfilter id='b' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='5'/%3E%3C/filter%3E%3C/defs%3E%3Cpath d='M-20,32 C0,12 18,48 38,30 S68,6 86,28 S112,34 120,24 L120,140 L-20,140 Z' fill='url(%23g)' filter='url(%23b)'/%3E%3C/svg%3E")}
+.zone-wrap[data-zone="5"],.zone-wrap[data-zone="6"]{--zone-overlap:clamp(150px,42vw,180px)}
+.zone-wrap+.zone-wrap{margin-top:calc(-1 * var(--zone-overlap))}
+.zone-wrap+.zone-wrap>.zone-bg{
+  -webkit-mask-image:var(--zone-seam),linear-gradient(#000,#000);mask-image:var(--zone-seam),linear-gradient(#000,#000);
+  -webkit-mask-size:100% calc(var(--zone-overlap) + 2px),100% calc(100% - var(--zone-overlap));mask-size:100% calc(var(--zone-overlap) + 2px),100% calc(100% - var(--zone-overlap));
+  -webkit-mask-position:0 0,0 100%;mask-position:0 0,0 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+/* 高山→火山（Zone 5 頂端）先暖化、火山→雪山（Zone 6 頂端）先降溫，讓色調逐漸過渡而不是瞬間換色 */
+.zone-wrap[data-zone="5"]::after,.zone-wrap[data-zone="6"]::after{content:"";position:absolute;left:0;right:0;top:0;height:calc(var(--zone-overlap) * 1.9);pointer-events:none;z-index:1;mix-blend-mode:soft-light}
+.zone-wrap[data-zone="5"]::after{background:linear-gradient(to bottom,rgba(255,96,32,.75),rgba(255,130,60,.45) 40%,rgba(255,160,90,0))}
+.zone-wrap[data-zone="6"]::after{background:linear-gradient(to bottom,rgba(90,140,255,.8),rgba(140,180,255,.45) 40%,rgba(160,200,255,0))}
+/* 闖關地圖怪物的正式立繪（透明 PNG）：節點 58px 圓圈裡、戰鬥 136px 框裡都依比例縮放 */
+.path-node-art{display:block;width:46px;height:46px;object-fit:contain;pointer-events:none}
+.mon-ring .mon-art{display:block;width:104px;height:104px;object-fit:contain}
+/* 迷霧幽靈的原圖是 512×512 畫布、四周留白約 20%（史萊姆/小兔是貼邊裁切），放大 1.3 倍讓本體跟另外兩隻一樣大；多出來的都是透明區 */
+img.path-node-art[src$="monster_06_mist_ghost.png"],img.mon-art[src$="monster_06_mist_ghost.png"],img.mon-card-art[src$="monster_06_mist_ghost.png"]{transform:scale(1.3)}
+/* 節點／名稱／主角永遠在分區圖與漸變層之上 */
+.path-node,.path-node-label,.path-avatar{z-index:3}
+.path-node{position:absolute;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:var(--card);border:3px solid var(--line);display:grid;place-items:center;font-size:26px;padding:0;animation:cardIn .45s cubic-bezier(.16,1,.3,1) both;box-shadow:0 2px 8px rgba(20,33,61,.35)}
+.path-node.locked{opacity:.5}
+.path-node.boss{border-color:var(--marigold)}
+.path-node.final{border-color:var(--bad);width:74px;height:74px;font-size:32px}
+.path-node:not(.locked){animation:cardIn .45s cubic-bezier(.16,1,.3,1) both,monBob 2.4s ease-in-out infinite}
+.path-node.boss:not(.locked){animation:cardIn .45s cubic-bezier(.16,1,.3,1) both,bossGlow 1.8s ease-in-out infinite}
+.path-node.final:not(.locked){animation:cardIn .45s cubic-bezier(.16,1,.3,1) both,finalGlow 1.6s ease-in-out infinite}
+.path-node.current::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--cobalt);animation:currentPulse 1.6s ease-in-out infinite;pointer-events:none}
+.path-node-label{position:absolute;transform:translate(-50%,30px);font-size:11px;color:var(--mute);white-space:nowrap;text-align:center;pointer-events:none}
+.path-avatar{position:absolute;transform:translate(-65%,-135%);width:52px;animation:avatarBob 1.6s ease-in-out infinite;pointer-events:none;filter:drop-shadow(0 3px 4px rgba(20,33,61,.45))}
+.path-avatar img{display:block;width:100%;height:auto}
+.path-avatar .hero-walk{width:52px;height:75px;overflow:hidden;position:relative}
+.path-avatar .hero-walk img{position:absolute;top:0;left:0;width:260px;height:75px;max-width:none;animation:heroWalkCycle .8s steps(5) infinite}
+@keyframes avatarBob{0%,100%{transform:translate(-65%,-135%)}50%{transform:translate(-65%,-147%)}}
+@keyframes heroWalkCycle{from{transform:translateX(0)}to{transform:translateX(-260px)}}
+/* V5：3 星完成的節點右上角 ✓（仍可點擊重玩）；跨 Zone 時畫面上方的區域提示 */
+.path-node-clear{position:absolute;top:-5px;right:-5px;width:20px;height:20px;border-radius:50%;background:var(--ok);color:#fff;font-size:12px;font-weight:800;line-height:1;display:grid;place-items:center;box-shadow:0 0 0 2px #fff,0 1px 3px rgba(20,33,61,.35);pointer-events:none}
+.zone-banner{position:fixed;left:50%;top:76px;z-index:50;pointer-events:none;text-align:center;white-space:nowrap;max-width:calc(100vw - 32px);padding:8px 20px 9px;border-radius:14px;background:rgba(20,33,61,.74);color:#fff;box-shadow:0 6px 18px rgba(20,33,61,.3);transform:translateX(-50%);animation:zoneBanner 1.6s ease both}
+.zone-banner .zb-no{font-family:"Lexend",system-ui,sans-serif;font-weight:800;font-size:12px;letter-spacing:3px;color:#FFD36B}
+.zone-banner .zb-name{font-size:18px;font-weight:700;margin-top:2px}
+@keyframes zoneBanner{0%{opacity:0;transform:translate(-50%,-8px)}18%{opacity:1;transform:translate(-50%,0)}78%{opacity:1;transform:translate(-50%,0)}100%{opacity:0;transform:translate(-50%,0)}}
+@media (prefers-reduced-motion:reduce){.zone-banner{animation:none}}
+/* V4：主角沿路走到下一個節點（map.js 的 walkPathHero）——往左走時把走路圖翻面；新節點抵達時輕微發光 */
+.path-avatar.facing-left .hero-walk{transform:scaleX(-1)}
+.path-node.just-unlocked{animation:nodeUnlockGlow 1.2s ease-out 2!important}
+@keyframes nodeUnlockGlow{0%{box-shadow:0 2px 8px rgba(20,33,61,.35),0 0 0 0 rgba(255,182,39,.75);filter:brightness(1.12)}100%{box-shadow:0 2px 8px rgba(20,33,61,.35),0 0 0 14px rgba(255,182,39,0);filter:none}}
+@media (prefers-reduced-motion:reduce){.path-node,.path-node:not(.locked),.path-node.boss:not(.locked),.path-node.final:not(.locked),.path-node.current::after,.path-avatar,.path-avatar .hero-walk img,.path-node.just-unlocked{animation:none!important}}
+.passage-box{font-size:17px;line-height:1.6;text-align:left;background:var(--card);border-radius:16px;padding:16px;width:100%;box-shadow:0 1px 0 var(--line)}
+
+/* battle arena */
+.arena{position:relative;display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:2px}
+/* V3 戰鬥回饋（gameState.js 的 showDamageNumber/showCombo/showMiss）：純視覺、不擋點擊 */
+.battle-float{position:absolute;z-index:12;pointer-events:none;white-space:nowrap;font-family:"Lexend","Noto Sans TC",system-ui,sans-serif;font-weight:800;line-height:1}
+.fx-damage{font-size:28px;color:#FF4D5E;-webkit-text-stroke:1.5px #fff;paint-order:stroke fill;text-shadow:0 2px 6px rgba(20,33,61,.35);animation:fxDamage .9s cubic-bezier(.2,.8,.3,1) forwards}
+.fx-miss{font-size:20px;letter-spacing:1px;color:#6B7A99;-webkit-text-stroke:1px #fff;paint-order:stroke fill;text-shadow:0 2px 5px rgba(20,33,61,.25);animation:fxMiss 1s ease-out forwards}
+.fx-combo{font-size:13px;letter-spacing:.5px;color:#fff;padding:5px 10px;border-radius:999px;background:linear-gradient(180deg,#FFC94A,#F29A12);box-shadow:0 0 0 2px #fff,0 0 12px 3px rgba(255,182,39,.55),0 3px 8px rgba(20,33,61,.25);text-shadow:0 1px 1px rgba(120,60,0,.45);animation:fxCombo 1.7s ease-out forwards}
+@keyframes fxDamage{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}18%{opacity:1;transform:translate(-50%,-60%) scale(1.3)}32%{transform:translate(-50%,-70%) scale(1)}100%{opacity:0;transform:translate(-50%,-150%) scale(.95)}}
+@keyframes fxMiss{0%{opacity:0;transform:translate(-50%,-50%) scale(.7)}15%{opacity:1;transform:translate(-50%,-55%) scale(1.1) rotate(-6deg)}30%{transform:translate(-50%,-60%) scale(1) rotate(4deg)}45%{transform:translate(-50%,-65%) rotate(0)}100%{opacity:0;transform:translate(-50%,-110%)}}
+@keyframes fxCombo{0%{opacity:0;transform:scale(.6)}12%{opacity:1;transform:scale(1.18)}22%{transform:scale(1)}78%{opacity:1;transform:scale(1)}100%{opacity:0;transform:translateY(-8px) scale(.96)}}
+.fx-damage,.fx-miss{transform:translate(-50%,-50%)}
+/* 擊敗演出（gameState.js 的 playMonsterDefeat/showVictory） */
+.defeat-blink{animation:defeatBlink .45s steps(2,jump-none) 1}
+@keyframes defeatBlink{0%,50%{filter:brightness(2.2) saturate(.3);transform:translateX(-4px)}25%,75%,100%{filter:none;transform:translateX(4px)}}
+.battle-victory{position:absolute;z-index:13;pointer-events:none;white-space:nowrap;transform:translate(-50%,-50%);font-family:"Lexend","Noto Sans TC",system-ui,sans-serif;font-weight:800;font-size:32px;letter-spacing:1px;line-height:1;color:#FFB627;-webkit-text-stroke:2px #fff;paint-order:stroke fill;text-shadow:0 0 14px rgba(255,182,39,.65),0 3px 8px rgba(20,33,61,.3);animation:victoryPop .6s cubic-bezier(.2,1.4,.4,1) both,victoryGlow 1.8s ease-in-out .6s infinite}
+/* V5：STAGE CLEAR! 小徽章（接在 VICTORY! 下方） */
+.battle-stage-clear{position:absolute;z-index:13;pointer-events:none;white-space:nowrap;transform:translate(-50%,-50%);font-family:"Lexend","Noto Sans TC",system-ui,sans-serif;font-weight:800;font-size:14px;letter-spacing:1.5px;line-height:1;color:#fff;padding:6px 14px;border-radius:999px;background:linear-gradient(180deg,#5A86FF,#2F5BEA);box-shadow:0 0 0 2px #fff,0 4px 12px rgba(47,91,234,.4);animation:stageClearIn .45s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes stageClearIn{0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes victoryPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.4)}100%{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes victoryGlow{0%,100%{text-shadow:0 0 10px rgba(255,182,39,.5),0 3px 8px rgba(20,33,61,.3)}50%{text-shadow:0 0 20px rgba(255,182,39,.9),0 3px 8px rgba(20,33,61,.3)}}
+@media (prefers-reduced-motion:reduce){.fx-damage,.fx-miss,.fx-combo,.defeat-blink,.battle-victory,.battle-stage-clear{animation:none}}
+.mon-ring{position:relative;width:136px;height:136px;border-radius:50%;background:var(--card);border:3px solid var(--line);display:grid;place-items:center;font-size:58px;transition:filter .3s,opacity .3s}
+.battle-attack-fx{position:absolute;inset:0;pointer-events:none}
+.battle-hero{position:absolute;left:-4px;bottom:-4px;width:52px;height:52px;background-repeat:no-repeat;background-size:500% 100%;animation:spriteStep5 .7s steps(5) 1;filter:drop-shadow(0 2px 4px rgba(20,33,61,.4))}
+.battle-effect{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:130px;height:84px;background-repeat:no-repeat;background-size:500% 100%;animation:spriteStep5 .7s steps(5) 1}
+.monster-hit-fx{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:120px;height:128px;background-repeat:no-repeat;background-size:500% 100%;animation:spriteStep5 .55s steps(5) 1;pointer-events:none;z-index:8}
+.monster-vanish-fx{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:140px;height:87px;background-repeat:no-repeat;background-size:500% 100%;animation:spriteStep5 .65s steps(5) 1;pointer-events:none;z-index:8}
+@keyframes spriteStep5{from{background-position-x:0%}to{background-position-x:100%}}
+@media (prefers-reduced-motion:reduce){.battle-hero,.battle-effect,.monster-hit-fx,.monster-vanish-fx{animation:none!important}}
+.mon-ring.boss{border-color:var(--marigold)}
+.mon-ring.final{border-color:var(--bad)}
+.mon-ring.boss-portrait{width:208px;height:208px}
+.mon-ring.boss-portrait img.boss-art{width:88%;height:88%;object-fit:contain;transition:opacity .12s}
+.mon-ring.boss-portrait img.boss-art.anim-hidden{opacity:0}
+/* Boss 受擊／死亡素材條：幀間距不完全等寬，所以由 boss.js 逐幀設定 background-position；左右邊緣羽化，避免切到隔壁幀的法杖/光暈 */
+.boss-sprite{position:absolute;left:50%;top:50%;background-repeat:no-repeat;pointer-events:none;z-index:7;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 28%,#000 72%,transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 28%,#000 72%,transparent 100%)}
+.boss-defeat-smoke{z-index:8;-webkit-mask-image:none;mask-image:none}
+.mon-ring.hit{animation:hitShake .35s ease}
+.mon-ring.counter{animation:counterPulse .4s ease}
+.mon-ring.down{filter:grayscale(1);opacity:.35}
+@keyframes hitShake{0%{transform:translateX(0)}20%{transform:translateX(-8px) rotate(-5deg)}40%{transform:translateX(8px) rotate(5deg)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}100%{transform:translateX(0)}}
+@keyframes counterPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+@media (prefers-reduced-motion:reduce){.mon-ring.hit,.mon-ring.counter{animation:none!important}}
+.arena .mon-name{font-weight:700;font-size:16px}
+.hp-wrap{width:220px;max-width:78vw}
+.hp-bar-bg{height:14px;border-radius:7px;background:var(--line);overflow:hidden}
+.hp-bar-fill{height:100%;background:linear-gradient(90deg,var(--ok),#38C98A);border-radius:7px;transition:width .4s ease}
+.hp-bar-fill.low{background:linear-gradient(90deg,var(--bad),#F2778F)}
 
 /* stage */
 .stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;padding:10px 0}
@@ -90,338 +249,54 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--cobalt);outline
 .list{list-style:none;padding:0;margin:16px 0}
 .list li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
 .list li span:first-child{font-family:Lexend,sans-serif;font-size:15px}
+/* V6-D3 問答 15 秒作答倒數（遊戲與練習模式共用；練習模式 .large 字比較大） */
+.answer-timer{width:100%;max-width:320px;display:flex;flex-direction:column;align-items:center;gap:4px;--at:var(--cobalt)}
+.answer-timer[hidden]{display:none}
+.answer-timer .at-num{font-family:Lexend,sans-serif;font-weight:600;font-size:34px;line-height:1;color:var(--at);font-variant-numeric:tabular-nums;transition:color .3s}
+.answer-timer .at-label{font-size:13px;color:var(--mute)}
+.answer-timer .at-bar{width:100%;height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.answer-timer .at-bar i{display:block;height:100%;width:100%;background:var(--at);border-radius:4px;transition:background .3s}
+.answer-timer .at-done{margin-top:6px;padding:8px 18px;min-height:40px;font-size:15px}
+.answer-timer[data-stage="warn"]{--at:#C98200}
+.answer-timer[data-stage="final"]{--at:var(--bad)}
+.answer-timer[data-stage="final"] .at-label{color:var(--bad);font-weight:700}
+.answer-timer.large .at-num{font-size:52px}
+.answer-timer.large .at-label{font-size:14px}
+
+/* V6-D2 英檢口說練習（成人模式）：沿用卡片／按鈕樣式，拿掉遊戲元素、錄音圈縮小 */
+.practice-home{display:flex;flex-direction:column;gap:10px}
+.practice-title{flex:1;text-align:center;font-weight:700;font-size:18px}
+.practice-stage{justify-content:flex-start;gap:12px}
+.practice-card{width:100%;background:var(--card);border-radius:16px;padding:14px 16px;text-align:left;box-shadow:0 1px 0 var(--line);overflow-wrap:anywhere}
+.practice-meta{display:flex;flex-wrap:wrap;gap:6px 8px;align-items:center;font-size:13px;color:var(--mute)}
+.practice-meta .ptag{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:1px 8px;font-weight:700;color:var(--ink)}
+.practice-meta .ptag.ai{background:var(--cobalt);border-color:var(--cobalt);color:#fff}
+.practice-meta .pdesc{flex-basis:100%}
+.practice-toggle{margin-left:auto;background:none;border:0;color:var(--cobalt);font-weight:700;font-size:14px;padding:6px 2px;min-height:36px}
+.practice-text{font-size:20px;line-height:1.45;margin-top:8px}
+.practice-text.hidden{display:none}
+.practice-passage{box-shadow:none;padding:0;background:none}
+.practice-card .practice-passage{margin-top:0}
+.ring.practice-ring{width:120px;height:120px}
+.ring.practice-ring svg{width:46px;height:46px}
+.ring.practice-ring .bars{height:46px}
+.level-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:2px 0 6px}
+.level-chips button{border:2px solid var(--line);background:var(--card);border-radius:999px;padding:4px 14px;min-height:36px;font-weight:700;font-size:14px}
+.level-chips button.on{background:var(--ink);border-color:var(--ink);color:#fff}
 .chips span{display:inline-block;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:3px 10px;margin:4px 6px 0 0;font-family:Lexend,sans-serif;font-size:15px}
 </style>
 </head>
 <body>
 <div id="app"></div>
 
-<script>
-"use strict";
-/* ===== 題庫：原創的初級程度句子 ===== */
-const BANK = [
-  "I get up at seven every morning.",
-  "Where is the nearest bus stop?",
-  "My mother is cooking dinner now.",
-  "Can you help me with my homework?",
-  "We are going to the park on Sunday.",
-  "What time does the movie start?",
-  "He doesn't like cold drinks.",
-  "Please turn off your phone.",
-  "There are three books on the table.",
-  "How much is this red shirt?",
-  "I usually walk to school with my friend.",
-  "It's very hot today, so I want some ice cream.",
-  "Please be careful. The floor is wet.",
-  "Would you like some tea?",
-  "Our teacher is from Canada.",
-  "She bought a new bag yesterday.",
-  "Is there a bank near here?",
-  "My birthday is on March tenth.",
-  "I have a headache, so I will stay home.",
-  "The library opens at nine o'clock."
-];
-const ROUND_SIZE = 5;   // 正式考試複誦為 5 題
-const PASS_LINE = 80;   // 初級口說通過分數
-
-/* ===== 小工具 ===== */
-const $ = s => document.querySelector(s);
-const app = $("#app");
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-const S = { round: [], i: 0, score: 0, combo: 0, results: [], easy: false, token: 0 };
-let voice = null, activeRec = null, wakeLock = null;
-
-/* ===== 文字正規化（把辨識結果與標準答案放在同一基準上比對） ===== */
-const ONES = ["zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"];
-const TENS = ["","","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"];
-const ORD_IRR = { one:"first", two:"second", three:"third", five:"fifth", eight:"eighth", nine:"ninth", twelve:"twelfth" };
-const n2w = n => n < 20 ? ONES[n] : TENS[Math.floor(n/10)] + (n%10 ? " " + ONES[n%10] : "");
-function ord(n){
-  const w = n2w(n).split(" "), last = w.pop();
-  const o = ORD_IRR[last] || (last.endsWith("y") ? last.slice(0,-1) + "ieth" : last + "th");
-  return [...w, o].join(" ");
-}
-const CONTR = {"i'm":"i am","it's":"it is","he's":"he is","she's":"she is","that's":"that is","what's":"what is","there's":"there is","here's":"here is","we're":"we are","you're":"you are","they're":"they are","don't":"do not","doesn't":"does not","didn't":"did not","can't":"can not","cannot":"can not","isn't":"is not","aren't":"are not","wasn't":"was not","weren't":"were not","won't":"will not","i'll":"i will","i've":"i have","let's":"let us"};
-function tokenize(s){
-  s = s.toLowerCase().replace(/[’‘]/g, "'");
-  s = s.replace(/(\d{1,2}):(\d{2})/g, (m,h,mi) => n2w(+h) + " " + (+mi === 0 ? "" : (+mi < 10 ? "oh " : "") + n2w(+mi)));
-  s = s.replace(/(\d{1,2})(st|nd|rd|th)\b/g, (m,n) => ord(+n));
-  s = s.replace(/\d{1,2}/g, m => n2w(+m));
-  s = s.replace(/[^a-z'\s]/g, " ");
-  const out = [];
-  s.split(/\s+/).filter(Boolean).forEach(w => {
-    w = w.replace(/^'+|'+$/g, "");
-    if (!w) return;
-    (CONTR[w] ? CONTR[w].split(" ") : [w]).forEach(x => out.push(x));
-  });
-  return out;
-}
-
-/* ===== 逐字對齊（編輯距離） ===== */
-function align(t, h){
-  const n = t.length, m = h.length;
-  const d = Array.from({length:n+1}, () => new Array(m+1).fill(0));
-  for (let i=0;i<=n;i++) d[i][0] = i;
-  for (let j=0;j<=m;j++) d[0][j] = j;
-  for (let i=1;i<=n;i++) for (let j=1;j<=m;j++){
-    const c = t[i-1] === h[j-1] ? 0 : 1;
-    d[i][j] = Math.min(d[i-1][j-1] + c, d[i-1][j] + 1, d[i][j-1] + 1);
-  }
-  const ops = new Array(n).fill("del"), extra = [];
-  let i = n, j = m;
-  while (i > 0 || j > 0){
-    const same = i>0 && j>0 && t[i-1] === h[j-1];
-    if (i>0 && j>0 && d[i][j] === d[i-1][j-1] + (same ? 0 : 1)){ ops[i-1] = same ? "ok" : "sub"; i--; j--; }
-    else if (i>0 && d[i][j] === d[i-1][j] + 1){ ops[i-1] = "del"; i--; }
-    else { extra.unshift(h[j-1]); j--; }
-  }
-  return { ops, extra, dist: d[n][m] };
-}
-
-/* ===== 語音：播放題目 ===== */
-function loadVoices(){
-  return new Promise(res => {
-    const v = speechSynthesis.getVoices();
-    if (v.length) return res(v);
-    speechSynthesis.addEventListener("voiceschanged", () => res(speechSynthesis.getVoices()), { once:true });
-    setTimeout(() => res(speechSynthesis.getVoices()), 1500);
-  });
-}
-function speak(text){
-  return new Promise(resolve => {
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = "en-US"; u.rate = 0.9;
-    if (voice) u.voice = voice;
-    let done = false;
-    const fin = () => { if (!done){ done = true; clearTimeout(t); resolve(); } };
-    const t = setTimeout(fin, 3000 + text.length * 130);   // Android 有時不會觸發 onend，用計時器保底
-    u.onend = fin; u.onerror = fin;
-    speechSynthesis.speak(u);
-  });
-}
-
-/* ===== 語音：辨識玩家的回答 ===== */
-function listen(maxMs = 10000){
-  return new Promise(resolve => {
-    const rec = new SR();
-    rec.lang = "en-US"; rec.interimResults = true; rec.maxAlternatives = 1; rec.continuous = false;
-    let finalText = "", interim = "", error = null, finished = false;
-    const finish = () => {
-      if (finished) return;
-      finished = true; clearTimeout(timer); activeRec = null;
-      resolve({ text: (finalText || interim).trim(), error });
-    };
-    rec.onaudiostart = () => setState("say", "換你說", "說完停一下會自動送出，也可以點圓圈提早結束");
-    rec.onresult = e => {
-      interim = "";
-      for (let k = e.resultIndex; k < e.results.length; k++){
-        const r = e.results[k];
-        if (r.isFinal) finalText += " " + r[0].transcript; else interim += r[0].transcript;
-      }
-      const live = $("#live"); if (live) live.textContent = (finalText || interim).trim();
-    };
-    rec.onerror = e => { error = e.error; };
-    rec.onend = finish;
-    const timer = setTimeout(() => { try { rec.stop(); } catch(_){} }, maxMs);
-    activeRec = rec;
-    try { rec.start(); } catch(_) { error = "start-failed"; finish(); }
-  });
-}
-
-/* ===== 介面 ===== */
-const ICON_SPEAKER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
-const ICON_WAIT = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>';
-
-function setState(state, headline, hint){
-  const ring = $("#ring"); if (!ring) return;
-  ring.dataset.state = state;
-  ring.innerHTML = (state === "hear" ? ICON_SPEAKER : ICON_WAIT) + '<div class="bars"><span></span><span></span><span></span><span></span><span></span></div>';
-  $("#status").textContent = headline;
-  $("#hint").textContent = hint || "";
-  if (state !== "say") { const l = $("#live"); if (l) l.textContent = ""; }
-}
-
-function renderStart(){
-  const unsupported = !SR || !("speechSynthesis" in window);
-  app.innerHTML = `
-    <section class="start">
-      <h1>英檢初級口說：複誦</h1>
-      <p>先聽句子，播放兩次，然後跟著說一遍。共 ${ROUND_SIZE} 題，${PASS_LINE} 分算過關。</p>
-      <label class="opt"><input type="checkbox" id="easy"> 簡單模式：作答前先顯示句子</label>
-      ${unsupported
-        ? '<p class="msg" style="margin-top:16px">這個瀏覽器不支援語音辨識。請改用 Android 版 Chrome 開啟。</p>'
-        : '<button class="btn primary" id="startBtn">開始練習</button>'}
-      <p class="note">需要網路連線與麥克風權限。第一次開始時，瀏覽器會詢問是否允許使用麥克風。</p>
-    </section>`;
-  const b = $("#startBtn");
-  if (b) b.onclick = onStart;
-}
-
-async function onStart(){
-  const btn = $("#startBtn");
-  btn.disabled = true; btn.textContent = "準備中…";
-  S.easy = $("#easy").checked;
-  if (!navigator.onLine){ alert("目前沒有網路。語音辨識需要連線後才能使用。"); btn.disabled = false; btn.textContent = "開始練習"; return; }
-  try {   // 在按鈕點擊當下先要麥克風權限，之後辨識就不會再跳詢問
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    stream.getTracks().forEach(t => t.stop());
-  } catch(_) {
-    alert("無法使用麥克風。請點網址列左側的圖示，允許麥克風後重新整理頁面。");
-    btn.disabled = false; btn.textContent = "開始練習"; return;
-  }
-  const voices = await loadVoices();
-  voice = voices.find(v => /^en[-_]US/i.test(v.lang)) || voices.find(v => /^en/i.test(v.lang)) || null;
-  try { wakeLock = await navigator.wakeLock?.request("screen"); } catch(_) {}
-  startRound();
-}
-
-function pickRound(){
-  const a = BANK.slice();
-  for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; }
-  return a.slice(0, ROUND_SIZE);
-}
-function startRound(){
-  Object.assign(S, { round: pickRound(), i: 0, score: 0, combo: 0, results: [] });
-  renderQuestion();
-}
-
-function renderQuestion(){
-  const segs = S.round.map((_, k) => `<i class="${k < S.i ? "done" : k === S.i ? "now" : ""}"></i>`).join("");
-  app.innerHTML = `
-    <header class="top">
-      <button class="ghost" id="quit">結束</button>
-      <div class="segs" aria-label="第 ${S.i + 1} 題，共 ${ROUND_SIZE} 題">${segs}</div>
-      <div class="pts">積分 <b>${S.score}</b>${S.combo > 1 ? `<br>連擊 ×${S.combo}` : ""}</div>
-    </header>
-    <section class="stage">
-      <h2 id="status" aria-live="polite"></h2>
-      <p id="hint" class="muted"></p>
-      <div id="peek" class="en"></div>
-      <button class="ring" id="ring" aria-label="錄音狀態"></button>
-      <div id="live" class="en muted"></div>
-      <div id="resultBox" style="width:100%"></div>
-    </section>`;
-  $("#quit").onclick = () => { stopAll(); renderStart(); };
-  $("#ring").onclick = () => { if ($("#ring").dataset.state === "say" && activeRec) { try { activeRec.stop(); } catch(_){} } };
-  runQuestion();
-}
-
-function stopAll(){
-  S.token++;
-  try { speechSynthesis.cancel(); } catch(_){}
-  try { activeRec && activeRec.abort(); } catch(_){}
-  activeRec = null;
-}
-
-async function runQuestion(){
-  const tk = ++S.token, q = S.round[S.i];
-  $("#resultBox").innerHTML = "";
-  if (S.easy) $("#peek").textContent = q;
-  setState("hear", "請仔細聽", "題目會播放兩次");
-  await speak(q);           if (tk !== S.token) return;
-  await sleep(1400);        if (tk !== S.token) return;
-  await speak(q);           if (tk !== S.token) return;
-  await sleep(700);         if (tk !== S.token) return;
-  setState("busy", "準備錄音…", "");
-  const r = await listen(); if (tk !== S.token) return;
-  evaluate(q, r);
-}
-
-const ERR = {
-  "not-allowed": "麥克風被封鎖了。請點網址列左側的圖示，允許麥克風後再試一次。",
-  "service-not-allowed": "麥克風被封鎖了。請點網址列左側的圖示，允許麥克風後再試一次。",
-  "audio-capture": "找不到麥克風，請確認裝置的麥克風可以使用。",
-  "network": "語音辨識需要網路，請確認連線後再試一次。",
-  "no-speech": "沒有聽到聲音。請靠近麥克風，看到「換你說」之後再開口。"
-};
-const HARD_ERR = ["not-allowed", "service-not-allowed", "audio-capture", "network"];
-
-function evaluate(q, r){
-  const tw = q.split(/\s+/);
-  const tokens = [];
-  tw.forEach((w, wi) => tokenize(w).forEach(t => tokens.push({ t, wi })));
-  const h = tokenize(r.text || "");
-  const { ops, extra, dist } = align(tokens.map(x => x.t), h);
-  const pct = r.text ? Math.round(Math.max(0, 1 - dist / tokens.length) * 100) : 0;
-  const wordOk = tw.map(() => true);
-  tokens.forEach((x, k) => { if (ops[k] !== "ok") wordOk[x.wi] = false; });
-
-  const hardFail = r.error && HARD_ERR.includes(r.error);
-  const first = !S.results[S.i] && !hardFail;
-  if (first){
-    const pass = pct >= PASS_LINE;
-    S.combo = pass ? S.combo + 1 : 0;
-    S.score += pct + (pass ? S.combo * 10 : 0);
-    S.results[S.i] = { q, pct, wordOk, tw };
-    bumpMissed(tw.filter((_, k) => !wordOk[k]).map(w => tokenize(w).join(" ")).filter(Boolean));
-  }
-
-  setState("idle", pct >= PASS_LINE ? "說得很好" : (hardFail ? "無法錄音" : "再接再厲"), "");
-  const msg = r.error && ERR[r.error] ? `<p class="msg">${ERR[r.error]}</p>` : "";
-  const chips = hardFail ? "" : tw.map((w, k) => `<span class="w en ${wordOk[k] ? "ok" : "bad"}">${esc(w)}</span>`).join("");
-  const last = S.i === ROUND_SIZE - 1;
-  $("#resultBox").innerHTML = `
-    <div class="result">
-      ${hardFail ? "" : `<div class="score"><b>${pct}</b><span class="tag ${pct >= PASS_LINE ? "pass" : "try"}">${pct >= PASS_LINE ? "過關" : "再練一次"}</span></div>`}
-      ${msg}${chips}
-      ${!hardFail && r.text ? `<p class="heard en">辨識到：${esc(r.text)}</p>` : ""}
-      ${!hardFail && extra.length ? `<p class="heard">多說的字：<span class="en">${esc(extra.join(" "))}</span></p>` : ""}
-      <div class="actions">
-        <button class="btn line" id="replay">聽標準發音</button>
-        <button class="btn line" id="retry">再試一次</button>
-        ${hardFail ? "" : `<button class="btn primary" id="next">${last ? "看結果" : "下一題"}</button>`}
-      </div>
-      ${!first && !hardFail ? '<p class="heard">重試不會改變這題的積分。</p>' : ""}
-    </div>`;
-  $("#replay").onclick = async () => { $("#replay").disabled = true; await speak(q); const b = $("#replay"); if (b) b.disabled = false; };
-  $("#retry").onclick = () => runQuestion();
-  const nx = $("#next");
-  if (nx) nx.onclick = () => { if (last) renderSummary(); else { S.i++; renderQuestion(); } };
-}
-
-/* ===== 常錯的字（存在這支手機的瀏覽器裡） ===== */
-function bumpMissed(words){
-  try {
-    const m = JSON.parse(localStorage.getItem("gept_missed") || "{}");
-    words.forEach(w => { m[w] = (m[w] || 0) + 1; });
-    localStorage.setItem("gept_missed", JSON.stringify(m));
-  } catch(_) {}
-}
-function topMissed(k = 8){
-  try {
-    const m = JSON.parse(localStorage.getItem("gept_missed") || "{}");
-    return Object.entries(m).sort((a, b) => b[1] - a[1]).slice(0, k);
-  } catch(_) { return []; }
-}
-
-function renderSummary(){
-  stopAll();
-  const done = S.results.filter(Boolean);
-  const avg = done.length ? Math.round(done.reduce((a, r) => a + r.pct, 0) / done.length) : 0;
-  const passed = done.filter(r => r.pct >= PASS_LINE).length;
-  const missed = topMissed();
-  app.innerHTML = `
-    <section class="sum">
-      <p class="muted">本輪平均</p>
-      <div class="big">${avg}</div>
-      <p style="margin-top:8px">${passed} / ${ROUND_SIZE} 題達到 ${PASS_LINE} 分，總積分 ${S.score}。</p>
-      <ul class="list">
-        ${done.map(r => `<li><span>${esc(r.q)}</span><b>${r.pct}</b></li>`).join("")}
-      </ul>
-      ${missed.length ? `<p class="muted">你最常說錯的字</p><div class="chips">${missed.map(([w, c]) => `<span>${esc(w)} ×${c}</span>`).join("")}</div>` : ""}
-      <div class="actions" style="margin-top:24px">
-        <button class="btn primary" id="again" style="margin-left:0">再練一輪</button>
-        <button class="btn line" id="home">回首頁</button>
-      </div>
-    </section>`;
-  $("#again").onclick = startRound;
-  $("#home").onclick = renderStart;
-}
-
-renderStart();
-</script>
+<script src="src/gameState.js"></script>
+<script src="src/questionPicker.js"></script>
+<script src="src/voice.js"></script>
+<script src="src/battle.js"></script>
+<script src="src/questions.js"></script>
+<script src="src/map.js"></script>
+<script src="src/boss.js"></script>
+<script src="src/practice.js"></script>
+<script src="src/main.js"></script>
 </body>
 </html>

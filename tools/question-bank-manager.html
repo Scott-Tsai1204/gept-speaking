@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>外部題庫管理工具</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#14213d;--mute:#5b6478;--line:#d5ddea;--brand:#2f5bea;--brand-soft:#e7edfd;--ok:#16794c;--ok-soft:#e3f4ea;--warn:#9a5b00;--warn-soft:#fff3dc;--bad:#b42318;--bad-soft:#fde8e6;--tip:#5b3cc4;--tip-soft:#efeafd}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif}
+main{max-width:980px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:22px;margin:0 0 4px}
+h2{font-size:17px;margin:0 0 10px}
+p{margin:6px 0}
+.muted{color:var(--mute)}
+.small{font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:14px}
+.step{display:inline-block;background:var(--brand);color:#fff;border-radius:999px;font-size:12px;font-weight:700;padding:1px 9px;margin-right:6px;vertical-align:2px}
+.notice{background:var(--warn-soft);border:1px solid #f1d49c;border-radius:10px;padding:8px 12px;font-size:14px;margin-top:10px}
+button,.btn{font:inherit;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);padding:7px 14px;min-height:38px;cursor:pointer}
+button.primary,label.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:700}
+label.btn{display:inline-flex;align-items:center}
+button:disabled{opacity:.45;cursor:not-allowed}
+button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.row-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+input[type=file]{max-width:100%}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:10px}
+.stat{background:var(--bg);border-radius:10px;padding:8px 10px}
+.stat b{display:block;font-size:22px;line-height:1.2}
+.stat span{font-size:13px;color:var(--mute)}
+.issues{list-style:none;padding:0;margin:10px 0 0}
+.issues li{padding:6px 10px;border-radius:8px;margin-top:6px;font-size:14px}
+.issues .err{background:var(--bad-soft);color:var(--bad)}
+.issues .warn{background:var(--warn-soft);color:var(--warn)}
+.issues .tip{background:var(--tip-soft);color:var(--tip)}
+.issues .ok{background:var(--ok-soft);color:var(--ok)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+select{font:inherit;border:1px solid var(--line);border-radius:8px;padding:6px 8px;background:#fff;max-width:100%}
+.rows{display:flex;flex-direction:column;gap:10px}
+.row-card{border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff}
+.row-card.has-err{border-color:#f0b3ad;background:#fffafa}
+.row-card.excluded{opacity:.6}
+.row-head{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px}
+.tag{background:var(--bg);border-radius:999px;padding:1px 9px;color:var(--mute)}
+.dest{border-radius:999px;padding:1px 9px;font-weight:700}
+.dest.game{background:var(--ok-soft);color:var(--ok)}
+.dest.pending{background:var(--warn-soft);color:var(--warn)}
+.dest.skip{background:var(--bad-soft);color:var(--bad)}
+.orig{font-size:16px;margin:8px 0 4px;white-space:pre-wrap;overflow-wrap:anywhere;font-family:ui-serif,Georgia,serif}
+.src{font-size:13px;color:var(--mute);overflow-wrap:anywhere}
+.msgs{list-style:none;margin:6px 0 0;padding:0;font-size:13px}
+.msgs li{margin-top:3px;overflow-wrap:anywhere}
+.msgs .err{color:var(--bad)}
+.msgs .warn,.msgs .dup{color:var(--warn)}
+.fields{display:grid;gap:8px;margin-top:10px}
+.field{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;background:var(--bg);border-radius:10px;padding:8px 10px;font-size:14px}
+.fname{font-weight:700;min-width:84px}
+.fval{font-weight:700}
+.blank{color:var(--mute)}
+.sug{color:var(--tip)}
+.sug small{color:var(--mute)}
+.field button{min-height:32px;padding:3px 12px;font-size:13px}
+.done{background:var(--ok-soft);color:var(--ok);border-radius:10px;padding:10px 12px;margin-top:10px;overflow-wrap:anywhere}
+.hidden{display:none!important}
+label.check{display:inline-flex;gap:6px;align-items:center;cursor:pointer}
+code{background:var(--bg);border-radius:6px;padding:0 5px;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<main>
+  <h1>外部題庫管理工具</h1>
+  <p class="muted">把課外書的題目（你在 Excel 手動輸入的）加進遊戲題庫。這些是<b>外部題庫・課外書來源</b>，不是官方 GEPT 題目。</p>
+  <p class="muted small">只會「新增」題目：現有題庫的題目一題都不會被改動或刪除。你輸入的原文會原樣保留，工具提供的分類只是建議，要你按「接受」才會採用。</p>
+
+  <section class="card">
+    <h2><span class="step">1</span>目前的遊戲題庫</h2>
+    <p id="bankStatus" class="muted">讀取中…</p>
+    <div class="row-actions">
+      <label class="btn">上傳其他 question_bank.json<input type="file" id="bankFile" accept=".json,application/json" class="hidden"></label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2><span class="step">2</span>上傳 Excel</h2>
+    <p class="small muted">工作表：<b>ANSWER</b>（Question）、<b>REPEAT</b>（Text）、<b>READ</b>（Text）。只想匯入其中一種也可以：沒有資料的工作表會 SKIP，既有題庫的那一類完全不變。所有欄位都可以空白（沒有題目文字的列會略過），範本裡「[Example]」開頭的示範列、README 工作表都不會匯入，也不用填題目 ID。</p>
+    <details class="small" style="margin-top:8px">
+      <summary><b>ANSWER 的三個 Category</b></summary>
+      <ul style="margin:6px 0 0;padding-left:20px">
+        <li><b>warmup　基礎題</b>：簡單的個人資料、日常生活或事實問題</li>
+        <li><b>preference　喜好題</b>：個人喜好、選擇、意願，通常可用簡單理由回答</li>
+        <li><b>situational　情境題</b>：假設情境、詢問、請求或需要回應的問題</li>
+      </ul>
+      <p class="muted">以上為本遊戲依 GEPT 初級口說「回答問題」的能力與題目特徵所做的題庫分類，方便練習與管理，並非 GEPT 官方公布的正式分類。（舊名稱 opinion 會自動視為 preference。）</p>
+    </details>
+    <div class="row-actions">
+      <label class="btn primary">選擇 Excel 檔<input type="file" id="xlsxFile" accept=".xlsx,.xls" class="hidden"></label>
+      <button id="templateBtn">下載空白範本</button>
+      <span id="xlsxName" class="small muted"></span>
+    </div>
+    <ul id="readSummary" class="issues"></ul>
+  </section>
+
+  <section class="card hidden" id="reviewCard">
+    <h2><span class="step">3</span>逐題確認</h2>
+    <p class="small muted">空白的分類不用逐題決定：保留空白也可以匯出；想自己指定時，Category／Difficulty 旁邊有「手動選」。ANSWER 沒有 Category、REPEAT 沒有 Difficulty 的題目會先放進「待分類區」（遊戲暫時不會出這些題，下次開這個工具還能再分類）。Topic 空白的題目進遊戲時會標成 <code>unspecified</code>。</p>
+    <div class="tabs" id="tabs"></div>
+    <div class="toolbar">
+      <select id="filter" aria-label="篩選">
+        <option value="all">全部</option>
+        <option value="attention">需要注意（錯誤、重複、相似）</option>
+        <option value="unclassified">還有空白分類</option>
+        <option value="pending">會放進待分類區</option>
+      </select>
+      <span id="bulk" class="row-actions" style="margin:0"></span>
+    </div>
+    <div class="rows" id="rows"></div>
+  </section>
+
+  <section class="card hidden" id="previewCard">
+    <h2><span class="step">4</span>預覽（Dry Run）</h2>
+    <p class="small muted">這裡是匯出後會發生的事。還沒有寫入任何檔案。</p>
+    <div class="stats" id="stats"></div>
+    <ul class="issues" id="issues"></ul>
+    <div class="row-actions">
+      <label class="check"><input type="checkbox" id="confirm"> 我已確認以上內容</label>
+      <button class="primary" id="exportBtn" disabled>匯出 question_bank.json</button>
+    </div>
+    <div id="exportResult"></div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="question-bank-core.js"></script>
+<script>
+"use strict";
+const $ = s => document.querySelector(s);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const TYPE_NAME = { answer: "ANSWER", repeat: "REPEAT", read: "READ" };
+const FIELD_NAME = { category: "Category", topic: "Topic", difficulty: "Difficulty" };
+const FIELDS_OF = { answer: ["category", "topic"], repeat: ["difficulty", "topic"], read: ["topic"] };
+const DEST_TEXT = { game: "→ 進遊戲題庫", pending: "→ 待分類區", skip: "→ 不匯出" };
+
+const st = { bank: null, bankFrom: "", cal: null, excelRows: [], pending: [], parsed: null, tab: "answer", filter: "all" };
+const allRows = () => st.pending.concat(st.excelRows);
+
+/* ---------- 1. 目前的遊戲題庫 ---------- */
+function setBank(bank, from){
+  const errs = QBCore.validateForGame(bank, null);
+  if (errs.length){ alert("這份 question_bank.json 格式不對，沒有載入：\n- " + errs.slice(0, 8).join("\n- ")); return; }
+  st.bank = bank; st.bankFrom = from; st.cal = QBCore.calibrateDifficulty(bank);
+  st.pending = QBCore.pendingRows(bank);
+  const p = bank.pending || {}, pn = ["questions", "repeat", "read"].reduce((a, k) => a + ((p[k] || []).length), 0);
+  $("#bankStatus").innerHTML = `已載入（${esc(from)}）：ANSWER <b>${bank.questions.length}</b> 題、REPEAT <b>${bank.repeat.length}</b> 題、READ <b>${bank.read.length}</b> 題` +
+    (pn ? `，待分類區 <b>${pn}</b> 題（會一起列在下面，可以這次幫它們分類）` : "") + "。";
+  refresh();
+}
+async function loadDefaultBank(){
+  try {
+    const res = await fetch("../assets/data/question_bank.json", { cache: "no-cache" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    setBank(await res.json(), "遊戲目前的題庫");
+  } catch(e){
+    $("#bankStatus").innerHTML = `<span style="color:var(--bad)">無法自動讀取遊戲題庫（${esc(e.message)}）。請按下面按鈕上傳目前的 question_bank.json。</span>`;
+  }
+}
+$("#bankFile").onchange = async e => {
+  const f = e.target.files[0]; e.target.value = "";
+  if (!f) return;
+  try { setBank(JSON.parse(await f.text()), f.name); } catch(err){ alert("讀不到這個 JSON 檔：" + err.message); }
+};
+
+/* ---------- 2. Excel ---------- */
+$("#xlsxFile").onchange = async e => {
+  const f = e.target.files[0]; e.target.value = "";
+  if (f) await importWorkbook(await f.arrayBuffer(), f.name);
+};
+async function importWorkbook(buf, name){
+  if (!window.XLSX){ alert("Excel 解析元件沒有載入，請確認網路連線後重新整理。"); return; }
+  let wb;
+  try { wb = XLSX.read(buf, { type: "array" }); } catch(err){ alert("這個檔案不是可以讀取的 Excel：" + err.message); return; }
+  st.parsed = QBCore.parseWorkbook(XLSX, wb);
+  st.excelRows = st.parsed.rows;
+  $("#xlsxName").textContent = name;
+  refresh();
+}
+$("#templateBtn").onclick = () => {
+  if (!window.XLSX){ alert("Excel 元件沒有載入，請確認網路連線。"); return; }
+  const wb = XLSX.utils.book_new();
+  const readme = [
+    ["GEPT Adventure 外部題庫範本（課外書來源，不是官方 GEPT 題目）"], [],
+    ["工作表", "題目欄", "其他欄位（都可以空白）", "說明"],
+    ["ANSWER", "Question", "Source Book, Source Page, Category, Topic, Notes", "Category 可用下拉選單選 warmup / preference / situational，不知道就空白"],
+    ["REPEAT", "Text", "Source Book, Source Page, Difficulty, Topic, Notes", "Difficulty 可用下拉選單選 easy / medium / hard，不知道就空白"],
+    ["READ", "Text", "Source Book, Source Page, Topic, Notes", "Topic 可以自由填寫，例如 school、food、shopping"],
+    [], ["ANSWER 的 Category"],
+    ["warmup", "基礎題", "", "簡單的個人資料、日常生活或事實問題"],
+    ["preference", "喜好題", "", "個人喜好、選擇、意願，通常可用簡單理由回答"],
+    ["situational", "情境題", "", "假設情境、詢問、請求或需要回應的問題"],
+    ["以上為本遊戲的題庫分類，方便練習與管理，並非 GEPT 官方公布的正式分類。"],
+    [], ["不用填題目 ID，匯入工具會自動編號。只想匯入某一種題目時，其他工作表留空就好（會 SKIP，既有題庫不受影響）。這個 README 工作表不會被匯入。"]
+  ];
+  const add = (name, aoa, widths) => { const ws = XLSX.utils.aoa_to_sheet(aoa); ws["!cols"] = widths.map(w => ({ wch: w })); XLSX.utils.book_append_sheet(wb, ws, name); };
+  add("README", readme, [14, 34, 26, 60]);
+  add("ANSWER", [["Question", "Source Book", "Source Page", "Category (optional)", "Topic (optional)", "Notes (optional)"]], [60, 30, 12, 20, 18, 30]);
+  add("REPEAT", [["Text", "Source Book", "Source Page", "Difficulty (optional)", "Topic (optional)", "Notes (optional)"]], [60, 30, 12, 20, 18, 30]);
+  add("READ", [["Text", "Source Book", "Source Page", "Topic (optional)", "Notes (optional)"]], [80, 30, 12, 18, 30]);
+  // SheetJS 社群版不能直接寫下拉選單：產生 xlsx 後，在工作表 XML 的 </sheetData> 後面補上 dataValidations
+  const buf = addListValidations(XLSX.write(wb, { type: "array", bookType: "xlsx" }), {
+    2: ["D2:D2001", QBCore.CATEGORIES],   // ANSWER 的 Category
+    3: ["D2:D2001", QBCore.DIFFICULTIES]  // REPEAT 的 Difficulty
+  });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }));
+  a.download = "GEPT_Question_Bank_Template.xlsx";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+// { 工作表序號: [範圍, 選項] } → 回傳加好下拉選單的 xlsx（ArrayBuffer／Uint8Array）
+function addListValidations(buf, specs){
+  const cfb = XLSX.CFB.read(new Uint8Array(buf), { type: "buffer" });
+  Object.entries(specs).forEach(([n, [sqref, options]]) => {
+    const i = cfb.FullPaths.findIndex(p => p.endsWith(`xl/worksheets/sheet${n}.xml`));
+    if (i < 0) return;
+    const xml = new TextDecoder().decode(cfb.FileIndex[i].content);
+    const dv = `<dataValidations count="1"><dataValidation type="list" allowBlank="1" showErrorMessage="0" sqref="${sqref}"><formula1>"${options.join(",")}"</formula1></dataValidation></dataValidations>`;
+    cfb.FileIndex[i].content = new TextEncoder().encode(xml.replace("</sheetData>", "</sheetData>" + dv));
+  });
+  return XLSX.CFB.write(cfb, { fileType: "zip", type: "array" });
+}
+
+/* ---------- 分析＋畫面 ---------- */
+function refresh(){
+  if (!st.bank) return;
+  QBCore.analyzeRows(allRows(), st.bank, st.cal);
+  renderReadSummary();
+  const any = allRows().length > 0;
+  // 目前分頁沒有題目時，切到第一個有題目的分頁（例如只匯入 REPEAT）
+  if (any && !allRows().some(r => r.type === st.tab)) st.tab = QBCore.TYPES.find(t => allRows().some(r => r.type === t));
+  $("#reviewCard").classList.toggle("hidden", !any);
+  $("#previewCard").classList.toggle("hidden", !any);
+  if (!any) return;
+  $("#confirm").checked = false; // 內容變了就要重新確認
+  $("#exportResult").innerHTML = "";
+  renderTabs(); renderBulk(); renderRows(); renderPreview();
+}
+function renderReadSummary(){
+  const p = st.parsed, ul = $("#readSummary");
+  if (!p){ ul.innerHTML = ""; return; }
+  const rows = st.excelRows, items = [];
+  // 每張工作表的狀態：有資料就列題數，沒有資料就是 SKIP（不是錯誤，既有題庫的這一類不變）
+  QBCore.TYPES.forEach(t => {
+    const n = p.counts[t], name = TYPE_NAME[t];
+    items.push(n ? `<li class="ok">${name}：讀到 <b>${n}</b> 題</li>`
+      : `<li class="tip">${name}：${p.missingSheets.includes(name) ? "沒有這張工作表" : "無資料"} → SKIP（既有 ${name} 題庫不變）</li>`);
+  });
+  if (!rows.length) items.push(`<li class="warn">⚠ 沒有可匯入的題目。現有題庫不會有任何改變。</li>`);
+  if (p.examples) items.push(`<li class="tip">略過 ${p.examples} 列範本示範資料（[Example] 開頭）</li>`);
+  p.problems.forEach(s => items.push(`<li class="warn">⚠ ${esc(s)}</li>`));
+  const noText = rows.filter(r => r.errors.length).length;
+  if (noText) items.push(`<li class="warn">⚠ ${noText} 列沒有題目文字，會略過</li>`);
+  const noSrc = rows.filter(r => !r.errors.length && !r.sourceBook && !r.sourcePage).length;
+  if (noSrc) items.push(`<li class="tip">${noSrc} 題沒有填來源（Source Book／Page），仍可匯入</li>`);
+  const dupHard = rows.filter(r => r.dups.some(d => d.level !== "similar")).length, dupSim = rows.filter(r => r.dups.length && r.dups.every(d => d.level === "similar")).length;
+  if (dupHard) items.push(`<li class="warn">⚠ ${dupHard} 題與現有題庫或同一批題目重複</li>`);
+  if (dupSim) items.push(`<li class="warn">⚠ ${dupSim} 題與其他題目高度相似</li>`);
+  const noCat = rows.filter(r => r.type === "answer" && !r.valid.category).length;
+  const noDiff = rows.filter(r => r.type === "repeat" && !r.valid.difficulty).length;
+  const noTopic = rows.filter(r => !r.valid.topic).length;
+  if (rows.length) items.push(`<li class="tip">Excel 沒填分類：Category ${noCat} 題、Difficulty ${noDiff} 題、Topic ${noTopic} 題（空白是正常的，可以參考建議）</li>`);
+  ul.innerHTML = items.join("");
+}
+function renderTabs(){
+  $("#tabs").innerHTML = QBCore.TYPES.map(t => {
+    const n = allRows().filter(r => r.type === t).length;
+    return `<button data-tab="${t}" class="${st.tab === t ? "on" : ""}">${TYPE_NAME[t]}（${n}）</button>`;
+  }).join("");
+}
+function renderBulk(){
+  const fields = FIELDS_OF[st.tab];
+  $("#bulk").innerHTML = fields.map(f => `<button data-bulk="accept" data-field="${f}">接受此分頁所有 ${FIELD_NAME[f]} 建議</button>`).join("") +
+    `<button data-bulk="blank">此分頁全部保留空白</button>`;
+}
+function visibleRows(){
+  return allRows().map((r, i) => ({ r, i })).filter(({ r }) => {
+    if (r.type !== st.tab) return false;
+    if (st.filter === "attention") return r.errors.length || r.dups.length || r.warnings.length;
+    if (st.filter === "unclassified") { const f = QBCore.finalFields(r); return FIELDS_OF[r.type].some(k => !f[k]); }
+    if (st.filter === "pending") return QBCore.rowDestination(r) === "pending";
+    return true;
+  });
+}
+function fieldHtml(r, i, f){
+  const given = r.valid[f];
+  if (given) return `<div class="field"><span class="fname">${FIELD_NAME[f]}</span><span class="fval">${esc(given)}</span><span class="small muted">（Excel 已填）</span></div>`;
+  const s = r.suggest[f] || { value: null, reason: QBCore.UNSURE };
+  const manual = r.manual[f];
+  const accepted = !manual && r.decision[f] === "accept" && s.value;
+  const val = manual ? `<span class="fval">${esc(manual)}</span><span class="small muted">（手動選擇）</span>`
+    : accepted ? `<span class="fval">${esc(s.value)}</span><span class="small muted">（已接受建議）</span>` : `<span class="blank">[空白]</span>`;
+  const sug = s.value
+    ? `<span class="sug">建議：<b>${esc(s.value)}</b> <small>${esc(s.reason)}</small></span>
+       <button data-act="accept" data-i="${i}" data-field="${f}" class="${accepted ? "on" : ""}">接受</button>
+       <button data-act="blank" data-i="${i}" data-field="${f}" class="${accepted || manual ? "" : "on"}">保留空白</button>`
+    : `<span class="sug"><small>建議：${esc(s.reason)}</small></span>`;
+  // Category／Difficulty 另外可以手動選（例如建議判斷不了、或待分類區的題目）
+  const opts = f === "category" ? QBCore.CATEGORIES : f === "difficulty" ? QBCore.DIFFICULTIES : null;
+  const pick = opts ? `<select data-act="manual" data-i="${i}" data-field="${f}" aria-label="手動選擇 ${FIELD_NAME[f]}">
+      <option value="">手動選…</option>${opts.map(o => `<option value="${o}" ${manual === o ? "selected" : ""}>${o}</option>`).join("")}</select>` : "";
+  return `<div class="field"><span class="fname">${FIELD_NAME[f]}</span>${val}${sug}${pick}</div>`;
+}
+function renderRows(){
+  const list = visibleRows();
+  if (!list.length){ $("#rows").innerHTML = `<p class="muted">這個分頁沒有符合條件的題目。</p>`; return; }
+  $("#rows").innerHTML = list.map(({ r, i }) => {
+    const dest = QBCore.rowDestination(r);
+    const msgs = [
+      ...r.errors.map(m => `<li class="err">✖ ${esc(m)}</li>`),
+      ...r.warnings.map(m => `<li class="warn">⚠ ${esc(m)}</li>`),
+      ...r.dups.map(d => `<li class="dup">⚠ ${QBCore.DUP_LABEL[d.level]}${d.level === "similar" ? `（${Math.round(d.score * 100)}%）` : ""}：${d.against === "existing" ? `現有題庫 ${esc(d.id)}` : esc(d.label)}「${esc(d.text)}」</li>`)
+    ].join("");
+    const canToggle = r.origin === "excel" && !r.errors.length;
+    return `<article class="row-card ${r.errors.length ? "has-err" : ""} ${dest === "skip" ? "excluded" : ""}">
+      <div class="row-head">
+        ${canToggle ? `<label class="check"><input type="checkbox" data-act="include" data-i="${i}" ${r.include ? "checked" : ""}> 匯入</label>` : ""}
+        <span class="tag">${esc(QBCore.rowLabel(r))}</span>
+        <span class="dest ${dest}">${DEST_TEXT[dest]}</span>
+      </div>
+      <p class="orig">${esc(r.text) || '<span class="blank">（空白）</span>'}</p>
+      <p class="src">📚 ${r.sourceBook || r.sourcePage ? `${esc(r.sourceBook) || "（沒有書名）"}${r.sourcePage ? ` · p.${esc(r.sourcePage)}` : ""}` : "（沒有填來源）"}${r.notes ? ` · ${esc(r.notes)}` : ""}</p>
+      ${msgs ? `<ul class="msgs">${msgs}</ul>` : ""}
+      <div class="fields">${FIELDS_OF[r.type].map(f => fieldHtml(r, i, f)).join("")}</div>
+    </article>`;
+  }).join("");
+}
+function computePreview(){
+  const rows = allRows(), excel = st.excelRows;
+  const s = { total: rows.length, excel: excel.length, pendingOld: st.pending.length, game: { answer: 0, repeat: 0, read: 0 }, pending: 0, skip: 0, errors: 0, dup: 0, similar: 0, sugAvail: 0, sugAccepted: 0, blankCat: 0, blankDiff: 0, blankTopic: 0, unchecked: 0, pendingToGame: 0,
+    newByType: { answer: 0, repeat: 0, read: 0 }, pendNewByType: { answer: 0, repeat: 0, read: 0 } };
+  rows.forEach(r => {
+    const d = QBCore.rowDestination(r), f = QBCore.finalFields(r);
+    if (d === "game"){ s.game[r.type]++; if (r.origin === "pending") s.pendingToGame++; else s.newByType[r.type]++; }
+    else if (d === "pending"){ s.pending++; if (r.origin === "excel") s.pendNewByType[r.type]++; }
+    else s.skip++;
+    if (r.errors.length) s.errors++;
+    if (r.origin === "excel" && !r.errors.length && !r.include) s.unchecked++;
+    if (r.dups.some(x => x.level !== "similar")) s.dup++;
+    else if (r.dups.length) s.similar++;
+    Object.entries(r.suggest).forEach(([k, v]) => { if (v && v.value){ s.sugAvail++; if (r.decision[k] === "accept") s.sugAccepted++; } });
+    if (d !== "skip"){
+      if (r.type === "answer" && !f.category) s.blankCat++;
+      if (r.type === "repeat" && !f.difficulty) s.blankDiff++;
+      if (!f.topic) s.blankTopic++;
+    }
+  });
+  return s;
+}
+function renderPreview(){
+  const s = computePreview(), newToGame = s.game.answer + s.game.repeat + s.game.read - s.pendingToGame;
+  const stat = (n, t) => `<div class="stat"><b>${n}</b><span>${t}</span></div>`;
+  $("#stats").innerHTML = [
+    stat(s.total, "總題數" + (s.pendingOld ? `（含待分類區 ${s.pendingOld}）` : "")),
+    stat(newToGame, "新增進遊戲題庫"),
+    stat(s.pending, "放進待分類區"),
+    stat(s.skip, "不匯出"),
+    stat(s.dup, "重複"),
+    stat(s.similar, "疑似相似"),
+    stat(`${s.sugAccepted}/${s.sugAvail}`, "已接受／可用的分類建議"),
+    stat(s.blankCat + s.blankDiff + s.blankTopic, "匯出後仍空白的分類")
+  ].join("");
+  const it = [];
+  // 逐張工作表：有新增就列數量，沒有資料就是 SKIP（既有題庫的這一類不動）
+  QBCore.TYPES.forEach(t => {
+    const add = s.newByType[t], pend = s.pendNewByType[t], hasRows = st.excelRows.some(r => r.type === t);
+    it.push(!hasRows ? `<li class="tip">${TYPE_NAME[t]}：無資料 → SKIP</li>`
+      : `<li class="ok">${TYPE_NAME[t]}：新增 ${add} 題${pend ? `，放進待分類區 ${pend} 題` : ""}</li>`);
+  });
+  st.canExport = newToGame + Object.values(s.pendNewByType).reduce((a, b) => a + b, 0) + s.pendingToGame > 0;
+  if (!st.canExport) it.push(`<li class="warn">⚠ 沒有可匯入的題目，現有題庫不會有任何改變（不需要匯出）</li>`);
+  if (s.errors) it.push(`<li class="warn">⚠ ${s.errors} 列沒有題目文字，不會匯出</li>`);
+  if (s.unchecked) it.push(`<li class="warn">⚠ ${s.unchecked} 筆你取消勾選「匯入」，不會匯出</li>`);
+  if (s.dup) it.push(`<li class="warn">⚠ ${s.dup} 筆可能重複（仍會照你的勾選匯出）</li>`);
+  if (s.similar) it.push(`<li class="warn">⚠ ${s.similar} 筆疑似相似</li>`);
+  if (s.blankCat) it.push(`<li class="warn">⚠ ${s.blankCat} 筆 ANSWER 沒有 Category → 放進待分類區，遊戲暫不使用</li>`);
+  if (s.blankDiff) it.push(`<li class="warn">⚠ ${s.blankDiff} 筆 REPEAT 沒有 Difficulty → 放進待分類區，遊戲暫不使用</li>`);
+  if (s.blankTopic) it.push(`<li class="warn">⚠ ${s.blankTopic} 筆沒有 Topic（進遊戲的會標成 ${QBCore.UNSPECIFIED_TOPIC}）</li>`);
+  const left = s.sugAvail - s.sugAccepted;
+  if (left) it.push(`<li class="tip">💡 還有 ${left} 個分類建議沒採用</li>`);
+  if (s.pendingToGame) it.push(`<li class="ok">✓ 待分類區有 ${s.pendingToGame} 題這次分類完成，會移進遊戲題庫（ID 不變）</li>`);
+  it.push(`<li class="ok">✓ 新增進遊戲：ANSWER ${s.game.answer}、REPEAT ${s.game.repeat}、READ ${s.game.read}（含從待分類區移入的題目）；現有 ${st.bank.questions.length + st.bank.repeat.length + st.bank.read.length} 題不會變動</li>`);
+  $("#issues").innerHTML = it.join("");
+  $("#confirm").disabled = !st.canExport;
+  if (!st.canExport) $("#confirm").checked = false;
+  $("#exportBtn").disabled = !st.canExport || !$("#confirm").checked;
+}
+
+/* ---------- 操作 ---------- */
+document.addEventListener("click", e => {
+  const t = e.target.closest("button"); if (!t) return;
+  if (t.dataset.tab){ st.tab = t.dataset.tab; renderTabs(); renderBulk(); renderRows(); return; }
+  if (t.dataset.act === "accept" || t.dataset.act === "blank"){
+    const r = allRows()[+t.dataset.i];
+    r.decision[t.dataset.field] = t.dataset.act;
+    if (r.manual[t.dataset.field] != null) r.manual[t.dataset.field] = ""; // 按接受／保留空白就取消手動選擇
+    changed(); return;
+  }
+  if (t.dataset.bulk){
+    allRows().filter(r => r.type === st.tab).forEach(r => {
+      const fs = t.dataset.bulk === "blank" ? FIELDS_OF[r.type] : [t.dataset.field];
+      fs.forEach(f => { if (t.dataset.bulk === "blank") r.decision[f] = "blank"; else if (r.suggest[f] && r.suggest[f].value) r.decision[f] = "accept"; });
+    });
+    changed();
+  }
+});
+document.addEventListener("change", e => {
+  const t = e.target;
+  if (t.dataset.act === "include"){ allRows()[+t.dataset.i].include = t.checked; changed(); }
+  if (t.dataset.act === "manual"){ allRows()[+t.dataset.i].manual[t.dataset.field] = t.value; changed(); }
+  if (t.id === "filter"){ st.filter = t.value; renderRows(); }
+  if (t.id === "confirm") $("#exportBtn").disabled = !t.checked || !st.canExport;
+});
+function changed(){
+  $("#confirm").checked = false; $("#exportResult").innerHTML = "";
+  const y = window.scrollY; renderRows(); renderPreview(); window.scrollTo(0, y);
+}
+$("#exportBtn").onclick = () => {
+  if (!st.canExport) return; // 沒有可匯入的題目：不產生新檔
+  const before = st.bank;
+  const { bank, added, pendingAdded } = QBCore.buildMergedBank(before, allRows());
+  const min = { questions: before.questions.length, repeat: before.repeat.length, read: before.read.length };
+  const errs = QBCore.validateForGame(bank, min).concat(QBCore.existingUnchanged(before, bank));
+  if (errs.length){
+    $("#exportResult").innerHTML = `<ul class="issues">${errs.slice(0, 20).map(x => `<li class="err">✖ ${esc(x)}</li>`).join("")}</ul><p class="small">沒有匯出。請把這些訊息告訴開發者。</p>`;
+    return;
+  }
+  const blob = new Blob([JSON.stringify(bank, null, 2) + "\n"], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = "question_bank.json";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  const range = ids => !ids.length ? "0 題" : `${ids.length} 題（${ids.length <= 6 ? ids.map(esc).join("、") : `${ids.slice(0, 3).map(esc).join("、")}…${esc(ids[ids.length - 1])}`}）`;
+  const pn = pendingAdded.questions.length + pendingAdded.repeat.length + pendingAdded.read.length;
+  $("#exportResult").innerHTML = `<div class="done">
+    <b>已下載 question_bank.json</b><br>
+    遊戲題庫：ANSWER ${bank.questions.length}、REPEAT ${bank.repeat.length}、READ ${bank.read.length}（本次加入 ANSWER ${range(added.questions)}、REPEAT ${range(added.repeat)}、READ ${range(added.read)}）<br>
+    待分類區：${pn} 題<br>
+    <span class="small">下一步：用這個檔案取代專案的 <code>files/assets/data/question_bank.json</code>，推到 dev 分支後在手機測試。</span>
+  </div>`;
+  window.__lastExport = bank; // 方便檢查
+};
+
+loadDefaultBank();
+</script>
+</body>
+</html>
