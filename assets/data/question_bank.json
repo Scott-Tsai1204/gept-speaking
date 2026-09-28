@@ -2474,6 +2474,81 @@
         "category",
         "topic"
       ]
+    },
+    {
+      "id": "question_193",
+      "question": "What is your last name? How do you spell it?",
+      "category": "warmup",
+      "topic": "personal_information",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 44",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "personal_information",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_194",
+      "question": "Do you like fast food? Why or why not?",
+      "category": "preference",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 44",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_195",
+      "question": "What musical instrument can you play?",
+      "category": "warmup",
+      "topic": "music",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 44",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "music",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_196",
+      "question": "What is in your bedroom?",
+      "category": "warmup",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 44",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_197",
+      "question": "What do you do to stay healthy?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 44",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
