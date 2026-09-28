@@ -2369,6 +2369,111 @@
         "category",
         "topic"
       ]
+    },
+    {
+      "id": "question_186",
+      "question": "What can you do to save our Earth?",
+      "category": "preference",
+      "topic": "environment",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "environment",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_187",
+      "question": "What are some good ways to learn English?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_188",
+      "question": "What do people usually do at Christmas?",
+      "category": "warmup",
+      "topic": "holidays",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_189",
+      "question": "What do you use a computer for?",
+      "category": "warmup",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_190",
+      "question": "What do you do when riding a train or bus?",
+      "category": "warmup",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_191",
+      "question": "If you had only 24 hours to live, what would you do?",
+      "category": "situational",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedCategory": "situational",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_192",
+      "question": "When did you leave home today? How long did it take to get here?",
+      "category": "warmup",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
