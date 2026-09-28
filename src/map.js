@@ -145,15 +145,16 @@ function currentPathMonsterArt(){
 }
 
 // w/h＝圖檔原始尺寸，寫進 <img width height> 讓瀏覽器在圖片載入前就預留正確高度（換圖時要一起更新）
+// thumb＝48px 寬、先稍微模糊過的超小預覽（WebP base64），高清圖下載好之前當背景先顯示模糊地圖（換圖時要一起重產）
 const ZONE_ART = [
-  { img: "assets/maps/zone1-meadow.webp", w: 1024, h: 1536, nodes: [{ ni: 0, x: 53, y: 91 }] },
-  { img: "assets/maps/zone2-village.webp", w: 1086, h: 1448, nodes: [{ ni: 1, x: 50, y: 45 }] },
-  { img: "assets/maps/zone3-forest.webp", w: 1024, h: 1536, nodes: [{ ni: 2, x: 50, y: 55 }] },
-  { img: "assets/maps/zone4-river-valley.webp", w: 1086, h: 1448, nodes: [{ ni: 3, x: 58, y: 46 }] },
-  { img: "assets/maps/zone5-mountain-valley.webp", w: 1024, h: 1536, nodes: [{ ni: 4, x: 60, y: 50 }] },
-  { img: "assets/maps/zone6-volcano.webp", w: 1024, h: 1536, nodes: [{ ni: 5, x: 48, y: 68 }] },
-  { img: "assets/maps/zone7-snow-mountain.webp", w: 1024, h: 1536, nodes: [{ ni: 6, x: 58, y: 50 }] },
-  { img: "assets/maps/zone8-boss-castle.webp", w: 1024, h: 1536, nodes: [{ ni: 7, x: 50, y: 27 }] }
+  { img: "assets/maps/zone1-meadow.webp", thumb: "data:image/webp;base64,UklGRqYCAABXRUJQVlA4IJoCAACQEQCdASowAEgAPq1CmkmmI6KhMzjtUMAViWwAnTLLukfOeZtaeu2FQhObdDnZWaz4W5pvHAHAdgQRMQ4VOnLcJ0srZlqfKYriAFB3iAu0bKUJqfE0EVkntUlT6tthcKXIogcH1gw1VEIN+XXMlWK/zFFlxBx0cDMs3NUn9CR80Kh1VjpU7g/i7Yp5A2OJ4iZEl8R0AADieIQcZ9cLdUN66+ajYPlbFKSwIUkJPZGFY+ZOOnWeTIoMdh+FdPd6dkarrIyeGQdXBj96l30jF0cvsCOFbM+oty1ccT1ZMdEzv6uXRbkqvkz/cpkThMEcG2dcV6UbEAzlQe1W7A7SZ6jDqJs9p7FJqdy2w9JPa1Mw4WUEVEstUEdGo8l2wgRdEyEiqFd0flVuwvjjTtMbUCeG/GPCHNTKiK4znCGi34oVuyN2YhE+BeaZ69gX7ikaevqYYd4ifkWMEyUD6a+PiHhJDNaNX8XCJFPNVMzm0uMFE6lpmxfJZaN9z8h8sfuJRJ+x3Xe2uO928wDrhqj8T3rhPSwpCCCqUP64t1GgFo7/9p0kDeV+Xreu0SvQUYBPxuEF1qnQEf5ki2isJNfig+ql54B0mTVer+sdQ9xaFj1csO92gb3bc4j84V8/ISQNjXQaoddbma7ofuRVk5kBO0oux1ym4F+Irt0jUzzm74Ji7+jnHFjdEumodw2x4RqrF/W4IlnfoiOZ8RwSg95BhB19eDfevTk6u1srDVbziXxyXXcKfXkOSbcDBfi5gI+S/KbW10jH583KKc8sP+SuoD9BgMv2ZKqX/LJCsMBz81c0A3ayP+gKpwOHUuZzl7mLFwv2hOXbk5wDKQ4f2FjGaxKBOHxYq7cNNnz6pXTBhy7Ar3N7oYguU2MIAAA=", w: 1024, h: 1536, nodes: [{ ni: 0, x: 53, y: 91 }] },
+  { img: "assets/maps/zone2-village.webp", thumb: "data:image/webp;base64,UklGRkgCAABXRUJQVlA4IDwCAACwDgCdASowAEAAPrVInUsnJCKhsrJMyOAWiWwAnTK4vxSBLL0+glkKrbyc8M40djJqGW7vr3JGHUg+i99em7/tZHLEquECDnGMdv9WCsmVJ4vDUPAWmuEyFYbveBv2NF1nD+Q1z2SdQF7+sBpPl5YFj9Y7qjp+4MJKXRN8qwAAzh1vfW1mCPr2C57VOCttJJk0pLt6bV1QFoLs9L5mm3DxbfQin3FBuEkULJxnTceHYo+rpbJtozfcp1XkJdLtLEaeVt721tbQqV0/fnlG9dkeIbygLj+TCprRSHbaXY9Bs1xOtKLb6Fc6QCBP4lBzc9uqpUjgROZ8bvU90vjqyVW7FrFLVHiBMsgCHmTcKnGuCoci3E98KhLAAkeCQpm8uWZhO11/dggebZ2UluAr4z/TSNHhN0MACoyp+3cQAXzgNGLH4by3HeUIWSWOU36uhO7EEShxKSjZ8ALe3Jwdsix6IvCNNxzgBKGhxKZW2LGZlbXAHQXKxMQxJ6e6Qg1aiQxWkb0EvrGvvIwaYNVCQ7UfjMZ6G0ZnMhIaYb8OWPQBSO4ZwjumTb/b1QtfDkK86NT12R8S04bx7g4a61OFPqn4uLPdTN7UdtCxr8KHtMVR2Oq9C9h5CENgqYyqdyeUf/VdDEwZ4zrzAit6rFtl7YCeTC2TpweAhO6ASHhlyzLEnVCdtrFNGsKjvvKtUXrdu/0BjRdFlYT7hnksd9tR6mUSidB7A+J+u/d93UExj8ECyXUfzoDCj0EQoKqgAA==", w: 1086, h: 1448, nodes: [{ ni: 1, x: 50, y: 45 }] },
+  { img: "assets/maps/zone3-forest.webp", thumb: "data:image/webp;base64,UklGRrICAABXRUJQVlA4IKYCAABQEQCdASowAEgAPrVMnUonJCKhsRYKSOAWiWwAnTKEeS/JeYJXun0FWhRbfNmcDV3y9Ms+y4gzBS3j1Qhzs8V/8tLrTKWpIuo/s5CfcUiQNDkCW1BXGs+dRoIY5KTGpXk/7UvTFbInGZJHWLuR2vm1+7h+E8mWpafj/w56oXGK/BuSgRHwpoztJt+ZrDHdfHjVowAA/uRazqeUfoGRXR0bWn7JfSC3xZrA6Q2fnawF8QwEal2nJ6R/cTC0CP4UgyuC/Urx4HfTzMIGDTNICGY8nwlMEBFHdBhdT1alv+LDRaO4N6Txhdhv3NZr6M27ALa66qeB/1DkWs+yTUXuCD4Ah+K469MAG0C25cTAAgJvI8F0HnhlRqgwStTH7zGICaQ4gR3IT36Ivq+e32Vuq8FtXzo/g0Dl3vNuuh8lLrS6bWKDb41OkqZ43ch4GZLJgHLxQlC1gaL0fGRi2/mrkTWK8Tnpo38AnuQFHCIQXjQyZEKkKBPlgytOAt5NdvrCsykZEKaQBTjgYAixa04lymuU1gBAigKRNERISP3RrljrM7sLUHcqaA0Ye0HE1gd+SK5wjcJgJHVlshCHWa7bohj74shcojU8+ubx9SweGr1XDWdFuhg4VkBW6AOBwVB0d/mNjMfNMIBzNNVfU4IZZ0W3zOmxqJcl03vCK0HzpFIsoyFyOieYlnEzMjUaXPq15Rbx+BKw/qo+1FQZBW0zm/pyhhb8XJOql+E7B4C/FoxQ+Sqg60ya5xwmJjjc8mLwXBwXzV9PoOspA4YZfpbeXbAK5U0nIP8CEsQ8qPDdEnmNs0syORsF2OII4X0cT2M+2BjAvCOAEsuq52DIiRmHjMIHdX4Y3T0yzpS9+YEE6ec6LzaU/6tMWp2kR1npKOrQ3keKeZqAAAA=", w: 1024, h: 1536, nodes: [{ ni: 2, x: 50, y: 55 }] },
+  { img: "assets/maps/zone4-river-valley.webp", thumb: "data:image/webp;base64,UklGRoICAABXRUJQVlA4IHYCAABQDgCdASowAEAAPqlEm0mmI6KhMqswwBUJbACdMri/hIEsHUwCIwkduF5gPNv056UA+wO8mvm7UJ2w7x+2De49Z2G6ZlE/ub3d9DVHMYjqVQM2x3OfWE/Qj/sdwAMCrDRjXJz0PpNZLaGKFFh4yAqMLntBKov/jIt7sgAA/un2jYW35TMJ/LphGXfh4MIEAZmiICPHFhVZsPknBdr8onXOJqDDSIVpHjA8+oUhtM/I9/uEHsDfv4b7gf1tZpsfPi1CbpY9CVXwkwsI35El2DUnGAAOr+enzvF8f2vFRPdDpLdAzbB4/8kbf/eWA9jagNqKTmSodOLX7KbdARvOZndBZt2R9NL1kfTiOjFO10CB4iBHuWjjzwsUKcFEqYvvQmTMuHKdBDTUbS7XqOduHhvuNCJFjXtaBj+Drg7DS8J0NO8OKXWheS6fkcsJQjjhlK8zD7FlkqwltOlLb0I3hXakwSzwIL6D2HrYpd9MOBV/ltjifljLUJS7+L6m2SDn7gJzVkW+34gt6+yJWqcaBe/iBW9ptWLf3npC9b67fuKgm2bRKyb1f7vwprTz+wyh4JGWZXbJ1KCqirrNfEcrMwtlYTpbgiB9YGXc32RahWnXDlFdbmU34Qg+A+MC0GQtXU7LTWDO0qUhUy1yd0U1/NWNZDgfgqGM7pM/Yi+0f3TaM1GwQnYk6Q6SQHkGlSlPaaGp95wTccRvT8ymzahOe/5Fqgqk31rKP1sDCPYrLTFQ4UE3m9AFNbmvbDqgiWBApODzLibNznhH2c8182RuQO5KCR9t0rjgv5iN7GhIJbTAtnNk3Sati9GqzFiXXE5xCOReiWCoAAA=", w: 1086, h: 1448, nodes: [{ ni: 3, x: 58, y: 46 }] },
+  { img: "assets/maps/zone5-mountain-valley.webp", thumb: "data:image/webp;base64,UklGRvQCAABXRUJQVlA4IOgCAADQEQCdASowAEgAPrVKmUonJCIhsRgLaOAWiWwAnTlBfgHISS48v5k/P/ajde2zGy29M1E2ddvjxQdEIaJaVCBwNxlGEpVtcKxp2mVmodKFDis/I3wpGgWghfO++/FtKyJO6TSE6O7OuVVMadR/lGKtu7xPwYXUbwC8tZjj6Js2ir0Zje6n2uyr8XsmlwsjtP7DEjCpJyxAAP70BxXmWQ789pT9nQufyLRwUXBexBYOsjzFKIxuqPOE3ZLXProOSjM1pyu/v/WcygXLWA2Tnl7NjAasgZcTMG1sQkx2cLAeDfmdaGK5dIZpoSy2ilCtYKBRfewaGjIfEUKuJ1K1dC9RBwRMbSiGL2POlrszCBoVqwtHNw0P5wHKJTguOJEAWiha/a2jVz2Y60egWzlyTN1A7C8Tcxqklo3nqOSv2z9t4WB11gkESwrC3YJDFMbHoRCIG88HOvqSO1QXTe9xaz3dprwFReUpXij/TPVgMNeBYCg/DtfEcDFGSizSS/CSKAz117eZW3rnvUUMa5UH57FJXy0G8OpjPNpF/7tlBqSVyoemWUfLPt7CEI0ZEuaQhHqxgqUkjHt/NvrU4NbzBKrKuUyFAbfveJ9Mnkd2kVSWQXOQ8Id6JGqhOd/irfPl/36GrZQm9N8zwRaL8WlYZ3NPKSHBWNbVQ8ju/9GdO2ZphapfsJEHd3SoaT/MX2nFUvi8xXgxcbaQrbfHJNXv7/HUenRq/P5CLgcsZD/iWQ0mGmnYI6kjtU9X2JheJJfxglRkt+I5rIl3x7LFPfvKQ3pShyKDuiztHwQdjskJRlDrHNWAZHyHBNbd49iCHFKH6IbON1AWBkHM8gSCDJjkt5tBBc+evcMx7PtpG1FIDdemcwNPQgl2gi/rWVCA32hJY9aPlQ5b+a18Y+lvOd7PQWWB4E+bze5UYAFWTczsa8OSlj7xjY36CXaJ4izUoRkPSvMOLDE4LAEIq78A8vqAzg0QZlAt5ZasgAA=", w: 1024, h: 1536, nodes: [{ ni: 4, x: 60, y: 50 }] },
+  { img: "assets/maps/zone6-volcano.webp", thumb: "data:image/webp;base64,UklGRsYCAABXRUJQVlA4ILoCAAAwEgCdASowAEgAPq1GnUmmI6KhLvkt+MAViWwAnTKEf7/JeYnX+rwE4hZ7b5mbfArFe2Sjr+P/joJArLgUbWYEvsffw13lbm9fYKvDFwpUHmoCq0ORlDy4bFVsnKFfHu3pQzXqCLBcfmqNSShqmrb+PIl4FunsTQUUlq00jlJVIVCiuGUs3OGCyraoK+00tzPYL5r9EZ09e3qAAP7n/ykaXofV5J9Mz/naDbRy2zRwU3GYcK0rMCoCmul9wV1IYWv9eAx9VB3lEuQIpBSrZkW5h/IK7rQo45S7sKjUxhencJNp4bZYvup3Ungat6/2+F3Ls+hNHuv6mDglB2V96kZq3yRjZHqf97DGF6SieUP54/dW3y6RepzbOzum1QAHzHv9EK4xn+fP7ZbnhZ4/7m3Gw+FN/+ocS9jHgTCkfrQeoC/dp9igDwKXx0Ryaz9uAL2Df4Pa7gt31kEaA8ShX8evG6N+Asd1iaqxvN5Lf/2DaJyZkcpjOI/LWPWZwlhx8PfcTS4WKdY9IlTZvYr1kh8u2kctJlQ+oM4CLIyc6Re1kLHleTuwt2uYzRjSDh+IU2g+MNn6mpiKtz68JlncT1ehyPyGN3njLy/ug3JYAwEIsBlMzcxOnDpMLpk3jDrEC8GqQ99PNo0uUVM42SGsiiY8+j8ZKfVtItUl5gWZ1JG/u3AallOqwD+w4yRidBbzTjhoVOCtQPlRrsw96TE3A9zWhwkLfFm2qONTwRwlU8PyONJ7vW4tx6T6wXPNZXp7kV6sWu2ZBAQq3IAZwgPjPDOa2QKYuygFXJRTGu2hvMHqgUxLFHl2QAvOUPk2ZN5Vxy6w8r06FQ0URM3aKkquHC9QgItHyIQ1zBFsvqQCJxt6ZDx2T3/74jepbuRIRHHDIys+8eV5UqLT5cNGjLmOvA2Awt+Z9QEZTvAAAA==", w: 1024, h: 1536, nodes: [{ ni: 5, x: 48, y: 68 }] },
+  { img: "assets/maps/zone7-snow-mountain.webp", thumb: "data:image/webp;base64,UklGRtACAABXRUJQVlA4IMQCAABwEACdASowAEgAPrVSn0snJSKhqJv9EOAWiWgAnTLQhkyMKkYyVuD0qbebnbHIVsOtAThdnsfkBMccmYPHUx31+fb+7Isux681DmFct5frf6hZTlTTGBRS/SFH53Yg8rTtzveDrJEepu+k5B2Vv4zTxMMI5ilj6OP2peORYfxRE09Kqwg3LF13FuhUgADOEu1s/OPQhT+fimyrs5ly8dH3BMYe9DuH8UxtvTNy/2zVcmXXCEmqVskrLi1g6POfdS23bmRlKVRc7yO3q9DNAa6vcYsy4zEBY2qhPDkA9GM/EauS3zk5cVQ5UbURWkFDNFYrJzS9W7m26OcMZNSjbqF4QWkh3sPvKr7e+BfJTyohFRkxyDpTHBjsEMuTdK8oBxbaTWozB/qM/zMj5PwRfWyA/1ZnRN2oLq6pMrepRKaDUyOGBK16PrtSzOHtZvm0XJbWo7bmp9vLixz0DWlbLmm97Ghqh/wGoaxqs0v6iBVayvBzUOuiw2sf6uppxVFfEiAYQkpUbxHmSzpeFwCqDk/hoya5uXcE+73zRdv1zwlpUwWLPbuXcuLKfymRmOMUy1z7J17lQWl6Y8U39Qx9XCFlf8v22Xa5N4BGzZor0SnAwvwkuw4UvBCvaHDTU8UB24VahqbfLQnt3KnClhowToe6IfomwUWZsgeyXWkp0dENa6UnX0U1MQsle0RcsG0y0C5aaeshPFjEJCxet7gocyVe8plzgzL0pJwmvtYFzsYDbm9oQ0qoVYAQXwsKpyqN8dos/1kVfr/ncfEYlx7EfM+hvZymBT5pzBItCpKISov0BY8exJjHahidaq+bHyrUJJouw6ZJ3OKDpX8LQm1PPbUeauAHU2zZMcRKWrA0bXipFmv70YSiXCjBgYjGvhQYCFgVHELsp8y4xRIT3+4LNRILR0Xb9QY/eBAVdbcHZN+4A24AAAA=", w: 1024, h: 1536, nodes: [{ ni: 6, x: 58, y: 50 }] },
+  { img: "assets/maps/zone8-boss-castle.webp", thumb: "data:image/webp;base64,UklGRqQCAABXRUJQVlA4IJgCAAAQEQCdASowAEgAPqlImkmmJKKhNVZrMMAVCWYAnTKEgbSIrV2FY50OHb2Mz03o4pml1wG0yiZK3yPBnYONqHTOcuwitVachwXTnKcqBtMWyvPud2ub0ZIbbSJbipv9EMvLOORLtgtDwVoqwldV+GDg6t3ySYh08j/eAGV5qIVOEJnAxeoPTNd5MrVnXdOe40sAAP49VnnPs2pkKVPyvFsmla9NJXlycG/wFVhuaFUp/5/6LVk82rn6UrnnQwwkOB5vHEViZ39PQie6fDl8ORFtIINZLEIcjpeAShyT4SFbnNJGV0PzC6yiEnnZyQ0NwnKnHXAcJH3xZJFhgCkAj2ePiIWZE8EL2GfRhGf5I9hA4gROZAdYZv27HEUuCQB0vqIEKn9DECs65lochrt9I0d7f1YLS29i24Hy/41PRG9CIFZfH0ao+EHj3K5il9rWizHils+mEM0t4qgmpdYeDpZPM2bpZ73z9K5jqf27/H3F5auPFiBUWObfAkwS3xe8GJ349NJ7cQJi0c9qPjKdO8JPa60sc8QaMdi64e3ItR1PMLYxcHFehPgenWOsSZbQL37n1oQWEjMNePjZRS6EODjepiiOJ9SCNzAmP1b1iMyypidEOlDWDHVRuoDULu4Bj71rvx+wYCr1zPduc5paMAxQV1lJj5kiC/90Wl4uKgaLg9IwnX3hK7ogtzWzT5DElvcOkeHYPot3733m3kGA3ZTZc2LHJx4TF0vg/FkuCWd1dCqZIbKF2nvyoJbn55mLJySfmUV7FcQbtRUZuQNOCPksAi2vDhCz+eYMeXlZSviOzw1m9VKjgu1gN0AWgyDTzRIHLGjxK3/bQzbkbwHtjAuQuyfPgCAJ+PQq++i5+nI/zG2C26BP/QAA", w: 1024, h: 1536, nodes: [{ ni: 7, x: 50, y: 27 }] }
 ];
 
 // 8 個 Zone 的正式名稱（出自 art-prompts.md 各分區的標題），跨 Zone 時的區域提示用
@@ -187,6 +188,8 @@ function renderPathMap(){
   const walkFrom = S.pathHeroShown != null && S.pathHeroShown < currentIndex && !reduceMotion ? S.pathHeroShown : null;
   S.pathHeroShown = currentIndex;
   const avatarAt = walkFrom != null ? walkFrom : currentIndex;
+  // 載入優先順序：主角站的區（和要走去的區）先下載，其他區 lazy（捲到附近才載）；新玩家不用等 8 張圖全部下載完
+  const focusZones = new Set([zoneOfNode(avatarAt), zoneOfNode(currentIndex)]);
 
   const zonesHtml = [...ZONE_ART].reverse().map(zone => {
     const nodesHtml = zone.nodes.map(({ ni, x, y }) => {
@@ -206,7 +209,11 @@ function renderPathMap(){
       ${ni === avatarAt ? `<div class="path-avatar walking" id="pathAvatar" style="left:${x}%;top:${y}%"><div class="hero-walk"><img src="${HERO_WALK_SRC}" alt="主角"></div></div>` : ""}`;
     }).join("");
     // data-zone 給 CSS 做相鄰分區的重疊漸變用（見 index.html 的 .zone-wrap 規則）
-    return `<div class="zone-wrap" data-zone="${ZONE_ART.indexOf(zone) + 1}"><img src="${zone.img}" width="${zone.w}" height="${zone.h}" class="zone-bg" alt=""> ${nodesHtml}</div>`;
+    // 背景先放超小預覽圖（拉伸後自然是模糊的），高清圖到了就蓋過去；同一個元素，所以接縫遮罩也照樣套用
+    const zi = ZONE_ART.indexOf(zone);
+    // 主角這區直接載高清圖；其他區先用預覽圖當 src，高清圖放 data-src，等主角這區載完再依距離一張張載（見 loadZoneArtInOrder）
+    const src = focusZones.has(zi) ? `src="${zone.img}" fetchpriority="high"` : `src="${zone.thumb}" data-src="${zone.img}"`;
+    return `<div class="zone-wrap" data-zone="${zi + 1}"><img ${src} width="${zone.w}" height="${zone.h}" decoding="async" class="zone-bg" style="background-image:url(${zone.thumb})" alt=""> ${nodesHtml}</div>`;
   }).join("");
 
   app.innerHTML = `
@@ -224,12 +231,13 @@ function renderPathMap(){
     btn.onclick = () => startPathNode(+btn.dataset.ni);
   });
   const avatar = $("#pathAvatar");
+  // 分區圖的高度已經用 width/height 預留，版面現在就是對的：馬上捲到主角，不用等圖
+  if (avatar) avatar.scrollIntoView({ block: "center" });
+  loadZoneArtInOrder([...focusZones], zoneOfNode(currentIndex));
   if (avatar && walkFrom != null){
-    // 分區圖載入前 zone-wrap 高度是 0，座標與捲動都會算錯（會捲到最上面的 Boss 區），所以等圖都有尺寸再走；
-    // 等待期間主角先站在起點節點
-    whenZoneArtReady().then(() => { if (avatar.isConnected) walkPathHero(avatar, walkFrom, currentIndex); });
+    // 走路等出發區和目的區的圖載好再開始（背景出來了才走）；等待期間主角先站在起點節點
+    whenZoneArtReady([...focusZones]).then(() => { if (avatar.isConnected) walkPathHero(avatar, walkFrom, currentIndex); });
   } else if (avatar){
-    whenZoneArtReady().then(() => { if (avatar.isConnected) avatar.scrollIntoView({ block: "center" }); });
     if (reduceMotion){
       avatar.classList.remove("walking");
       avatar.innerHTML = `<img src="${HERO_IDLE_SRC}" alt="主角">`;
@@ -243,10 +251,55 @@ function renderPathMap(){
   }
 }
 
-// 等目前地圖上的 8 張 .zone-bg 都載入（或失敗）才 resolve；網路太慢時最多等 ZONE_ART_WAIT_MS 就照目前版面繼續
+// 節點在第幾個分區（ZONE_ART 的索引）
+function zoneOfNode(ni){ return ZONE_ART.findIndex(z => z.nodes.some(n => n.ni === ni)); }
+
+// 其他分區的高清圖：等主角那幾區載完（最多等 ZONE_ART_WAIT_MS），再依離主角的距離由近到遠、一次兩張地載入。
+// 玩家自己捲到還沒載的分區時，那一區立刻插隊。地圖重畫後（換畫面）舊的佇列自動作廢
+const ZONE_ART_PARALLEL = 2;
+function loadZoneArtInOrder(focusZones, heroZone){
+  const pending = [...app.querySelectorAll(".zone-bg[data-src]")]
+    .sort((a, b) => Math.abs(+a.parentElement.dataset.zone - 1 - heroZone) - Math.abs(+b.parentElement.dataset.zone - 1 - heroZone));
+  if (!pending.length) return;
+  const loadOne = img => new Promise(res => {
+    if (!img.dataset.src || !img.isConnected) return res();
+    const url = img.dataset.src;
+    img.removeAttribute("data-src");
+    img.addEventListener("load", res, { once: true });
+    // 下載失敗（連線被中斷）就 1 秒後重試一次；再失敗就維持預覽圖
+    img.addEventListener("error", () => {
+      if (!img.isConnected) return res();
+      setTimeout(() => {
+        img.addEventListener("load", res, { once: true });
+        img.addEventListener("error", res, { once: true });
+        img.src = url + (url.includes("?") ? "&" : "?") + "retry=1";
+      }, 1000);
+    }, { once: true });
+    img.src = url;
+  });
+  const io = "IntersectionObserver" in window ? new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting){ io.unobserve(e.target); loadOne(e.target); } });
+  }, { rootMargin: "100px 0px" }) : null;
+  if (io) pending.forEach(img => io.observe(img));
+  whenZoneArtReady(focusZones).then(async () => {
+    const worker = async () => {
+      while (pending.length){
+        const img = pending.shift();
+        if (!img.isConnected) break; // 已經離開地圖
+        if (io) io.unobserve(img);
+        await loadOne(img);
+      }
+    };
+    await Promise.all(Array.from({ length: ZONE_ART_PARALLEL }, worker));
+    if (io) io.disconnect();
+  });
+}
+
+// 等指定分區（ZONE_ART 索引；不給就是全部）的 .zone-bg 載入（或失敗）才 resolve；網路太慢時最多等 ZONE_ART_WAIT_MS 就照目前版面繼續
 const ZONE_ART_WAIT_MS = 5000;
-function whenZoneArtReady(){
-  const imgs = [...app.querySelectorAll(".zone-bg")];
+function whenZoneArtReady(zoneIdxs){
+  const want = zoneIdxs ? new Set(zoneIdxs.map(i => String(i + 1))) : null;
+  const imgs = [...app.querySelectorAll(".zone-bg")].filter(img => !want || want.has(img.parentElement.dataset.zone));
   const loaded = Promise.all(imgs.map(img => img.complete ? null : new Promise(res => {
     img.addEventListener("load", res, { once: true });
     img.addEventListener("error", res, { once: true });

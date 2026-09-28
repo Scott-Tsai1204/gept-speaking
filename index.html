@@ -105,7 +105,7 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--cobalt);outline
 .map-container{margin:0 -20px;padding:0 0 4px}
 .map-world{position:relative;display:flex;flex-direction:column;line-height:0}
 .zone-wrap{position:relative;width:100%;margin:0;line-height:0}
-.zone-bg{display:block;width:100%;height:auto}
+.zone-bg{display:block;width:100%;height:auto;background-size:100% 100%;background-repeat:no-repeat}
 /* 相鄰分區重疊漸變：下方分區往上疊 --zone-overlap，頂部用波浪狀的柔邊遮罩淡入，上方分區維持不透明墊底，
    所以不會透出頁面底色；zone-wrap 的高度仍等於圖片高度，只是用負 margin 往上疊 */
 .map-world{--zone-overlap:clamp(120px,36vw,180px);
