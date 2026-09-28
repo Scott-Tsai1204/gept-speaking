@@ -1522,6 +1522,244 @@
         "category",
         "topic"
       ]
+    },
+    {
+      "id": "question_131",
+      "question": "What subject are you best at?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourcePage": "P1C3U5-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_132",
+      "question": "What is your favorite teacher like?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourcePage": "P1C3U5-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_133",
+      "question": "What do you think a good student should do in class?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourcePage": "P1C3U5-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_134",
+      "question": "When do you review your lessons?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourcePage": "P1C3U5-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_135",
+      "question": "What do you like to buy in bookstores?",
+      "category": "preference",
+      "topic": "shopping",
+      "origin": "external",
+      "sourcePage": "P1C3U5-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_136",
+      "question": "What hobbies do you have?",
+      "category": "warmup",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourcePage": "P1C3U6-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_137",
+      "question": "What do you like to do in your free time?",
+      "category": "preference",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourcePage": "P1C3U6-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_138",
+      "question": "What do you usually do in the mountains?",
+      "category": "warmup",
+      "topic": "travel",
+      "origin": "external",
+      "sourcePage": "P1C3U6-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_139",
+      "question": "Have you ever been to a concert?",
+      "category": "warmup",
+      "topic": "music",
+      "origin": "external",
+      "sourcePage": "P1C3U6-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "music",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_140",
+      "question": "What sports do you enjoy playing?",
+      "category": "preference",
+      "topic": "sports",
+      "origin": "external",
+      "sourcePage": "P1C3U6-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "sports",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_141",
+      "question": "What do you do on Christmas?",
+      "category": "warmup",
+      "topic": "holidays",
+      "origin": "external",
+      "sourcePage": "P1C3U6-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_142",
+      "question": "What's your favorite Chinese festival?",
+      "category": "preference",
+      "topic": "holidays",
+      "origin": "external",
+      "sourcePage": "P1C3U6-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_143",
+      "question": "Have you ever had the flu?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourcePage": "P1C3U7-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_144",
+      "question": "What will you do if you see someone badly hurt in an accident?",
+      "category": "situational",
+      "topic": "health",
+      "origin": "external",
+      "sourcePage": "P1C3U7-1",
+      "suggestedCategory": "situational",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_145",
+      "question": "What does the doctor usually say to you when you are sick?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourcePage": "P1C3U7-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_146",
+      "question": "Have you ever taken medicine that caused side effects?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourcePage": "P1C3U7-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_147",
+      "question": "Have you ever been to the hospital?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourcePage": "P1C3U7-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
