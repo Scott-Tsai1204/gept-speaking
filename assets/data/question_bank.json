@@ -1998,6 +1998,146 @@
         "category",
         "topic"
       ]
+    },
+    {
+      "id": "question_165",
+      "question": "What comes to your mind when you think of a king or queen?",
+      "category": "preference",
+      "topic": "society",
+      "origin": "external",
+      "sourcePage": "P1C3U11-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_166",
+      "question": "What do you think is a serious problem in some countries?",
+      "category": "preference",
+      "topic": "society",
+      "origin": "external",
+      "sourcePage": "P1C3U11-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_167",
+      "question": "What do the police do when a crime happens?",
+      "category": "warmup",
+      "topic": "society",
+      "origin": "external",
+      "sourcePage": "P1C3U11-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_168",
+      "question": "What usually happens during a war between two countries?",
+      "category": "warmup",
+      "topic": "society",
+      "origin": "external",
+      "sourcePage": "P1C3U11-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_169",
+      "question": "How can countries end a war?",
+      "category": "preference",
+      "topic": "society",
+      "origin": "external",
+      "sourcePage": "P1C3U11-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_170",
+      "question": "Do you use apps every day?",
+      "category": "warmup",
+      "topic": "technology",
+      "origin": "external",
+      "sourcePage": "P1C3U12-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_171",
+      "question": "What do you think is the difference between electric cars and regular cars?",
+      "category": "preference",
+      "topic": "technology",
+      "origin": "external",
+      "sourcePage": "P1C3U12-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_172",
+      "question": "What do you think about taking selfies and posting them online?",
+      "category": "preference",
+      "topic": "technology",
+      "origin": "external",
+      "sourcePage": "P1C3U12-1",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_173",
+      "question": "If you had a chance to try virtual reality (VR), what would you do?",
+      "category": "situational",
+      "topic": "technology",
+      "origin": "external",
+      "sourcePage": "P1C3U12-1",
+      "suggestedCategory": "situational",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_174",
+      "question": "Have you ever binge-watched a TV show?",
+      "category": "warmup",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourcePage": "P1C3U12-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
