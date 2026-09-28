@@ -2804,6 +2804,96 @@
         "category",
         "topic"
       ]
+    },
+    {
+      "id": "question_215",
+      "question": "Do you think your friends like you? Why or why not?",
+      "category": "preference",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 88",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_216",
+      "question": "What's your hometown like?",
+      "category": "warmup",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 88",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_217",
+      "question": "Do you ever feel bored?",
+      "category": "warmup",
+      "topic": "feelings",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 88",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "feelings",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_218",
+      "question": "What do you talk about with your friends?",
+      "category": "warmup",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 88",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_219",
+      "question": "If you found a suitcase with $1,000,000 inside, what would you do?",
+      "category": "situational",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 88",
+      "suggestedCategory": "situational",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_220",
+      "question": "If you had one wish, what would it be?",
+      "category": "preference",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 88",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
