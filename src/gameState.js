@@ -46,7 +46,9 @@ const QUESTIONS = [];
 
 /* ===== 題庫載入與驗證（question_bank.json → 上面 5 個陣列） ===== */
 const QUESTION_BANK_URL = "assets/data/question_bank.json";
-const QUESTION_BANK_EXPECT = { repeat: 88, read: 8, questions: 108 }; // 本版題數，驗證用（V6.0-C：問答 36 → 108）
+// 題數下限，驗證用（V6.0-C：問答 36 → 108）。V6-D0 起可用 tools/question-bank-manager.html 追加外部題庫，
+// 所以只檢查「不少於」：現有題目意外遺失時仍會擋下。JSON 裡的 pending（待分類區）遊戲不讀取
+const QUESTION_BANK_EXPECT = { repeat: 88, read: 8, questions: 108 };
 let questionBank = null; // 驗證通過後的原始 JSON（repeat／read／questions）
 function validateQuestionBank(bank){
   const errs = [];
@@ -56,7 +58,7 @@ function validateQuestionBank(bank){
   const checkList = (key, fields, check) => {
     const list = bank[key];
     if (!Array.isArray(list)){ errs.push(`缺少 ${key} 陣列`); return; }
-    if (list.length !== QUESTION_BANK_EXPECT[key]) errs.push(`${key} 應該有 ${QUESTION_BANK_EXPECT[key]} 題，實際 ${list.length} 題`);
+    if (list.length < QUESTION_BANK_EXPECT[key]) errs.push(`${key} 至少應該有 ${QUESTION_BANK_EXPECT[key]} 題，實際 ${list.length} 題`);
     list.forEach((item, k) => {
       const where = `${key}[${k}]${item && item.id ? `（${item.id}）` : ""}`;
       if (!item || typeof item !== "object"){ errs.push(`${where} 不是物件`); return; }
