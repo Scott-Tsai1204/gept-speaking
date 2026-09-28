@@ -2729,6 +2729,81 @@
         "category",
         "topic"
       ]
+    },
+    {
+      "id": "question_210",
+      "question": "How have you been feeling lately?",
+      "category": "warmup",
+      "topic": "greeting",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 77",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "greeting",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_211",
+      "question": "You want to go to the city library, but you are lost. Ask someone for directions.",
+      "category": "situational",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 77",
+      "suggestedCategory": "situational",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_212",
+      "question": "Did you have a good time on your last vacation? What did you do?",
+      "category": "warmup",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 77",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_213",
+      "question": "What is your favorite color? Please explain why you like it.",
+      "category": "preference",
+      "topic": "personal_information",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 77",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "personal_information",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_214",
+      "question": "What are you wearing today?",
+      "category": "warmup",
+      "topic": "clothing",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 77",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "clothing",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
