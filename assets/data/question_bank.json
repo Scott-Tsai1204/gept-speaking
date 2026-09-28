@@ -2984,6 +2984,96 @@
         "category",
         "topic"
       ]
+    },
+    {
+      "id": "question_227",
+      "question": "Which sports do you like playing or watching?",
+      "category": "preference",
+      "topic": "sports",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 111",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "sports",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_228",
+      "question": "Do you like learning English?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 111",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_229",
+      "question": "What do you think is the most useful invention?",
+      "category": "preference",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 111",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_230",
+      "question": "Do you feel you get enough sleep every day? Why or why not?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 111",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_231",
+      "question": "Where do you usually meet with your friends?",
+      "category": "warmup",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 111",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_232",
+      "question": "Is there any pollution in the place you live?",
+      "category": "warmup",
+      "topic": "environment",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 111",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "environment",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
