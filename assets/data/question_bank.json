@@ -1220,6 +1220,90 @@
       "question": "You call a restaurant to book a table for four people. What would you say?",
       "category": "situational",
       "topic": "restaurant"
+    },
+    {
+      "id": "question_109",
+      "question": "What do you usually wear to school or to work?",
+      "category": "warmup",
+      "topic": "clothing",
+      "origin": "external",
+      "sourcePage": "P1C3U1-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "clothing",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_110",
+      "question": "Who is your favorite idol and why?",
+      "category": "opinion",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourcePage": "P1C3U1-1",
+      "suggestedCategory": "opinion",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_111",
+      "question": "What do you do when you are very excited?",
+      "category": "opinion",
+      "topic": "feelings",
+      "origin": "external",
+      "sourcePage": "P1C3U1-1",
+      "suggestedCategory": "opinion",
+      "suggestedTopic": "feelings",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_112",
+      "question": "Who is your best friend, and what is he or she like?",
+      "category": "warmup",
+      "topic": "social",
+      "origin": "external",
+      "sourcePage": "P1C3U1-1",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_113",
+      "question": "What kind of person are you?",
+      "category": "opinion",
+      "topic": "personality",
+      "origin": "external",
+      "sourcePage": "P1C3U1-1",
+      "suggestedCategory": "opinion",
+      "suggestedTopic": "personality",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_114",
+      "question": "What are some bad things about people that you don't like?",
+      "category": "opinion",
+      "topic": "personality",
+      "origin": "external",
+      "sourcePage": "P1C3U1-1",
+      "suggestedCategory": "opinion",
+      "suggestedTopic": "personality",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
