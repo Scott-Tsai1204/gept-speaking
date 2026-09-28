@@ -282,7 +282,7 @@ async function runBossAnswerRound(){
   await sleep(700);                 if (tk !== S.token) return;
   setState("busy", "準備回答…", "");
   await sleep(300);                 if (tk !== S.token) return;
-  const r = await listen(20000, true); if (tk !== S.token) return;
+  const r = await listenAnswer(); if (tk !== S.token) return; // V6-D3：15 秒作答倒數（voice.js）
   resolveBossAnswerRound(item, r);
 }
 async function resolveBossAnswerRound(item, r){

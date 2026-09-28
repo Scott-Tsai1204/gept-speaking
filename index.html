@@ -249,6 +249,20 @@ img.path-node-art[src$="monster_06_mist_ghost.png"],img.mon-art[src$="monster_06
 .list{list-style:none;padding:0;margin:16px 0}
 .list li{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
 .list li span:first-child{font-family:Lexend,sans-serif;font-size:15px}
+/* V6-D3 問答 15 秒作答倒數（遊戲與練習模式共用；練習模式 .large 字比較大） */
+.answer-timer{width:100%;max-width:320px;display:flex;flex-direction:column;align-items:center;gap:4px;--at:var(--cobalt)}
+.answer-timer[hidden]{display:none}
+.answer-timer .at-num{font-family:Lexend,sans-serif;font-weight:600;font-size:34px;line-height:1;color:var(--at);font-variant-numeric:tabular-nums;transition:color .3s}
+.answer-timer .at-label{font-size:13px;color:var(--mute)}
+.answer-timer .at-bar{width:100%;height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.answer-timer .at-bar i{display:block;height:100%;width:100%;background:var(--at);border-radius:4px;transition:background .3s}
+.answer-timer .at-done{margin-top:6px;padding:8px 18px;min-height:40px;font-size:15px}
+.answer-timer[data-stage="warn"]{--at:#C98200}
+.answer-timer[data-stage="final"]{--at:var(--bad)}
+.answer-timer[data-stage="final"] .at-label{color:var(--bad);font-weight:700}
+.answer-timer.large .at-num{font-size:52px}
+.answer-timer.large .at-label{font-size:14px}
+
 /* V6-D2 英檢口說練習（成人模式）：沿用卡片／按鈕樣式，拿掉遊戲元素、錄音圈縮小 */
 .practice-home{display:flex;flex-direction:column;gap:10px}
 .practice-title{flex:1;text-align:center;font-weight:700;font-size:18px}

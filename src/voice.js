@@ -68,8 +68,12 @@ function speak(text, rate = 0.9){
   });
 }
 
-/* ===== 語音：錄下玩家的回答（有靜音自動偵測），交給後端 Whisper 辨識 ===== */
-function recordAudio({ maxMs = 12000, silenceMs = 1500, minMs = 600 } = {}){
+/* ===== 語音：錄下玩家的回答（有靜音自動偵測），交給後端 Whisper 辨識 =====
+   選填參數（V6-D3 問答 15 秒計時用；不傳時行為跟原本完全一樣）：
+   silenceStop:false 不因停頓自動結束；requireVoice:true 整段都沒偵測到聲音就當 no-speech（不送去辨識）；
+   sayHint 錄音中的提示；onStart()／onTick(經過毫秒)／onEnd(經過毫秒) 給倒數 UI 用。
+   結束時間以 performance.now() 的實際經過時間判斷（每幀檢查），setTimeout 只是分頁在背景時的保底 */
+function recordAudio({ maxMs = 12000, silenceMs = 1500, minMs = 600, silenceStop = true, requireVoice = false, sayHint, onStart, onTick, onEnd } = {}){
   return new Promise(async resolve => {
     let stream;
     try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
@@ -84,13 +88,17 @@ function recordAudio({ maxMs = 12000, silenceMs = 1500, minMs = 600 } = {}){
     const chunks = [];
     const startedAt = Date.now();
     let audioCtx, analyser, source, raf, lastLoud = Date.now(), settled = false;
+    let maxTimer = null, t0 = 0, heard = false;
+    const elapsedNow = () => t0 ? performance.now() - t0 : 0;
 
     const cleanup = () => {
       if (raf) cancelAnimationFrame(raf);
+      clearTimeout(maxTimer);
       try { source && source.disconnect(); } catch(_){}
       try { audioCtx && audioCtx.close(); } catch(_){}
-      stream.getTracks().forEach(t => t.stop());
+      stream.getTracks().forEach(t => t.stop()); // 麥克風關掉：時間到之後不能再錄
       activeRec = null;
+      if (onEnd) onEnd(elapsedNow());
     };
 
     rec.ondataavailable = e => { if (e.data && e.data.size > 0) chunks.push(e.data); };
@@ -103,7 +111,8 @@ function recordAudio({ maxMs = 12000, silenceMs = 1500, minMs = 600 } = {}){
       if (settled) return;
       settled = true; cleanup();
       const blob = new Blob(chunks, { type: mime || "audio/webm" });
-      resolve(blob.size > 800 ? { blob, error: null } : { blob: null, error: "no-speech" });
+      const noVoice = requireVoice && analyser && !heard; // 從頭到尾都沒聲音：不送空白錄音去辨識
+      resolve(blob.size > 800 && !noVoice ? { blob, error: null } : { blob: null, error: "no-speech" });
     };
 
     try {
@@ -117,28 +126,85 @@ function recordAudio({ maxMs = 12000, silenceMs = 1500, minMs = 600 } = {}){
 
     activeRec = rec;
     rec.start();
-    setState("say", "換你說", "說完停一下會自動送出，也可以點圓圈提早結束");
+    t0 = performance.now();
+    setState("say", "換你說", sayHint || "說完停一下會自動送出，也可以點圓圈提早結束");
+    if (onStart) onStart();
 
-    const maxTimer = setTimeout(() => { if (rec.state !== "inactive") rec.stop(); }, maxMs);
+    const stopRec = () => { if (rec.state !== "inactive") rec.stop(); };
+    maxTimer = setTimeout(stopRec, maxMs);
 
-    if (analyser){
-      const data = new Uint8Array(analyser.frequencyBinCount);
+    if (analyser || onTick){
+      const data = analyser ? new Uint8Array(analyser.frequencyBinCount) : null;
       const tick = () => {
-        analyser.getByteTimeDomainData(data);
-        let sum = 0;
-        for (let k = 0; k < data.length; k++){ const v = (data[k] - 128) / 128; sum += v * v; }
-        const rms = Math.sqrt(sum / data.length);
-        if (rms > 0.02) lastLoud = Date.now();
-        const elapsed = Date.now() - startedAt;
-        if (elapsed > minMs && Date.now() - lastLoud > silenceMs){
-          clearTimeout(maxTimer);
-          if (rec.state !== "inactive") rec.stop();
-          return;
+        if (settled) return;
+        const el = elapsedNow();
+        if (onTick) onTick(el);
+        if (el >= maxMs){ stopRec(); return; } // 以實際經過時間為準，不會因為卡頓多錄
+        if (analyser){
+          analyser.getByteTimeDomainData(data);
+          let sum = 0;
+          for (let k = 0; k < data.length; k++){ const v = (data[k] - 128) / 128; sum += v * v; }
+          const rms = Math.sqrt(sum / data.length);
+          if (rms > 0.02){ lastLoud = Date.now(); heard = true; }
+          const elapsed = Date.now() - startedAt;
+          if (silenceStop && elapsed > minMs && Date.now() - lastLoud > silenceMs){
+            stopRec();
+            return;
+          }
         }
         raf = requestAnimationFrame(tick);
       };
       raf = requestAnimationFrame(tick);
     }
+  });
+}
+
+/* ===== V6-D3 問答 15 秒作答時間（GEPT 初級口說「回答問題」每題 15 秒） =====
+   問答挑戰、Boss 問答回合、英檢口說練習的問答都呼叫 listenAnswer()，複誦／朗讀不用。
+   倒數從「題目播完、開始錄音」那一刻起算；時間到自動停止錄音；可按「我回答完了」提早結束。 */
+const ANSWER_SECONDS = 15;
+function mountAnswerTimer(){
+  const old = $("#answerTimer"); if (old) old.remove();
+  const ring = $("#ring");
+  const el = document.createElement("div");
+  el.id = "answerTimer";
+  el.className = "answer-timer" + (app.querySelector(".practice-stage") ? " large" : "");
+  el.setAttribute("role", "timer");
+  el.hidden = true;
+  el.innerHTML = `<div class="at-num">${ANSWER_SECONDS}</div><div class="at-label">秒剩餘</div>
+    <div class="at-bar"><i></i></div><button type="button" class="btn line at-done">我回答完了</button>`;
+  if (ring) ring.insertAdjacentElement("afterend", el);
+  const num = el.querySelector(".at-num"), label = el.querySelector(".at-label"), bar = el.querySelector(".at-bar i"), done = el.querySelector(".at-done");
+  done.onclick = () => { if (activeRec && activeRec.state !== "inactive") activeRec.stop(); }; // 提早結束：跟點圓圈一樣
+  let shown = null;
+  const paint = ms => {
+    const left = Math.max(0, ANSWER_SECONDS - ms / 1000), n = Math.ceil(left);
+    bar.style.width = (left / ANSWER_SECONDS * 100) + "%";
+    if (n !== shown){
+      shown = n;
+      num.textContent = n;
+      el.dataset.stage = n > 5 ? "" : n > 2 ? "warn" : "final"; // 15～6 一般、5～3 提醒、2～0 最後
+      el.setAttribute("aria-label", `剩餘 ${n} 秒`);
+    }
+  };
+  return {
+    start(){ el.hidden = false; paint(0); },
+    tick: paint,
+    end(ms){
+      const timeUp = ms >= ANSWER_SECONDS * 1000 - 30;
+      if (timeUp){ paint(ANSWER_SECONDS * 1000); label.textContent = "時間到"; }
+      else label.textContent = "作答結束";
+      el.dataset.ended = timeUp ? "timeup" : "done";
+      done.remove();
+    }
+  };
+}
+async function listenAnswer(){
+  const ui = mountAnswerTimer();
+  return listen(ANSWER_SECONDS * 1000, true, {
+    silenceStop: false, requireVoice: true,
+    sayHint: `請在 ${ANSWER_SECONDS} 秒內回答，說完可以按「我回答完了」`,
+    onStart: ui.start, onTick: ui.tick, onEnd: ui.end
   });
 }
 async function transcribeAudio(blob, withTimings){
@@ -155,8 +221,8 @@ async function transcribeAudio(blob, withTimings){
     return { text: String(data.text || "").trim(), fluency: data.fluency || null, error: null };
   } catch(_) { return { text: "", error: "network" }; }
 }
-async function listen(maxMs = 12000, withTimings = false){
-  const { blob, error } = await recordAudio({ maxMs });
+async function listen(maxMs = 12000, withTimings = false, recordOpts = {}){
+  const { blob, error } = await recordAudio({ maxMs, ...recordOpts });
   if (error) return { text: "", error };
   setState("busy", "辨識中…", "AI 正在聽你說的話");
   const { text, fluency, error: terr } = await transcribeAudio(blob, withTimings);

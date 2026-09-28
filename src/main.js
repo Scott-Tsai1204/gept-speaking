@@ -10,6 +10,7 @@ function setState(state, headline, hint){
   $("#status").textContent = headline;
   $("#hint").textContent = hint || "";
   if (state !== "say") { const l = $("#live"); if (l) l.textContent = ""; }
+  if (state === "hear") { const t = $("#answerTimer"); if (t) t.remove(); } // V6-D3：重新播題目（再試一次）時收掉上一次的倒數
 }
 
 function renderStart(){

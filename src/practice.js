@@ -170,7 +170,7 @@ async function runPracticeItem(){
   setState("busy", P.type === "answer" ? "準備回答…" : "準備錄音…", "");
   if (P.type === "answer"){
     await sleep(300); if (tk !== S.token) return;
-    const r = await listen(20000, true); if (tk !== S.token) return;
+    const r = await listenAnswer(); if (tk !== S.token) return; // V6-D3：15 秒作答倒數（voice.js）
     return showAnswerResult(it, r);
   }
   const r = await listen(); if (tk !== S.token) return;
