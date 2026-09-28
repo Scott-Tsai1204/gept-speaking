@@ -2624,6 +2624,111 @@
         "category",
         "topic"
       ]
+    },
+    {
+      "id": "question_203",
+      "question": "If you could live anywhere in Taiwan, where would you live?",
+      "category": "preference",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 66",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_204",
+      "question": "Do you like to travel alone or in a group? Why?",
+      "category": "preference",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 66",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_205",
+      "question": "What class do you dislike the most? Why don't you like it?",
+      "category": "preference",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 66",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_206",
+      "question": "When did you start to learn English?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 66",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_207",
+      "question": "Do you look more like your mother or your father?",
+      "category": "warmup",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 66",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_208",
+      "question": "What did you use to do when you were a child?",
+      "category": "warmup",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 66",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_209",
+      "question": "What do you think about TV?",
+      "category": "preference",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 66",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
