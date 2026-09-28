@@ -2279,6 +2279,96 @@
         "category",
         "topic"
       ]
+    },
+    {
+      "id": "question_180",
+      "question": "Have you ever slept in class? If so, why?",
+      "category": "warmup",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 22",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_181",
+      "question": "Where do you usually go when you eat out?",
+      "category": "warmup",
+      "topic": "restaurant",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 22",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "restaurant",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_182",
+      "question": "How long have you lived where you are living now?",
+      "category": "warmup",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 22",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_183",
+      "question": "What do you usually do when you get a cold?",
+      "category": "warmup",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 22",
+      "suggestedCategory": "warmup",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_184",
+      "question": "What is your favorite time of day? Why?",
+      "category": "preference",
+      "topic": "daily_routine",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 22",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "daily_routine",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
+    },
+    {
+      "id": "question_185",
+      "question": "What kinds of things make you nervous?",
+      "category": "preference",
+      "topic": "feelings",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 22",
+      "suggestedCategory": "preference",
+      "suggestedTopic": "feelings",
+      "acceptedSuggestions": [
+        "category",
+        "topic"
+      ]
     }
   ]
 }
