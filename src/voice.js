@@ -159,11 +159,13 @@ function recordAudio({ maxMs = 12000, silenceMs = 1500, minMs = 600, silenceStop
   });
 }
 
-/* ===== V6-D3 問答 15 秒作答時間（GEPT 初級口說「回答問題」每題 15 秒） =====
-   問答挑戰、Boss 問答回合、英檢口說練習的問答都呼叫 listenAnswer()，複誦／朗讀不用。
-   倒數從「題目播完、開始錄音」那一刻起算；時間到自動停止錄音；可按「我回答完了」提早結束。 */
+/* ===== 限時作答（倒數＋提早結束按鈕），問答與朗讀共用 =====
+   V6-D3 問答：每題 15 秒（GEPT 初級口說「回答問題」）——問答挑戰、Boss 問答回合、英檢口說練習的問答都呼叫 listenAnswer()
+   V6-D4 朗讀：最長 60 秒——闖關朗讀關、Boss 朗讀回合、英檢口說練習的朗讀都呼叫 listenRead()
+   複誦不用（仍是停頓自動送出）。倒數從「開始錄音」那一刻起算；時間到自動停止錄音；可按按鈕提早結束。 */
 const ANSWER_SECONDS = 15;
-function mountAnswerTimer(){
+const READ_SECONDS = 60;
+function mountAnswerTimer(seconds = ANSWER_SECONDS, doneLabel = "我回答完了"){
   const old = $("#answerTimer"); if (old) old.remove();
   const ring = $("#ring");
   const el = document.createElement("div");
@@ -171,19 +173,19 @@ function mountAnswerTimer(){
   el.className = "answer-timer" + (app.querySelector(".practice-stage") ? " large" : "");
   el.setAttribute("role", "timer");
   el.hidden = true;
-  el.innerHTML = `<div class="at-num">${ANSWER_SECONDS}</div><div class="at-label">秒剩餘</div>
-    <div class="at-bar"><i></i></div><button type="button" class="btn line at-done">我回答完了</button>`;
+  el.innerHTML = `<div class="at-num">${seconds}</div><div class="at-label">秒剩餘</div>
+    <div class="at-bar"><i></i></div><button type="button" class="btn line at-done">${doneLabel}</button>`;
   if (ring) ring.insertAdjacentElement("afterend", el);
   const num = el.querySelector(".at-num"), label = el.querySelector(".at-label"), bar = el.querySelector(".at-bar i"), done = el.querySelector(".at-done");
   done.onclick = () => { if (activeRec && activeRec.state !== "inactive") activeRec.stop(); }; // 提早結束：跟點圓圈一樣
   let shown = null;
   const paint = ms => {
-    const left = Math.max(0, ANSWER_SECONDS - ms / 1000), n = Math.ceil(left);
-    bar.style.width = (left / ANSWER_SECONDS * 100) + "%";
+    const left = Math.max(0, seconds - ms / 1000), n = Math.ceil(left);
+    bar.style.width = (left / seconds * 100) + "%";
     if (n !== shown){
       shown = n;
       num.textContent = n;
-      el.dataset.stage = n > 5 ? "" : n > 2 ? "warn" : "final"; // 15～6 一般、5～3 提醒、2～0 最後
+      el.dataset.stage = n > 5 ? "" : n > 2 ? "warn" : "final"; // 最後 5～3 秒提醒、2～0 秒最後階段
       el.setAttribute("aria-label", `剩餘 ${n} 秒`);
     }
   };
@@ -191,21 +193,26 @@ function mountAnswerTimer(){
     start(){ el.hidden = false; paint(0); },
     tick: paint,
     end(ms){
-      const timeUp = ms >= ANSWER_SECONDS * 1000 - 30;
-      if (timeUp){ paint(ANSWER_SECONDS * 1000); label.textContent = "時間到"; }
+      const timeUp = ms >= seconds * 1000 - 30;
+      if (timeUp){ paint(seconds * 1000); label.textContent = "時間到"; }
       else label.textContent = "作答結束";
       el.dataset.ended = timeUp ? "timeup" : "done";
       done.remove();
     }
   };
 }
-async function listenAnswer(){
-  const ui = mountAnswerTimer();
-  return listen(ANSWER_SECONDS * 1000, true, {
-    silenceStop: false, requireVoice: true,
-    sayHint: `請在 ${ANSWER_SECONDS} 秒內回答，說完可以按「我回答完了」`,
+function listenTimed(seconds, doneLabel, sayHint, withTimings){
+  const ui = mountAnswerTimer(seconds, doneLabel);
+  return listen(seconds * 1000, withTimings, {
+    silenceStop: false, requireVoice: true, sayHint,
     onStart: ui.start, onTick: ui.tick, onEnd: ui.end
   });
+}
+async function listenAnswer(){
+  return listenTimed(ANSWER_SECONDS, "我回答完了", `請在 ${ANSWER_SECONDS} 秒內回答，說完可以按「我回答完了」`, true);
+}
+async function listenRead(){
+  return listenTimed(READ_SECONDS, "我朗讀完了", `請在 ${READ_SECONDS} 秒內唸完，唸完可以按「我朗讀完了」`, false);
 }
 async function transcribeAudio(blob, withTimings){
   try {

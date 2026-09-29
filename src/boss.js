@@ -227,7 +227,7 @@ async function runBossReadRound(){
   });
   if (tk !== S.token) return;
   setState("busy", "準備錄音…", "");
-  const r = await listen(25000); if (tk !== S.token) return;
+  const r = await listenRead(); if (tk !== S.token) return; // V6-D4：朗讀最長 60 秒，可按「我朗讀完了」（voice.js）
   resolveBossWordRound(q, r, "read");
 }
 
