@@ -10,8 +10,28 @@ function ord(n){
   return [...w, o].join(" ");
 }
 const CONTR = {"i'm":"i am","it's":"it is","he's":"he is","she's":"she is","that's":"that is","what's":"what is","there's":"there is","here's":"here is","we're":"we are","you're":"you are","they're":"they are","don't":"do not","doesn't":"does not","didn't":"did not","can't":"can not","cannot":"can not","isn't":"is not","aren't":"are not","wasn't":"was not","weren't":"were not","won't":"will not","i'll":"i will","i've":"i have","let's":"let us"};
+// V6-D4.1 電話號碼：只認明確的格式，轉成逐位的英文數字（8774-5656 → eight seven seven four five six five six）。
+// 標準答案與辨識結果都經過這裡，所以 8774-5656／87745656／8774 5656／逐位英文念法都會變成同一串。
+// 一般數字（2、15、50、100、年份 2026、時間 7:30）不套用，維持原本的處理
+const DIGIT_WORDS = ONES.slice(0, 10);
+const spellDigits = str => " " + str.replace(/\D/g, "").split("").map(d => DIGIT_WORDS[+d]).join(" ") + " ";
+function normalizePhoneNumbers(s){
+  // 1) 分組的號碼：02-8774-5656、(02) 8774 5656、8774-5656、8774 5656。有 - . ( ) 要 6 位以上；只用空白分組要 7 位以上；
+  //    每組都是西元年（2019-2020、2019 2020）不算
+  //    （每組 2～6 位不限定怎麼分：語音辨識有時會分成 877-45656 這種奇怪的組，也要認得）
+  s = s.replace(/(?<![\d$,.])\(?\d{2,6}\)?(?:[-.\s]\d{2,6}){1,3}(?![\d,])/g, m => {
+    const digits = m.replace(/\D/g, "");
+    const hasSep = /[-.()]/.test(m);
+    const years = m.match(/\d+/g).every(g => /^(19|20)\d\d$/.test(g));
+    return !years && ((hasSep && digits.length >= 6) || (!hasSep && digits.length >= 7)) ? spellDigits(m) : m;
+  });
+  // 2) 連在一起的 7～12 位數字（金額會有 $ 或千分位逗號，不會被當成電話）
+  s = s.replace(/(?<![\d$,.])\d{7,12}(?![\d,])/g, spellDigits);
+  return s;
+}
 function tokenize(s){
   s = s.toLowerCase().replace(/[’‘]/g, "'");
+  s = normalizePhoneNumbers(s);
   s = s.replace(/(\d{1,2}):(\d{2})/g, (m,h,mi) => n2w(+h) + " " + (+mi === 0 ? "" : (+mi < 10 ? "oh " : "") + n2w(+mi)));
   s = s.replace(/(\d{1,2})(st|nd|rd|th)\b/g, (m,n) => ord(+n));
   s = s.replace(/\d{1,2}/g, m => n2w(+m));
@@ -22,6 +42,13 @@ function tokenize(s){
     if (!w) return;
     (CONTR[w] ? CONTR[w].split(" ") : [w]).forEach(x => out.push(x));
   });
+  // 念號碼時常把 0 說成「oh」：緊鄰逐位數字的 oh／o 視為 zero（號碼開頭、結尾的 0 也算；標準答案與辨識結果同樣處理）
+  const isDigitWord = w => DIGIT_WORDS.includes(w);
+  for (let pass = 0; pass < 2; pass++){ // 跑兩次，連續的「oh oh」也能接上
+    for (let k = 0; k < out.length; k++){
+      if ((out[k] === "oh" || out[k] === "o") && (isDigitWord(out[k - 1]) || isDigitWord(out[k + 1]))) out[k] = "zero";
+    }
+  }
   return out;
 }
 
