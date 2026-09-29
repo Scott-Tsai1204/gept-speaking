@@ -753,6 +753,81 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_025",
+      "text": "Why don't you join us for dinner tomorrow?",
+      "difficulty": "medium",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 23",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_026",
+      "text": "We're going to have a party for your birthday.",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 23",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_027",
+      "text": "Drink a lot of water and get some sleep.",
+      "difficulty": "medium",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 23",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_059",
+      "text": "Is there a public restroom around here?",
+      "difficulty": "easy",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 23",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_028",
+      "text": "My mom read me a funny story last night.",
+      "difficulty": "medium",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 23",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -828,6 +903,18 @@
       "sourceBook": "Access to GEPT",
       "sourcePage": "Page 21",
       "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_012",
+      "text": "Sandy is a member of the Lin family. She is six years old and comes from England. Now she is a student at DC school, where she is learning how to behave herself. The Lins miss Sandy very much so they visit her every weekend. Every time when Sandy sees them, she always barks happily.",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 23",
+      "suggestedTopic": "animals",
       "acceptedSuggestions": [
         "topic"
       ]
