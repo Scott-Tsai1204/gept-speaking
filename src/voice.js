@@ -35,6 +35,7 @@ function tokenize(s){
   s = s.replace(/(\d{1,2}):(\d{2})/g, (m,h,mi) => n2w(+h) + " " + (+mi === 0 ? "" : (+mi < 10 ? "oh " : "") + n2w(+mi)));
   s = s.replace(/(\d{1,2})(st|nd|rd|th)\b/g, (m,n) => ord(+n));
   s = s.replace(/\d{1,2}/g, m => n2w(+m));
+  s = s.replace(/\b(?:[a-z]\.){2,}/g, m => m.replace(/\./g, "") + " "); // V6-D4.3：有點的縮寫 D.C.／U.S.A. 先接起來（dc、usa）
   s = s.replace(/[^a-z'\s]/g, " ");
   const out = [];
   s.split(/\s+/).filter(Boolean).forEach(w => {
@@ -49,7 +50,22 @@ function tokenize(s){
       if ((out[k] === "oh" || out[k] === "o") && (isDigitWord(out[k - 1]) || isDigitWord(out[k + 1]))) out[k] = "zero";
     }
   }
-  return normalizeDateTokens(out);
+  return normalizeDateTokens(mergeLetterAbbreviations(out));
+}
+
+// V6-D4.3 縮寫：語音辨識常把 DC 寫成 D.C. 或 D C（變成兩個單一字母），連續 2 個以上的單一字母合成一個字（D.C.／D C／DC → dc，
+// U.S.A. → usa）。a 和 I 本身是英文單字，不參與合併
+const isLetterToken = w => w.length === 1 && w >= "a" && w <= "z" && w !== "a" && w !== "i";
+function mergeLetterAbbreviations(tokens){
+  const out = [];
+  for (let k = 0; k < tokens.length; k++){
+    if (isLetterToken(tokens[k]) && isLetterToken(tokens[k + 1])){
+      let w = "";
+      while (k < tokens.length && isLetterToken(tokens[k])) w += tokens[k++];
+      out.push(w); k--;
+    } else out.push(tokens[k]);
+  }
+  return out;
 }
 
 /* ===== V6-D4.2 日期：只有「月份＋日期」（或「日期＋of＋月份」）的前後文，日期的基數與序數才視為相同 =====
