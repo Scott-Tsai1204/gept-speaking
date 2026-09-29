@@ -144,24 +144,9 @@ async function runPracticeItem(){
   const tk = ++S.token, it = P.item;
   $("#resultBox").innerHTML = "";
   if (P.type === "read"){
-    // 朗讀：跟朗讀關一樣先默讀（倒數），準備好可以直接開始
-    let remain = READ_PREP_SECONDS;
-    setState("idle", "先默讀句子和短文，準備好再開始朗讀", `準備時間 ${remain} 秒，或直接點下面按鈕開始`);
-    const startBtn = document.createElement("button");
-    startBtn.className = "btn primary";
-    startBtn.textContent = "開始朗讀";
-    $("#resultBox").appendChild(startBtn);
-    await new Promise(resolve => {
-      let done = false;
-      const finish = () => { if (done) return; done = true; clearInterval(timer); startBtn.remove(); resolve(); };
-      startBtn.onclick = finish;
-      const timer = setInterval(() => {
-        if (tk !== S.token){ clearInterval(timer); return; }
-        remain--;
-        const h = $("#hint"); if (h) h.textContent = remain > 0 ? `準備時間 ${remain} 秒，或直接點下面按鈕開始` : "";
-        if (remain <= 0) finish();
-      }, 1000);
-    });
+    // 兩段獨立計時：閱讀準備（最長 60 秒，不錄音，可提早開始）→ 朗讀（listenRead 重新從 60 秒算，可提早結束）
+    setState("idle", "閱讀準備", "先默讀句子和短文，這段時間不會錄音");
+    await readPrepCountdown(tk, READ_PREP_SECONDS);
     if (tk !== S.token) return;
     setState("busy", "準備錄音…", "");
     const r = await listenRead(); if (tk !== S.token) return; // V6-D4：最長 60 秒，可按「我朗讀完了」
@@ -181,6 +166,38 @@ async function runPracticeItem(){
   }
   const r = await listen(); if (tk !== S.token) return;
   showSpokenResult(it.text, r);
+}
+
+// 閱讀準備倒數：外觀跟作答倒數一樣（數字＋進度條），以 performance.now() 的實際經過時間計算。
+// 按「我準備好了，開始朗讀」或時間到就結束並移除；離開畫面（token 變了）也會結束，不留計時器
+function readPrepCountdown(tk, seconds){
+  const old = $("#prepTimer"); if (old) old.remove();
+  const el = document.createElement("div");
+  el.id = "prepTimer";
+  el.className = "answer-timer large";
+  el.setAttribute("role", "timer");
+  el.innerHTML = `<div class="at-num">${seconds}</div><div class="at-label">閱讀準備 秒剩餘</div>
+    <div class="at-bar"><i></i></div><button type="button" class="btn primary at-done">我準備好了，開始朗讀</button>`;
+  const ring = $("#ring");
+  if (ring) ring.insertAdjacentElement("afterend", el);
+  const num = el.querySelector(".at-num"), bar = el.querySelector(".at-bar i");
+  const t0 = performance.now();
+  return new Promise(resolve => {
+    let done = false, timer = null;
+    const finish = () => { if (done) return; done = true; clearInterval(timer); el.remove(); resolve(); };
+    el.querySelector(".at-done").onclick = finish;
+    const paint = () => {
+      if (tk !== S.token || !el.isConnected) return finish();
+      const left = Math.max(0, seconds - (performance.now() - t0) / 1000), n = Math.ceil(left);
+      num.textContent = n;
+      bar.style.width = (left / seconds * 100) + "%";
+      el.dataset.stage = n > 5 ? "" : n > 2 ? "warn" : "final";
+      el.setAttribute("aria-label", `閱讀準備剩餘 ${n} 秒`);
+      if (left <= 0) finish();
+    };
+    timer = setInterval(paint, 200);
+    paint();
+  });
 }
 
 // 第一次作答才算進「已練習／平均」，再試一次只是練習
