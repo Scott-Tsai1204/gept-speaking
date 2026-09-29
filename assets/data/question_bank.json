@@ -528,6 +528,81 @@
       "text": "It normally takes about forty minutes to drive from my house to downtown.",
       "difficulty": "hard",
       "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_049",
+      "text": "What time do you get up on Sundays?",
+      "difficulty": "easy",
+      "topic": "daily_routine",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 17",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_routine",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_050",
+      "text": "Would you like some tea or coffee?",
+      "difficulty": "easy",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 17",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_051",
+      "text": "I've been to America several times.",
+      "difficulty": "easy",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 17",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_052",
+      "text": "What a beautiful house you have!",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 17",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_021",
+      "text": "I'd like red, green, yellow, and blue crayons.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 17",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -570,6 +645,18 @@
       "id": "read_008",
       "text": "This weekend, I want to visit my grandmother. She lives in the countryside. I will bring her some fruit.",
       "topic": "family"
+    },
+    {
+      "id": "read_009",
+      "text": "Jenny and I had been best friends for many years. We talked about everything and did lots of things together. But something has changed since last Friday. She won't speak to me or answer my calls. She doesn't even want to see me. I really don't know what's wrong between us.",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 17",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "topic"
+      ]
     }
   ],
   "questions": [
