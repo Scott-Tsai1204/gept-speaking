@@ -678,6 +678,81 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_023",
+      "text": "You're the most beautiful girl I've ever seen!",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 21",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_056",
+      "text": "What's the matter with the refrigerator?",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 21",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_057",
+      "text": "How much is this skirt?",
+      "difficulty": "easy",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 21",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_024",
+      "text": "My mother can sing well, but she can't cook.",
+      "difficulty": "medium",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 21",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_058",
+      "text": "Halloween is on October 31.",
+      "difficulty": "easy",
+      "topic": "holidays",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 21",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -741,6 +816,18 @@
       "sourceBook": "Access to GEPT",
       "sourcePage": "Page 19",
       "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_011",
+      "text": "It was a beautiful night! There was a full moon in the sky. The stars shone brightly. Ken and Barbie were taking a walk in the park. Suddenly, Ken took Barbie's hand and said, \"Will you marry me, my dear?\" Hearing this, Barbie just couldn't wait to say \"yes\" and cried tears of happiness.",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 21",
+      "suggestedTopic": "social",
       "acceptedSuggestions": [
         "topic"
       ]
