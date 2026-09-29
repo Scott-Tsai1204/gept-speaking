@@ -603,6 +603,81 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_022",
+      "text": "John can run much faster than his sister.",
+      "difficulty": "medium",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 19",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_021",
+      "text": "If you have any questions, please call me at 8774-5656.",
+      "difficulty": "hard",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 19",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_053",
+      "text": "I don't think he can come tomorrow.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 19",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_054",
+      "text": "Nice weather, isn't it?",
+      "difficulty": "easy",
+      "topic": "weather",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 19",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "weather",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_055",
+      "text": "Can't you wait a minute?",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 19",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -654,6 +729,18 @@
       "sourceBook": "Access to GEPT",
       "sourcePage": "Page 17",
       "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_010",
+      "text": "Mary and Kate were two lazy sisters. They never helped their mom clean the house or wash the dishes. They said they were too busy with their homework, but the truth was that they always had time for watching TV and playing computer games. Their mother was so angry that she decided to leave the family for a few days.",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 19",
+      "suggestedTopic": "family",
       "acceptedSuggestions": [
         "topic"
       ]
