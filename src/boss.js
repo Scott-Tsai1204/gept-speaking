@@ -241,14 +241,8 @@ async function resolveBossWordRound(q, r, kind){
     $("#retry").onclick = () => (kind === "read" ? runBossReadRound() : runBossRepeatRound());
     return;
   }
-  const tw = q.split(/\s+/);
-  const tokens = [];
-  tw.forEach((w, wi) => tokenize(w).forEach(t => tokens.push({ t, wi })));
-  const h = tokenize(r.text || "");
-  const { ops, extra, dist } = align(tokens.map(x => x.t), h);
-  const pct = r.text ? Math.round(Math.max(0, 1 - dist / tokens.length) * 100) : 0;
-  const wordOk = tw.map(() => true);
-  tokens.forEach((x, k) => { if (ops[k] !== "ok") wordOk[x.wi] = false; });
+  // 跟複誦戰／朗讀關同一套評分（battle.js 的 scoreSpoken，含 V6-D4.2 的日期／電話號碼正規化）
+  const { tw, pct, wordOk, extra } = scoreSpoken(q, r.text);
   const pass = pct >= PASS_LINE;
 
   const outcome = await applyBossRoundOutcome(pass, { kind, pass, detail: pct });

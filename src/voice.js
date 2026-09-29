@@ -49,6 +49,49 @@ function tokenize(s){
       if ((out[k] === "oh" || out[k] === "o") && (isDigitWord(out[k - 1]) || isDigitWord(out[k + 1]))) out[k] = "zero";
     }
   }
+  return normalizeDateTokens(out);
+}
+
+/* ===== V6-D4.2 日期：只有「月份＋日期」（或「日期＋of＋月份」）的前後文，日期的基數與序數才視為相同 =====
+   October 31／October 31st／October thirty-one／October thirty-first 都變成「october thirty first」；
+   the 31st of October／31 October 也一樣。其他地方的數字（I have thirty-one books）完全不動。
+   在「已切好的字詞序列」上處理：基數和序數的字數永遠相同（thirty one ↔ thirty first、twenty ↔ twentieth），
+   所以標準答案逐字正規化後串起來再套用，也不會打亂「哪個字對應畫面上哪個字」 */
+const MONTHS = ["january","february","march","april","may","june","july","august","september","october","november","december",
+  "jan","feb","mar","apr","jun","jul","aug","sep","sept","oct","nov","dec"];
+const DAY_WORD = {}; // 日期用字 → 數值（基數與序數都收）
+for (let n = 1; n <= 19; n++){ DAY_WORD[ONES[n]] = n; DAY_WORD[ord(n)] = n; }
+DAY_WORD.twenty = 20; DAY_WORD.twentieth = 20; DAY_WORD.thirty = 30; DAY_WORD.thirtieth = 30;
+// 從 i 開始讀一個 1～31 的日期：回傳 { n, len }（len＝用掉幾個字），讀不到就 null
+function readDay(tokens, i){
+  const a = tokens[i], b = tokens[i + 1];
+  if ((a === "twenty" || a === "thirty") && b && DAY_WORD[b] >= 1 && DAY_WORD[b] <= 9 && b !== "ten"){
+    const n = (a === "twenty" ? 20 : 30) + DAY_WORD[b];
+    if (n <= 31) return { n, len: 2 };
+  }
+  if (a in DAY_WORD) return { n: DAY_WORD[a], len: 1 };
+  return null;
+}
+// may／march 在「I may…」「we march…」這種用法時不是月份
+const NOT_MONTH_BEFORE = new Set(["i","you","we","they","he","she","it","who","that","which","can","will","to"]);
+const isMonthAt = (tokens, i) => MONTHS.includes(tokens[i]) && !((tokens[i] === "may" || tokens[i] === "march") && NOT_MONTH_BEFORE.has(tokens[i - 1]));
+function normalizeDateTokens(tokens){
+  const out = tokens.slice();
+  const toOrdinal = (i, d) => { ord(d.n).split(" ").forEach((w, k) => { out[i + k] = w; }); };
+  for (let i = 0; i < out.length; i++){
+    if (isMonthAt(out, i)){
+      // October 31 / October the 31st
+      const j = out[i + 1] === "the" ? i + 2 : i + 1;
+      const d = readDay(out, j);
+      if (d) toOrdinal(j, d);
+    } else {
+      // the 31st of October / 31 October
+      const d = readDay(out, i);
+      if (!d) continue;
+      const k = i + d.len, m = out[k] === "of" ? k + 1 : k;
+      if (isMonthAt(out, m)) toOrdinal(i, d);
+    }
+  }
   return out;
 }
 
