@@ -978,6 +978,81 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_032",
+      "text": "Have you ever been to any foreign countries?",
+      "difficulty": "medium",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 29",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_022",
+      "text": "Which country do you want to go to, Japan, Britain or Canada?",
+      "difficulty": "hard",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 29",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_023",
+      "text": "She's a terrific career woman, but a terrible housewife.",
+      "difficulty": "hard",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 29",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_033",
+      "text": "That'll be fun, won't it?",
+      "difficulty": "medium",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 29",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_034",
+      "text": "I'm sick and tired of taking so many tests.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 29",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -1089,6 +1164,18 @@
       "sourceBook": "Access to GEPT",
       "sourcePage": "Page 27",
       "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_015",
+      "text": "Rosa's Café is a very popular place to eat. People love to go there because the food is delicious, and the service is excellent. By the way, Rosa is the name of the owner's daughter. She is young, pretty, and always has a smile for every customer. That's also why Rosa's Café is so crowded all the time!",
+      "topic": "restaurant",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 29",
+      "suggestedTopic": "restaurant",
       "acceptedSuggestions": [
         "topic"
       ]
