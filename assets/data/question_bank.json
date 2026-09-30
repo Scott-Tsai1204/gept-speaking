@@ -1053,6 +1053,81 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_035",
+      "text": "He took out the trash and walked the dog.",
+      "difficulty": "medium",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 31",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_067",
+      "text": "I like it because it's nice.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 31",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_036",
+      "text": "Could you tell him to pick us up at 10:40?",
+      "difficulty": "medium",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 31",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_068",
+      "text": "I should've said something.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 31",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_069",
+      "text": "How do you spell your name?",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 31",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -1176,6 +1251,18 @@
       "sourceBook": "Access to GEPT",
       "sourcePage": "Page 29",
       "suggestedTopic": "restaurant",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_016",
+      "text": "Today is December 22nd. Everyone in my family is busy decorating our house for Christmas. My parents have already put a lot of presents under the Christmas tree in the living room. Christmas is a big day. Christmas Eve is important too. People usually have a big dinner that day. This year we're going to have a delicious dinner at a restaurant. My mother is happy about this because she doesn't need to cook.",
+      "topic": "holidays",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 31",
+      "suggestedTopic": "holidays",
       "acceptedSuggestions": [
         "topic"
       ]

@@ -9,7 +9,26 @@ function ord(n){
   const o = ORD_IRR[last] || (last.endsWith("y") ? last.slice(0,-1) + "ieth" : last + "th");
   return [...w, o].join(" ");
 }
-const CONTR = {"i'm":"i am","it's":"it is","he's":"he is","she's":"she is","that's":"that is","what's":"what is","there's":"there is","here's":"here is","we're":"we are","you're":"you are","they're":"they are","don't":"do not","doesn't":"does not","didn't":"did not","can't":"can not","cannot":"can not","isn't":"is not","aren't":"are not","wasn't":"was not","weren't":"were not","won't":"will not","i'll":"i will","i've":"i have","let's":"let us"};
+const CONTR = {"i'm":"i am","that's":"that is","what's":"what is","there's":"there is","here's":"here is","we're":"we are","you're":"you are","they're":"they are","don't":"do not","doesn't":"does not","didn't":"did not","can't":"can not","cannot":"can not","isn't":"is not","aren't":"are not","wasn't":"was not","weren't":"were not","won't":"will not","i'll":"i will","i've":"i have","let's":"let us",
+  // V6-D4.4 縮寫 ↔ 完整形式：語音辨識有時寫縮寫、有時寫成完整兩個字，兩邊都展開成完整形式再比對
+  "couldn't":"could not","shouldn't":"should not","wouldn't":"would not","mustn't":"must not",
+  "haven't":"have not","hasn't":"has not","hadn't":"had not",
+  "should've":"should have","could've":"could have","would've":"would have","must've":"must have","might've":"might have",
+  "you've":"you have","we've":"we have","they've":"they have",
+  "you'll":"you will","he'll":"he will","she'll":"she will","it'll":"it will","we'll":"we will","they'll":"they will","that'll":"that will",
+  // 有歧義的縮寫展開成「可選字」（would|had）：對齊時跟其中任何一個相同就算對（見 tokEq）
+  "i'd":"i would|had","you'd":"you would|had","he'd":"he would|had","she'd":"she would|had","it'd":"it would|had",
+  "we'd":"we would|had","they'd":"they would|had",
+  "it's":"it is|has","he's":"he is|has","she's":"she is|has"};
+// 可選字的比對：兩個字相同，或其中一邊是「a|b」而另一邊（或它的任一選項）有交集
+function tokEq(a, b){
+  if (a === b) return true;
+  if (!a.includes("|") && !b.includes("|")) return false;
+  const bs = b.split("|");
+  return a.split("|").some(x => bs.includes(x));
+}
+// 顯示或存「常錯的字」時用第一個選項（it's → it is，跟改版前一樣）
+function plainTok(t){ return t.split("|")[0]; }
 // V6-D4.1 電話號碼：只認明確的格式，轉成逐位的英文數字（8774-5656 → eight seven seven four five six five six）。
 // 標準答案與辨識結果都經過這裡，所以 8774-5656／87745656／8774 5656／逐位英文念法都會變成同一串。
 // 一般數字（2、15、50、100、年份 2026、時間 7:30）不套用，維持原本的處理
@@ -118,13 +137,13 @@ function align(t, h){
   for (let i=0;i<=n;i++) d[i][0] = i;
   for (let j=0;j<=m;j++) d[0][j] = j;
   for (let i=1;i<=n;i++) for (let j=1;j<=m;j++){
-    const c = t[i-1] === h[j-1] ? 0 : 1;
+    const c = tokEq(t[i-1], h[j-1]) ? 0 : 1;
     d[i][j] = Math.min(d[i-1][j-1] + c, d[i-1][j] + 1, d[i][j-1] + 1);
   }
   const ops = new Array(n).fill("del"), extra = [];
   let i = n, j = m;
   while (i > 0 || j > 0){
-    const same = i>0 && j>0 && t[i-1] === h[j-1];
+    const same = i>0 && j>0 && tokEq(t[i-1], h[j-1]);
     if (i>0 && j>0 && d[i][j] === d[i-1][j-1] + (same ? 0 : 1)){ ops[i-1] = same ? "ok" : "sub"; i--; j--; }
     else if (i>0 && d[i][j] === d[i-1][j] + 1){ ops[i-1] = "del"; i--; }
     else { extra.unshift(h[j-1]); j--; }

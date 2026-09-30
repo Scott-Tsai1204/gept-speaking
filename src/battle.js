@@ -65,7 +65,7 @@ function scoreSpoken(q, text){
   const pct = text ? Math.round(Math.max(0, 1 - dist / tokens.length) * 100) : 0;
   const wordOk = tw.map(() => true);
   tokens.forEach((x, k) => { if (ops[k] !== "ok") wordOk[x.wi] = false; });
-  return { tw, pct, wordOk, extra };
+  return { tw, pct, wordOk, extra: extra.map(plainTok) };
 }
 
 async function evaluate(q, r){
@@ -83,7 +83,7 @@ async function evaluate(q, r){
     S.combo = pass ? S.combo + 1 : 0;
     S.score += pct + (pass ? S.combo * 10 : 0);
     S.results[S.i] = { q, pct, wordOk, tw };
-    bumpMissed(tw.filter((_, k) => !wordOk[k]).map(w => tokenize(w).join(" ")).filter(Boolean));
+    bumpMissed(tw.filter((_, k) => !wordOk[k]).map(w => tokenize(w).map(plainTok).join(" ")).filter(Boolean));
     if (pass) clearMissedSentence(q); else bumpMissedSentence(q);
   }
 
