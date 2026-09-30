@@ -1466,6 +1466,32 @@
       "acceptedSuggestions": [
         "topic"
       ]
+    },
+    {
+      "id": "read_021",
+      "text": "In 2023, Jim Rowan introduced a new SUV model that combined smart technology, electric power, and a cool design. It quickly gained attention in the auto industry.",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C2U3-6",
+      "notes": "Page 27",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_022",
+      "text": "Alan Wang, who lives in New Taipei City, loves DIY. He spends his weekends making shelves, fixing stuff, and posting fun how-to videos online to inspire others to try it themselves.",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C2U3-6",
+      "notes": "Page 27",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "topic"
+      ]
     }
   ],
   "questions": [

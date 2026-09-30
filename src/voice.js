@@ -51,6 +51,7 @@ function normalizePhoneNumbers(s){
 function tokenize(s){
   s = s.toLowerCase().replace(/[’‘]/g, "'");
   s = normalizePhoneNumbers(s);
+  s = s.replace(/(?<![\d$,.:])(19|20)(\d\d)(?!\d|[,:.]\d)/g, (m, c, yy) => " " + yearWords(+m) + " "); // V6-D4.5 西元年
   s = s.replace(/(\d{1,2}):(\d{2})/g, (m,h,mi) => n2w(+h) + " " + (+mi === 0 ? "" : (+mi < 10 ? "oh " : "") + n2w(+mi)));
   s = s.replace(/(\d{1,2})(st|nd|rd|th)\b/g, (m,n) => ord(+n));
   s = s.replace(/\d{1,2}/g, m => n2w(+m));
@@ -69,7 +70,47 @@ function tokenize(s){
       if ((out[k] === "oh" || out[k] === "o") && (isDigitWord(out[k - 1]) || isDigitWord(out[k + 1]))) out[k] = "zero";
     }
   }
-  return normalizeDateTokens(mergeLetterAbbreviations(out));
+  return normalizeDateTokens(mergeLetterAbbreviations(normalizeYearTokens(out)));
+}
+
+/* ===== V6-D4.5 西元年（1900～2099）：數字轉成最常見的念法，辨識結果裡的其他念法再轉成同一種 =====
+   2023 → twenty twenty three（two thousand (and) twenty three 也轉成這樣）
+   2005 → two thousand five（twenty oh five、two thousand and five 也轉成這樣）
+   1999 → nineteen ninety nine；1905 → nineteen oh five（oh 會照號碼規則變成 zero，兩邊一致）；2000 → two thousand；1900 → nineteen hundred
+   標準答案逐字 tokenize 時只會看到數字（一個字），不會出現多字的念法，所以 wi 對應不受影響 */
+function yearWords(y){
+  const c = Math.floor(y / 100), yy = y % 100;
+  if (c === 20) return yy === 0 ? "two thousand" : yy < 10 ? "two thousand " + ONES[yy] : "twenty " + n2w(yy);
+  return yy === 0 ? "nineteen hundred" : yy < 10 ? "nineteen oh " + ONES[yy] : "nineteen " + n2w(yy);
+}
+// 從 i 開始讀一個 1～99 的英文數字：回傳 { n, len }，讀不到就 null
+function readNumber99(tokens, i){
+  const a = tokens[i], b = tokens[i + 1];
+  const t = TENS.indexOf(a), o = ONES.indexOf(b);
+  if (t >= 2){
+    if (o >= 1 && o <= 9) return { n: t * 10 + o, len: 2 };
+    return { n: t * 10, len: 1 };
+  }
+  const n = ONES.indexOf(a);
+  return n >= 1 ? { n, len: 1 } : null;
+}
+function normalizeYearTokens(tokens){
+  const out = [];
+  for (let k = 0; k < tokens.length; k++){
+    // two thousand (and) X
+    if (tokens[k] === "two" && tokens[k + 1] === "thousand"){
+      const j = tokens[k + 2] === "and" ? k + 3 : k + 2;
+      const x = readNumber99(tokens, j);
+      if (x){ out.push(...yearWords(2000 + x.n).split(" ")); k = j + x.len - 1; continue; }
+    }
+    // twenty oh X（oh 已經變成 zero）
+    if (tokens[k] === "twenty" && (tokens[k + 1] === "zero" || tokens[k + 1] === "oh")){
+      const d = ONES.indexOf(tokens[k + 2]);
+      if (d >= 1 && d <= 9){ out.push(...yearWords(2000 + d).split(" ")); k += 2; continue; }
+    }
+    out.push(tokens[k]);
+  }
+  return out;
 }
 
 // V6-D4.3 縮寫：語音辨識常把 DC 寫成 D.C. 或 D C（變成兩個單一字母），連續 2 個以上的單一字母合成一個字（D.C.／D C／DC → dc，
