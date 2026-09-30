@@ -1128,6 +1128,81 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_037",
+      "text": "Won't you go to the movies with us?",
+      "difficulty": "medium",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_070",
+      "text": "What big eyes you have!",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_071",
+      "text": "Should I believe what she says?",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_038",
+      "text": "How do you want to pay for this?",
+      "difficulty": "medium",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_039",
+      "text": "He thinks that he can watch it for free.",
+      "difficulty": "medium",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -1263,6 +1338,18 @@
       "sourceBook": "Access to GEPT",
       "sourcePage": "Page 31",
       "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_017",
+      "text": "Once upon a time, there was a giant who had a beautiful garden. Many children liked to play in his garden but he wasn't happy with it. He made them leave and built up high walls to keep them away. The Spring felt sorry for the children so she never visited the garden again. Only the Winter stayed with the lonely selfish giant.",
+      "topic": "stories",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedTopic": "stories",
       "acceptedSuggestions": [
         "topic"
       ]
