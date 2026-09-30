@@ -1203,6 +1203,81 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_072",
+      "text": "I'll give it a try.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 35",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_073",
+      "text": "You do look a little blue today.",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 35",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_040",
+      "text": "What do you think of our new classmate?",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 35",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_041",
+      "text": "By the way, is the restaurant still open?",
+      "difficulty": "medium",
+      "topic": "restaurant",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 35",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "restaurant",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_042",
+      "text": "Wouldn't you like to wait in the car?",
+      "difficulty": "medium",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 35",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -1350,6 +1425,18 @@
       "sourceBook": "Access to GEPT",
       "sourcePage": "Page 33",
       "suggestedTopic": "stories",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_018",
+      "text": "Computers have changed our lives in both a good way and a bad way. Speaking of the benefits of computers, we can get information very easily and quickly through the Internet. On the other hand, not all the information we find on the Net is true. That's why we have to double check over and over again before we can believe what we read on our computers.",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 35",
+      "suggestedTopic": "technology",
       "acceptedSuggestions": [
         "topic"
       ]
