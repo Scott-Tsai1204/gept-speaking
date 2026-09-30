@@ -1492,6 +1492,32 @@
       "acceptedSuggestions": [
         "topic"
       ]
+    },
+    {
+      "id": "read_023",
+      "text": "This summer, I got a part-time job at a small café not far from my home. I worked five days a week, taking orders, making drinks, cleaning tables, and talking to customers. I felt tired sometimes, but I enjoyed the work and learned something new every single day.",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C2U5-1",
+      "notes": "Page 31",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_024",
+      "text": "I have a cute dog named Lucky. He is small and has brown and white fur. Every day, I take him for a walk in the park near my house. He likes to run, bark, and play with other dogs. At home, he sleeps on my bed. I love him so much.",
+      "topic": "pets",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C2U5-2",
+      "notes": "Page 31",
+      "suggestedTopic": "pets",
+      "acceptedSuggestions": [
+        "topic"
+      ]
     }
   ],
   "questions": [
