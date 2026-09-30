@@ -903,6 +903,81 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_065",
+      "text": "Taiwan is a big island.",
+      "difficulty": "easy",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 27",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_066",
+      "text": "Please look it up in the dictionary.",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 27",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_029",
+      "text": "I grew up in a small village in southern Taiwan.",
+      "difficulty": "medium",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 27",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_030",
+      "text": "Could you tell me where the best restaurant around here is?",
+      "difficulty": "medium",
+      "topic": "restaurant",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 27",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "restaurant",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_031",
+      "text": "Don't be afraid to ask for directions.",
+      "difficulty": "medium",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 27",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -1002,6 +1077,18 @@
       "sourceBook": "Access to GEPT",
       "sourcePage": "Page 25",
       "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_014",
+      "text": "During the spring break, Tom and Jack went to the beach. When they got there, the beach was already full of people. Tom took off his T-shirt and jumped into the water. Jack just sat on his easy chair and watched lots of beautiful girls passing by. Both of them had so much fun on the beach.",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 27",
+      "suggestedTopic": "travel",
       "acceptedSuggestions": [
         "topic"
       ]
