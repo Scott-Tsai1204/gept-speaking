@@ -1518,6 +1518,19 @@
       "acceptedSuggestions": [
         "topic"
       ]
+    },
+    {
+      "id": "read_025",
+      "text": "On weekends, I enjoy relaxing and spending time with my family and friends. I usually stay home, watch movies, listen to music, or read a good book. Sometimes I invite my friends to ride bikes together or go to the park in the neighborhood to play basketball. These simple things make me feel happy, calm, and ready for a new week.",
+      "topic": "weekend",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C2U5-3",
+      "notes": "Page 32",
+      "suggestedTopic": "weekend",
+      "acceptedSuggestions": [
+        "topic"
+      ]
     }
   ],
   "questions": [
