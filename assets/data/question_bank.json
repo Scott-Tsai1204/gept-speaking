@@ -528,6 +528,756 @@
       "text": "It normally takes about forty minutes to drive from my house to downtown.",
       "difficulty": "hard",
       "topic": "transportation"
+    },
+    {
+      "id": "repeat_easy_049",
+      "text": "What time do you get up on Sundays?",
+      "difficulty": "easy",
+      "topic": "daily_routine",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 17",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_routine",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_050",
+      "text": "Would you like some tea or coffee?",
+      "difficulty": "easy",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 17",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_051",
+      "text": "I've been to America several times.",
+      "difficulty": "easy",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 17",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_052",
+      "text": "What a beautiful house you have!",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 17",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_021",
+      "text": "I'd like red, green, yellow, and blue crayons.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 17",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_022",
+      "text": "John can run much faster than his sister.",
+      "difficulty": "medium",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 19",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_021",
+      "text": "If you have any questions, please call me at 8774-5656.",
+      "difficulty": "hard",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 19",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_053",
+      "text": "I don't think he can come tomorrow.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 19",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_054",
+      "text": "Nice weather, isn't it?",
+      "difficulty": "easy",
+      "topic": "weather",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 19",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "weather",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_055",
+      "text": "Can't you wait a minute?",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 19",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_023",
+      "text": "You're the most beautiful girl I've ever seen!",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 21",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_056",
+      "text": "What's the matter with the refrigerator?",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 21",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_057",
+      "text": "How much is this skirt?",
+      "difficulty": "easy",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 21",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_024",
+      "text": "My mother can sing well, but she can't cook.",
+      "difficulty": "medium",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 21",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_058",
+      "text": "Halloween is on October 31.",
+      "difficulty": "easy",
+      "topic": "holidays",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 21",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_025",
+      "text": "Why don't you join us for dinner tomorrow?",
+      "difficulty": "medium",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 23",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_026",
+      "text": "We're going to have a party for your birthday.",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 23",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_027",
+      "text": "Drink a lot of water and get some sleep.",
+      "difficulty": "medium",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 23",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_059",
+      "text": "Is there a public restroom around here?",
+      "difficulty": "easy",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 23",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_028",
+      "text": "My mom read me a funny story last night.",
+      "difficulty": "medium",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 23",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_060",
+      "text": "I visited my grandparents last weekend.",
+      "difficulty": "easy",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 25",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_061",
+      "text": "What do you need for breakfast?",
+      "difficulty": "easy",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 25",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_062",
+      "text": "Did you work around the house?",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 25",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_063",
+      "text": "Don't eat too many desserts.",
+      "difficulty": "easy",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 25",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_064",
+      "text": "I have to get up early tomorrow.",
+      "difficulty": "easy",
+      "topic": "daily_routine",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 25",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_routine",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_065",
+      "text": "Taiwan is a big island.",
+      "difficulty": "easy",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 27",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_066",
+      "text": "Please look it up in the dictionary.",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 27",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_029",
+      "text": "I grew up in a small village in southern Taiwan.",
+      "difficulty": "medium",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 27",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_030",
+      "text": "Could you tell me where the best restaurant around here is?",
+      "difficulty": "medium",
+      "topic": "restaurant",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 27",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "restaurant",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_031",
+      "text": "Don't be afraid to ask for directions.",
+      "difficulty": "medium",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 27",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_032",
+      "text": "Have you ever been to any foreign countries?",
+      "difficulty": "medium",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 29",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_022",
+      "text": "Which country do you want to go to, Japan, Britain or Canada?",
+      "difficulty": "hard",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 29",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_023",
+      "text": "She's a terrific career woman, but a terrible housewife.",
+      "difficulty": "hard",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 29",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_033",
+      "text": "That'll be fun, won't it?",
+      "difficulty": "medium",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 29",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_034",
+      "text": "I'm sick and tired of taking so many tests.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 29",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_035",
+      "text": "He took out the trash and walked the dog.",
+      "difficulty": "medium",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 31",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_067",
+      "text": "I like it because it's nice.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 31",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_036",
+      "text": "Could you tell him to pick us up at 10:40?",
+      "difficulty": "medium",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 31",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_068",
+      "text": "I should've said something.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 31",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_069",
+      "text": "How do you spell your name?",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 31",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_037",
+      "text": "Won't you go to the movies with us?",
+      "difficulty": "medium",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_070",
+      "text": "What big eyes you have!",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_071",
+      "text": "Should I believe what she says?",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_038",
+      "text": "How do you want to pay for this?",
+      "difficulty": "medium",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_039",
+      "text": "He thinks that he can watch it for free.",
+      "difficulty": "medium",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_072",
+      "text": "I'll give it a try.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 35",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_073",
+      "text": "You do look a little blue today.",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 35",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_040",
+      "text": "What do you think of our new classmate?",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 35",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_041",
+      "text": "By the way, is the restaurant still open?",
+      "difficulty": "medium",
+      "topic": "restaurant",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 35",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "restaurant",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_042",
+      "text": "Wouldn't you like to wait in the car?",
+      "difficulty": "medium",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 35",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -570,6 +1320,217 @@
       "id": "read_008",
       "text": "This weekend, I want to visit my grandmother. She lives in the countryside. I will bring her some fruit.",
       "topic": "family"
+    },
+    {
+      "id": "read_009",
+      "text": "Jenny and I had been best friends for many years. We talked about everything and did lots of things together. But something has changed since last Friday. She won't speak to me or answer my calls. She doesn't even want to see me. I really don't know what's wrong between us.",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 17",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_010",
+      "text": "Mary and Kate were two lazy sisters. They never helped their mom clean the house or wash the dishes. They said they were too busy with their homework, but the truth was that they always had time for watching TV and playing computer games. Their mother was so angry that she decided to leave the family for a few days.",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 19",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_011",
+      "text": "It was a beautiful night! There was a full moon in the sky. The stars shone brightly. Ken and Barbie were taking a walk in the park. Suddenly, Ken took Barbie's hand and said, \"Will you marry me, my dear?\" Hearing this, Barbie just couldn't wait to say \"yes\" and cried tears of happiness.",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 21",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_012",
+      "text": "Sandy is a member of the Lin family. She is six years old and comes from England. Now she is a student at DC school, where she is learning how to behave herself. The Lins miss Sandy very much so they visit her every weekend. Every time when Sandy sees them, she always barks happily.",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 23",
+      "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_013",
+      "text": "Mrs. Simpson collects things. She likes coins and stamps the most. Sometimes she spends thousands of dollars buying an old stamp. Mr. Simpson thinks this is really crazy and stupid. He just doesn't understand why a tiny piece of paper can cost so much! But he still respects his wife's hobby.",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 25",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_014",
+      "text": "During the spring break, Tom and Jack went to the beach. When they got there, the beach was already full of people. Tom took off his T-shirt and jumped into the water. Jack just sat on his easy chair and watched lots of beautiful girls passing by. Both of them had so much fun on the beach.",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 27",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_015",
+      "text": "Rosa's Café is a very popular place to eat. People love to go there because the food is delicious, and the service is excellent. By the way, Rosa is the name of the owner's daughter. She is young, pretty, and always has a smile for every customer. That's also why Rosa's Café is so crowded all the time!",
+      "topic": "restaurant",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 29",
+      "suggestedTopic": "restaurant",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_016",
+      "text": "Today is December 22nd. Everyone in my family is busy decorating our house for Christmas. My parents have already put a lot of presents under the Christmas tree in the living room. Christmas is a big day. Christmas Eve is important too. People usually have a big dinner that day. This year we're going to have a delicious dinner at a restaurant. My mother is happy about this because she doesn't need to cook.",
+      "topic": "holidays",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 31",
+      "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_017",
+      "text": "Once upon a time, there was a giant who had a beautiful garden. Many children liked to play in his garden but he wasn't happy with it. He made them leave and built up high walls to keep them away. The Spring felt sorry for the children so she never visited the garden again. Only the Winter stayed with the lonely selfish giant.",
+      "topic": "stories",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 33",
+      "suggestedTopic": "stories",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_018",
+      "text": "Computers have changed our lives in both a good way and a bad way. Speaking of the benefits of computers, we can get information very easily and quickly through the Internet. On the other hand, not all the information we find on the Net is true. That's why we have to double check over and over again before we can believe what we read on our computers.",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 35",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_019",
+      "text": "My sister and I rode our bicycles to the garden, where we found a football hidden behind the bushes. We met a local student who had just opened a jar of pickles. He gave us the pickles, and we gave him the football. It was a good deal, and we all had fun together.",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C2U2-6",
+      "notes": "Page 23",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_020",
+      "text": "The big guy from school worked all day to clean the mountain trail. He found an empty bottle next to a rugby ball and a cotton cap. Later, he played with a black cat near the space exhibit and added new signs for visitors.",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C2U2-6",
+      "notes": "Page 23",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_021",
+      "text": "In 2023, Jim Rowan introduced a new SUV model that combined smart technology, electric power, and a cool design. It quickly gained attention in the auto industry.",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C2U3-6",
+      "notes": "Page 27",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_022",
+      "text": "Alan Wang, who lives in New Taipei City, loves DIY. He spends his weekends making shelves, fixing stuff, and posting fun how-to videos online to inspire others to try it themselves.",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C2U3-6",
+      "notes": "Page 27",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_023",
+      "text": "This summer, I got a part-time job at a small café not far from my home. I worked five days a week, taking orders, making drinks, cleaning tables, and talking to customers. I felt tired sometimes, but I enjoyed the work and learned something new every single day.",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C2U5-1",
+      "notes": "Page 31",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_024",
+      "text": "I have a cute dog named Lucky. He is small and has brown and white fur. Every day, I take him for a walk in the park near my house. He likes to run, bark, and play with other dogs. At home, he sleeps on my bed. I love him so much.",
+      "topic": "pets",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C2U5-2",
+      "notes": "Page 31",
+      "suggestedTopic": "pets",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_025",
+      "text": "On weekends, I enjoy relaxing and spending time with my family and friends. I usually stay home, watch movies, listen to music, or read a good book. Sometimes I invite my friends to ride bikes together or go to the park in the neighborhood to play basketball. These simple things make me feel happy, calm, and ready for a new week.",
+      "topic": "weekend",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C2U5-3",
+      "notes": "Page 32",
+      "suggestedTopic": "weekend",
+      "acceptedSuggestions": [
+        "topic"
+      ]
     }
   ],
   "questions": [

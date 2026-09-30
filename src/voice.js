@@ -9,12 +9,53 @@ function ord(n){
   const o = ORD_IRR[last] || (last.endsWith("y") ? last.slice(0,-1) + "ieth" : last + "th");
   return [...w, o].join(" ");
 }
-const CONTR = {"i'm":"i am","it's":"it is","he's":"he is","she's":"she is","that's":"that is","what's":"what is","there's":"there is","here's":"here is","we're":"we are","you're":"you are","they're":"they are","don't":"do not","doesn't":"does not","didn't":"did not","can't":"can not","cannot":"can not","isn't":"is not","aren't":"are not","wasn't":"was not","weren't":"were not","won't":"will not","i'll":"i will","i've":"i have","let's":"let us"};
+const CONTR = {"i'm":"i am","that's":"that is","what's":"what is","there's":"there is","here's":"here is","we're":"we are","you're":"you are","they're":"they are","don't":"do not","doesn't":"does not","didn't":"did not","can't":"can not","cannot":"can not","isn't":"is not","aren't":"are not","wasn't":"was not","weren't":"were not","won't":"will not","i'll":"i will","i've":"i have","let's":"let us",
+  // V6-D4.4 縮寫 ↔ 完整形式：語音辨識有時寫縮寫、有時寫成完整兩個字，兩邊都展開成完整形式再比對
+  "couldn't":"could not","shouldn't":"should not","wouldn't":"would not","mustn't":"must not",
+  "haven't":"have not","hasn't":"has not","hadn't":"had not",
+  "should've":"should have","could've":"could have","would've":"would have","must've":"must have","might've":"might have",
+  "you've":"you have","we've":"we have","they've":"they have",
+  "you'll":"you will","he'll":"he will","she'll":"she will","it'll":"it will","we'll":"we will","they'll":"they will","that'll":"that will",
+  // 有歧義的縮寫展開成「可選字」（would|had）：對齊時跟其中任何一個相同就算對（見 tokEq）
+  "i'd":"i would|had","you'd":"you would|had","he'd":"he would|had","she'd":"she would|had","it'd":"it would|had",
+  "we'd":"we would|had","they'd":"they would|had",
+  "it's":"it is|has","he's":"he is|has","she's":"she is|has"};
+// 可選字的比對：兩個字相同，或其中一邊是「a|b」而另一邊（或它的任一選項）有交集
+function tokEq(a, b){
+  if (a === b) return true;
+  if (!a.includes("|") && !b.includes("|")) return false;
+  const bs = b.split("|");
+  return a.split("|").some(x => bs.includes(x));
+}
+// 顯示或存「常錯的字」時用第一個選項（it's → it is，跟改版前一樣）
+function plainTok(t){ return t.split("|")[0]; }
+// V6-D4.1 電話號碼：只認明確的格式，轉成逐位的英文數字（8774-5656 → eight seven seven four five six five six）。
+// 標準答案與辨識結果都經過這裡，所以 8774-5656／87745656／8774 5656／逐位英文念法都會變成同一串。
+// 一般數字（2、15、50、100、年份 2026、時間 7:30）不套用，維持原本的處理
+const DIGIT_WORDS = ONES.slice(0, 10);
+const spellDigits = str => " " + str.replace(/\D/g, "").split("").map(d => DIGIT_WORDS[+d]).join(" ") + " ";
+function normalizePhoneNumbers(s){
+  // 1) 分組的號碼：02-8774-5656、(02) 8774 5656、8774-5656、8774 5656。有 - . ( ) 要 6 位以上；只用空白分組要 7 位以上；
+  //    每組都是西元年（2019-2020、2019 2020）不算
+  //    （每組 2～6 位不限定怎麼分：語音辨識有時會分成 877-45656 這種奇怪的組，也要認得）
+  s = s.replace(/(?<![\d$,.])\(?\d{2,6}\)?(?:[-.\s]\d{2,6}){1,3}(?![\d,])/g, m => {
+    const digits = m.replace(/\D/g, "");
+    const hasSep = /[-.()]/.test(m);
+    const years = m.match(/\d+/g).every(g => /^(19|20)\d\d$/.test(g));
+    return !years && ((hasSep && digits.length >= 6) || (!hasSep && digits.length >= 7)) ? spellDigits(m) : m;
+  });
+  // 2) 連在一起的 7～12 位數字（金額會有 $ 或千分位逗號，不會被當成電話）
+  s = s.replace(/(?<![\d$,.])\d{7,12}(?![\d,])/g, spellDigits);
+  return s;
+}
 function tokenize(s){
   s = s.toLowerCase().replace(/[’‘]/g, "'");
+  s = normalizePhoneNumbers(s);
+  s = s.replace(/(?<![\d$,.:])(19|20)(\d\d)(?!\d|[,:.]\d)/g, (m, c, yy) => " " + yearWords(+m) + " "); // V6-D4.5 西元年
   s = s.replace(/(\d{1,2}):(\d{2})/g, (m,h,mi) => n2w(+h) + " " + (+mi === 0 ? "" : (+mi < 10 ? "oh " : "") + n2w(+mi)));
   s = s.replace(/(\d{1,2})(st|nd|rd|th)\b/g, (m,n) => ord(+n));
   s = s.replace(/\d{1,2}/g, m => n2w(+m));
+  s = s.replace(/\b(?:[a-z]\.){2,}/g, m => m.replace(/\./g, "") + " "); // V6-D4.3：有點的縮寫 D.C.／U.S.A. 先接起來（dc、usa）
   s = s.replace(/[^a-z'\s]/g, " ");
   const out = [];
   s.split(/\s+/).filter(Boolean).forEach(w => {
@@ -22,6 +63,111 @@ function tokenize(s){
     if (!w) return;
     (CONTR[w] ? CONTR[w].split(" ") : [w]).forEach(x => out.push(x));
   });
+  // 念號碼時常把 0 說成「oh」：緊鄰逐位數字的 oh／o 視為 zero（號碼開頭、結尾的 0 也算；標準答案與辨識結果同樣處理）
+  const isDigitWord = w => DIGIT_WORDS.includes(w);
+  for (let pass = 0; pass < 2; pass++){ // 跑兩次，連續的「oh oh」也能接上
+    for (let k = 0; k < out.length; k++){
+      if ((out[k] === "oh" || out[k] === "o") && (isDigitWord(out[k - 1]) || isDigitWord(out[k + 1]))) out[k] = "zero";
+    }
+  }
+  return normalizeDateTokens(mergeLetterAbbreviations(normalizeYearTokens(out)));
+}
+
+/* ===== V6-D4.5 西元年（1900～2099）：數字轉成最常見的念法，辨識結果裡的其他念法再轉成同一種 =====
+   2023 → twenty twenty three（two thousand (and) twenty three 也轉成這樣）
+   2005 → two thousand five（twenty oh five、two thousand and five 也轉成這樣）
+   1999 → nineteen ninety nine；1905 → nineteen oh five（oh 會照號碼規則變成 zero，兩邊一致）；2000 → two thousand；1900 → nineteen hundred
+   標準答案逐字 tokenize 時只會看到數字（一個字），不會出現多字的念法，所以 wi 對應不受影響 */
+function yearWords(y){
+  const c = Math.floor(y / 100), yy = y % 100;
+  if (c === 20) return yy === 0 ? "two thousand" : yy < 10 ? "two thousand " + ONES[yy] : "twenty " + n2w(yy);
+  return yy === 0 ? "nineteen hundred" : yy < 10 ? "nineteen oh " + ONES[yy] : "nineteen " + n2w(yy);
+}
+// 從 i 開始讀一個 1～99 的英文數字：回傳 { n, len }，讀不到就 null
+function readNumber99(tokens, i){
+  const a = tokens[i], b = tokens[i + 1];
+  const t = TENS.indexOf(a), o = ONES.indexOf(b);
+  if (t >= 2){
+    if (o >= 1 && o <= 9) return { n: t * 10 + o, len: 2 };
+    return { n: t * 10, len: 1 };
+  }
+  const n = ONES.indexOf(a);
+  return n >= 1 ? { n, len: 1 } : null;
+}
+function normalizeYearTokens(tokens){
+  const out = [];
+  for (let k = 0; k < tokens.length; k++){
+    // two thousand (and) X
+    if (tokens[k] === "two" && tokens[k + 1] === "thousand"){
+      const j = tokens[k + 2] === "and" ? k + 3 : k + 2;
+      const x = readNumber99(tokens, j);
+      if (x){ out.push(...yearWords(2000 + x.n).split(" ")); k = j + x.len - 1; continue; }
+    }
+    // twenty oh X（oh 已經變成 zero）
+    if (tokens[k] === "twenty" && (tokens[k + 1] === "zero" || tokens[k + 1] === "oh")){
+      const d = ONES.indexOf(tokens[k + 2]);
+      if (d >= 1 && d <= 9){ out.push(...yearWords(2000 + d).split(" ")); k += 2; continue; }
+    }
+    out.push(tokens[k]);
+  }
+  return out;
+}
+
+// V6-D4.3 縮寫：語音辨識常把 DC 寫成 D.C. 或 D C（變成兩個單一字母），連續 2 個以上的單一字母合成一個字（D.C.／D C／DC → dc，
+// U.S.A. → usa）。a 和 I 本身是英文單字，不參與合併
+const isLetterToken = w => w.length === 1 && w >= "a" && w <= "z" && w !== "a" && w !== "i";
+function mergeLetterAbbreviations(tokens){
+  const out = [];
+  for (let k = 0; k < tokens.length; k++){
+    if (isLetterToken(tokens[k]) && isLetterToken(tokens[k + 1])){
+      let w = "";
+      while (k < tokens.length && isLetterToken(tokens[k])) w += tokens[k++];
+      out.push(w); k--;
+    } else out.push(tokens[k]);
+  }
+  return out;
+}
+
+/* ===== V6-D4.2 日期：只有「月份＋日期」（或「日期＋of＋月份」）的前後文，日期的基數與序數才視為相同 =====
+   October 31／October 31st／October thirty-one／October thirty-first 都變成「october thirty first」；
+   the 31st of October／31 October 也一樣。其他地方的數字（I have thirty-one books）完全不動。
+   在「已切好的字詞序列」上處理：基數和序數的字數永遠相同（thirty one ↔ thirty first、twenty ↔ twentieth），
+   所以標準答案逐字正規化後串起來再套用，也不會打亂「哪個字對應畫面上哪個字」 */
+const MONTHS = ["january","february","march","april","may","june","july","august","september","october","november","december",
+  "jan","feb","mar","apr","jun","jul","aug","sep","sept","oct","nov","dec"];
+const DAY_WORD = {}; // 日期用字 → 數值（基數與序數都收）
+for (let n = 1; n <= 19; n++){ DAY_WORD[ONES[n]] = n; DAY_WORD[ord(n)] = n; }
+DAY_WORD.twenty = 20; DAY_WORD.twentieth = 20; DAY_WORD.thirty = 30; DAY_WORD.thirtieth = 30;
+// 從 i 開始讀一個 1～31 的日期：回傳 { n, len }（len＝用掉幾個字），讀不到就 null
+function readDay(tokens, i){
+  const a = tokens[i], b = tokens[i + 1];
+  if ((a === "twenty" || a === "thirty") && b && DAY_WORD[b] >= 1 && DAY_WORD[b] <= 9 && b !== "ten"){
+    const n = (a === "twenty" ? 20 : 30) + DAY_WORD[b];
+    if (n <= 31) return { n, len: 2 };
+  }
+  if (a in DAY_WORD) return { n: DAY_WORD[a], len: 1 };
+  return null;
+}
+// may／march 在「I may…」「we march…」這種用法時不是月份
+const NOT_MONTH_BEFORE = new Set(["i","you","we","they","he","she","it","who","that","which","can","will","to"]);
+const isMonthAt = (tokens, i) => MONTHS.includes(tokens[i]) && !((tokens[i] === "may" || tokens[i] === "march") && NOT_MONTH_BEFORE.has(tokens[i - 1]));
+function normalizeDateTokens(tokens){
+  const out = tokens.slice();
+  const toOrdinal = (i, d) => { ord(d.n).split(" ").forEach((w, k) => { out[i + k] = w; }); };
+  for (let i = 0; i < out.length; i++){
+    if (isMonthAt(out, i)){
+      // October 31 / October the 31st
+      const j = out[i + 1] === "the" ? i + 2 : i + 1;
+      const d = readDay(out, j);
+      if (d) toOrdinal(j, d);
+    } else {
+      // the 31st of October / 31 October
+      const d = readDay(out, i);
+      if (!d) continue;
+      const k = i + d.len, m = out[k] === "of" ? k + 1 : k;
+      if (isMonthAt(out, m)) toOrdinal(i, d);
+    }
+  }
   return out;
 }
 
@@ -32,13 +178,13 @@ function align(t, h){
   for (let i=0;i<=n;i++) d[i][0] = i;
   for (let j=0;j<=m;j++) d[0][j] = j;
   for (let i=1;i<=n;i++) for (let j=1;j<=m;j++){
-    const c = t[i-1] === h[j-1] ? 0 : 1;
+    const c = tokEq(t[i-1], h[j-1]) ? 0 : 1;
     d[i][j] = Math.min(d[i-1][j-1] + c, d[i-1][j] + 1, d[i][j-1] + 1);
   }
   const ops = new Array(n).fill("del"), extra = [];
   let i = n, j = m;
   while (i > 0 || j > 0){
-    const same = i>0 && j>0 && t[i-1] === h[j-1];
+    const same = i>0 && j>0 && tokEq(t[i-1], h[j-1]);
     if (i>0 && j>0 && d[i][j] === d[i-1][j-1] + (same ? 0 : 1)){ ops[i-1] = same ? "ok" : "sub"; i--; j--; }
     else if (i>0 && d[i][j] === d[i-1][j] + 1){ ops[i-1] = "del"; i--; }
     else { extra.unshift(h[j-1]); j--; }
@@ -159,11 +305,13 @@ function recordAudio({ maxMs = 12000, silenceMs = 1500, minMs = 600, silenceStop
   });
 }
 
-/* ===== V6-D3 問答 15 秒作答時間（GEPT 初級口說「回答問題」每題 15 秒） =====
-   問答挑戰、Boss 問答回合、英檢口說練習的問答都呼叫 listenAnswer()，複誦／朗讀不用。
-   倒數從「題目播完、開始錄音」那一刻起算；時間到自動停止錄音；可按「我回答完了」提早結束。 */
+/* ===== 限時作答（倒數＋提早結束按鈕），問答與朗讀共用 =====
+   V6-D3 問答：每題 15 秒（GEPT 初級口說「回答問題」）——問答挑戰、Boss 問答回合、英檢口說練習的問答都呼叫 listenAnswer()
+   V6-D4 朗讀：最長 60 秒——闖關朗讀關、Boss 朗讀回合、英檢口說練習的朗讀都呼叫 listenRead()
+   複誦不用（仍是停頓自動送出）。倒數從「開始錄音」那一刻起算；時間到自動停止錄音；可按按鈕提早結束。 */
 const ANSWER_SECONDS = 15;
-function mountAnswerTimer(){
+const READ_SECONDS = 60;
+function mountAnswerTimer(seconds = ANSWER_SECONDS, doneLabel = "我回答完了"){
   const old = $("#answerTimer"); if (old) old.remove();
   const ring = $("#ring");
   const el = document.createElement("div");
@@ -171,19 +319,19 @@ function mountAnswerTimer(){
   el.className = "answer-timer" + (app.querySelector(".practice-stage") ? " large" : "");
   el.setAttribute("role", "timer");
   el.hidden = true;
-  el.innerHTML = `<div class="at-num">${ANSWER_SECONDS}</div><div class="at-label">秒剩餘</div>
-    <div class="at-bar"><i></i></div><button type="button" class="btn line at-done">我回答完了</button>`;
+  el.innerHTML = `<div class="at-num">${seconds}</div><div class="at-label">秒剩餘</div>
+    <div class="at-bar"><i></i></div><button type="button" class="btn line at-done">${doneLabel}</button>`;
   if (ring) ring.insertAdjacentElement("afterend", el);
   const num = el.querySelector(".at-num"), label = el.querySelector(".at-label"), bar = el.querySelector(".at-bar i"), done = el.querySelector(".at-done");
   done.onclick = () => { if (activeRec && activeRec.state !== "inactive") activeRec.stop(); }; // 提早結束：跟點圓圈一樣
   let shown = null;
   const paint = ms => {
-    const left = Math.max(0, ANSWER_SECONDS - ms / 1000), n = Math.ceil(left);
-    bar.style.width = (left / ANSWER_SECONDS * 100) + "%";
+    const left = Math.max(0, seconds - ms / 1000), n = Math.ceil(left);
+    bar.style.width = (left / seconds * 100) + "%";
     if (n !== shown){
       shown = n;
       num.textContent = n;
-      el.dataset.stage = n > 5 ? "" : n > 2 ? "warn" : "final"; // 15～6 一般、5～3 提醒、2～0 最後
+      el.dataset.stage = n > 5 ? "" : n > 2 ? "warn" : "final"; // 最後 5～3 秒提醒、2～0 秒最後階段
       el.setAttribute("aria-label", `剩餘 ${n} 秒`);
     }
   };
@@ -191,21 +339,26 @@ function mountAnswerTimer(){
     start(){ el.hidden = false; paint(0); },
     tick: paint,
     end(ms){
-      const timeUp = ms >= ANSWER_SECONDS * 1000 - 30;
-      if (timeUp){ paint(ANSWER_SECONDS * 1000); label.textContent = "時間到"; }
+      const timeUp = ms >= seconds * 1000 - 30;
+      if (timeUp){ paint(seconds * 1000); label.textContent = "時間到"; }
       else label.textContent = "作答結束";
       el.dataset.ended = timeUp ? "timeup" : "done";
       done.remove();
     }
   };
 }
-async function listenAnswer(){
-  const ui = mountAnswerTimer();
-  return listen(ANSWER_SECONDS * 1000, true, {
-    silenceStop: false, requireVoice: true,
-    sayHint: `請在 ${ANSWER_SECONDS} 秒內回答，說完可以按「我回答完了」`,
+function listenTimed(seconds, doneLabel, sayHint, withTimings){
+  const ui = mountAnswerTimer(seconds, doneLabel);
+  return listen(seconds * 1000, withTimings, {
+    silenceStop: false, requireVoice: true, sayHint,
     onStart: ui.start, onTick: ui.tick, onEnd: ui.end
   });
+}
+async function listenAnswer(){
+  return listenTimed(ANSWER_SECONDS, "我回答完了", `請在 ${ANSWER_SECONDS} 秒內回答，說完可以按「我回答完了」`, true);
+}
+async function listenRead(){
+  return listenTimed(READ_SECONDS, "我朗讀完了", `請在 ${READ_SECONDS} 秒內唸完，唸完可以按「我朗讀完了」`, false);
 }
 async function transcribeAudio(blob, withTimings){
   try {

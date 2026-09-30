@@ -58,12 +58,14 @@ function scoreSpoken(q, text){
   const tw = q.split(/\s+/);
   const tokens = [];
   tw.forEach((w, wi) => tokenize(w).forEach(t => tokens.push({ t, wi })));
+  // 標準答案是逐字正規化的（才能標出哪個字錯），日期這種要看前後文的規則在串起來後再套一次；字數不變，wi 對應不受影響
+  normalizeDateTokens(tokens.map(x => x.t)).forEach((t, k) => { tokens[k].t = t; });
   const h = tokenize(text || "");
   const { ops, extra, dist } = align(tokens.map(x => x.t), h);
   const pct = text ? Math.round(Math.max(0, 1 - dist / tokens.length) * 100) : 0;
   const wordOk = tw.map(() => true);
   tokens.forEach((x, k) => { if (ops[k] !== "ok") wordOk[x.wi] = false; });
-  return { tw, pct, wordOk, extra };
+  return { tw, pct, wordOk, extra: extra.map(plainTok) };
 }
 
 async function evaluate(q, r){
@@ -81,7 +83,7 @@ async function evaluate(q, r){
     S.combo = pass ? S.combo + 1 : 0;
     S.score += pct + (pass ? S.combo * 10 : 0);
     S.results[S.i] = { q, pct, wordOk, tw };
-    bumpMissed(tw.filter((_, k) => !wordOk[k]).map(w => tokenize(w).join(" ")).filter(Boolean));
+    bumpMissed(tw.filter((_, k) => !wordOk[k]).map(w => tokenize(w).map(plainTok).join(" ")).filter(Boolean));
     if (pass) clearMissedSentence(q); else bumpMissedSentence(q);
   }
 
