@@ -1440,6 +1440,32 @@
       "acceptedSuggestions": [
         "topic"
       ]
+    },
+    {
+      "id": "read_019",
+      "text": "My sister and I rode our bicycles to the garden, where we found a football hidden behind the bushes. We met a local student who had just opened a jar of pickles. He gave us the pickles, and we gave him the football. It was a good deal, and we all had fun together.",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C2U2-6",
+      "notes": "Page 23",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_020",
+      "text": "The big guy from school worked all day to clean the mountain trail. He found an empty bottle next to a rugby ball and a cotton cap. Later, he played with a black cat near the space exhibit and added new signs for visitors.",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "Book A",
+      "sourcePage": "P1C2U2-6",
+      "notes": "Page 23",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "topic"
+      ]
     }
   ],
   "questions": [
