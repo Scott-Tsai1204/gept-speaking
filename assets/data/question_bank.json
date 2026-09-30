@@ -828,6 +828,81 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_060",
+      "text": "I visited my grandparents last weekend.",
+      "difficulty": "easy",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 25",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_061",
+      "text": "What do you need for breakfast?",
+      "difficulty": "easy",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 25",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_062",
+      "text": "Did you work around the house?",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 25",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_063",
+      "text": "Don't eat too many desserts.",
+      "difficulty": "easy",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 25",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_064",
+      "text": "I have to get up early tomorrow.",
+      "difficulty": "easy",
+      "topic": "daily_routine",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 25",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_routine",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -915,6 +990,18 @@
       "sourceBook": "Access to GEPT",
       "sourcePage": "Page 23",
       "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_013",
+      "text": "Mrs. Simpson collects things. She likes coins and stamps the most. Sometimes she spends thousands of dollars buying an old stamp. Mr. Simpson thinks this is really crazy and stupid. He just doesn't understand why a tiny piece of paper can cost so much! But he still respects his wife's hobby.",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "Access to GEPT",
+      "sourcePage": "Page 25",
+      "suggestedTopic": "hobbies",
       "acceptedSuggestions": [
         "topic"
       ]
