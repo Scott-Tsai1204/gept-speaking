@@ -1278,6 +1278,2358 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_074",
+      "text": "There's someone at the door.",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 10",
+      "notes": "CD 1-2",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_075",
+      "text": "Don't forget to do your homework.",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 10",
+      "notes": "CD 1-2",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_043",
+      "text": "Who did you go to the movie with?",
+      "difficulty": "medium",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 10",
+      "notes": "CD 1-2",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_076",
+      "text": "Do you like to play basketball?",
+      "difficulty": "easy",
+      "topic": "sports",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 10",
+      "notes": "CD 1-2",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "sports",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_024",
+      "text": "I'll have spaghetti, and my wife would like a steak.",
+      "difficulty": "hard",
+      "topic": "restaurant",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 10",
+      "notes": "CD 1-2",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "restaurant",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_077",
+      "text": "Whose eraser is this?",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 11",
+      "notes": "CD 1-3",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_025",
+      "text": "Every Christmas, the company gives its employees a big Christmas bonus.",
+      "difficulty": "hard",
+      "topic": "holidays",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 11",
+      "notes": "CD 1-3",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_044",
+      "text": "Raise your hand if you want to ask a question.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 11",
+      "notes": "CD 1-3",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_078",
+      "text": "Do you go to the library often?",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 11",
+      "notes": "CD 1-3",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_079",
+      "text": "She usually gets up early to exercise.",
+      "difficulty": "easy",
+      "topic": "daily_routine",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 11",
+      "notes": "CD 1-3",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_routine",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_045",
+      "text": "You can find my car keys in my jacket pocket.",
+      "difficulty": "medium",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 12",
+      "notes": "CD 1-4",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_046",
+      "text": "Of course my computer costs more than my camera.",
+      "difficulty": "medium",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 12",
+      "notes": "CD 1-4",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_080",
+      "text": "Could you be quiet, please?",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 12",
+      "notes": "CD 1-4",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_081",
+      "text": "Do you like playing chess?",
+      "difficulty": "easy",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 12",
+      "notes": "CD 1-4",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_047",
+      "text": "Frank is eating a ham and cheese sandwich.",
+      "difficulty": "medium",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 12",
+      "notes": "CD 1-4",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_026",
+      "text": "Just go straight and you'll see it on your right-hand side.",
+      "difficulty": "hard",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 13",
+      "notes": "CD 1-5",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_048",
+      "text": "This is the t-shirt I received for my graduation.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 13",
+      "notes": "CD 1-5",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_082",
+      "text": "When did you get your new car?",
+      "difficulty": "easy",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 13",
+      "notes": "CD 1-5",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_049",
+      "text": "Then the dog jumped up and caught the ball.",
+      "difficulty": "medium",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 13",
+      "notes": "CD 1-5",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_050",
+      "text": "The book is on the shelf where it always is.",
+      "difficulty": "medium",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 14",
+      "notes": "CD 1-6",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_051",
+      "text": "Suddenly, the man raced out of the bank.",
+      "difficulty": "medium",
+      "topic": "stories",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 14",
+      "notes": "CD 1-6",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "stories",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_052",
+      "text": "What is the name of the man with the briefcase?",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 14",
+      "notes": "CD 1-6",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_083",
+      "text": "Her purse is purple and yellow.",
+      "difficulty": "easy",
+      "topic": "clothing",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 14",
+      "notes": "CD 1-6",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "clothing",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_084",
+      "text": "How many countries are there in Africa?",
+      "difficulty": "easy",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 14",
+      "notes": "CD 1-6",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_053",
+      "text": "I love to listen to music when I drive.",
+      "difficulty": "medium",
+      "topic": "music",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 15",
+      "notes": "CD 1-7",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "music",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_054",
+      "text": "She makes the best chicken soup in the world.",
+      "difficulty": "medium",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 15",
+      "notes": "CD 1-7",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_085",
+      "text": "May I take another piece of cake?",
+      "difficulty": "easy",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 15",
+      "notes": "CD 1-7",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_086",
+      "text": "How much did your new sneakers cost?",
+      "difficulty": "easy",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 15",
+      "notes": "CD 1-7",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_055",
+      "text": "John is the top salesman in our company.",
+      "difficulty": "medium",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 15",
+      "notes": "CD 1-7",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_087",
+      "text": "We must not give up!",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 16",
+      "notes": "CD 1-8",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_056",
+      "text": "Jenny and Cliff will be here any minute now.",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 16",
+      "notes": "CD 1-8",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_088",
+      "text": "Go to counter number three.",
+      "difficulty": "easy",
+      "topic": "services",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 16",
+      "notes": "CD 1-8",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "services",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_089",
+      "text": "Can you lift up these boxes?",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 16",
+      "notes": "CD 1-8",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_027",
+      "text": "If you're not going to work, then you can stay home and clean the garage.",
+      "difficulty": "hard",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 16",
+      "notes": "CD 1-8",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_091",
+      "text": "Just call me if you need help.",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 17",
+      "notes": "CD 1-9",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_057",
+      "text": "Jessica wants a new job because she hates her boss.",
+      "difficulty": "medium",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 17",
+      "notes": "CD 1-9",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_092",
+      "text": "Would you mind not smoking in here?",
+      "difficulty": "easy",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 17",
+      "notes": "CD 1-9",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_058",
+      "text": "How many brothers and sisters do you have?",
+      "difficulty": "medium",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 17",
+      "notes": "CD 1-9",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_059",
+      "text": "Will you miss me when I'm gone?",
+      "difficulty": "medium",
+      "topic": "feelings",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 18",
+      "notes": "CD 1-10",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "feelings",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_060",
+      "text": "Sandy has been studying in America since she was sixteen.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 18",
+      "notes": "CD 1-10",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_061",
+      "text": "I haven't seen her for five years now.",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 18",
+      "notes": "CD 1-10",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_062",
+      "text": "What did you say to him to make him cry?",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 18",
+      "notes": "CD 1-10",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_093",
+      "text": "Hurry up!",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 18",
+      "notes": "CD 1-10",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_063",
+      "text": "Mr. Clark has two dogs, a hamster, and a snake.",
+      "difficulty": "medium",
+      "topic": "pets",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 19",
+      "notes": "CD 1-11",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "pets",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_064",
+      "text": "Make sure you have enough light when you read.",
+      "difficulty": "medium",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 19",
+      "notes": "CD 1-11",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_094",
+      "text": "Don't walk on the grass.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 19",
+      "notes": "CD 1-11",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_065",
+      "text": "When are we going to visit grandma again?",
+      "difficulty": "medium",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 19",
+      "notes": "CD 1-11",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_066",
+      "text": "Could you please pass me the soy sauce?",
+      "difficulty": "medium",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 19",
+      "notes": "CD 1-11",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_095",
+      "text": "What time does the sun rise?",
+      "difficulty": "easy",
+      "topic": "date_time",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 20",
+      "notes": "CD 1-12",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "date_time",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_067",
+      "text": "I don't have time for this right now.",
+      "difficulty": "medium",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 20",
+      "notes": "CD 1-12",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_028",
+      "text": "High school students have more homework than junior high school students.",
+      "difficulty": "hard",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 20",
+      "notes": "CD 1-12",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_096",
+      "text": "Please smile for the camera.",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 20",
+      "notes": "CD 1-12",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_097",
+      "text": "My house is your house.",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 20",
+      "notes": "CD 1-12",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_068",
+      "text": "There is some spare change in my jacket pocket.",
+      "difficulty": "medium",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 21",
+      "notes": "CD 1-13",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_069",
+      "text": "The weather hasn't been very nice lately.",
+      "difficulty": "medium",
+      "topic": "weather",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 21",
+      "notes": "CD 1-13",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "weather",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_098",
+      "text": "This is your desk, isn't it?",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 21",
+      "notes": "CD 1-13",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_070",
+      "text": "Please put your books away and line up.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 21",
+      "notes": "CD 1-13",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_071",
+      "text": "Could you give me a bit more time to finish?",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 21",
+      "notes": "CD 1-13",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_029",
+      "text": "Suddenly, the sun disappeared behind a cloud and it began to rain.",
+      "difficulty": "hard",
+      "topic": "weather",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 22",
+      "notes": "CD 1-14",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "weather",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_072",
+      "text": "If you're not careful, you'll hurt yourself.",
+      "difficulty": "medium",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 22",
+      "notes": "CD 1-14",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_073",
+      "text": "Colin's friend rides his bicycle to work every day.",
+      "difficulty": "medium",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 22",
+      "notes": "CD 1-14",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_099",
+      "text": "Who's your beautiful new girlfriend?",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 22",
+      "notes": "CD 1-14",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_074",
+      "text": "Are you going to the music concert on Saturday?",
+      "difficulty": "medium",
+      "topic": "music",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 22",
+      "notes": "CD 1-14",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "music",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_100",
+      "text": "Mary loves playing the piano after dinner.",
+      "difficulty": "easy",
+      "topic": "music",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 23",
+      "notes": "CD 1-15",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "music",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_101",
+      "text": "Where does your cousin live?",
+      "difficulty": "easy",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 23",
+      "notes": "CD 1-15",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_102",
+      "text": "Don't tell anyone my secret.",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 23",
+      "notes": "CD 1-15",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_103",
+      "text": "Could you please change the channel?",
+      "difficulty": "easy",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 23",
+      "notes": "CD 1-15",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_104",
+      "text": "There's a spider behind the refrigerator.",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 23",
+      "notes": "CD 1-15",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_075",
+      "text": "First, you need to fill out this form.",
+      "difficulty": "medium",
+      "topic": "services",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 24",
+      "notes": "CD 1-16",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "services",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_105",
+      "text": "Who does the cooking in your family?",
+      "difficulty": "easy",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 24",
+      "notes": "CD 1-16",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_076",
+      "text": "Sarah is the captain of the soccer team.",
+      "difficulty": "medium",
+      "topic": "sports",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 24",
+      "notes": "CD 1-16",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "sports",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_106",
+      "text": "Vincent dreams of becoming a famous artist.",
+      "difficulty": "easy",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 24",
+      "notes": "CD 1-16",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_107",
+      "text": "Which shirt fits me better?",
+      "difficulty": "easy",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 24",
+      "notes": "CD 1-16",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_108",
+      "text": "You must have dialed the wrong number.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 29",
+      "notes": "CD 1-18",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_077",
+      "text": "Meet me at the library in two hours.",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 29",
+      "notes": "CD 1-18",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_109",
+      "text": "How can I solve this problem?",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 29",
+      "notes": "CD 1-18",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_030",
+      "text": "Then the policeman jumped into his car and chased the red van.",
+      "difficulty": "hard",
+      "topic": "stories",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 29",
+      "notes": "CD 1-18",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "stories",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_110",
+      "text": "The dolphin is a very smart animal.",
+      "difficulty": "easy",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 29",
+      "notes": "CD 1-18",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_078",
+      "text": "How did you know I would be here?",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 30",
+      "notes": "CD 1-19",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_111",
+      "text": "The security guard makes me feel safe.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 30",
+      "notes": "CD 1-19",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_112",
+      "text": "Mrs. Robinson can bake an excellent cheesecake.",
+      "difficulty": "easy",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 30",
+      "notes": "CD 1-19",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_031",
+      "text": "When I was ten, I could already speak three languages.",
+      "difficulty": "hard",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 30",
+      "notes": "CD 1-19",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_079",
+      "text": "Drive straight ahead until you see the big supermarket.",
+      "difficulty": "medium",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 30",
+      "notes": "CD 1-19",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_080",
+      "text": "Jack has been with the company since I can remember.",
+      "difficulty": "medium",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 31",
+      "notes": "CD 1-20",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_113",
+      "text": "Many birds live in that old barn.",
+      "difficulty": "easy",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 31",
+      "notes": "CD 1-20",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_081",
+      "text": "Linda likes to go to the seaside to relax.",
+      "difficulty": "medium",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 31",
+      "notes": "CD 1-20",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_082",
+      "text": "Why does he always come to class late?",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 31",
+      "notes": "CD 1-20",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_114",
+      "text": "Stop that!",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 31",
+      "notes": "CD 1-20",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_032",
+      "text": "Christine and I like to drink coffee together at that café.",
+      "difficulty": "hard",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 32",
+      "notes": "CD 1-21",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_115",
+      "text": "What are your plans?",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 32",
+      "notes": "CD 1-21",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_083",
+      "text": "The snake slithered through the grass and behind the rock.",
+      "difficulty": "medium",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 32",
+      "notes": "CD 1-21",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_116",
+      "text": "How come I never have enough money?",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 32",
+      "notes": "CD 1-21",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_033",
+      "text": "They want to move to a less busy city to raise their kids.",
+      "difficulty": "hard",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 32",
+      "notes": "CD 1-21",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_117",
+      "text": "Please be honest with me.",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 33",
+      "notes": "CD 1-22",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_118",
+      "text": "George never washes his car.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 33",
+      "notes": "CD 1-22",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_034",
+      "text": "After two hours, the rain stopped and they continued home.",
+      "difficulty": "hard",
+      "topic": "weather",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 33",
+      "notes": "CD 1-22",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "weather",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_119",
+      "text": "Where is the nearest convenience store?",
+      "difficulty": "easy",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 33",
+      "notes": "CD 1-22",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_120",
+      "text": "Could you open the door for me?",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 33",
+      "notes": "CD 1-22",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_084",
+      "text": "What's the weather like in New York today?",
+      "difficulty": "medium",
+      "topic": "weather",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 34",
+      "notes": "CD 1-23",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "weather",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_085",
+      "text": "The flight has been canceled because of the snow storm.",
+      "difficulty": "medium",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 34",
+      "notes": "CD 1-23",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_086",
+      "text": "Ten percent of one thousand is one hundred.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 34",
+      "notes": "CD 1-23",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_121",
+      "text": "Who's in charge here?",
+      "difficulty": "easy",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 34",
+      "notes": "CD 1-23",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_122",
+      "text": "The lamp fell over during the earthquake.",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 34",
+      "notes": "CD 1-23",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_087",
+      "text": "Ralph takes two hours to get to work.",
+      "difficulty": "medium",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 35",
+      "notes": "CD 1-24",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_088",
+      "text": "My favorite book is written by a South American author.",
+      "difficulty": "medium",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 35",
+      "notes": "CD 1-24",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_035",
+      "text": "Jane, Craig, and I went hiking in the mountains last month.",
+      "difficulty": "hard",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 35",
+      "notes": "CD 1-24",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_036",
+      "text": "What's the best way to get to the train station from here?",
+      "difficulty": "hard",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 35",
+      "notes": "CD 1-24",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_089",
+      "text": "Get off the bus at the next stop.",
+      "difficulty": "medium",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 35",
+      "notes": "CD 1-24",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_090",
+      "text": "When is this boring movie going to end?",
+      "difficulty": "medium",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 36",
+      "notes": "CD 1-25",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_123",
+      "text": "Get out of my way.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 36",
+      "notes": "CD 1-25",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_091",
+      "text": "This building is the tallest building in the world.",
+      "difficulty": "medium",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 36",
+      "notes": "CD 1-25",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_092",
+      "text": "Every year millions of people die from hunger.",
+      "difficulty": "medium",
+      "topic": "society",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 36",
+      "notes": "CD 1-25",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_037",
+      "text": "At the end of the night, everyone went home happy.",
+      "difficulty": "hard",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 36",
+      "notes": "CD 1-25",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_124",
+      "text": "Open your books to page fifty-one.",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 37",
+      "notes": "CD 1-26",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_125",
+      "text": "Who wants to help me move?",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 37",
+      "notes": "CD 1-26",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_093",
+      "text": "Once upon a time, there was a very greedy king.",
+      "difficulty": "medium",
+      "topic": "stories",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 37",
+      "notes": "CD 1-26",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "stories",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_094",
+      "text": "That was the happiest day of my life.",
+      "difficulty": "medium",
+      "topic": "feelings",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 37",
+      "notes": "CD 1-26",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "feelings",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_038",
+      "text": "I've been waiting for the bus for twenty minutes already.",
+      "difficulty": "hard",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 37",
+      "notes": "CD 1-26",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_095",
+      "text": "There are ten people waiting to see Dr. Williams.",
+      "difficulty": "medium",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 38",
+      "notes": "CD 1-27",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_039",
+      "text": "If you have a cold, you should get plenty of rest.",
+      "difficulty": "hard",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 38",
+      "notes": "CD 1-27",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_126",
+      "text": "Could you turn on the air conditioning?",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 38",
+      "notes": "CD 1-27",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_127",
+      "text": "Take the next left.",
+      "difficulty": "easy",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 38",
+      "notes": "CD 1-27",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_040",
+      "text": "After dinner, my father usually falls asleep in front of the TV.",
+      "difficulty": "hard",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 38",
+      "notes": "CD 1-27",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_041",
+      "text": "Wallace is a good elementary school teacher because he's patient.",
+      "difficulty": "hard",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 39",
+      "notes": "CD 1-28",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_128",
+      "text": "Mandy calls her boyfriend every night.",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 39",
+      "notes": "CD 1-28",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_042",
+      "text": "Pick me up at noon in front of the shoe store.",
+      "difficulty": "hard",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 39",
+      "notes": "CD 1-28",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_096",
+      "text": "Learning to speak other languages is very important.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 39",
+      "notes": "CD 1-28",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_043",
+      "text": "The laughter of children sounds the same all over the world.",
+      "difficulty": "hard",
+      "topic": "society",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 40",
+      "notes": "CD 1-29",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_129",
+      "text": "Don't be late for the meeting.",
+      "difficulty": "easy",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 40",
+      "notes": "CD 1-29",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_130",
+      "text": "Do you want to be rich?",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 40",
+      "notes": "CD 1-29",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_044",
+      "text": "We'll know the answer to that question when the professor comes.",
+      "difficulty": "hard",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 40",
+      "notes": "CD 1-29",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_131",
+      "text": "Johnny likes to tease other students.",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 40",
+      "notes": "CD 1-29",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_045",
+      "text": "Yesterday, I saw a cloud that looked like a rabbit.",
+      "difficulty": "hard",
+      "topic": "weather",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 41",
+      "notes": "CD 1-30",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "weather",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_097",
+      "text": "Can't you walk any faster than that?",
+      "difficulty": "medium",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 41",
+      "notes": "CD 1-30",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_132",
+      "text": "Fruit is healthy; junk food is not.",
+      "difficulty": "easy",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 41",
+      "notes": "CD 1-30",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_046",
+      "text": "I don't mind standing in line if I have time.",
+      "difficulty": "hard",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 41",
+      "notes": "CD 1-30",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_133",
+      "text": "Don't forget to take your keys.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 41",
+      "notes": "CD 1-30",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_134",
+      "text": "Good evening, ladies and gentlemen.",
+      "difficulty": "easy",
+      "topic": "greeting",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 42",
+      "notes": "CD 1-31",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "greeting",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_047",
+      "text": "Jesse and Anna got married last August in front of all their family and friends.",
+      "difficulty": "hard",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 42",
+      "notes": "CD 1-31",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_135",
+      "text": "Did you remember to water the plants?",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 42",
+      "notes": "CD 1-31",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_136",
+      "text": "It's as light as a feather.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 42",
+      "notes": "CD 1-31",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_137",
+      "text": "Are they coming over for dinner?",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 42",
+      "notes": "CD 1-31",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_048",
+      "text": "She says she's a vegetarian, but sometimes she eats fish.",
+      "difficulty": "hard",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 43",
+      "notes": "CD 1-32",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_049",
+      "text": "The next morning, the man left the village and never came back again.",
+      "difficulty": "hard",
+      "topic": "stories",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 43",
+      "notes": "CD 1-32",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "stories",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_138",
+      "text": "Please translate the following words.",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 43",
+      "notes": "CD 1-32",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_139",
+      "text": "May I go now?",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 43",
+      "notes": "CD 1-32",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_050",
+      "text": "What is the name of the restaurant we went to last week?",
+      "difficulty": "hard",
+      "topic": "restaurant",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 43",
+      "notes": "CD 1-32; book reads \"name of restaurant\", \"the\" added (user confirmed)",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "restaurant",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -1528,6 +3880,383 @@
       "sourcePage": "P1C2U5-3",
       "notes": "Page 32",
       "suggestedTopic": "weekend",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_026",
+      "text": "Susan went to the computer store to buy a new laptop. There was a big sale on that day and she was pleased that she could save money. When she got to the store, she saw hundreds of people lined up to go inside. Susan thought it was more important to save time than money. So she went home!",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 10",
+      "notes": "CD 1-2",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_027",
+      "text": "Last week was such a bad week. On Monday I missed the bus and was late for school. On Wednesday I lost my wallet. Then on Friday I forgot to bring my homework and my teacher scolded me. I hope this week is a little bit better.",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 11",
+      "notes": "CD 1-3",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_028",
+      "text": "In some American schools, dogs are helping students to read. Every week, teachers bring dogs into the library for students to read to. Students don't feel any pressure when they read to dogs, so they are more confident. Teachers say the dogs have helped the students improve their reading skills.",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 12",
+      "notes": "CD 1-4",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_029",
+      "text": "I have lots of things to do this weekend. On Saturday, I have to clean the house. Then on Sunday I need to cook and prepare for my friends to come over. It's my best friend's birthday so I want it to be special.",
+      "topic": "weekend",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 13",
+      "notes": "CD 1-5",
+      "suggestedTopic": "weekend",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_030",
+      "text": "Tim likes to buy new clothes every month. I think it's a very bad habit. Last month, he came over to show me his new leather jacket. He was very happy because he bought it on sale. But then when he left he asked me to lend him money for this month's rent.",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 14",
+      "notes": "CD 1-6",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_031",
+      "text": "The Olympics is a very large sporting event held every four years. The summer games include running, gymnastics, and swimming. The winter games include hockey, skiing, and skating. For some athletes, being in the Olympics is a dream come true.",
+      "topic": "sports",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 15",
+      "notes": "CD 1-7",
+      "suggestedTopic": "sports",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_032",
+      "text": "Matt was a waiter in an expensive restaurant. One day he was serving very important customers. While delivering their drinks, he accidentally spilled red wine on a woman's blouse. Now he washes dishes in the kitchen.",
+      "topic": "restaurant",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 16",
+      "notes": "CD 1-8",
+      "suggestedTopic": "restaurant",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_033",
+      "text": "There's a very famous book called \"The Little Prince.\" It was written by a French author, but it has been translated into many different languages. This book is popular with both children and adults, and was voted the best book of last century. Have you read it? If not, you should!",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 18",
+      "notes": "CD 1-10",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_034",
+      "text": "Mr. and Mrs. Johnson have been married for thirty years. They have four children and thirteen grandchildren. For their thirtieth anniversary, their children and grandchildren gave them a wonderful gift. It was two around-the-world plane tickets. Now Mr. and Mrs. Johnson can spend the next year traveling wherever they want.",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 19",
+      "notes": "CD 1-11",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_035",
+      "text": "Janet put an ad in the newspaper for a new roommate. She asked for a roommate that was quiet, tidy, cheerful, and a non-smoker. Over the week she met many applicants, but she still wasn't happy with any of them. Then one applicant said to her, \"Janet, you're not looking for a roommate. You're looking for a houseplant.\"",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 20",
+      "notes": "CD 1-12",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_036",
+      "text": "Christmas is my favorite holiday. Besides receiving presents, I enjoy decorating the Christmas tree. I usually make a string of popcorn and wrap it around the tree. Then I place gifts under the tree and a star on top. It always makes my living room so warm and cheerful.",
+      "topic": "holidays",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 21",
+      "notes": "CD 1-13",
+      "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_037",
+      "text": "Steve wants to be a professional basketball player. Not only does he play on a team, but he practices by himself every day. He runs five kilometers every morning and shoots baskets after school. Before going to bed, he reads basketball magazines. You could say basketball is his life.",
+      "topic": "sports",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 22",
+      "notes": "CD 1-14",
+      "suggestedTopic": "sports",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_038",
+      "text": "Sally's favorite clothes are a pair of blue jeans and a striped blouse. She wears this to school every day. Then her dad gave her some money and told her to buy some new clothes. The next day Sally wore her new outfit: new blue jeans and a new striped blouse.",
+      "topic": "clothing",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 23",
+      "notes": "CD 1-15",
+      "suggestedTopic": "clothing",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_039",
+      "text": "Emily loves eating Italian food. She goes to her favorite Italian restaurant at least once a week. And when she got tired of the restaurant's food, she decided to take a trip to Italy. That's a long ways to go just to eat!",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 24",
+      "notes": "CD 1-16",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_040",
+      "text": "The students wanted to do something to help the environment so they began a recycling program. Everyone was asked to recycle glass bottles and paper. The program helped reduce the school's garbage by 50%.",
+      "topic": "environment",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 29",
+      "notes": "CD 1-18",
+      "suggestedTopic": "environment",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_041",
+      "text": "I thought there was something wrong with my computer. Every time I turned it on, it made a funny sound. But then I hit it really hard with my hand and the noise stopped. I wonder if I really fixed it.",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 30",
+      "notes": "CD 1-19",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_042",
+      "text": "There are many bears living in the forests of western Canada. They are generally not dangerous because they are afraid of humans. But if you walk up to a mother bear and her cubs, be careful! She will be scared and will try to protect her babies. Then you are in trouble!",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 31",
+      "notes": "CD 1-20",
+      "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_043",
+      "text": "Luke bought a beautiful new bike. To go with the bike, he bought a new helmet, sunglasses, and some fancy cycling clothes. He looked very good with his new things. Unfortunately he wasn't able to use any of his new things for very long. His bike got stolen because he forgot to buy a lock.",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 32",
+      "notes": "CD 1-21",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_044",
+      "text": "Kim doesn't trust banks so she keeps all of her money at home. Some of the money is under her bed, some in her closet, and some is even in the fridge. She hides her money so well that she can never find it when she wants it.",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 33",
+      "notes": "CD 1-22",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_045",
+      "text": "Mr. Jones was in a hurry to get to the airport. He packed his suitcase quickly and flagged down a cab. When he got to the airport he discovered that he had forgotten his passport. He had left it on the kitchen table.",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 34",
+      "notes": "CD 1-23",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_046",
+      "text": "Paul went to the doctor because he felt pain all over his body. \"Watch,\" he said, \"wherever I touch, it hurts.\" He touched his ear, his neck, his knee, and each time he cried: \"Ouch!\" The doctor nodded and said, \"I know what's wrong with you. Your finger is broken!\"",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 35",
+      "notes": "CD 1-24",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_047",
+      "text": "India is a beautiful country to visit. In the north there are the Himalaya Mountains, and in the south there are beautiful beaches. Every year hundreds of thousands of tourists go there to enjoy the natural scenery and the ancient ruins. Is India a place you'd want to visit?",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 36",
+      "notes": "CD 1-25",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_048",
+      "text": "One day, Jimmy's roommate asked him to look after the cat for the weekend. All he had to do was feed it. When Jimmy's roommate came back, he saw his cat in the bathtub. The poor animal was trying to drink water out of the faucet. Jimmy gave the cat food but had forgotten to give it water!",
+      "topic": "pets",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 37",
+      "notes": "CD 1-26",
+      "suggestedTopic": "pets",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_049",
+      "text": "Ted didn't have enough time to study for his test, so he decided to cheat. He wrote all the important parts of his textbook on little pieces of paper. When he actually wrote the test, however, he didn't have to look at his cheat notes. While trying to cheat, he was also studying!",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 38",
+      "notes": "CD 1-27",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_050",
+      "text": "In the Chinese culture, the number four is considered unlucky. In the west, however, thirteen is considered unlucky. Some older buildings don't have a thirteenth floor. Also, some people think bad things might happen to them on Friday the 13th. Do you believe this is true?",
+      "topic": "society",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 39",
+      "notes": "CD 1-28",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_051",
+      "text": "Sarah loves to read. She reads everywhere: at work, at the bus stop, and on the train. One day she was reading a spy novel on the train. The book was so good that she forgot to get off. She ended up three hours from home!",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 40",
+      "notes": "CD 1-29",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_052",
+      "text": "Coffee was first discovered in Eastern Africa. A farmer noticed that his sheep became very active after eating a dark bean. He tried it himself and found it useful for staying awake. Now, thousands of years later, people still drink coffee to keep themselves awake.",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 41",
+      "notes": "CD 1-30",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_053",
+      "text": "Theresa has been looking for a new job. In her last interview, the manager asked her why she left her last job. \"Because my ex-boss expected me to come on time,\" she answered, \"but if I do, it makes the working day so long.\" No wonder she didn't get the job.",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 42",
+      "notes": "CD 1-31",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_054",
+      "text": "There is a Spanish festival every August that is like a big food fight. Trucks dump thousands of kilograms of tomatoes onto the street. Then, everyone throws the tomatoes at each other. The tomato war continues until there is nothing left but tomato juice.",
+      "topic": "holidays",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 43",
+      "notes": "CD 1-32",
+      "suggestedTopic": "holidays",
       "acceptedSuggestions": [
         "topic"
       ]

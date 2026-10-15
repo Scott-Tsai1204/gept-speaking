@@ -9,7 +9,7 @@ function ord(n){
   const o = ORD_IRR[last] || (last.endsWith("y") ? last.slice(0,-1) + "ieth" : last + "th");
   return [...w, o].join(" ");
 }
-const CONTR = {"i'm":"i am","that's":"that is","what's":"what is","there's":"there is","here's":"here is","we're":"we are","you're":"you are","they're":"they are","don't":"do not","doesn't":"does not","didn't":"did not","can't":"can not","cannot":"can not","isn't":"is not","aren't":"are not","wasn't":"was not","weren't":"were not","won't":"will not","i'll":"i will","i've":"i have","let's":"let us",
+const CONTR = {"i'm":"i am","here's":"here is","we're":"we are","you're":"you are","they're":"they are","don't":"do not","doesn't":"does not","didn't":"did not","can't":"can not","cannot":"can not","isn't":"is not","aren't":"are not","wasn't":"was not","weren't":"were not","won't":"will not","i'll":"i will","i've":"i have","let's":"let us",
   // V6-D4.4 縮寫 ↔ 完整形式：語音辨識有時寫縮寫、有時寫成完整兩個字，兩邊都展開成完整形式再比對
   "couldn't":"could not","shouldn't":"should not","wouldn't":"would not","mustn't":"must not",
   "haven't":"have not","hasn't":"has not","hadn't":"had not",
@@ -19,7 +19,8 @@ const CONTR = {"i'm":"i am","that's":"that is","what's":"what is","there's":"the
   // 有歧義的縮寫展開成「可選字」（would|had）：對齊時跟其中任何一個相同就算對（見 tokEq）
   "i'd":"i would|had","you'd":"you would|had","he'd":"he would|had","she'd":"she would|had","it'd":"it would|had",
   "we'd":"we would|had","they'd":"they would|had",
-  "it's":"it is|has","he's":"he is|has","she's":"she is|has"};
+  "it's":"it is|has","he's":"he is|has","she's":"she is|has",
+  "that's":"that is|has","what's":"what is|has","there's":"there is|has","who's":"who is|has"};
 // 可選字的比對：兩個字相同，或其中一邊是「a|b」而另一邊（或它的任一選項）有交集
 function tokEq(a, b){
   if (a === b) return true;
@@ -52,15 +53,22 @@ function tokenize(s){
   s = s.toLowerCase().replace(/[’‘]/g, "'");
   s = normalizePhoneNumbers(s);
   s = s.replace(/(?<![\d$,.:])(19|20)(\d\d)(?!\d|[,:.]\d)/g, (m, c, yy) => " " + yearWords(+m) + " "); // V6-D4.5 西元年
+  // V6-D4.8 100 以上的整數（可有千分位逗號）：轉成英文念法（100 → one hundred、1,000 → one thousand）
+  s = s.replace(/(?<![\d,.:])\d{1,3}(?:,\d{3})+(?![\d,.:]\d|\d)|(?<![\d,.:])\d{3,9}(?!\d|[,.:]\d|st|nd|rd|th)/g, m => {
+    const n = +m.replace(/,/g, "");
+    return n >= 100 ? " " + cardinalWords(n) + " " : m;
+  });
   s = s.replace(/(\d{1,2}):(\d{2})/g, (m,h,mi) => n2w(+h) + " " + (+mi === 0 ? "" : (+mi < 10 ? "oh " : "") + n2w(+mi)));
   s = s.replace(/(\d{1,2})(st|nd|rd|th)\b/g, (m,n) => ord(+n));
   s = s.replace(/\d{1,2}/g, m => n2w(+m));
   s = s.replace(/\b(?:[a-z]\.){2,}/g, m => m.replace(/\./g, "") + " "); // V6-D4.3：有點的縮寫 D.C.／U.S.A. 先接起來（dc、usa）
+  s = s.replace(/%/g, " percent "); // V6-D4.6：50% 念作 fifty percent
   s = s.replace(/[^a-z'\s]/g, " ");
   const out = [];
   s.split(/\s+/).filter(Boolean).forEach(w => {
     w = w.replace(/^'+|'+$/g, "");
     if (!w) return;
+    if (w === "cent" && out[out.length - 1] === "per"){ out[out.length - 1] = "percent"; return; } // per cent → percent
     (CONTR[w] ? CONTR[w].split(" ") : [w]).forEach(x => out.push(x));
   });
   // 念號碼時常把 0 說成「oh」：緊鄰逐位數字的 oh／o 視為 zero（號碼開頭、結尾的 0 也算；標準答案與辨識結果同樣處理）
@@ -70,7 +78,36 @@ function tokenize(s){
       if ((out[k] === "oh" || out[k] === "o") && (isDigitWord(out[k - 1]) || isDigitWord(out[k + 1]))) out[k] = "zero";
     }
   }
-  return normalizeDateTokens(mergeLetterAbbreviations(normalizeYearTokens(out)));
+  return normalizeDateTokens(mergeLetterAbbreviations(normalizeYearTokens(normalizeNumberWords(out).filter(t => t !== null))));
+}
+
+/* ===== V6-D4.8 數字念法 =====
+   cardinalWords：1～999,999,999 的英文念法（不加 and）；
+   normalizeNumberWords：a hundred／a thousand／a million 的 a → one，hundred／thousand／million 後面接數字時的 and 拿掉（回傳 null）。
+   回傳陣列長度不變（拿掉的位置是 null），標準答案在 scoreSpoken 串起來後也能套用、不打亂 wi 對應 */
+const SCALE_WORDS = ["hundred", "thousand", "million"];
+function cardinalWords(n){
+  const under1000 = x => {
+    const h = Math.floor(x / 100), r = x % 100, w = [];
+    if (h) w.push(ONES[h], "hundred");
+    if (r) w.push(n2w(r));
+    return w.join(" ");
+  };
+  const parts = [];
+  [[1e6, "million"], [1e3, "thousand"]].forEach(([v, name]) => {
+    const q = Math.floor(n / v);
+    if (q){ parts.push(under1000(q) + " " + name); n %= v; }
+  });
+  if (n) parts.push(under1000(n));
+  return parts.join(" ");
+}
+function normalizeNumberWords(tokens){
+  const isNumWord = w => ONES.indexOf(w) >= 1 || TENS.indexOf(w) >= 2;
+  return tokens.map((t, k) => {
+    if (t === "a" && SCALE_WORDS.includes(tokens[k + 1])) return "one";
+    if (t === "and" && SCALE_WORDS.includes(tokens[k - 1]) && isNumWord(tokens[k + 1])) return null;
+    return t;
+  });
 }
 
 /* ===== V6-D4.5 西元年（1900～2099）：數字轉成最常見的念法，辨識結果裡的其他念法再轉成同一種 =====
@@ -93,6 +130,26 @@ function readNumber99(tokens, i){
   }
   const n = ONES.indexOf(a);
   return n >= 1 ? { n, len: 1 } : null;
+}
+/* ===== V6-D4.7 合成字：語音辨識有時把 cheesecake 拆成 cheese cake、或把 T-shirt 寫成 tshirt =====
+   只在辨識結果這邊調整，而且只參考標準答案裡實際有的字：
+   相鄰兩個字合起來＝標準答案的某個字 → 合併；一個字＝標準答案裡相鄰兩個字合起來 → 拆開 */
+function matchCompounds(ref, hyp){
+  const plain = ref.filter(t => !t.includes("|"));
+  const refSet = new Set(plain);
+  const pairs = new Map();
+  for (let i = 0; i + 1 < ref.length; i++){
+    const a = ref[i], b = ref[i + 1];
+    if (!a.includes("|") && !b.includes("|")) pairs.set(a + b, [a, b]);
+  }
+  const out = [];
+  for (let j = 0; j < hyp.length; j++){
+    const a = hyp[j], b = hyp[j + 1];
+    if (b !== undefined && refSet.has(a + b) && !pairs.has(a + b) && !(refSet.has(a) && refSet.has(b))){ out.push(a + b); j++; continue; }
+    if (!refSet.has(a) && pairs.has(a)){ out.push(...pairs.get(a)); continue; }
+    out.push(a);
+  }
+  return out;
 }
 function normalizeYearTokens(tokens){
   const out = [];
