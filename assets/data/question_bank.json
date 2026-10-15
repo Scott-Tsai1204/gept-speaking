@@ -1902,6 +1902,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_059",
+      "text": "Will you miss me when I'm gone?",
+      "difficulty": "medium",
+      "topic": "feelings",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 18",
+      "notes": "CD 1-10",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "feelings",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_060",
+      "text": "Sandy has been studying in America since she was sixteen.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 18",
+      "notes": "CD 1-10",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_061",
+      "text": "I haven't seen her for five years now.",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 18",
+      "notes": "CD 1-10",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_062",
+      "text": "What did you say to him to make him cry?",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 18",
+      "notes": "CD 1-10",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_093",
+      "text": "Hurry up!",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 18",
+      "notes": "CD 1-10",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -2243,6 +2323,19 @@
       "sourcePage": "Page 16",
       "notes": "CD 1-8",
       "suggestedTopic": "restaurant",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_033",
+      "text": "There's a very famous book called \"The Little Prince.\" It was written by a French author, but it has been translated into many different languages. This book is popular with both children and adults, and was voted the best book of last century. Have you read it? If not, you should!",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 18",
+      "notes": "CD 1-10",
+      "suggestedTopic": "hobbies",
       "acceptedSuggestions": [
         "topic"
       ]
