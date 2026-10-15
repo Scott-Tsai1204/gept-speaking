@@ -60,7 +60,7 @@ function scoreSpoken(q, text){
   tw.forEach((w, wi) => tokenize(w).forEach(t => tokens.push({ t, wi })));
   // 標準答案是逐字正規化的（才能標出哪個字錯），日期這種要看前後文的規則在串起來後再套一次；字數不變，wi 對應不受影響
   normalizeDateTokens(tokens.map(x => x.t)).forEach((t, k) => { tokens[k].t = t; });
-  const h = tokenize(text || "");
+  const h = matchCompounds(tokens.map(x => x.t), tokenize(text || "")); // V6-D4.7 合成字拆開／合起來
   const { ops, extra, dist } = align(tokens.map(x => x.t), h);
   const pct = text ? Math.round(Math.max(0, 1 - dist / tokens.length) * 100) : 0;
   const wordOk = tw.map(() => true);

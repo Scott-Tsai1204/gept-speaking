@@ -97,6 +97,26 @@ function readNumber99(tokens, i){
   const n = ONES.indexOf(a);
   return n >= 1 ? { n, len: 1 } : null;
 }
+/* ===== V6-D4.7 合成字：語音辨識有時把 cheesecake 拆成 cheese cake、或把 T-shirt 寫成 tshirt =====
+   只在辨識結果這邊調整，而且只參考標準答案裡實際有的字：
+   相鄰兩個字合起來＝標準答案的某個字 → 合併；一個字＝標準答案裡相鄰兩個字合起來 → 拆開 */
+function matchCompounds(ref, hyp){
+  const plain = ref.filter(t => !t.includes("|"));
+  const refSet = new Set(plain);
+  const pairs = new Map();
+  for (let i = 0; i + 1 < ref.length; i++){
+    const a = ref[i], b = ref[i + 1];
+    if (!a.includes("|") && !b.includes("|")) pairs.set(a + b, [a, b]);
+  }
+  const out = [];
+  for (let j = 0; j < hyp.length; j++){
+    const a = hyp[j], b = hyp[j + 1];
+    if (b !== undefined && refSet.has(a + b) && !pairs.has(a + b) && !(refSet.has(a) && refSet.has(b))){ out.push(a + b); j++; continue; }
+    if (!refSet.has(a) && pairs.has(a)){ out.push(...pairs.get(a)); continue; }
+    out.push(a);
+  }
+  return out;
+}
 function normalizeYearTokens(tokens){
   const out = [];
   for (let k = 0; k < tokens.length; k++){

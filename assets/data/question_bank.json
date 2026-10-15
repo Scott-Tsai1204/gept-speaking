@@ -2526,6 +2526,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_078",
+      "text": "How did you know I would be here?",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 30",
+      "notes": "CD 1-19",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_111",
+      "text": "The security guard makes me feel safe.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 30",
+      "notes": "CD 1-19",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_112",
+      "text": "Mrs. Robinson can bake an excellent cheesecake.",
+      "difficulty": "easy",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 30",
+      "notes": "CD 1-19",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_031",
+      "text": "When I was ten, I could already speak three languages.",
+      "difficulty": "hard",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 30",
+      "notes": "CD 1-19",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_079",
+      "text": "Drive straight ahead until you see the big supermarket.",
+      "difficulty": "medium",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 30",
+      "notes": "CD 1-19",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -2971,6 +3051,19 @@
       "sourcePage": "Page 29",
       "notes": "CD 1-18",
       "suggestedTopic": "environment",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_041",
+      "text": "I thought there was something wrong with my computer. Every time I turned it on, it made a funny sound. But then I hit it really hard with my hand and the noise stopped. I wonder if I really fixed it.",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 30",
+      "notes": "CD 1-19",
+      "suggestedTopic": "technology",
       "acceptedSuggestions": [
         "topic"
       ]
