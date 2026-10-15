@@ -2766,6 +2766,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_117",
+      "text": "Please be honest with me.",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 33",
+      "notes": "CD 1-22",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_118",
+      "text": "George never washes his car.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 33",
+      "notes": "CD 1-22",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_034",
+      "text": "After two hours, the rain stopped and they continued home.",
+      "difficulty": "hard",
+      "topic": "weather",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 33",
+      "notes": "CD 1-22",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "weather",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_119",
+      "text": "Where is the nearest convenience store?",
+      "difficulty": "easy",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 33",
+      "notes": "CD 1-22",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_120",
+      "text": "Could you open the door for me?",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 33",
+      "notes": "CD 1-22",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -3250,6 +3330,19 @@
       "sourcePage": "Page 32",
       "notes": "CD 1-21",
       "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_044",
+      "text": "Kim doesn't trust banks so she keeps all of her money at home. Some of the money is under her bed, some in her closet, and some is even in the fridge. She hides her money so well that she can never find it when she wants it.",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 33",
+      "notes": "CD 1-22",
+      "suggestedTopic": "home",
       "acceptedSuggestions": [
         "topic"
       ]
