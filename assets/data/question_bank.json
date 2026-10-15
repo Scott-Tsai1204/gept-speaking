@@ -1582,6 +1582,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_050",
+      "text": "The book is on the shelf where it always is.",
+      "difficulty": "medium",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 14",
+      "notes": "CD 1-6",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_051",
+      "text": "Suddenly, the man raced out of the bank.",
+      "difficulty": "medium",
+      "topic": "stories",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 14",
+      "notes": "CD 1-6",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "stories",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_052",
+      "text": "What is the name of the man with the briefcase?",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 14",
+      "notes": "CD 1-6",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_083",
+      "text": "Her purse is purple and yellow.",
+      "difficulty": "easy",
+      "topic": "clothing",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 14",
+      "notes": "CD 1-6",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "clothing",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_084",
+      "text": "How many countries are there in Africa?",
+      "difficulty": "easy",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 14",
+      "notes": "CD 1-6",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -1884,6 +1964,19 @@
       "sourcePage": "Page 13",
       "notes": "CD 1-5",
       "suggestedTopic": "weekend",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_030",
+      "text": "Tim likes to buy new clothes every month. I think it's a very bad habit. Last month, he came over to show me his new leather jacket. He was very happy because he bought it on sale. But then when he left he asked me to lend him money for this month's rent.",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 14",
+      "notes": "CD 1-6",
+      "suggestedTopic": "shopping",
       "acceptedSuggestions": [
         "topic"
       ]
