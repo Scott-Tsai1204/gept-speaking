@@ -2126,6 +2126,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_068",
+      "text": "There is some spare change in my jacket pocket.",
+      "difficulty": "medium",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 21",
+      "notes": "CD 1-13",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_069",
+      "text": "The weather hasn't been very nice lately.",
+      "difficulty": "medium",
+      "topic": "weather",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 21",
+      "notes": "CD 1-13",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "weather",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_098",
+      "text": "This is your desk, isn't it?",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 21",
+      "notes": "CD 1-13",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_070",
+      "text": "Please put your books away and line up.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 21",
+      "notes": "CD 1-13",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_071",
+      "text": "Could you give me a bit more time to finish?",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 21",
+      "notes": "CD 1-13",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -2506,6 +2586,19 @@
       "sourcePage": "Page 20",
       "notes": "CD 1-12",
       "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_036",
+      "text": "Christmas is my favorite holiday. Besides receiving presents, I enjoy decorating the Christmas tree. I usually make a string of popcorn and wrap it around the tree. Then I place gifts under the tree and a star on top. It always makes my living room so warm and cheerful.",
+      "topic": "holidays",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 21",
+      "notes": "CD 1-13",
+      "suggestedTopic": "holidays",
       "acceptedSuggestions": [
         "topic"
       ]
