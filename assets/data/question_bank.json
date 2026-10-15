@@ -1982,6 +1982,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_063",
+      "text": "Mr. Clark has two dogs, a hamster, and a snake.",
+      "difficulty": "medium",
+      "topic": "pets",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 19",
+      "notes": "CD 1-11",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "pets",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_064",
+      "text": "Make sure you have enough light when you read.",
+      "difficulty": "medium",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 19",
+      "notes": "CD 1-11",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_094",
+      "text": "Don't walk on the grass.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 19",
+      "notes": "CD 1-11",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_065",
+      "text": "When are we going to visit grandma again?",
+      "difficulty": "medium",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 19",
+      "notes": "CD 1-11",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_066",
+      "text": "Could you please pass me the soy sauce?",
+      "difficulty": "medium",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 19",
+      "notes": "CD 1-11",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -2336,6 +2416,19 @@
       "sourcePage": "Page 18",
       "notes": "CD 1-10",
       "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_034",
+      "text": "Mr. and Mrs. Johnson have been married for thirty years. They have four children and thirteen grandchildren. For their thirtieth anniversary, their children and grandchildren gave them a wonderful gift. It was two around-the-world plane tickets. Now Mr. and Mrs. Johnson can spend the next year traveling wherever they want.",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 19",
+      "notes": "CD 1-11",
+      "suggestedTopic": "family",
       "acceptedSuggestions": [
         "topic"
       ]
