@@ -3246,6 +3246,70 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_hard_041",
+      "text": "Wallace is a good elementary school teacher because he's patient.",
+      "difficulty": "hard",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 39",
+      "notes": "CD 1-28",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_128",
+      "text": "Mandy calls her boyfriend every night.",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 39",
+      "notes": "CD 1-28",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_042",
+      "text": "Pick me up at noon in front of the shoe store.",
+      "difficulty": "hard",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 39",
+      "notes": "CD 1-28",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_096",
+      "text": "Learning to speak other languages is very important.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 39",
+      "notes": "CD 1-28",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -3808,6 +3872,19 @@
       "sourcePage": "Page 38",
       "notes": "CD 1-27",
       "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_050",
+      "text": "In the Chinese culture, the number four is considered unlucky. In the west, however, thirteen is considered unlucky. Some older buildings don't have a thirteenth floor. Also, some people think bad things might happen to them on Friday the 13th. Do you believe this is true?",
+      "topic": "society",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 39",
+      "notes": "CD 1-28",
+      "suggestedTopic": "society",
       "acceptedSuggestions": [
         "topic"
       ]
