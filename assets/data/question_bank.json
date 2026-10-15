@@ -3086,6 +3086,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_124",
+      "text": "Open your books to page fifty-one.",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 37",
+      "notes": "CD 1-26",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_125",
+      "text": "Who wants to help me move?",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 37",
+      "notes": "CD 1-26",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_093",
+      "text": "Once upon a time, there was a very greedy king.",
+      "difficulty": "medium",
+      "topic": "stories",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 37",
+      "notes": "CD 1-26",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "stories",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_094",
+      "text": "That was the happiest day of my life.",
+      "difficulty": "medium",
+      "topic": "feelings",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 37",
+      "notes": "CD 1-26",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "feelings",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_038",
+      "text": "I've been waiting for the bus for twenty minutes already.",
+      "difficulty": "hard",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 37",
+      "notes": "CD 1-26",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -3622,6 +3702,19 @@
       "sourcePage": "Page 36",
       "notes": "CD 1-25",
       "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_048",
+      "text": "One day, Jimmy's roommate asked him to look after the cat for the weekend. All he had to do was feed it. When Jimmy's roommate came back, he saw his cat in the bathtub. The poor animal was trying to drink water out of the faucet. Jimmy gave the cat food but had forgotten to give it water!",
+      "topic": "pets",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 37",
+      "notes": "CD 1-26",
+      "suggestedTopic": "pets",
       "acceptedSuggestions": [
         "topic"
       ]
