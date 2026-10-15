@@ -3550,6 +3550,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_hard_048",
+      "text": "She says she's a vegetarian, but sometimes she eats fish.",
+      "difficulty": "hard",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 43",
+      "notes": "CD 1-32",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_049",
+      "text": "The next morning, the man left the village and never came back again.",
+      "difficulty": "hard",
+      "topic": "stories",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 43",
+      "notes": "CD 1-32",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "stories",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_138",
+      "text": "Please translate the following words.",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 43",
+      "notes": "CD 1-32",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_139",
+      "text": "May I go now?",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 43",
+      "notes": "CD 1-32",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_050",
+      "text": "What is the name of the restaurant we went to last week?",
+      "difficulty": "hard",
+      "topic": "restaurant",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 43",
+      "notes": "CD 1-32; book reads \"name of restaurant\", \"the\" added (user confirmed)",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "restaurant",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -4164,6 +4244,19 @@
       "sourcePage": "Page 42",
       "notes": "CD 1-31",
       "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_054",
+      "text": "There is a Spanish festival every August that is like a big food fight. Trucks dump thousands of kilograms of tomatoes onto the street. Then, everyone throws the tomatoes at each other. The tomato war continues until there is nothing left but tomato juice.",
+      "topic": "holidays",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 43",
+      "notes": "CD 1-32",
+      "suggestedTopic": "holidays",
       "acceptedSuggestions": [
         "topic"
       ]
