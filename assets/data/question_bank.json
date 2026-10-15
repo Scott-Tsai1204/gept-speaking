@@ -1824,22 +1824,6 @@
       ]
     },
     {
-      "id": "repeat_easy_090",
-      "text": "Take Bus 251 to Main Station.",
-      "difficulty": "easy",
-      "topic": "transportation",
-      "origin": "external",
-      "sourceBook": "GEPT04",
-      "sourcePage": "Page 17",
-      "notes": "CD 1-9",
-      "suggestedDifficulty": "easy",
-      "suggestedTopic": "transportation",
-      "acceptedSuggestions": [
-        "difficulty",
-        "topic"
-      ]
-    },
-    {
       "id": "repeat_easy_091",
       "text": "Just call me if you need help.",
       "difficulty": "easy",
