@@ -2926,6 +2926,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_087",
+      "text": "Ralph takes two hours to get to work.",
+      "difficulty": "medium",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 35",
+      "notes": "CD 1-24",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_088",
+      "text": "My favorite book is written by a South American author.",
+      "difficulty": "medium",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 35",
+      "notes": "CD 1-24",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_035",
+      "text": "Jane, Craig, and I went hiking in the mountains last month.",
+      "difficulty": "hard",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 35",
+      "notes": "CD 1-24",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_036",
+      "text": "What's the best way to get to the train station from here?",
+      "difficulty": "hard",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 35",
+      "notes": "CD 1-24",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_089",
+      "text": "Get off the bus at the next stop.",
+      "difficulty": "medium",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 35",
+      "notes": "CD 1-24",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -3436,6 +3516,19 @@
       "sourcePage": "Page 34",
       "notes": "CD 1-23",
       "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_046",
+      "text": "Paul went to the doctor because he felt pain all over his body. \"Watch,\" he said, \"wherever I touch, it hurts.\" He touched his ear, his neck, his knee, and each time he cried: \"Ouch!\" The doctor nodded and said, \"I know what's wrong with you. Your finger is broken!\"",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 35",
+      "notes": "CD 1-24",
+      "suggestedTopic": "health",
       "acceptedSuggestions": [
         "topic"
       ]
