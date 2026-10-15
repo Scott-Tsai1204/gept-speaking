@@ -1518,6 +1518,70 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_hard_026",
+      "text": "Just go straight and you'll see it on your right-hand side.",
+      "difficulty": "hard",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 13",
+      "notes": "CD 1-5",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_048",
+      "text": "This is the t-shirt I received for my graduation.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 13",
+      "notes": "CD 1-5",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_082",
+      "text": "When did you get your new car?",
+      "difficulty": "easy",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 13",
+      "notes": "CD 1-5",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_049",
+      "text": "Then the dog jumped up and caught the ball.",
+      "difficulty": "medium",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 13",
+      "notes": "CD 1-5",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -1807,6 +1871,19 @@
       "sourcePage": "Page 12",
       "notes": "CD 1-4",
       "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_029",
+      "text": "I have lots of things to do this weekend. On Saturday, I have to clean the house. Then on Sunday I need to cook and prepare for my friends to come over. It's my best friend's birthday so I want it to be special.",
+      "topic": "weekend",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 13",
+      "notes": "CD 1-5",
+      "suggestedTopic": "weekend",
       "acceptedSuggestions": [
         "topic"
       ]
