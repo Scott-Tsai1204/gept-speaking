@@ -2366,6 +2366,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_075",
+      "text": "First, you need to fill out this form.",
+      "difficulty": "medium",
+      "topic": "services",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 24",
+      "notes": "CD 1-16",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "services",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_105",
+      "text": "Who does the cooking in your family?",
+      "difficulty": "easy",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 24",
+      "notes": "CD 1-16",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_076",
+      "text": "Sarah is the captain of the soccer team.",
+      "difficulty": "medium",
+      "topic": "sports",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 24",
+      "notes": "CD 1-16",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "sports",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_106",
+      "text": "Vincent dreams of becoming a famous artist.",
+      "difficulty": "easy",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 24",
+      "notes": "CD 1-16",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_107",
+      "text": "Which shirt fits me better?",
+      "difficulty": "easy",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 24",
+      "notes": "CD 1-16",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -2785,6 +2865,19 @@
       "sourcePage": "Page 23",
       "notes": "CD 1-15",
       "suggestedTopic": "clothing",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_039",
+      "text": "Emily loves eating Italian food. She goes to her favorite Italian restaurant at least once a week. And when she got tired of the restaurant's food, she decided to take a trip to Italy. That's a long ways to go just to eat!",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 24",
+      "notes": "CD 1-16",
+      "suggestedTopic": "food",
       "acceptedSuggestions": [
         "topic"
       ]
