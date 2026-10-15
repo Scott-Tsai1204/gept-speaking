@@ -2286,6 +2286,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_100",
+      "text": "Mary loves playing the piano after dinner.",
+      "difficulty": "easy",
+      "topic": "music",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 23",
+      "notes": "CD 1-15",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "music",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_101",
+      "text": "Where does your cousin live?",
+      "difficulty": "easy",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 23",
+      "notes": "CD 1-15",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_102",
+      "text": "Don't tell anyone my secret.",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 23",
+      "notes": "CD 1-15",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_103",
+      "text": "Could you please change the channel?",
+      "difficulty": "easy",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 23",
+      "notes": "CD 1-15",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_104",
+      "text": "There's a spider behind the refrigerator.",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 23",
+      "notes": "CD 1-15",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -2692,6 +2772,19 @@
       "sourcePage": "Page 22",
       "notes": "CD 1-14",
       "suggestedTopic": "sports",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_038",
+      "text": "Sally's favorite clothes are a pair of blue jeans and a striped blouse. She wears this to school every day. Then her dad gave her some money and told her to buy some new clothes. The next day Sally wore her new outfit: new blue jeans and a new striped blouse.",
+      "topic": "clothing",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 23",
+      "notes": "CD 1-15",
+      "suggestedTopic": "clothing",
       "acceptedSuggestions": [
         "topic"
       ]
