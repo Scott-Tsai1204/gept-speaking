@@ -57,11 +57,13 @@ function tokenize(s){
   s = s.replace(/(\d{1,2})(st|nd|rd|th)\b/g, (m,n) => ord(+n));
   s = s.replace(/\d{1,2}/g, m => n2w(+m));
   s = s.replace(/\b(?:[a-z]\.){2,}/g, m => m.replace(/\./g, "") + " "); // V6-D4.3：有點的縮寫 D.C.／U.S.A. 先接起來（dc、usa）
+  s = s.replace(/%/g, " percent "); // V6-D4.6：50% 念作 fifty percent
   s = s.replace(/[^a-z'\s]/g, " ");
   const out = [];
   s.split(/\s+/).filter(Boolean).forEach(w => {
     w = w.replace(/^'+|'+$/g, "");
     if (!w) return;
+    if (w === "cent" && out[out.length - 1] === "per"){ out[out.length - 1] = "percent"; return; } // per cent → percent
     (CONTR[w] ? CONTR[w].split(" ") : [w]).forEach(x => out.push(x));
   });
   // 念號碼時常把 0 說成「oh」：緊鄰逐位數字的 oh／o 視為 zero（號碼開頭、結尾的 0 也算；標準答案與辨識結果同樣處理）

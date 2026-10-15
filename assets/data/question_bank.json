@@ -2446,6 +2446,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_108",
+      "text": "You must have dialed the wrong number.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 29",
+      "notes": "CD 1-18",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_077",
+      "text": "Meet me at the library in two hours.",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 29",
+      "notes": "CD 1-18",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_109",
+      "text": "How can I solve this problem?",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 29",
+      "notes": "CD 1-18",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_030",
+      "text": "Then the policeman jumped into his car and chased the red van.",
+      "difficulty": "hard",
+      "topic": "stories",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 29",
+      "notes": "CD 1-18",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "stories",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_110",
+      "text": "The dolphin is a very smart animal.",
+      "difficulty": "easy",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 29",
+      "notes": "CD 1-18",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -2878,6 +2958,19 @@
       "sourcePage": "Page 24",
       "notes": "CD 1-16",
       "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_040",
+      "text": "The students wanted to do something to help the environment so they began a recycling program. Everyone was asked to recycle glass bottles and paper. The program helped reduce the school's garbage by 50%.",
+      "topic": "environment",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 29",
+      "notes": "CD 1-18",
+      "suggestedTopic": "environment",
       "acceptedSuggestions": [
         "topic"
       ]
