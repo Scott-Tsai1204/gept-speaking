@@ -2206,6 +2206,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_hard_029",
+      "text": "Suddenly, the sun disappeared behind a cloud and it began to rain.",
+      "difficulty": "hard",
+      "topic": "weather",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 22",
+      "notes": "CD 1-14",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "weather",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_072",
+      "text": "If you're not careful, you'll hurt yourself.",
+      "difficulty": "medium",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 22",
+      "notes": "CD 1-14",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_073",
+      "text": "Colin's friend rides his bicycle to work every day.",
+      "difficulty": "medium",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 22",
+      "notes": "CD 1-14",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_099",
+      "text": "Who's your beautiful new girlfriend?",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 22",
+      "notes": "CD 1-14",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_074",
+      "text": "Are you going to the music concert on Saturday?",
+      "difficulty": "medium",
+      "topic": "music",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 22",
+      "notes": "CD 1-14",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "music",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -2599,6 +2679,19 @@
       "sourcePage": "Page 21",
       "notes": "CD 1-13",
       "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_037",
+      "text": "Steve wants to be a professional basketball player. Not only does he play on a team, but he practices by himself every day. He runs five kilometers every morning and shoots baskets after school. Before going to bed, he reads basketball magazines. You could say basketball is his life.",
+      "topic": "sports",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 22",
+      "notes": "CD 1-14",
+      "suggestedTopic": "sports",
       "acceptedSuggestions": [
         "topic"
       ]

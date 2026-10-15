@@ -9,7 +9,7 @@ function ord(n){
   const o = ORD_IRR[last] || (last.endsWith("y") ? last.slice(0,-1) + "ieth" : last + "th");
   return [...w, o].join(" ");
 }
-const CONTR = {"i'm":"i am","that's":"that is","what's":"what is","there's":"there is","here's":"here is","we're":"we are","you're":"you are","they're":"they are","don't":"do not","doesn't":"does not","didn't":"did not","can't":"can not","cannot":"can not","isn't":"is not","aren't":"are not","wasn't":"was not","weren't":"were not","won't":"will not","i'll":"i will","i've":"i have","let's":"let us",
+const CONTR = {"i'm":"i am","here's":"here is","we're":"we are","you're":"you are","they're":"they are","don't":"do not","doesn't":"does not","didn't":"did not","can't":"can not","cannot":"can not","isn't":"is not","aren't":"are not","wasn't":"was not","weren't":"were not","won't":"will not","i'll":"i will","i've":"i have","let's":"let us",
   // V6-D4.4 縮寫 ↔ 完整形式：語音辨識有時寫縮寫、有時寫成完整兩個字，兩邊都展開成完整形式再比對
   "couldn't":"could not","shouldn't":"should not","wouldn't":"would not","mustn't":"must not",
   "haven't":"have not","hasn't":"has not","hadn't":"had not",
@@ -19,7 +19,8 @@ const CONTR = {"i'm":"i am","that's":"that is","what's":"what is","there's":"the
   // 有歧義的縮寫展開成「可選字」（would|had）：對齊時跟其中任何一個相同就算對（見 tokEq）
   "i'd":"i would|had","you'd":"you would|had","he'd":"he would|had","she'd":"she would|had","it'd":"it would|had",
   "we'd":"we would|had","they'd":"they would|had",
-  "it's":"it is|has","he's":"he is|has","she's":"she is|has"};
+  "it's":"it is|has","he's":"he is|has","she's":"she is|has",
+  "that's":"that is|has","what's":"what is|has","there's":"there is|has","who's":"who is|has"};
 // 可選字的比對：兩個字相同，或其中一邊是「a|b」而另一邊（或它的任一選項）有交集
 function tokEq(a, b){
   if (a === b) return true;
