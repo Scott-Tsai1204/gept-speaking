@@ -2686,6 +2686,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_hard_032",
+      "text": "Christine and I like to drink coffee together at that café.",
+      "difficulty": "hard",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 32",
+      "notes": "CD 1-21",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_115",
+      "text": "What are your plans?",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 32",
+      "notes": "CD 1-21",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_083",
+      "text": "The snake slithered through the grass and behind the rock.",
+      "difficulty": "medium",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 32",
+      "notes": "CD 1-21",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_116",
+      "text": "How come I never have enough money?",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 32",
+      "notes": "CD 1-21",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_033",
+      "text": "They want to move to a less busy city to raise their kids.",
+      "difficulty": "hard",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 32",
+      "notes": "CD 1-21",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -3157,6 +3237,19 @@
       "sourcePage": "Page 31",
       "notes": "CD 1-20",
       "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_043",
+      "text": "Luke bought a beautiful new bike. To go with the bike, he bought a new helmet, sunglasses, and some fancy cycling clothes. He looked very good with his new things. Unfortunately he wasn't able to use any of his new things for very long. His bike got stolen because he forgot to buy a lock.",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 32",
+      "notes": "CD 1-21",
+      "suggestedTopic": "shopping",
       "acceptedSuggestions": [
         "topic"
       ]
