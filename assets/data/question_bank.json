@@ -1358,6 +1358,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_077",
+      "text": "Whose eraser is this?",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 11",
+      "notes": "CD 1-3",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_025",
+      "text": "Every Christmas, the company gives its employees a big Christmas bonus.",
+      "difficulty": "hard",
+      "topic": "holidays",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 11",
+      "notes": "CD 1-3",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_044",
+      "text": "Raise your hand if you want to ask a question.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 11",
+      "notes": "CD 1-3",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_078",
+      "text": "Do you go to the library often?",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 11",
+      "notes": "CD 1-3",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_079",
+      "text": "She usually gets up early to exercise.",
+      "difficulty": "easy",
+      "topic": "daily_routine",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 11",
+      "notes": "CD 1-3",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_routine",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -1621,6 +1701,19 @@
       "sourcePage": "Page 10",
       "notes": "CD 1-2",
       "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_027",
+      "text": "Last week was such a bad week. On Monday I missed the bus and was late for school. On Wednesday I lost my wallet. Then on Friday I forgot to bring my homework and my teacher scolded me. I hope this week is a little bit better.",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 11",
+      "notes": "CD 1-3",
+      "suggestedTopic": "school",
       "acceptedSuggestions": [
         "topic"
       ]
