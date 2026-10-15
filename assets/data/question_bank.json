@@ -2606,6 +2606,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_080",
+      "text": "Jack has been with the company since I can remember.",
+      "difficulty": "medium",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 31",
+      "notes": "CD 1-20",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_113",
+      "text": "Many birds live in that old barn.",
+      "difficulty": "easy",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 31",
+      "notes": "CD 1-20",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_081",
+      "text": "Linda likes to go to the seaside to relax.",
+      "difficulty": "medium",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 31",
+      "notes": "CD 1-20",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_082",
+      "text": "Why does he always come to class late?",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 31",
+      "notes": "CD 1-20",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_114",
+      "text": "Stop that!",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 31",
+      "notes": "CD 1-20",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -3064,6 +3144,19 @@
       "sourcePage": "Page 30",
       "notes": "CD 1-19",
       "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_042",
+      "text": "There are many bears living in the forests of western Canada. They are generally not dangerous because they are afraid of humans. But if you walk up to a mother bear and her cubs, be careful! She will be scared and will try to protect her babies. Then you are in trouble!",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 31",
+      "notes": "CD 1-20",
+      "suggestedTopic": "animals",
       "acceptedSuggestions": [
         "topic"
       ]
