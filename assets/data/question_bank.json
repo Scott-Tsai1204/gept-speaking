@@ -1742,6 +1742,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_087",
+      "text": "We must not give up!",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 16",
+      "notes": "CD 1-8",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_056",
+      "text": "Jenny and Cliff will be here any minute now.",
+      "difficulty": "medium",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 16",
+      "notes": "CD 1-8",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_088",
+      "text": "Go to counter number three.",
+      "difficulty": "easy",
+      "topic": "services",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 16",
+      "notes": "CD 1-8",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "services",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_089",
+      "text": "Can you lift up these boxes?",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 16",
+      "notes": "CD 1-8",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_027",
+      "text": "If you're not going to work, then you can stay home and clean the garage.",
+      "difficulty": "hard",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 16",
+      "notes": "CD 1-8",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -2070,6 +2150,19 @@
       "sourcePage": "Page 15",
       "notes": "CD 1-7",
       "suggestedTopic": "sports",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_032",
+      "text": "Matt was a waiter in an expensive restaurant. One day he was serving very important customers. While delivering their drinks, he accidentally spilled red wine on a woman's blouse. Now he washes dishes in the kitchen.",
+      "topic": "restaurant",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 16",
+      "notes": "CD 1-8",
+      "suggestedTopic": "restaurant",
       "acceptedSuggestions": [
         "topic"
       ]
