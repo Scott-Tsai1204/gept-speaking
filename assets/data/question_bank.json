@@ -3006,6 +3006,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_090",
+      "text": "When is this boring movie going to end?",
+      "difficulty": "medium",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 36",
+      "notes": "CD 1-25",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_123",
+      "text": "Get out of my way.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 36",
+      "notes": "CD 1-25",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_091",
+      "text": "This building is the tallest building in the world.",
+      "difficulty": "medium",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 36",
+      "notes": "CD 1-25",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_092",
+      "text": "Every year millions of people die from hunger.",
+      "difficulty": "medium",
+      "topic": "society",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 36",
+      "notes": "CD 1-25",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_037",
+      "text": "At the end of the night, everyone went home happy.",
+      "difficulty": "hard",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 36",
+      "notes": "CD 1-25",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -3529,6 +3609,19 @@
       "sourcePage": "Page 35",
       "notes": "CD 1-24",
       "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_047",
+      "text": "India is a beautiful country to visit. In the north there are the Himalaya Mountains, and in the south there are beautiful beaches. Every year hundreds of thousands of tourists go there to enjoy the natural scenery and the ancient ruins. Is India a place you'd want to visit?",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 36",
+      "notes": "CD 1-25",
+      "suggestedTopic": "travel",
       "acceptedSuggestions": [
         "topic"
       ]
