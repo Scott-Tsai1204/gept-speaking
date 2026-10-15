@@ -1438,6 +1438,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_045",
+      "text": "You can find my car keys in my jacket pocket.",
+      "difficulty": "medium",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 12",
+      "notes": "CD 1-4",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_046",
+      "text": "Of course my computer costs more than my camera.",
+      "difficulty": "medium",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 12",
+      "notes": "CD 1-4",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_080",
+      "text": "Could you be quiet, please?",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 12",
+      "notes": "CD 1-4",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_081",
+      "text": "Do you like playing chess?",
+      "difficulty": "easy",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 12",
+      "notes": "CD 1-4",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_047",
+      "text": "Frank is eating a ham and cheese sandwich.",
+      "difficulty": "medium",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 12",
+      "notes": "CD 1-4",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -1713,6 +1793,19 @@
       "sourceBook": "GEPT04",
       "sourcePage": "Page 11",
       "notes": "CD 1-3",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_028",
+      "text": "In some American schools, dogs are helping students to read. Every week, teachers bring dogs into the library for students to read to. Students don't feel any pressure when they read to dogs, so they are more confident. Teachers say the dogs have helped the students improve their reading skills.",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 12",
+      "notes": "CD 1-4",
       "suggestedTopic": "school",
       "acceptedSuggestions": [
         "topic"
