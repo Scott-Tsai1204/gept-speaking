@@ -3390,6 +3390,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_hard_045",
+      "text": "Yesterday, I saw a cloud that looked like a rabbit.",
+      "difficulty": "hard",
+      "topic": "weather",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 41",
+      "notes": "CD 1-30",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "weather",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_097",
+      "text": "Can't you walk any faster than that?",
+      "difficulty": "medium",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 41",
+      "notes": "CD 1-30",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_132",
+      "text": "Fruit is healthy; junk food is not.",
+      "difficulty": "easy",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 41",
+      "notes": "CD 1-30",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_046",
+      "text": "I don't mind standing in line if I have time.",
+      "difficulty": "hard",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 41",
+      "notes": "CD 1-30",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_133",
+      "text": "Don't forget to take your keys.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 41",
+      "notes": "CD 1-30",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -3978,6 +4058,19 @@
       "sourcePage": "Page 40",
       "notes": "CD 1-29",
       "suggestedTopic": "hobbies",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_052",
+      "text": "Coffee was first discovered in Eastern Africa. A farmer noticed that his sheep became very active after eating a dark bean. He tried it himself and found it useful for staying awake. Now, thousands of years later, people still drink coffee to keep themselves awake.",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 41",
+      "notes": "CD 1-30",
+      "suggestedTopic": "food",
       "acceptedSuggestions": [
         "topic"
       ]
