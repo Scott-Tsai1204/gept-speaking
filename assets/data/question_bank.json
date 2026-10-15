@@ -2846,6 +2846,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_084",
+      "text": "What's the weather like in New York today?",
+      "difficulty": "medium",
+      "topic": "weather",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 34",
+      "notes": "CD 1-23",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "weather",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_085",
+      "text": "The flight has been canceled because of the snow storm.",
+      "difficulty": "medium",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 34",
+      "notes": "CD 1-23",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_086",
+      "text": "Ten percent of one thousand is one hundred.",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 34",
+      "notes": "CD 1-23",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_121",
+      "text": "Who's in charge here?",
+      "difficulty": "easy",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 34",
+      "notes": "CD 1-23",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_122",
+      "text": "The lamp fell over during the earthquake.",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 34",
+      "notes": "CD 1-23",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -3343,6 +3423,19 @@
       "sourcePage": "Page 33",
       "notes": "CD 1-22",
       "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_045",
+      "text": "Mr. Jones was in a hurry to get to the airport. He packed his suitcase quickly and flagged down a cab. When he got to the airport he discovered that he had forgotten his passport. He had left it on the kitchen table.",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 34",
+      "notes": "CD 1-23",
+      "suggestedTopic": "travel",
       "acceptedSuggestions": [
         "topic"
       ]

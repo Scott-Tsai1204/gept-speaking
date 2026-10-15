@@ -56,10 +56,13 @@ async function runQuestion(){
 // 複誦／朗讀的逐字比對評分：q 是標準句，text 是辨識到的內容（遊戲與英檢口說練習 practice.js 共用）
 function scoreSpoken(q, text){
   const tw = q.split(/\s+/);
-  const tokens = [];
+  let tokens = [];
   tw.forEach((w, wi) => tokenize(w).forEach(t => tokens.push({ t, wi })));
   // 標準答案是逐字正規化的（才能標出哪個字錯），日期這種要看前後文的規則在串起來後再套一次；字數不變，wi 對應不受影響
   normalizeDateTokens(tokens.map(x => x.t)).forEach((t, k) => { tokens[k].t = t; });
+  // V6-D4.8 數字念法（a hundred → one hundred、one hundred and five 的 and）也一樣；拿掉的 and 不必念
+  normalizeNumberWords(tokens.map(x => x.t)).forEach((t, k) => { tokens[k].t = t; });
+  tokens = tokens.filter(x => x.t !== null);
   const h = matchCompounds(tokens.map(x => x.t), tokenize(text || "")); // V6-D4.7 合成字拆開／合起來
   const { ops, extra, dist } = align(tokens.map(x => x.t), h);
   const pct = text ? Math.round(Math.max(0, 1 - dist / tokens.length) * 100) : 0;

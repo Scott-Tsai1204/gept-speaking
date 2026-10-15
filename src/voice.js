@@ -53,6 +53,11 @@ function tokenize(s){
   s = s.toLowerCase().replace(/[’‘]/g, "'");
   s = normalizePhoneNumbers(s);
   s = s.replace(/(?<![\d$,.:])(19|20)(\d\d)(?!\d|[,:.]\d)/g, (m, c, yy) => " " + yearWords(+m) + " "); // V6-D4.5 西元年
+  // V6-D4.8 100 以上的整數（可有千分位逗號）：轉成英文念法（100 → one hundred、1,000 → one thousand）
+  s = s.replace(/(?<![\d,.:])\d{1,3}(?:,\d{3})+(?![\d,.:]\d|\d)|(?<![\d,.:])\d{3,9}(?!\d|[,.:]\d|st|nd|rd|th)/g, m => {
+    const n = +m.replace(/,/g, "");
+    return n >= 100 ? " " + cardinalWords(n) + " " : m;
+  });
   s = s.replace(/(\d{1,2}):(\d{2})/g, (m,h,mi) => n2w(+h) + " " + (+mi === 0 ? "" : (+mi < 10 ? "oh " : "") + n2w(+mi)));
   s = s.replace(/(\d{1,2})(st|nd|rd|th)\b/g, (m,n) => ord(+n));
   s = s.replace(/\d{1,2}/g, m => n2w(+m));
@@ -73,7 +78,36 @@ function tokenize(s){
       if ((out[k] === "oh" || out[k] === "o") && (isDigitWord(out[k - 1]) || isDigitWord(out[k + 1]))) out[k] = "zero";
     }
   }
-  return normalizeDateTokens(mergeLetterAbbreviations(normalizeYearTokens(out)));
+  return normalizeDateTokens(mergeLetterAbbreviations(normalizeYearTokens(normalizeNumberWords(out).filter(t => t !== null))));
+}
+
+/* ===== V6-D4.8 數字念法 =====
+   cardinalWords：1～999,999,999 的英文念法（不加 and）；
+   normalizeNumberWords：a hundred／a thousand／a million 的 a → one，hundred／thousand／million 後面接數字時的 and 拿掉（回傳 null）。
+   回傳陣列長度不變（拿掉的位置是 null），標準答案在 scoreSpoken 串起來後也能套用、不打亂 wi 對應 */
+const SCALE_WORDS = ["hundred", "thousand", "million"];
+function cardinalWords(n){
+  const under1000 = x => {
+    const h = Math.floor(x / 100), r = x % 100, w = [];
+    if (h) w.push(ONES[h], "hundred");
+    if (r) w.push(n2w(r));
+    return w.join(" ");
+  };
+  const parts = [];
+  [[1e6, "million"], [1e3, "thousand"]].forEach(([v, name]) => {
+    const q = Math.floor(n / v);
+    if (q){ parts.push(under1000(q) + " " + name); n %= v; }
+  });
+  if (n) parts.push(under1000(n));
+  return parts.join(" ");
+}
+function normalizeNumberWords(tokens){
+  const isNumWord = w => ONES.indexOf(w) >= 1 || TENS.indexOf(w) >= 2;
+  return tokens.map((t, k) => {
+    if (t === "a" && SCALE_WORDS.includes(tokens[k + 1])) return "one";
+    if (t === "and" && SCALE_WORDS.includes(tokens[k - 1]) && isNumWord(tokens[k + 1])) return null;
+    return t;
+  });
 }
 
 /* ===== V6-D4.5 西元年（1900～2099）：數字轉成最常見的念法，辨識結果裡的其他念法再轉成同一種 =====
