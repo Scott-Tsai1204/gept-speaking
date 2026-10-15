@@ -1278,6 +1278,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_074",
+      "text": "There's someone at the door.",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 10",
+      "notes": "CD 1-2",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_075",
+      "text": "Don't forget to do your homework.",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 10",
+      "notes": "CD 1-2",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_043",
+      "text": "Who did you go to the movie with?",
+      "difficulty": "medium",
+      "topic": "entertainment",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 10",
+      "notes": "CD 1-2",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "entertainment",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_076",
+      "text": "Do you like to play basketball?",
+      "difficulty": "easy",
+      "topic": "sports",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 10",
+      "notes": "CD 1-2",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "sports",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_024",
+      "text": "I'll have spaghetti, and my wife would like a steak.",
+      "difficulty": "hard",
+      "topic": "restaurant",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 10",
+      "notes": "CD 1-2",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "restaurant",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -1528,6 +1608,19 @@
       "sourcePage": "P1C2U5-3",
       "notes": "Page 32",
       "suggestedTopic": "weekend",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_026",
+      "text": "Susan went to the computer store to buy a new laptop. There was a big sale on that day and she was pleased that she could save money. When she got to the store, she saw hundreds of people lined up to go inside. Susan thought it was more important to save time than money. So she went home!",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 10",
+      "notes": "CD 1-2",
+      "suggestedTopic": "shopping",
       "acceptedSuggestions": [
         "topic"
       ]
