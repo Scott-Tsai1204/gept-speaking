@@ -2062,6 +2062,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_095",
+      "text": "What time does the sun rise?",
+      "difficulty": "easy",
+      "topic": "date_time",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 20",
+      "notes": "CD 1-12",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "date_time",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_067",
+      "text": "I don't have time for this right now.",
+      "difficulty": "medium",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 20",
+      "notes": "CD 1-12",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_028",
+      "text": "High school students have more homework than junior high school students.",
+      "difficulty": "hard",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 20",
+      "notes": "CD 1-12",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_096",
+      "text": "Please smile for the camera.",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 20",
+      "notes": "CD 1-12",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_097",
+      "text": "My house is your house.",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 20",
+      "notes": "CD 1-12",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -2429,6 +2509,19 @@
       "sourcePage": "Page 19",
       "notes": "CD 1-11",
       "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_035",
+      "text": "Janet put an ad in the newspaper for a new roommate. She asked for a roommate that was quiet, tidy, cheerful, and a non-smoker. Over the week she met many applicants, but she still wasn't happy with any of them. Then one applicant said to her, \"Janet, you're not looking for a roommate. You're looking for a houseplant.\"",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 20",
+      "notes": "CD 1-12",
+      "suggestedTopic": "home",
       "acceptedSuggestions": [
         "topic"
       ]
