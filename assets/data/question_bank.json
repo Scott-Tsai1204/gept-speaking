@@ -3166,6 +3166,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_095",
+      "text": "There are ten people waiting to see Dr. Williams.",
+      "difficulty": "medium",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 38",
+      "notes": "CD 1-27",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_039",
+      "text": "If you have a cold, you should get plenty of rest.",
+      "difficulty": "hard",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 38",
+      "notes": "CD 1-27",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_126",
+      "text": "Could you turn on the air conditioning?",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 38",
+      "notes": "CD 1-27",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_127",
+      "text": "Take the next left.",
+      "difficulty": "easy",
+      "topic": "directions",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 38",
+      "notes": "CD 1-27",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "directions",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_040",
+      "text": "After dinner, my father usually falls asleep in front of the TV.",
+      "difficulty": "hard",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 38",
+      "notes": "CD 1-27",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -3715,6 +3795,19 @@
       "sourcePage": "Page 37",
       "notes": "CD 1-26",
       "suggestedTopic": "pets",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_049",
+      "text": "Ted didn't have enough time to study for his test, so he decided to cheat. He wrote all the important parts of his textbook on little pieces of paper. When he actually wrote the test, however, he didn't have to look at his cheat notes. While trying to cheat, he was also studying!",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 38",
+      "notes": "CD 1-27",
+      "suggestedTopic": "school",
       "acceptedSuggestions": [
         "topic"
       ]
