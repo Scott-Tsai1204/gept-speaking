@@ -1662,6 +1662,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_053",
+      "text": "I love to listen to music when I drive.",
+      "difficulty": "medium",
+      "topic": "music",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 15",
+      "notes": "CD 1-7",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "music",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_054",
+      "text": "She makes the best chicken soup in the world.",
+      "difficulty": "medium",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 15",
+      "notes": "CD 1-7",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_085",
+      "text": "May I take another piece of cake?",
+      "difficulty": "easy",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 15",
+      "notes": "CD 1-7",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_086",
+      "text": "How much did your new sneakers cost?",
+      "difficulty": "easy",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 15",
+      "notes": "CD 1-7",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_055",
+      "text": "John is the top salesman in our company.",
+      "difficulty": "medium",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 15",
+      "notes": "CD 1-7",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -1977,6 +2057,19 @@
       "sourcePage": "Page 14",
       "notes": "CD 1-6",
       "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_031",
+      "text": "The Olympics is a very large sporting event held every four years. The summer games include running, gymnastics, and swimming. The winter games include hockey, skiing, and skating. For some athletes, being in the Olympics is a dream come true.",
+      "topic": "sports",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 15",
+      "notes": "CD 1-7",
+      "suggestedTopic": "sports",
       "acceptedSuggestions": [
         "topic"
       ]
