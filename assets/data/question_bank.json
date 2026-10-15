@@ -3470,6 +3470,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_134",
+      "text": "Good evening, ladies and gentlemen.",
+      "difficulty": "easy",
+      "topic": "greeting",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 42",
+      "notes": "CD 1-31",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "greeting",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_047",
+      "text": "Jesse and Anna got married last August in front of all their family and friends.",
+      "difficulty": "hard",
+      "topic": "family",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 42",
+      "notes": "CD 1-31",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "family",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_135",
+      "text": "Did you remember to water the plants?",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 42",
+      "notes": "CD 1-31",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_136",
+      "text": "It's as light as a feather.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 42",
+      "notes": "CD 1-31",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_137",
+      "text": "Are they coming over for dinner?",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 42",
+      "notes": "CD 1-31",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -4071,6 +4151,19 @@
       "sourcePage": "Page 41",
       "notes": "CD 1-30",
       "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_053",
+      "text": "Theresa has been looking for a new job. In her last interview, the manager asked her why she left her last job. \"Because my ex-boss expected me to come on time,\" she answered, \"but if I do, it makes the working day so long.\" No wonder she didn't get the job.",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 42",
+      "notes": "CD 1-31",
+      "suggestedTopic": "school_work",
       "acceptedSuggestions": [
         "topic"
       ]
