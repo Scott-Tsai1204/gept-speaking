@@ -3310,6 +3310,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_hard_043",
+      "text": "The laughter of children sounds the same all over the world.",
+      "difficulty": "hard",
+      "topic": "society",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 40",
+      "notes": "CD 1-29",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_129",
+      "text": "Don't be late for the meeting.",
+      "difficulty": "easy",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 40",
+      "notes": "CD 1-29",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_130",
+      "text": "Do you want to be rich?",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 40",
+      "notes": "CD 1-29",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_044",
+      "text": "We'll know the answer to that question when the professor comes.",
+      "difficulty": "hard",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 40",
+      "notes": "CD 1-29",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_131",
+      "text": "Johnny likes to tease other students.",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 40",
+      "notes": "CD 1-29",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -3885,6 +3965,19 @@
       "sourcePage": "Page 39",
       "notes": "CD 1-28",
       "suggestedTopic": "society",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_051",
+      "text": "Sarah loves to read. She reads everywhere: at work, at the bus stop, and on the train. One day she was reading a spy novel on the train. The book was so good that she forgot to get off. She ended up three hours from home!",
+      "topic": "hobbies",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 40",
+      "notes": "CD 1-29",
+      "suggestedTopic": "hobbies",
       "acceptedSuggestions": [
         "topic"
       ]
