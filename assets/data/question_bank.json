@@ -3950,6 +3950,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_147",
+      "text": "My brother studies engineering in university.",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 52",
+      "notes": "CD 1-38",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_148",
+      "text": "Listen to me.",
+      "difficulty": "easy",
+      "topic": "social",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 52",
+      "notes": "CD 1-38",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "social",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_107",
+      "text": "She played the flute at the Christmas concert.",
+      "difficulty": "medium",
+      "topic": "music",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 52",
+      "notes": "CD 1-38",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "music",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_108",
+      "text": "Who is the president of the company?",
+      "difficulty": "medium",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 52",
+      "notes": "CD 1-38",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_149",
+      "text": "Does the postman ever come on Saturdays?",
+      "difficulty": "easy",
+      "topic": "services",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 52",
+      "notes": "CD 1-38",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "services",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -4629,6 +4709,19 @@
       "sourcePage": "Page 51",
       "notes": "CD 1-37",
       "suggestedTopic": "technology",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_059",
+      "text": "Tom went to Thailand for a two-week holiday. He took many photos of temples and beaches. But when he got the photos back, he was quite disappointed. There was a big yellow spot in the corner of each photo. \"What's this?\" he asked the clerk. The clerk replied, \"I believe that's your thumb, sir.\"",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 52",
+      "notes": "CD 1-38",
+      "suggestedTopic": "travel",
       "acceptedSuggestions": [
         "topic"
       ]
