@@ -4030,6 +4030,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_150",
+      "text": "Is there anybody home?",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 53",
+      "notes": "CD 1-39",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_055",
+      "text": "On the weekends, he usually goes for a drive in the countryside.",
+      "difficulty": "hard",
+      "topic": "weekend",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 53",
+      "notes": "CD 1-39",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "weekend",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_151",
+      "text": "What did you study in university?",
+      "difficulty": "easy",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 53",
+      "notes": "CD 1-39",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_056",
+      "text": "He wore a white shirt, green pants, and a long raincoat.",
+      "difficulty": "hard",
+      "topic": "clothing",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 53",
+      "notes": "CD 1-39",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "clothing",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_152",
+      "text": "Buy two and get one free.",
+      "difficulty": "easy",
+      "topic": "shopping",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 53",
+      "notes": "CD 1-39",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "shopping",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -4722,6 +4802,19 @@
       "sourcePage": "Page 52",
       "notes": "CD 1-38",
       "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_060",
+      "text": "Rick goes jogging every morning. He eats lots of fresh fruits and vegetables, and never eats junk food. Furthermore, he doesn't smoke or drink alcohol. No wonder he's never sick.",
+      "topic": "health",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 53",
+      "notes": "CD 1-39",
+      "suggestedTopic": "health",
       "acceptedSuggestions": [
         "topic"
       ]
