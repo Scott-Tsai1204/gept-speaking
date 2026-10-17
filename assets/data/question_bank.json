@@ -3870,6 +3870,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_medium_103",
+      "text": "I take cream and sugar in my coffee.",
+      "difficulty": "medium",
+      "topic": "food",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 51",
+      "notes": "CD 1-37",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "food",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_054",
+      "text": "As she left the post office, a bicycle came out of nowhere and hit her.",
+      "difficulty": "hard",
+      "topic": "stories",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 51",
+      "notes": "CD 1-37",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "stories",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_104",
+      "text": "Is it a good time to ask him for money?",
+      "difficulty": "medium",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 51",
+      "notes": "CD 1-37",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_105",
+      "text": "Jason will go to the meeting only if you go.",
+      "difficulty": "medium",
+      "topic": "school_work",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 51",
+      "notes": "CD 1-37",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school_work",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_106",
+      "text": "Does Sabrina want to study in Australia this summer?",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 51",
+      "notes": "CD 1-37",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -4536,6 +4616,19 @@
       "sourcePage": "Page 50",
       "notes": "CD 1-36",
       "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_058",
+      "text": "The Internet is an excellent place to find information. The easiest way is to use a search engine. Just type in a topic that you're interested in and the search engine will display a list of web sites that have that information. Have you used a search engine before?",
+      "topic": "technology",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 51",
+      "notes": "CD 1-37",
+      "suggestedTopic": "technology",
       "acceptedSuggestions": [
         "topic"
       ]
