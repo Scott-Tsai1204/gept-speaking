@@ -4110,6 +4110,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_hard_057",
+      "text": "There's an old sweater at the back of my closet.",
+      "difficulty": "hard",
+      "topic": "clothing",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 54",
+      "notes": "CD 1-40",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "clothing",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_153",
+      "text": "Don't move.",
+      "difficulty": "easy",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 54",
+      "notes": "CD 1-40",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_154",
+      "text": "What is the biggest animal on earth?",
+      "difficulty": "easy",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 54",
+      "notes": "CD 1-40",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_058",
+      "text": "As soon as the sun goes down, the temperature drops quickly.",
+      "difficulty": "hard",
+      "topic": "weather",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 54",
+      "notes": "CD 1-40",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "weather",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_109",
+      "text": "Are you interested in buying some life insurance?",
+      "difficulty": "medium",
+      "topic": "services",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 54",
+      "notes": "CD 1-40",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "services",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -4815,6 +4895,19 @@
       "sourcePage": "Page 53",
       "notes": "CD 1-39",
       "suggestedTopic": "health",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_061",
+      "text": "A long time ago, people used seashells as money. Over the years people tried using a number of other items as money: tobacco, tea, fur, and even fishhooks. Eventually, gold and silver coins became the most popular form of money.",
+      "topic": "society",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 54",
+      "notes": "CD 1-40",
+      "suggestedTopic": "society",
       "acceptedSuggestions": [
         "topic"
       ]
