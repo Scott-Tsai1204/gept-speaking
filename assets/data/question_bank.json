@@ -3790,6 +3790,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_144",
+      "text": "Fred and Randy always go golfing together.",
+      "difficulty": "easy",
+      "topic": "sports",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 50",
+      "notes": "CD 1-36",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "sports",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_053",
+      "text": "There aren't many people on the streets at this hour.",
+      "difficulty": "hard",
+      "topic": "daily_life",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 50",
+      "notes": "CD 1-36",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "daily_life",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_102",
+      "text": "When do we have to register for the class?",
+      "difficulty": "medium",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 50",
+      "notes": "CD 1-36",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_145",
+      "text": "Move the table next to the window.",
+      "difficulty": "easy",
+      "topic": "home",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 50",
+      "notes": "CD 1-36",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "home",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_146",
+      "text": "Do you feel sorry for zoo animals?",
+      "difficulty": "easy",
+      "topic": "animals",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 50",
+      "notes": "CD 1-36",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "animals",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -4443,6 +4523,19 @@
       "sourcePage": "Page 49",
       "notes": "CD 1-35",
       "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_057",
+      "text": "Betty likes to skip classes. One day, she snuck out of school and went to the Internet Café. As she was getting off the bus, she ran into her father. Her father was not pleased and scolded her for a long time. Betty promised never to skip school again.",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 50",
+      "notes": "CD 1-36",
+      "suggestedTopic": "school",
       "acceptedSuggestions": [
         "topic"
       ]
