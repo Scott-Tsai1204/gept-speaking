@@ -3630,6 +3630,86 @@
         "difficulty",
         "topic"
       ]
+    },
+    {
+      "id": "repeat_easy_140",
+      "text": "I am twenty-one years old.",
+      "difficulty": "easy",
+      "topic": "personal_information",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 48",
+      "notes": "CD 1-34",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "personal_information",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_098",
+      "text": "They drove all night before reaching the coast.",
+      "difficulty": "medium",
+      "topic": "travel",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 48",
+      "notes": "CD 1-34",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "travel",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_medium_099",
+      "text": "Acid rain can kill trees and damage buildings.",
+      "difficulty": "medium",
+      "topic": "environment",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 48",
+      "notes": "CD 1-34",
+      "suggestedDifficulty": "medium",
+      "suggestedTopic": "environment",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_easy_141",
+      "text": "Was that the last train?",
+      "difficulty": "easy",
+      "topic": "transportation",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 48",
+      "notes": "CD 1-34",
+      "suggestedDifficulty": "easy",
+      "suggestedTopic": "transportation",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
+    },
+    {
+      "id": "repeat_hard_051",
+      "text": "Don't forget to put a period at the end of sentences.",
+      "difficulty": "hard",
+      "topic": "school",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 48",
+      "notes": "CD 1-34",
+      "suggestedDifficulty": "hard",
+      "suggestedTopic": "school",
+      "acceptedSuggestions": [
+        "difficulty",
+        "topic"
+      ]
     }
   ],
   "read": [
@@ -4257,6 +4337,19 @@
       "sourcePage": "Page 43",
       "notes": "CD 1-32",
       "suggestedTopic": "holidays",
+      "acceptedSuggestions": [
+        "topic"
+      ]
+    },
+    {
+      "id": "read_055",
+      "text": "The prince wanted to know who had left behind the glass slipper. He invited girls from all over the country to come to the palace and try it on. Every girl said the slipper was hers, but none could fit into it. The prince was very sad.",
+      "topic": "stories",
+      "origin": "external",
+      "sourceBook": "GEPT04",
+      "sourcePage": "Page 48",
+      "notes": "CD 1-34",
+      "suggestedTopic": "stories",
       "acceptedSuggestions": [
         "topic"
       ]
